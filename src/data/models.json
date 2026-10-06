@@ -56,24 +56,24 @@
   },
   {
     "slug": "geely-starray",
-    "nama": "Geely Starray",
+    "nama": "Geely Coolray",
     "tipe": "SUV Premium",
-    "ringkas": "SUV bergaya modern dengan kabin nyaman dan fitur lengkap.",
-    "deskripsi": "Geely Starray hadir sebagai SUV dengan desain modern dan kabin yang nyaman untuk perjalanan dalam kota maupun luar kota.",
+    "ringkas": "Crossover bergaya modern dengan kabin nyaman dan fitur lengkap.",
+    "deskripsi": "Geely Coolray hadir sebagai Crossover dengan desain modern dan kabin yang nyaman untuk perjalanan dalam kota maupun luar kota.",
     "keunggulan": [
       "Desain modern dan elegan",
       "Kabin nyaman untuk perjalanan jauh",
       "Pilihan varian sesuai kebutuhan"
     ],
-    "harga": "Hubungi sales untuk harga & promo terbaru",
+    "harga": "Mulai Rp 333.000.000 (OTR jakarta)",
     "spesifikasi": [
       {
         "label": "Tipe",
-        "nilai": "SUV"
+        "nilai": "Crossover"
       },
       {
         "label": "Segmen",
-        "nilai": "SUV premium"
+        "nilai": "Crossover Turbo"
       }
     ],
     "foto": "",

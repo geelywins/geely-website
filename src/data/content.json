@@ -8,9 +8,18 @@
       "tombolKedua": "Lihat Semua Model"
     },
     "stats": [
-      { "angka": "2 Lokasi", "teks": "BSD City & Tanah Abang" },
-      { "angka": "Test Drive", "teks": "Jadwal fleksibel" },
-      { "angka": "Simulasi Kredit", "teks": "Gratis, tanpa ribet" }
+      {
+        "angka": "Lokasi",
+        "teks": "BSD City"
+      },
+      {
+        "angka": "Test Drive",
+        "teks": "Jadwal fleksibel"
+      },
+      {
+        "angka": "Simulasi Kredit",
+        "teks": "Gratis, tanpa ribet"
+      }
     ],
     "modelJudul": "Pilihan Model Geely",
     "modelTeks": "Dari mobil listrik kompak sampai SUV hybrid, pilih yang paling cocok dengan kebutuhan Anda.",
@@ -18,18 +27,43 @@
     "promoTeks": "Penawaran yang sedang berlaku. Tanyakan syarat dan ketentuannya ke saya.",
     "keunggulanJudul": "Kenapa beli lewat saya?",
     "keunggulan": [
-      { "ikon": "💬", "judul": "Respon cepat", "teks": "Tanya lewat WhatsApp, saya jawab langsung tanpa berbelit." },
-      { "ikon": "💰", "judul": "Simulasi kredit jelas", "teks": "DP, tenor dan cicilan dihitung terbuka sebelum Anda memutuskan." },
-      { "ikon": "🚗", "judul": "Test drive mudah", "teks": "Atur jadwal sesuai waktu Anda di dealer terdekat." },
-      { "ikon": "🤝", "judul": "Pendampingan sampai serah terima", "teks": "Dari pilih model, pengajuan, sampai mobil sampai ke tangan Anda." }
+      {
+        "ikon": "💬",
+        "judul": "Respon cepat",
+        "teks": "Tanya lewat WhatsApp, saya jawab langsung tanpa berbelit."
+      },
+      {
+        "ikon": "💰",
+        "judul": "Simulasi kredit jelas",
+        "teks": "DP, tenor dan cicilan dihitung terbuka sebelum Anda memutuskan."
+      },
+      {
+        "ikon": "🚗",
+        "judul": "Test drive mudah",
+        "teks": "Atur jadwal sesuai waktu Anda di dealer terdekat."
+      },
+      {
+        "ikon": "🤝",
+        "judul": "Pendampingan sampai serah terima",
+        "teks": "Dari pilih model, pengajuan, sampai mobil sampai ke tangan Anda."
+      }
     ],
     "artikelJudul": "Artikel Terbaru",
     "artikelTeks": "Tips, panduan dan kabar terbaru seputar mobil Geely.",
     "faqJudul": "Pertanyaan yang sering ditanyakan",
     "faq": [
-      { "tanya": "Bagaimana cara test drive Geely?", "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City atau Tanah Abang." },
-      { "tanya": "Apakah bisa simulasi kredit Geely?", "jawab": "Bisa. Kirim pilihan model, besar DP dan tenor yang diinginkan lewat WhatsApp, lalu saya kirimkan simulasi cicilannya." },
-      { "tanya": "Di mana lokasi dealer Geely?", "jawab": "Dealer kami ada di BSD City (Tangerang Selatan) dan Tanah Abang (Jakarta Pusat)." }
+      {
+        "tanya": "Bagaimana cara test drive Geely?",
+        "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City atau Tanah Abang."
+      },
+      {
+        "tanya": "Apakah bisa simulasi kredit Geely?",
+        "jawab": "Bisa. Kirim pilihan model, besar DP dan tenor yang diinginkan lewat WhatsApp, lalu saya kirimkan simulasi cicilannya."
+      },
+      {
+        "tanya": "Di mana lokasi dealer Geely?",
+        "jawab": "Dealer kami ada di BSD City (Tangerang Selatan)."
+      }
     ],
     "ctaJudul": "Siap konsultasi?",
     "ctaTeks": "Kirim pesan sekarang, saya bantu pilihkan model dan skema pembelian yang paling pas.",

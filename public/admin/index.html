@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Admin Website</title>
+<link rel="icon" href="../favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
 <style>
   :root { --bg:#0b0f1a; --card:#141b2d; --line:#26304a; --text:#eef2fb; --muted:#9aa5bd; --brand:#3b8cff; --ok:#1fbf75; --bad:#ff5d5d; }
   * { box-sizing: border-box; }
@@ -72,7 +75,10 @@
   <div class="tabs hide" id="tabs">
     <button class="sec" data-tab="artikel">Artikel</button>
     <button class="sec" data-tab="model">Model Mobil</button>
+    <button class="sec" data-tab="slider">Slider</button>
     <button class="sec" data-tab="promo">Promo</button>
+    <button class="sec" data-tab="delivery">Delivery</button>
+    <button class="sec" data-tab="testimoni">Testimoni</button>
     <button class="sec" data-tab="halaman">Isi Halaman</button>
     <button class="sec" data-tab="setelan">Pengaturan</button>
     <button class="sec" data-tab="keluar">Keluar</button>
@@ -140,6 +146,36 @@
     var body = { message: message, content: contentB64, branch: cfg().branch };
     if (sha) body.sha = sha;
     return gh('contents/' + path, { method: 'PUT', body: JSON.stringify(body) });
+  }
+  // Data bawaan (untuk website lama yang belum punya file baru)
+  var DEFS = null;
+  async function defs() {
+    if (DEFS) return DEFS;
+    try { var r = await fetch('./defaults.json', { cache: 'no-cache' }); DEFS = r.ok ? await r.json() : {}; } catch (e) { DEFS = {}; }
+    return DEFS;
+  }
+  function fillDef(def, val) {
+    if (val === undefined || val === null) return def;
+    if (Array.isArray(def) || Array.isArray(val)) return Array.isArray(val) ? val : def;
+    if (def && typeof def === 'object') {
+      if (typeof val !== 'object') return def;
+      var out = Object.assign({}, val);
+      Object.keys(def).forEach(function (k) { out[k] = fillDef(def[k], val[k]); });
+      return out;
+    }
+    return val;
+  }
+  // Baca JSON; kalau file belum ada di GitHub, pakai nilai bawaan (akan dibuat saat disimpan)
+  async function readJsonD(path, defKey) {
+    var r;
+    try { r = await readJson(path); }
+    catch (e) {
+      if (!defKey || String(e.message).indexOf('GitHub 404') !== 0) throw e;
+      var d0 = (await defs())[defKey];
+      return { data: JSON.parse(JSON.stringify(d0 === undefined ? [] : d0)), sha: null };
+    }
+    if (defKey) { var d = (await defs())[defKey]; if (d !== undefined) r.data = fillDef(d, r.data); }
+    return r;
   }
   async function readJson(path) { var r = await readFile(path); return { data: JSON.parse(r.text), sha: r.sha }; }
   function writeJson(path, data, sha, message) { return putFile(path, enc(JSON.stringify(data, null, 2) + '\n'), message, sha); }
@@ -220,7 +256,9 @@
     if (t === 'color') { ctl = el('input', { type: 'color', value: val || '#3b8cff' }); return simple(ctl, function () { return ctl.value; }); }
     if (t === 'select') {
       ctl = el('select');
-      (f.options || []).forEach(function (op) { var o = el('option', { value: op.v, text: op.l }); ctl.append(o); });
+      var optVals = [];
+      (f.options || []).forEach(function (op) { var o = el('option', { value: op.v, text: op.l }); ctl.append(o); optVals.push(op.v); });
+      if (val && optVals.indexOf(val) < 0) ctl.append(el('option', { value: val, text: val }));
       ctl.value = val == null ? '' : val;
       return simple(ctl, function () { return ctl.value; });
     }
@@ -334,10 +372,10 @@
     { key: 'pesanWa', label: 'Pesan awal WhatsApp (yang terkirim saat orang menekan tombol WA)', type: 'textarea' },
     { key: 'email', label: 'Email (boleh kosong)', lower: true },
     { key: 'ogImage', label: 'Gambar saat link dibagikan ke sosmed (ideal 1200x630)', type: 'image', folder: 'umum' },
-    { key: 'sosmed', label: 'Media sosial', type: 'list', addLabel: 'Tambah sosmed', blank: { platform: '', label: '', url: '' }, fields: [
-      { key: 'platform', label: 'Platform (Instagram, TikTok, ...)', req: true },
-      { key: 'label', label: 'Tulisan yang ditampilkan (contoh: @geelywins)', req: true },
-      { key: 'url', label: 'Link (boleh kosong)', lower: true } ] },
+    { key: 'sosmed', label: 'Media sosial', type: 'list', addLabel: 'Tambah sosmed', blank: { platform: 'Instagram', label: '', url: '' }, fields: [
+      { key: 'platform', label: 'Platform (logo tampil otomatis)', type: 'select', options: ['Instagram', 'Threads', 'YouTube', 'TikTok', 'Facebook', 'WhatsApp', 'X', 'Telegram', 'Lainnya'].map(function (x) { return { v: x, l: x }; }) },
+      { key: 'label', label: 'Nama akun (contoh: @geelywins, dipakai untuk aksesibilitas)', req: true },
+      { key: 'url', label: 'Link akun. Kalau kosong, ikon tidak ditampilkan (kecuali Facebook)', lower: true } ] },
     { key: 'situsLain', label: 'Website lain (ditampilkan di footer dan halaman Kontak)', type: 'list', addLabel: 'Tambah website', blank: { nama: '', url: '', deskripsi: '' }, fields: [
       { key: 'nama', label: 'Nama website', req: true },
       { key: 'url', label: 'Alamat (https://...)', req: true, lower: true },
@@ -349,15 +387,11 @@
   function grp(key, label, fields) { return { key: key, label: label, type: 'group', collapse: true, fields: fields }; }
   SCH.content = function () { return [
     grp('beranda', 'Beranda', [
-      { key: 'hero', label: 'Bagian utama (paling atas)', type: 'group', fields: [
-        { key: 'label', label: 'Tulisan kecil di atas judul' },
-        { key: 'judul', label: 'Judul besar', hint: 'Kata dalam kurung kurawal diberi warna sorot. Contoh: Mobil {Geely} modern' },
-        { key: 'teks', label: 'Teks pengantar', type: 'textarea' },
-        { key: 'tombolUtama', label: 'Tulisan tombol hijau (WhatsApp)' },
-        { key: 'tombolKedua', label: 'Tulisan tombol kedua' } ] },
-      { key: 'stats', label: 'Tiga poin singkat di bawah tombol', type: 'list', addLabel: 'Tambah poin', blank: { angka: '', teks: '' }, fields: [ { key: 'angka', label: 'Tulisan tebal' }, { key: 'teks', label: 'Keterangan' } ] },
+      { key: 'stats', label: 'Tiga poin singkat di bawah slider', type: 'list', addLabel: 'Tambah poin', blank: { angka: '', teks: '' }, fields: [ { key: 'angka', label: 'Tulisan tebal' }, { key: 'teks', label: 'Keterangan' } ] },
       { key: 'modelJudul', label: 'Judul bagian Model' }, { key: 'modelTeks', label: 'Teks bagian Model', type: 'textarea' },
       { key: 'promoJudul', label: 'Judul bagian Promo' }, { key: 'promoTeks', label: 'Teks bagian Promo', type: 'textarea' },
+      { key: 'deliveryJudul', label: 'Judul bagian Delivery Moment' }, { key: 'deliveryTeks', label: 'Teks bagian Delivery Moment', type: 'textarea' },
+      { key: 'testimoniJudul', label: 'Judul bagian Testimoni' }, { key: 'testimoniTeks', label: 'Teks bagian Testimoni', type: 'textarea' },
       { key: 'keunggulanJudul', label: 'Judul bagian Keunggulan' },
       { key: 'keunggulan', label: 'Daftar keunggulan', type: 'list', addLabel: 'Tambah keunggulan', blank: { ikon: '⭐', judul: '', teks: '' }, fields: [
         { key: 'ikon', label: 'Ikon (emoji)' }, { key: 'judul', label: 'Judul' }, { key: 'teks', label: 'Penjelasan', type: 'textarea' } ] },
@@ -368,8 +402,19 @@
       { key: 'ctaJudul', label: 'Judul kotak ajakan di bawah' }, { key: 'ctaTeks', label: 'Teks kotak ajakan', type: 'textarea' }, { key: 'ctaTombol', label: 'Tulisan tombol kotak ajakan' } ]),
     grp('halamanModel', 'Halaman Model Mobil', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
     grp('halamanPromo', 'Halaman Promo', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'kosong', label: 'Tulisan kalau belum ada promo aktif', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('halamanDelivery', 'Halaman Delivery Moment', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'kosong', label: 'Tulisan kalau belum ada foto', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('halamanTestimoni', 'Halaman Testimoni', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'kosong', label: 'Tulisan kalau belum ada testimoni', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
     grp('halamanArtikel', 'Halaman Daftar Artikel', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
     grp('kontak', 'Halaman Kontak', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'layananJudul', label: 'Judul daftar layanan' }, { key: 'layanan', label: 'Daftar layanan (satu baris = satu poin)', type: 'lines', rows: 5 }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('popup', 'Pop up (jendela promo yang muncul di website)', [
+      { key: 'aktif', label: 'Tampilkan pop up', type: 'check', def: true },
+      { key: 'tundaDetik', label: 'Muncul setelah berapa detik', hint: 'Disarankan 8 atau lebih, supaya tidak mengganggu pengunjung dan Google.' },
+      { key: 'label', label: 'Tulisan kecil di atas judul' },
+      { key: 'judul', label: 'Judul pop up' },
+      { key: 'teks', label: 'Isi pop up', type: 'textarea' },
+      { key: 'foto', label: 'Foto pop up (boleh kosong)', type: 'image', folder: 'promo' },
+      { key: 'tombol', label: 'Tulisan tombol (kosongkan kalau tanpa tombol)' },
+      { key: 'link', label: 'Tujuan tombol', hint: 'Tulis wa untuk WhatsApp, /promo/ untuk halaman website, atau https://... untuk situs lain.', lower: true } ]),
     grp('footer', 'Footer (bagian paling bawah)', [ { key: 'catatan', label: 'Catatan footer', type: 'textarea' } ])
   ]; };
 
@@ -395,6 +440,38 @@
     { key: 'foto', label: 'Foto / banner promo', type: 'image', folder: 'promo' },
     { key: 'model', label: 'Terkait model (boleh kosong)', type: 'select', options: [{ v: '', l: '- semua / tidak spesifik -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
     { key: 'aktif', label: 'Tampilkan promo ini di website', type: 'check', def: true }
+  ]; };
+
+  SCH.slider = function () { return [
+    { key: 'judul', label: 'Judul besar', req: true, hint: 'Kata dalam kurung kurawal diberi warna sorot. Contoh: Mobil {Geely} modern' },
+    { key: 'label', label: 'Tulisan kecil di atas judul' },
+    { key: 'teks', label: 'Teks pengantar', type: 'textarea' },
+    { key: 'foto', label: 'Foto latar slide (ideal lebar 1600, mobil di sisi kanan)', type: 'image', folder: 'slider' },
+    { key: 'warna', label: 'Warna sorot (dipakai kalau belum ada foto)', type: 'color' },
+    { key: 'tombol', label: 'Tulisan tombol utama' },
+    { key: 'link', label: 'Tujuan tombol utama', hint: 'Tulis wa untuk WhatsApp, /model/ untuk halaman website, atau https://... untuk situs lain.', lower: true },
+    { key: 'tombol2', label: 'Tulisan tombol kedua (boleh kosong)' },
+    { key: 'link2', label: 'Tujuan tombol kedua', lower: true },
+    { key: 'aktif', label: 'Tampilkan slide ini', type: 'check', def: true }
+  ]; };
+
+  SCH.delivery = function (isNew, models) { return [
+    { key: 'judul', label: 'Judul foto', req: true, hint: 'Contoh: Serah terima Geely EX5' },
+    { key: 'foto', label: 'Foto delivery', type: 'image', folder: 'delivery', req: true },
+    { key: 'nama', label: 'Nama pelanggan (izin pelanggan dulu ya)' },
+    { key: 'model', label: 'Model mobil', type: 'select', options: [{ v: '', l: '- tidak disebutkan -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
+    { key: 'tanggal', label: 'Tanggal serah terima', type: 'date' },
+    { key: 'aktif', label: 'Tampilkan di website', type: 'check', def: true }
+  ]; };
+
+  SCH.testimoni = function (isNew, models) { return [
+    { key: 'nama', label: 'Nama pelanggan', req: true },
+    { key: 'keterangan', label: 'Keterangan singkat', hint: 'Contoh: Pelanggan BSD City, Oktober 2026' },
+    { key: 'model', label: 'Model mobil', type: 'select', options: [{ v: '', l: '- tidak disebutkan -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
+    { key: 'teks', label: 'Isi testimoni (kata-kata asli pelanggan)', type: 'textarea', req: true, rows: 5 },
+    { key: 'rating', label: 'Bintang (1 sampai 5)', type: 'select', options: ['5', '4', '3', '2', '1'].map(function (x) { return { v: x, l: x + ' bintang' }; }) },
+    { key: 'foto', label: 'Foto pelanggan (boleh kosong)', type: 'image', folder: 'testimoni' },
+    { key: 'aktif', label: 'Tampilkan di website', type: 'check', def: true }
   ]; };
 
   SCH.artikel = function (isNew) { return [
@@ -480,7 +557,7 @@
   async function openCollection(c) {
     var my = navId;
     view.innerHTML = '<div class="card">Memuat...</div>';
-    var r; try { r = await readJson(c.path); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
+    var r; try { r = await readJsonD(c.path, c.def); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
     var arr = r.data, sha = r.sha, dirty = false;
     var extra = c.extra ? await c.extra() : null;
     if (my !== navId) return;
@@ -508,7 +585,7 @@
         title: isNew ? 'Tambah ' + c.single : 'Edit ' + c.title(item), fields: c.schema(isNew, extra), data: item, onCancel: draw,
         onSave: async function (v) {
           var merged = Object.assign({}, isNew ? {} : arr[i], v);
-          if (isNew && arr.some(function (x) { return x[c.idKey] === merged[c.idKey]; })) throw new Error('Alamat internal sudah dipakai, ganti judul/namanya.');
+          if (isNew && c.idKey && arr.some(function (x) { return x[c.idKey] === merged[c.idKey]; })) throw new Error('Alamat internal sudah dipakai, ganti judul/namanya.');
           var next = arr.slice(); if (isNew) next.push(merged); else next[i] = merged;
           await writeJson(c.path, next, sha, (isNew ? 'Tambah ' : 'Update ') + c.single + ': ' + c.title(merged));
           if (my !== navId) return;
@@ -526,20 +603,30 @@
   }
 
   var COL = {
-    model: { path: 'src/data/models.json', label: 'Model Mobil', single: 'model', idKey: 'slug', schema: SCH.model,
+    model: { def: 'models', path: 'src/data/models.json', label: 'Model Mobil', single: 'model', idKey: 'slug', schema: SCH.model,
       title: function (m) { return m.nama; }, sub: function (m) { return m.harga || ''; },
       blank: function () { return { warna: '#3b8cff', keunggulan: [], spesifikasi: [], galeri: [], foto: '', harga: 'Hubungi sales untuk harga & promo terbaru' }; } },
-    promo: { path: 'src/data/promo.json', label: 'Promo', single: 'promo', idKey: 'id', schema: SCH.promo,
+    promo: { def: 'promo', path: 'src/data/promo.json', label: 'Promo', single: 'promo', idKey: 'id', schema: SCH.promo,
       title: function (p) { return p.judul + (p.aktif ? '' : ' (nonaktif)'); }, sub: function (p) { return p.periode || ''; },
       blank: function () { return { aktif: true, foto: '', model: '', periode: '' }; },
-      extra: async function () { try { return (await readJson('src/data/models.json')).data; } catch (e) { return []; } } }
+      extra: async function () { try { return (await readJsonD('src/data/models.json', 'models')).data; } catch (e) { return []; } } }
   };
+  var modelsExtra = COL.promo.extra;
+  COL.slider = { def: 'slider', path: 'src/data/slider.json', label: 'Slider Beranda', single: 'slide', schema: SCH.slider,
+    title: function (x) { return x.judul.replace(/[{}]/g, '') + (x.aktif ? '' : ' (nonaktif)'); }, sub: function (x) { return x.label || ''; },
+    blank: function () { return { aktif: true, foto: '', warna: '#3b8cff', link: 'wa', link2: '' }; } };
+  COL.delivery = { def: 'delivery', path: 'src/data/delivery.json', label: 'Delivery Moment', single: 'delivery', schema: SCH.delivery, extra: modelsExtra,
+    title: function (x) { return x.judul + (x.aktif ? '' : ' (nonaktif)'); }, sub: function (x) { return [x.nama, x.tanggal].filter(Boolean).join(' - '); },
+    blank: function () { return { aktif: true, foto: '', model: '', tanggal: today() }; } };
+  COL.testimoni = { def: 'testimoni', path: 'src/data/testimoni.json', label: 'Testimoni', single: 'testimoni', schema: SCH.testimoni, extra: modelsExtra,
+    title: function (x) { return x.nama + (x.aktif ? '' : ' (nonaktif)'); }, sub: function (x) { return String(x.teks || '').slice(0, 60); },
+    blank: function () { return { aktif: true, foto: '', model: '', rating: '5' }; } };
 
   // =============== dokumen tunggal (pengaturan, isi halaman) ===============
-  async function openDoc(path, title, schemaFn, normalize, intro) {
+  async function openDoc(path, title, schemaFn, normalize, intro, defKey) {
     var my = navId;
     view.innerHTML = '<div class="card">Memuat...</div>';
-    var r; try { r = await readJson(path); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
+    var r; try { r = await readJsonD(path, defKey); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
     if (my !== navId) return;
     renderForm({
       title: title, fields: schemaFn(), data: r.data, intro: intro,
@@ -547,7 +634,7 @@
         var merged = Object.assign({}, r.data, v); if (normalize) merged = normalize(merged);
         await writeJson(path, merged, r.sha, 'Update ' + title);
         if (my !== navId) return;
-        show('Tersimpan! Website diperbarui otomatis (±1-3 menit).'); openDoc(path, title, schemaFn, normalize, intro);
+        show('Tersimpan! Website diperbarui otomatis (±1-3 menit).'); openDoc(path, title, schemaFn, normalize, intro, defKey);
       }
     });
   }
@@ -565,8 +652,11 @@
     if (name === 'artikel') return tabArtikel();
     if (name === 'model') return openCollection(COL.model);
     if (name === 'promo') return openCollection(COL.promo);
-    if (name === 'halaman') return openDoc('src/data/content.json', 'Isi Halaman', SCH.content, null, 'Buka tiap bagian di bawah untuk mengubah tulisan di website.');
-    if (name === 'setelan') return openDoc('src/data/settings.json', 'Pengaturan Website', SCH.settings, normSettings);
+    if (name === 'slider') return openCollection(COL.slider);
+    if (name === 'delivery') return openCollection(COL.delivery);
+    if (name === 'testimoni') return openCollection(COL.testimoni);
+    if (name === 'halaman') return openDoc('src/data/content.json', 'Isi Halaman', SCH.content, null, 'Buka tiap bagian di bawah untuk mengubah tulisan di website.', 'content');
+    if (name === 'setelan') return openDoc('src/data/settings.json', 'Pengaturan Website', SCH.settings, normSettings, undefined, 'settings');
     if (name === 'keluar') { ['g_owner', 'g_repo', 'g_branch', 'g_token'].forEach(function (k) { localStorage.removeItem(k); }); $('token').value = ''; showLogin(); show('Anda sudah keluar. Data login dihapus dari browser ini.'); }
   }
   Array.prototype.forEach.call($('tabs').querySelectorAll('button'), function (b) { b.onclick = function () { go(b.getAttribute('data-tab')); }; });

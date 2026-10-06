@@ -1,0 +1,22 @@
+---
+import { asset } from '../lib/url';
+import { getModel, type Testimoni } from '../lib/data';
+interface Props { t: Testimoni; delay?: number }
+const { t, delay = 0 } = Astro.props;
+const model = getModel(t.model);
+const rating = Math.max(1, Math.min(5, Number(t.rating) || 5));
+const initial = (t.nama || '?').trim().charAt(0).toUpperCase();
+---
+<figure class="card-x testi-card reveal" style={`--d:${delay}s`}>
+  <div class="stars" role="img" aria-label={`Rating ${rating} dari 5`}>{'★'.repeat(rating)}<span class="off">{'★'.repeat(5 - rating)}</span></div>
+  <blockquote>{t.teks}</blockquote>
+  <figcaption>
+    {t.foto
+      ? <img class="avatar" src={asset(t.foto)} alt={t.nama} loading="lazy" decoding="async" width="48" height="48" />
+      : <span class="avatar avatar-i" aria-hidden="true">{initial}</span>}
+    <span>
+      <b>{t.nama}</b>
+      <small>{[t.keterangan, model?.nama].filter(Boolean).join(' - ')}</small>
+    </span>
+  </figcaption>
+</figure>

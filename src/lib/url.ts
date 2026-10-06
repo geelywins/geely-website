@@ -22,3 +22,10 @@ export function splitHighlight(text: string): { before: string; mark: string; af
   const m = text.match(/^(.*?)\{(.+?)\}(.*)$/s);
   return m ? { before: m[1], mark: m[2], after: m[3] } : { before: text, mark: '', after: '' };
 }
+
+// Tautan fleksibel dari admin: "wa" = WhatsApp, "/promo/" = halaman di website ini, "https://..." = luar.
+export function smartLink(link: string | undefined, wa: string): string {
+  if (!link) return '';
+  if (link.trim().toLowerCase() === 'wa') return wa;
+  return /^(https?:|mailto:|tel:)/i.test(link) ? link : href(link.startsWith('/') ? link : '/' + link);
+}

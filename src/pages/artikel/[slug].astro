@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import { SITE, waLink } from '../../config';
 import { href, asset } from '../../lib/url';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
   const all = await getCollection('artikel', ({ data }) => !data.draft);
@@ -53,24 +55,19 @@ const jsonLd = [
   modified={d.updated ?? d.date}
   jsonLd={jsonLd}
 >
-  <div class="page-head">
-    <div class="wrap">
-      <div class="crumbs"><a href={href('/')}>Beranda</a> / <a href={href('/artikel/')}>Artikel</a> / {d.category}</div>
-      <h1>{d.title}</h1>
-      <p>{d.description}</p>
-      <p class="meta">Ditulis oleh {SITE.nickname} &middot; <time datetime={d.date.toISOString()}>{fmt(d.date)}</time>{d.updated && <> &middot; Diperbarui {fmt(d.updated)}</>}</p>
-    </div>
-  </div>
+  <PageHead title={d.title} text={d.description} crumbs={[{ label: 'Artikel', url: href('/artikel/') }, { label: d.category }]}>
+    <p class="meta mt-2">Ditulis oleh {SITE.nickname} &middot; <time datetime={d.date.toISOString()}>{fmt(d.date)}</time>{d.updated && <> &middot; Diperbarui {fmt(d.updated)}</>}</p>
+  </PageHead>
 
   <section>
-    <div class="wrap">
+    <div class="container">
       <article class="prose">
         {d.image && <img src={asset(d.image)} alt={d.title} loading="eager" width="1200" height="630" />}
         <Content />
         <div class="cta-box">
           <h3>Ada pertanyaan soal Geely?</h3>
           <p>Konsultasi gratis seputar harga, promo, simulasi kredit dan test drive.</p>
-          <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya baca artikel "${d.title}" dan ingin bertanya.`)} target="_blank" rel="noopener">Tanya via WhatsApp</a>
+          <a class="btn btn-wa btn-lg" href={waLink(`Halo Kak Wins, saya baca artikel "${d.title}" dan ingin bertanya.`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Tanya via WhatsApp</a>
         </div>
       </article>
     </div>

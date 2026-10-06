@@ -1,26 +1,23 @@
-// ==========================================================
-// Semua isi di bawah dibaca dari file data di src/data/.
+// Semua isi dibaca dari file data di src/data/ lewat src/lib/data.ts.
 // Cara termudah mengubahnya: lewat halaman admin (alamatwebsite/admin/).
-// ==========================================================
-import settings from './data/settings.json';
-import content from './data/content.json';
+import { settings, content } from './lib/data';
 
 export interface Sosmed { platform: string; label: string; url: string }
 export interface SitusLain { nama: string; url: string; deskripsi: string }
 export interface Lokasi { nama: string; area: string }
 
 export const SITE = {
-  name: settings.namaSitus,
-  nickname: settings.namaPanggilan,
+  name: settings.namaSitus as string,
+  nickname: settings.namaPanggilan as string,
   fullName: `${settings.namaLengkap} - ${settings.profesi}`,
-  person: settings.namaLengkap,
-  job: settings.profesi,
-  tagline: settings.tagline,
-  description: settings.deskripsi,
-  dealer: settings.dealer,
-  whatsapp: settings.whatsapp,
-  email: settings.email,
-  ogImage: settings.ogImage || '/og-default.png',
+  person: settings.namaLengkap as string,
+  job: settings.profesi as string,
+  tagline: settings.tagline as string,
+  description: settings.deskripsi as string,
+  dealer: settings.dealer as string,
+  whatsapp: settings.whatsapp as string,
+  email: settings.email as string,
+  ogImage: (settings.ogImage || '/og-default.png') as string,
   sosmed: settings.sosmed as Sosmed[],
   situsLain: settings.situsLain as SitusLain[],
   locations: settings.lokasi as Lokasi[],

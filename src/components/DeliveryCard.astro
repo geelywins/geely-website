@@ -1,0 +1,19 @@
+---
+import { asset } from '../lib/url';
+import { getModel, type Delivery } from '../lib/data';
+interface Props { d: Delivery; delay?: number }
+const { d, delay = 0 } = Astro.props;
+const model = getModel(d.model);
+const tgl = d.tanggal ? new Date(d.tanggal).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+const caption = [d.judul, d.nama, model?.nama, tgl].filter(Boolean).join(' - ');
+---
+<figure class="delivery-item reveal" style={`--d:${delay}s`}>
+  <button type="button" class="delivery-btn" data-bs-toggle="modal" data-bs-target="#lightbox" data-full={asset(d.foto)} data-caption={caption} aria-label={`Perbesar foto ${d.judul}`}>
+    <img src={asset(d.foto)} alt={caption} loading="lazy" decoding="async" width="640" height="480" />
+    <figcaption>
+      <b>{d.judul}</b>
+      <span>{[d.nama, model?.nama].filter(Boolean).join(' - ')}</span>
+      {tgl && <small>{tgl}</small>}
+    </figcaption>
+  </button>
+</figure>

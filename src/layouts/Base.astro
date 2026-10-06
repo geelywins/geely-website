@@ -1,7 +1,10 @@
 ---
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.css';
 import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
-import { asset, href } from '../lib/url';
+import { asset, href, smartLink } from '../lib/url';
+import Icon from '../components/Icon.astro';
+import SocialIcons from '../components/SocialIcons.astro';
 
 interface Props {
   title: string;
@@ -14,15 +17,27 @@ interface Props {
   noindex?: boolean;
 }
 
+const BASE_RE = new RegExp('^' + href('').replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
 const { title, description, image, type = 'website', published, modified, jsonLd, noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(asset(image || SITE.ogImage), Astro.site).href;
 const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
 
-// Logo: kata pertama putih, sisanya berwarna. Contoh "Wins Geely" -> WINS + GEELY
-const [logoA, ...logoRest] = SITE.name.split(' ');
-const logoB = logoRest.join(' ');
+const path = Astro.url.pathname.replace(BASE_RE, '') || '/';
+const isActive = (p: string) => (p === '/' ? path === '/' : path.startsWith(p));
+const nav = [
+  ['/', 'Beranda'],
+  ['/model/', 'Model'],
+  ['/promo/', 'Promo'],
+  ['/delivery/', 'Delivery'],
+  ['/testimoni/', 'Testimoni'],
+  ['/artikel/', 'Artikel'],
+  ['/kontak/', 'Kontak'],
+];
+const POP = CONTENT.popup;
+const showPopup = !!POP?.aktif && !noindex;
+const logoUrl = asset('/logo-geely.png');
 
 const sameAs = [...SITE.sosmed.map((s) => s.url), ...SITE.situsLain.map((s) => s.url)].filter(Boolean);
 
@@ -49,7 +64,7 @@ const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : 
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang="id" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,8 +72,13 @@ const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : 
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
-    <meta name="theme-color" content="#07090f" />
-    <link rel="icon" type="image/svg+xml" href={href('/favicon.svg')} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href={href('/favicon.ico')} sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href={href('/favicon-32.png')} />
+    <link rel="apple-touch-icon" href={href('/apple-touch-icon.png')} />
+    <link rel="manifest" href={href('/manifest.webmanifest')} />
     <link rel="sitemap" href={href('/sitemap-index.xml')} />
 
     <meta property="og:type" content={type} />
@@ -75,72 +95,109 @@ const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : 
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
+    <!-- Mode gelap/terang otomatis mengikuti pengaturan HP/laptop -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement, m = window.matchMedia('(prefers-color-scheme: dark)');
+        function set() { d.setAttribute('data-bs-theme', m.matches ? 'dark' : 'light'); }
+        set(); d.classList.add('js');
+        if (m.addEventListener) m.addEventListener('change', set);
+      })();
+    </script>
+
     {lds.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap nav">
-        <a href={href('/')} class="logo">{logoA.toUpperCase()}{logoB && <span>{logoB.toUpperCase()}</span>}</a>
-        <button class="menu-btn" aria-label="Buka menu" id="menuBtn">Menu</button>
-        <nav class="nav-links" id="navLinks" aria-label="Menu utama">
-          <a href={href('/')}>Beranda</a>
-          <a href={href('/model/')}>Model Mobil</a>
-          <a href={href('/promo/')}>Promo</a>
-          <a href={href('/artikel/')}>Artikel</a>
-          <a href={href('/kontak/')}>Kontak</a>
-          <a class="btn btn-wa" href={waLink()} rel="noopener" target="_blank">WhatsApp</a>
-        </nav>
-      </div>
-    </header>
-
-    <main><slot /></main>
-
-    <footer class="site-footer">
-      <div class="wrap">
-        <div class="foot-grid">
-          <div>
-            <h4>{SITE.name}</h4>
-            <p>{SITE.person} ({SITE.nickname})<br />{SITE.job}<br />{SITE.dealer}</p>
-            <p style="margin-top:8px">WhatsApp: <a href={waLink()} target="_blank" rel="noopener">{phoneDisplay}</a></p>
+    <a class="skip-link" href="#isi">Langsung ke isi</a>
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg" aria-label="Menu utama">
+        <div class="container">
+          <a class="brand" href={href('/')} aria-label={`${SITE.name} - Beranda`}>
+            <span class="brand-logo" style={`--logo:url(${logoUrl})`} role="img" aria-label="Geely"></span>
+            <span class="brand-sub">{SITE.nickname}</span>
+          </a>
+          <div class="d-flex align-items-center gap-2 order-lg-last">
+            <a class="btn btn-wa-soft btn-sm" href={waLink()} target="_blank" rel="noopener" aria-label="Chat WhatsApp"><Icon name="whatsapp" size={16} /><span class="d-none d-sm-inline">WhatsApp</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuUtama" aria-controls="menuUtama" aria-expanded="false" aria-label="Buka menu">
+              <span class="burger" aria-hidden="true"></span>
+            </button>
           </div>
-          <div>
-            <h4>Lokasi Dealer</h4>
-            <ul>{SITE.locations.map((l) => <li>{l.nama}, {l.area}</li>)}</ul>
-          </div>
-          <div>
-            <h4>Ikuti Saya</h4>
-            <ul>
-              {SITE.sosmed.map((s) => (
-                <li>
-                  {s.url
-                    ? <a href={s.url} target="_blank" rel="noopener me">{s.platform}: {s.label}</a>
-                    : <span>{s.platform}: {s.label}</span>}
-                </li>
+          <div class="collapse navbar-collapse" id="menuUtama">
+            <ul class="navbar-nav mx-lg-auto">
+              {nav.map(([p, label]) => (
+                <li class="nav-item"><a class={`nav-link ${isActive(p) ? 'active' : ''}`} aria-current={isActive(p) ? 'page' : undefined} href={href(p)}>{label}</a></li>
               ))}
             </ul>
           </div>
-          <div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="isi"><slot /></main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <span class="brand-logo foot-logo" style={`--logo:url(${logoUrl})`} role="img" aria-label="Geely"></span>
+            <p class="mt-3 mb-1"><b>{SITE.person}</b> ({SITE.nickname})<br />{SITE.job}<br />{SITE.dealer}</p>
+            <p class="mb-3">WhatsApp: <a href={waLink()} target="_blank" rel="noopener">{phoneDisplay}</a></p>
+            <SocialIcons items={SITE.sosmed} size={20} />
+          </div>
+          <div class="col-6 col-lg-3">
+            <h4>Lokasi Dealer</h4>
+            <ul class="list-unstyled">{SITE.locations.map((l) => <li>{l.nama}<br /><small>{l.area}</small></li>)}</ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h4>Menu</h4>
+            <ul class="list-unstyled">{nav.slice(1).map(([p, label]) => <li><a href={href(p)}>{label}</a></li>)}</ul>
+          </div>
+          <div class="col-12 col-lg-3">
             <h4>Website Lain</h4>
-            <ul>
-              {SITE.situsLain.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.nama}</a></li>)}
-              <li><a href={href('/model/')}>Model Mobil Geely</a></li>
-              <li><a href={href('/promo/')}>Promo Terbaru</a></li>
-              <li><a href={href('/artikel/')}>Artikel &amp; Tips</a></li>
-            </ul>
+            <ul class="list-unstyled">{SITE.situsLain.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.nama}</a></li>)}</ul>
           </div>
         </div>
-        <p class="copy">
-          &copy; {new Date().getFullYear()} {SITE.name}. {CONTENT.footer.catatan}
-        </p>
+        <p class="copy">&copy; {new Date().getFullYear()} {SITE.name}. {CONTENT.footer.catatan}</p>
       </div>
     </footer>
 
-    <a class="wa-float" href={waLink()} rel="noopener" target="_blank" aria-label="Chat WhatsApp">Chat WhatsApp</a>
+    <a class="wa-float" href={waLink()} rel="noopener" target="_blank" aria-label="Chat WhatsApp" title="Chat WhatsApp"><Icon name="whatsapp" size={26} /></a>
 
-    <script is:inline>
-      const b = document.getElementById('menuBtn');
-      const n = document.getElementById('navLinks');
-      if (b && n) b.addEventListener('click', () => n.classList.toggle('open'));
+    <!-- Perbesar foto -->
+    <div class="modal fade" id="lightbox" tabindex="-1" aria-label="Foto diperbesar" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content lb-content">
+          <button type="button" class="btn-close btn-close-white lb-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          <img alt="" class="lb-img" />
+          <p class="lb-cap"></p>
+        </div>
+      </div>
+    </div>
+
+    {showPopup && (
+      <div class="modal fade" id="promoPopup" tabindex="-1" aria-labelledby="popupJudul" aria-hidden="true" data-delay={String(POP.tundaDetik)}>
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content pop-content">
+            <button type="button" class="btn-close pop-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+            {POP.foto && <img class="pop-img" src={asset(POP.foto)} alt="" width="640" height="360" loading="lazy" decoding="async" />}
+            <div class="pop-body">
+              {POP.label && <span class="tag">{POP.label}</span>}
+              <h2 id="popupJudul">{POP.judul}</h2>
+              <p>{POP.teks}</p>
+              {POP.tombol && (
+                <a class="btn btn-wa w-100" href={smartLink(POP.link, waLink())} {...(/^https?:/.test(smartLink(POP.link, waLink())) ? { target: '_blank', rel: 'noopener' } : {})}>
+                  {POP.link === 'wa' && <Icon name="whatsapp" size={18} />} {POP.tombol}
+                </a>
+              )}
+              <button type="button" class="btn btn-link w-100 mt-1 text-muted" data-bs-dismiss="modal">Nanti saja</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <script>
+      import '../scripts/main.ts';
     </script>
   </body>
 </html>

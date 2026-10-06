@@ -1,30 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+import Icon from '../components/Icon.astro';
 import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
-import { href } from '../lib/url';
 
 const K = CONTENT.kontak;
 ---
-
 <Base title="Kontak Sales Geely & Lokasi Dealer" description={K.seoDeskripsi}>
-  <div class="page-head">
-    <div class="wrap">
-      <div class="crumbs"><a href={href('/')}>Beranda</a> / Kontak</div>
-      <h1>{K.judul}</h1>
-      <p>{K.teks}</p>
-    </div>
-  </div>
+  <PageHead title={K.judul} text={K.teks} crumbs={[{ label: 'Kontak' }]} />
   <section>
-    <div class="wrap prose">
-      <p><a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener" style="text-decoration:none;color:#06210f">Chat WhatsApp {phoneDisplay}</a></p>
+    <div class="container prose">
+      <p><a class="btn btn-wa btn-lg" href={waLink()} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Chat WhatsApp {phoneDisplay}</a></p>
       {SITE.email && <p>Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>}
 
       <h2>Media Sosial</h2>
-      <div class="social-row">
-        {SITE.sosmed.map((s) => s.url
-          ? <a class="chip" href={s.url} target="_blank" rel="noopener me">{s.platform}: {s.label}</a>
-          : <span class="chip">{s.platform}: {s.label}</span>)}
-      </div>
+      <SocialIcons items={SITE.sosmed} size={24} class="soc-lg" />
 
       <h2>Lokasi Dealer</h2>
       <ul>{SITE.locations.map((l) => <li><strong>{l.nama}</strong> - {l.area}</li>)}</ul>

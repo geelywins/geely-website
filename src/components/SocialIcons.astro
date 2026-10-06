@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+import type { Sosmed } from '../config';
+interface Props { items: Sosmed[]; size?: number; class?: string }
+const { items, size = 22, class: cls = '' } = Astro.props;
+
+// Tanpa link khusus, Facebook diarahkan ke pencarian nama halamannya. Platform lain tanpa link tidak ditampilkan.
+const links = items
+  .map((s) => {
+    let url = (s.url || '').trim();
+    if (!url && /facebook/i.test(s.platform)) url = `https://www.facebook.com/search/top?q=${encodeURIComponent(s.label)}`;
+    return { ...s, url };
+  })
+  .filter((s) => s.url);
+---
+<ul class={`soc-list ${cls}`}>
+  {links.map((s) => (
+    <li>
+      <a class="soc" href={s.url} target="_blank" rel="noopener me" aria-label={`${s.platform} ${s.label}`} title={`${s.platform} ${s.label}`}>
+        <Icon name={s.platform} size={size} colored={true} />
+      </a>
+    </li>
+  ))}
+</ul>

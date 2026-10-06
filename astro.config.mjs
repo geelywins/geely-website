@@ -30,6 +30,7 @@ export default defineConfig({
   site: SITE_URL,
   base: BASE_PATH || '/',
   trailingSlash: 'always',
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   markdown: { rehypePlugins: [rehypeBase] },
   integrations: [
     sitemap({

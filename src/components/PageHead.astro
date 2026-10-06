@@ -1,0 +1,16 @@
+---
+import { href } from '../lib/url';
+interface Props { title: string; text?: string; crumbs?: { label: string; url?: string }[] }
+const { title, text, crumbs = [] } = Astro.props;
+---
+<header class="page-head">
+  <div class="container">
+    <nav aria-label="breadcrumb" class="crumbs">
+      <a href={href('/')}>Beranda</a>
+      {crumbs.map((c) => (<><span aria-hidden="true"> / </span>{c.url ? <a href={c.url}>{c.label}</a> : <span>{c.label}</span>}</>))}
+    </nav>
+    <h1 class="reveal">{title}</h1>
+    {text && <p class="lead-muted reveal" style="--d:.08s">{text}</p>}
+    <slot />
+  </div>
+</header>

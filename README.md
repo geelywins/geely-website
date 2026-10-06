@@ -10,9 +10,18 @@ Buka `https://USERNAME.github.io/geely-website/admin/`
 |---|---|
 | **Artikel** | Tulis, edit, hapus artikel. Bisa unggah foto utama dan foto di dalam tulisan. Bisa simpan sebagai draft. |
 | **Model Mobil** | Nama, foto utama, galeri foto, deskripsi, keunggulan, harga, spesifikasi, tambah/hapus model, atur urutan. |
+| **Slider** | Slide besar di paling atas Beranda: judul (kata dalam `{kurung}` berwarna), teks, foto latar, dua tombol, aktif/nonaktif, atur urutan. |
 | **Promo** | Judul, isi, periode, foto/banner, kaitkan ke model tertentu, aktif/nonaktif, atur urutan. |
-| **Isi Halaman** | Semua tulisan di Beranda (judul, tombol, keunggulan, FAQ), halaman Model, Promo, Artikel, Kontak, dan footer. |
-| **Pengaturan** | Nama website, nama panggilan, profesi, nomor WhatsApp, pesan awal WA, email, sosmed, website lain (LapakMu, promogeelyauto.com), lokasi dealer, gambar saat link dibagikan. |
+| **Delivery** | Foto serah terima unit (judul, nama pelanggan, model, tanggal). Tampil di Beranda dan menu Delivery. Minta izin pelanggan dulu. |
+| **Testimoni** | Nama, isi testimoni, bintang, foto, model. Tampil di Beranda dan menu Testimoni. Pakai testimoni asli saja. |
+| **Isi Halaman** | Tulisan di Beranda (poin singkat, keunggulan, FAQ, judul tiap bagian), halaman Model, Promo, Delivery, Testimoni, Artikel, Kontak, **Pop up** (judul, isi, foto, tombol, detik muncul, aktif/nonaktif), dan footer. |
+| **Pengaturan** | Nama website, nama panggilan, profesi, nomor WhatsApp, pesan awal WA, email, sosmed (pilih platform, yang tampil hanya logonya), website lain (LapakMu, promogeelyauto.com), lokasi dealer, gambar saat link dibagikan. |
+
+## Tampilan
+
+- Memakai Bootstrap 5, slider buatan sendiri (ringan, mirip efek Revolution Slider), pop up, animasi CSS, dan **mode terang/gelap otomatis** mengikuti pengaturan HP.
+- Logo Geely di atas dan ikon tab browser memakai file `public/logo-geely.png`, `favicon.ico`, dll. Untuk mengganti, timpa file tersebut.
+- Media sosial tampil sebagai logo saja. Facebook yang linknya kosong diarahkan ke pencarian nama halamannya, isi link aslinya di menu Pengaturan.
 
 Setiap kali menekan Simpan, website diperbarui otomatis dalam ±1-3 menit.
 
@@ -25,6 +34,8 @@ Foto yang diunggah otomatis dikecilkan (maks. lebar 1600 px) supaya website teta
 - `src/data/content.json` : tulisan halaman (menu Isi Halaman)
 - `src/data/models.json` : model mobil (menu Model Mobil)
 - `src/data/promo.json` : promo (menu Promo)
+- `src/data/slider.json`, `delivery.json`, `testimoni.json` : menu Slider, Delivery, Testimoni
+- `src/scripts/` : skrip slider, pop up, animasi (kecil, tanpa library tambahan)
 - `src/content/artikel/` : file artikel `.md` (menu Artikel)
 - `public/images/` : foto yang diunggah lewat admin
 - `public/admin/index.html` : halaman admin

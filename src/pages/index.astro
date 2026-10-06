@@ -1,154 +1,165 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-import { MODELS, getModel } from '../data/models';
-import { ACTIVE_PROMOS } from '../data/promo';
+import { MODELS, ACTIVE_PROMOS, SLIDES, TESTIMONI, DELIVERY } from '../lib/data';
 import { SITE, CONTENT, waLink } from '../config';
-import { href, asset, splitHighlight } from '../lib/url';
+import { href, asset, splitHighlight, smartLink } from '../lib/url';
+import ModelCard from '../components/ModelCard.astro';
+import PromoCard from '../components/PromoCard.astro';
+import DeliveryCard from '../components/DeliveryCard.astro';
+import TestimoniCard from '../components/TestimoniCard.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Icon from '../components/Icon.astro';
 
 const B = CONTENT.beranda;
-const hero = splitHighlight(B.hero.judul);
-
+const wa = waLink();
 const artikel = (await getCollection('artikel', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
-
 const promos = ACTIVE_PROMOS.slice(0, 3);
+const testi = TESTIMONI.slice(0, 6);
+const delivery = DELIVERY.slice(0, 8);
 const fmt = (d: Date) => d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+const isExt = (u: string) => /^https?:/.test(u);
 
 const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: new URL(href('/'), Astro.site).href, inLanguage: 'id-ID' },
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE.name,
-    url: new URL(href('/'), Astro.site).href,
-    inLanguage: 'id-ID',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: B.faq.map((f) => ({
-      '@type': 'Question',
-      name: f.tanya,
-      acceptedAnswer: { '@type': 'Answer', text: f.jawab },
-    })),
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: B.faq.map((f) => ({ '@type': 'Question', name: f.tanya, acceptedAnswer: { '@type': 'Answer', text: f.jawab } })),
   },
 ];
+let alt = false;
+const bg = () => ((alt = !alt) ? 'sec-alt' : '');
 ---
 
-<Base
-  title={`${SITE.tagline} - Harga, Promo, Test Drive`}
-  description={SITE.description}
-  jsonLd={jsonLd}
->
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">{B.hero.label}</span>
-      <h1>{hero.before}{hero.mark && <em>{hero.mark}</em>}{hero.after}</h1>
-      <p>{B.hero.teks}</p>
-      <div class="hero-cta">
-        <a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener">{B.hero.tombolUtama}</a>
-        <a class="btn btn-ghost" href={href('/model/')}>{B.hero.tombolKedua}</a>
-      </div>
-      <div class="stats">
-        {B.stats.map((s) => <div class="stat"><b>{s.angka}</b><span>{s.teks}</span></div>)}
-      </div>
-    </div>
+<Base title={`${SITE.tagline} - Harga, Promo, Test Drive`} description={SITE.description} jsonLd={jsonLd}>
+  {SLIDES.length > 0 && (
+    <section class="hero-slider" data-slider aria-roledescription="carousel" aria-label="Sorotan" style="padding:0">
+      {SLIDES.map((s, i) => {
+        const h = splitHighlight(s.judul);
+        const Tag = i === 0 ? 'h1' : 'h2';
+        const l1 = smartLink(s.link, wa), l2 = smartLink(s.link2, wa);
+        return (
+          <div class={`slide ${i === 0 ? 'active' : ''}`} style={`--c:${s.warna || '#3b8cff'}`} aria-hidden={i === 0 ? 'false' : 'true'} role="group" aria-roledescription="slide">
+            <div class="slide-bg">
+              {s.foto && <img src={asset(s.foto)} alt="" width="1600" height="900" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />}
+            </div>
+            <div class="slide-shade"></div>
+            <div class="container">
+              <div class="slide-box">
+                {s.label && <span class="eyebrow anim" style="--i:0">{s.label}</span>}
+                <Tag class={i === 0 ? 'anim' : 'slide-title anim'} style="--i:1">{h.before}{h.mark && <em>{h.mark}</em>}{h.after}</Tag>
+                {s.teks && <p class="anim" style="--i:2">{s.teks}</p>}
+                <div class="d-flex flex-wrap gap-2 mt-4 anim" style="--i:3">
+                  {s.tombol && l1 && <a class="btn btn-brand btn-lg" href={l1} {...(isExt(l1) ? { target: '_blank', rel: 'noopener' } : {})}>{s.tombol}</a>}
+                  {s.tombol2 && l2 && <a class="btn btn-outline-x btn-lg" href={l2} {...(isExt(l2) ? { target: '_blank', rel: 'noopener' } : {})}>{s.tombol2}</a>}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+      {SLIDES.length > 1 && (
+        <div class="slider-ui">
+          <button class="arrow prev" type="button" aria-label="Sebelumnya">&#8249;</button>
+          <div class="dots">{SLIDES.map((_, i) => <button class="dot" type="button" aria-label={`Slide ${i + 1}`} aria-current={i === 0 ? 'true' : 'false'}></button>)}</div>
+          <button class="arrow next" type="button" aria-label="Berikutnya">&#8250;</button>
+        </div>
+      )}
+      {SLIDES.length > 1 && <div class="slider-bar"></div>}
+    </section>
+  )}
+
+  <section class="stats-strip">
+    <div class="container"><div class="stats-grid">
+      {B.stats.map((s, i) => <div class="stat reveal" style={`--d:${i * 0.08}s`}><b>{s.angka}</b><span>{s.teks}</span></div>)}
+    </div></div>
   </section>
 
   <section>
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>{B.modelJudul}</h2>
-        <p>{B.modelTeks}</p>
-      </div>
-      <div class="grid">
-        {MODELS.map((m) => (
-          <a class="card" href={href(`/model/${m.slug}/`)}>
-            {m.foto
-              ? <img class="photo" src={asset(m.foto)} alt={m.nama} loading="lazy" width="640" height="400" />
-              : <div class="model-visual" style={`background: linear-gradient(135deg, ${m.warna}55, ${m.warna}11);`}>{m.nama.replace('Geely ', '')}</div>}
-            <span class="tag">{m.tipe}</span>
-            <h3>{m.nama}</h3>
-            <p>{m.ringkas}</p>
-            <span class="link-more">Lihat detail &rarr;</span>
-          </a>
-        ))}
-      </div>
+    <div class="container">
+      <SectionHead title={B.modelJudul} text={B.modelTeks} />
+      <div class="grid-x">{MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} />)}</div>
     </div>
   </section>
 
   {promos.length > 0 && (
     <section class="sec-alt">
-      <div class="wrap">
-        <div class="sec-head">
-          <h2>{B.promoJudul}</h2>
-          <p>{B.promoTeks}</p>
-        </div>
-        <div class="grid">
-          {promos.map((p) => (
-            <div class="card promo-card">
-              {p.foto && <img class="photo" src={asset(p.foto)} alt={p.judul} loading="lazy" width="640" height="400" />}
-              {p.model && getModel(p.model) && <span class="tag">{getModel(p.model)!.nama}</span>}
-              <h3>{p.judul}</h3>
-              <p>{p.deskripsi}</p>
-              {p.periode && <span class="periode">{p.periode}</span>}
-              <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya tertarik dengan promo "${p.judul}". Boleh minta infonya?`)} target="_blank" rel="noopener">Tanya promo ini</a>
-            </div>
-          ))}
-        </div>
-        <p style="margin-top:20px"><a class="link-more" href={href('/promo/')}>Lihat semua promo &rarr;</a></p>
+      <div class="container">
+        <SectionHead title={B.promoJudul} text={B.promoTeks} />
+        <div class="grid-x">{promos.map((p, i) => <PromoCard p={p} delay={i * 0.07} />)}</div>
+        <p class="mt-4"><a class="link-more" href={href('/promo/')}>Lihat semua promo &rarr;</a></p>
       </div>
     </section>
   )}
 
-  <section class={promos.length > 0 ? '' : 'sec-alt'}>
-    <div class="wrap">
-      <div class="sec-head"><h2>{B.keunggulanJudul}</h2></div>
-      <div class="grid">
-        {B.keunggulan.map((k) => (
-          <div class="feat"><i>{k.ikon}</i><div><h3>{k.judul}</h3><p>{k.teks}</p></div></div>
-        ))}
+  {delivery.length > 0 && (
+    <section>
+      <div class="container">
+        <SectionHead title={B.deliveryJudul} text={B.deliveryTeks} />
+        <div class="delivery-grid">{delivery.map((d, i) => <DeliveryCard d={d} delay={(i % 4) * 0.07} />)}</div>
+        <p class="mt-4"><a class="link-more" href={href('/delivery/')}>Lihat semua delivery &rarr;</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class={bg()}>
+    <div class="container">
+      <SectionHead title={B.keunggulanJudul} />
+      <div class="grid-x">
+        {B.keunggulan.map((k, i) => <div class="feat reveal" style={`--d:${i * 0.07}s`}><i aria-hidden="true">{k.ikon}</i><div><h3>{k.judul}</h3><p>{k.teks}</p></div></div>)}
       </div>
     </div>
   </section>
 
+  {testi.length > 0 && (
+    <section class={bg()}>
+      <div class="container">
+        <SectionHead title={B.testimoniJudul} text={B.testimoniTeks} />
+        <div class="grid-x">{testi.map((t, i) => <TestimoniCard t={t} delay={(i % 3) * 0.07} />)}</div>
+        <p class="mt-4"><a class="link-more" href={href('/testimoni/')}>Lihat semua testimoni &rarr;</a></p>
+      </div>
+    </section>
+  )}
+
   {artikel.length > 0 && (
-    <section class={promos.length > 0 ? 'sec-alt' : ''}>
-      <div class="wrap">
-        <div class="sec-head">
-          <h2>{B.artikelJudul}</h2>
-          <p>{B.artikelTeks}</p>
-        </div>
-        <div class="grid">
-          {artikel.map((a) => (
-            <a class="card" href={href(`/artikel/${a.id}/`)}>
-              {a.data.image && <img class="photo" src={asset(a.data.image)} alt={a.data.title} loading="lazy" width="640" height="400" />}
-              <span class="tag">{a.data.category}</span>
-              <h3>{a.data.title}</h3>
-              <p>{a.data.description}</p>
-              <span class="meta">{fmt(a.data.date)}</span>
+    <section class={bg()}>
+      <div class="container">
+        <SectionHead title={B.artikelJudul} text={B.artikelTeks} />
+        <div class="grid-x">
+          {artikel.map((a, i) => (
+            <a class="card-x reveal" style={`--d:${i * 0.07}s`} href={href(`/artikel/${a.id}/`)}>
+              {a.data.image && <div class="card-media"><img src={asset(a.data.image)} alt={a.data.title} loading="lazy" decoding="async" width="640" height="400" /></div>}
+              <div class="card-body-x">
+                <span class="tag">{a.data.category}</span>
+                <h3 class="card-title-x">{a.data.title}</h3>
+                <p>{a.data.description}</p>
+                <span class="meta">{fmt(a.data.date)}</span>
+              </div>
             </a>
           ))}
         </div>
+        <p class="mt-4"><a class="link-more" href={href('/artikel/')}>Lihat semua artikel &rarr;</a></p>
       </div>
     </section>
   )}
 
-  <section class={promos.length > 0 && artikel.length > 0 ? '' : 'sec-alt'}>
-    <div class="wrap prose">
-      <div class="sec-head"><h2>{B.faqJudul}</h2></div>
-      {B.faq.map((f) => (
-        <>
-          <h3>{f.tanya}</h3>
-          <p>{f.jawab}</p>
-        </>
-      ))}
-      <div class="cta-box">
-        <h3>{B.ctaJudul}</h3>
+  <section class={bg()}>
+    <div class="container prose">
+      <SectionHead title={B.faqJudul} />
+      <div class="faq">
+        {B.faq.map((f) => <details class="reveal"><summary>{f.tanya}</summary><p>{f.jawab}</p></details>)}
+      </div>
+      <div class="cta-box reveal">
+        <h2 class="h3">{B.ctaJudul}</h2>
         <p>{B.ctaTeks}</p>
-        <a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener">{B.ctaTombol}</a>
+        <a class="btn btn-wa btn-lg" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> {B.ctaTombol}</a>
       </div>
     </div>
   </section>
+
+  <script>
+    import '../scripts/slider.ts';
+  </script>
 </Base>

@@ -1,0 +1,8 @@
+---
+import { iconFor, iconColor } from '../lib/icons';
+interface Props { name: string; size?: number; colored?: boolean; class?: string }
+const { name, size = 20, colored = false, class: cls = '' } = Astro.props;
+const def = iconFor(name);
+const fill = colored ? iconColor(def) : 'currentColor';
+---
+<svg class={`ico ${cls}`} width={size} height={size} viewBox="0 0 24 24" fill={fill} aria-hidden="true" focusable="false"><path d={def.path} /></svg>

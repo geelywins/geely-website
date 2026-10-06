@@ -1,0 +1,24 @@
+---
+import { asset } from '../lib/url';
+import { waLink } from '../config';
+import { getModel, type Promo } from '../lib/data';
+import Icon from './Icon.astro';
+interface Props { p: Promo; delay?: number; heading?: 'h2' | 'h3' }
+const { p, delay = 0, heading = 'h3' } = Astro.props;
+const H = heading;
+const model = getModel(p.model);
+---
+<div class="card-x promo-card reveal" style={`--d:${delay}s`}>
+  {p.foto && (
+    <button type="button" class="card-media as-btn" data-bs-toggle="modal" data-bs-target="#lightbox" data-full={asset(p.foto)} data-caption={p.judul} aria-label={`Perbesar foto ${p.judul}`}>
+      <img src={asset(p.foto)} alt={p.judul} loading="lazy" decoding="async" width="640" height="400" />
+    </button>
+  )}
+  <div class="card-body-x">
+    {model && <span class="tag">{model.nama}</span>}
+    <H class="card-title-x">{p.judul}</H>
+    <p>{p.deskripsi}</p>
+    {p.periode && <span class="periode">{p.periode}</span>}
+    <a class="btn btn-wa btn-sm mt-3 align-self-start" href={waLink(`Halo Kak Wins, saya tertarik dengan promo "${p.judul}". Boleh minta infonya?`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={16} /> Tanya promo ini</a>
+  </div>
+</div>

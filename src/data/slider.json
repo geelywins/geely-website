@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Sales Consultant Geely - Jakarta & BSD City",
+    "judul": "Mobil {Geely} modern, konsultasi mudah dan cepat.",
+    "teks": "Cari info harga, promo, simulasi kredit dan jadwal test drive Geely EX2, EX5, Starray dan model lainnya. Langsung tanya saya, respon cepat lewat WhatsApp.",
+    "foto": "",
+    "tombol": "Tanya Harga & Promo",
+    "link": "wa",
+    "tombol2": "Lihat Semua Model",
+    "link2": "/model/",
+    "warna": "#3b8cff",
+    "aktif": true
+  },
+  {
+    "label": "Promo Terbaru",
+    "judul": "Penawaran {spesial} untuk Anda",
+    "teks": "Cek promo yang sedang berlaku dan dapatkan penawaran terbaik untuk Geely pilihan Anda.",
+    "foto": "",
+    "tombol": "Lihat Promo",
+    "link": "/promo/",
+    "tombol2": "",
+    "link2": "",
+    "warna": "#00a98f",
+    "aktif": true
+  },
+  {
+    "label": "Test Drive",
+    "judul": "Rasakan sendiri {Geely} pilihan Anda",
+    "teks": "Jadwalkan test drive di BSD City atau Tanah Abang, gratis dan tanpa ribet.",
+    "foto": "",
+    "tombol": "Booking Test Drive",
+    "link": "wa",
+    "tombol2": "Artikel & Tips",
+    "link2": "/artikel/",
+    "warna": "#7b61ff",
+    "aktif": true
+  }
+]

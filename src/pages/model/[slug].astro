@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { MODELS, getModel } from '../../data/models';
-import { ACTIVE_PROMOS } from '../../data/promo';
+import { MODELS, getModel, ACTIVE_PROMOS } from '../../lib/data';
+import PageHead from '../../components/PageHead.astro';
+import PromoCard from '../../components/PromoCard.astro';
+import Icon from '../../components/Icon.astro';
 import { waLink, SITE } from '../../config';
 import { href, asset } from '../../lib/url';
 
@@ -46,20 +48,17 @@ const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
   image={m.foto || undefined}
   jsonLd={jsonLd}
 >
-  <div class="page-head">
-    <div class="wrap">
-      <div class="crumbs"><a href={href('/')}>Beranda</a> / <a href={href('/model/')}>Model Mobil</a> / {m.nama}</div>
-      <span class="tag">{m.tipe}</span>
-      <h1 style="margin-top:10px">{m.nama}</h1>
-      <p>{m.ringkas}</p>
-    </div>
-  </div>
+  <PageHead title={m.nama} text={m.ringkas} crumbs={[{ label: 'Model Mobil', url: href('/model/') }, { label: m.nama }]}>
+    <span class="tag mt-2">{m.tipe}</span>
+  </PageHead>
 
   <section>
-    <div class="wrap prose">
-      {m.foto
-        ? <img class="photo" src={asset(m.foto)} alt={m.nama} width="1200" height="675" style="margin:0" />
-        : <div class="model-visual" style={`height:200px;background: linear-gradient(135deg, ${m.warna}66, ${m.warna}11);`}>{m.nama}</div>}
+    <div class="container prose">
+      <div class="model-hero reveal">
+        {m.foto
+          ? <img src={asset(m.foto)} alt={m.nama} width="1200" height="675" fetchpriority="high" />
+          : <div class="media-fallback" style={`--c:${m.warna}`}><span>{m.nama}</span></div>}
+      </div>
 
       <h2>Tentang {m.nama}</h2>
       <p>{m.deskripsi}</p>
@@ -69,7 +68,13 @@ const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
       {galeri.length > 0 && (
         <>
           <h2>Galeri Foto</h2>
-          <div class="gallery">{galeri.map((g, i) => <img src={asset(g)} alt={`${m.nama} foto ${i + 1}`} loading="lazy" width="400" height="300" />)}</div>
+          <div class="gallery">
+            {galeri.map((g, i) => (
+              <button type="button" data-bs-toggle="modal" data-bs-target="#lightbox" data-full={asset(g)} data-caption={`${m.nama} foto ${i + 1}`} aria-label={`Perbesar foto ${i + 1}`}>
+                <img src={asset(g)} alt={`${m.nama} foto ${i + 1}`} loading="lazy" decoding="async" width="400" height="300" />
+              </button>
+            ))}
+          </div>
         </>
       )}
 
@@ -78,19 +83,19 @@ const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
         {m.spesifikasi.map((s) => <tr><td>{s.label}</td><td>{s.nilai}</td></tr>)}
         <tr><td>Harga</td><td>{m.harga}</td></tr>
       </table>
-      <p style="margin-top:12px;font-size:.9rem;color:var(--muted)">Harga dan spesifikasi dapat berubah sewaktu-waktu.</p>
+      <p class="mt-3 small text-muted">Harga dan spesifikasi dapat berubah sewaktu-waktu.</p>
 
       {promos.length > 0 && (
         <>
           <h2>Promo {m.nama}</h2>
-          {promos.map((p) => <div class="site-card"><b>{p.judul}</b><small>{p.deskripsi}</small>{p.periode && <small style="color:var(--brand-2)">{p.periode}</small>}</div>)}
+          <div class="grid-x">{promos.map((p) => <PromoCard p={p} />)}</div>
         </>
       )}
 
-      <div class="cta-box">
+      <div class="cta-box reveal">
         <h3>Tertarik dengan {m.nama}?</h3>
         <p>Minta harga terbaru, simulasi kredit, atau jadwalkan test drive sekarang.</p>
-        <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya tertarik dengan ${m.nama}. Boleh minta harga, promo dan simulasi kreditnya?`)} target="_blank" rel="noopener">Tanya {m.nama} via WhatsApp</a>
+        <a class="btn btn-wa btn-lg" href={waLink(`Halo Kak Wins, saya tertarik dengan ${m.nama}. Boleh minta harga, promo dan simulasi kreditnya?`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Tanya {m.nama}</a>
       </div>
     </div>
   </section>

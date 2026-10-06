@@ -1,12 +1,5 @@
 {
   "beranda": {
-    "hero": {
-      "label": "Sales Consultant Geely - Jakarta & BSD City",
-      "judul": "Mobil {Geely} modern, konsultasi mudah dan cepat.",
-      "teks": "Cari info harga, promo, simulasi kredit dan jadwal test drive Geely EX2, EX5, Starray dan model lainnya. Langsung tanya saya, respon cepat lewat WhatsApp.",
-      "tombolUtama": "Tanya Harga & Promo",
-      "tombolKedua": "Lihat Semua Model"
-    },
     "stats": [
       {
         "angka": "Lokasi",
@@ -25,6 +18,10 @@
     "modelTeks": "Dari mobil listrik kompak sampai SUV hybrid, pilih yang paling cocok dengan kebutuhan Anda.",
     "promoJudul": "Promo Geely Terbaru",
     "promoTeks": "Penawaran yang sedang berlaku. Tanyakan syarat dan ketentuannya ke saya.",
+    "deliveryJudul": "Momen Serah Terima Unit",
+    "deliveryTeks": "Kebahagiaan pelanggan saat menerima kunci Geely barunya.",
+    "testimoniJudul": "Kata Pelanggan",
+    "testimoniTeks": "Cerita dari pelanggan yang sudah membeli Geely lewat saya.",
     "keunggulanJudul": "Kenapa beli lewat saya?",
     "keunggulan": [
       {
@@ -99,5 +96,27 @@
   },
   "footer": {
     "catatan": "Website ini dikelola oleh sales consultant dealer resmi Geely. Harga, promo dan spesifikasi dapat berubah sewaktu-waktu, silakan konfirmasi ke sales."
+  },
+  "halamanTestimoni": {
+    "judul": "Testimoni Pelanggan",
+    "teks": "Pengalaman nyata pelanggan yang membeli Geely lewat saya.",
+    "kosong": "Testimoni pelanggan akan segera hadir. Hubungi saya untuk konsultasi.",
+    "seoDeskripsi": "Testimoni pelanggan Geely: pengalaman membeli, test drive dan serah terima unit Geely EX2, EX5 dan Starray di Jakarta dan BSD City."
+  },
+  "halamanDelivery": {
+    "judul": "Delivery Moment",
+    "teks": "Momen bahagia pelanggan saat serah terima unit Geely baru.",
+    "kosong": "Foto serah terima unit akan segera ditambahkan.",
+    "seoDeskripsi": "Galeri delivery moment Geely: momen serah terima unit Geely EX2, EX5 dan Starray kepada pelanggan di Jakarta dan BSD City."
+  },
+  "popup": {
+    "aktif": true,
+    "tundaDetik": "8",
+    "label": "Info Terbaru",
+    "judul": "Mau test drive Geely?",
+    "teks": "Konsultasi dan simulasi kredit gratis. Hubungi saya sekarang, saya bantu pilihkan model dan skema yang paling pas.",
+    "foto": "/images/promo/204203-muxaa4xd.jpg",
+    "tombol": "Chat via WhatsApp",
+    "link": "wa"
   }
 }

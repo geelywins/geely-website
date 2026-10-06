@@ -2,8 +2,9 @@
 title: "Tips Memilih Mobil Listrik Pertama untuk Keluarga"
 description: "Hal-hal yang perlu dipertimbangkan sebelum membeli mobil listrik pertama: kebutuhan harian, tempat mengisi daya, dan biaya perawatan."
 date: 2026-10-05
+updated: 2026-10-07
 category: "Panduan"
-tags: ["mobil listrik", "ev", "tips"]
+tags: ["mobil listrik","ev","tips"]
 ---
 
 Beralih ke mobil listrik terasa baru bagi banyak orang. Supaya tidak salah pilih, perhatikan hal berikut.

@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Admin Website</title>
+<style>
+  :root { --bg:#0b0f1a; --card:#141b2d; --line:#26304a; --text:#eef2fb; --muted:#9aa5bd; --brand:#3b8cff; --ok:#1fbf75; --bad:#ff5d5d; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, sans-serif; background:var(--bg); color:var(--text); line-height:1.5; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.35rem; margin: 6px 0 4px; }
+  h2 { font-size: 1.1rem; margin: 0 0 10px; }
+  h3 { font-size: 1rem; margin: 14px 0 4px; color: var(--brand); }
+  a { color: var(--brand); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:14px; }
+  label { display:block; font-size:.85rem; color:var(--muted); margin:14px 0 4px; }
+  input[type=text], input[type=date], input[type=password], textarea, select { width:100%; padding:11px 12px; border-radius:10px; border:1px solid var(--line); background:#0d1322; color:var(--text); font-size:1rem; font-family:inherit; }
+  input[type=color] { width:100%; height:46px; border:1px solid var(--line); border-radius:10px; background:#0d1322; padding:4px; }
+  textarea { min-height: 90px; resize: vertical; }
+  textarea.mono { font-family: ui-monospace, Consolas, monospace; font-size:.95rem; }
+  button { padding:11px 18px; border-radius:10px; border:0; background:var(--brand); color:#fff; font-weight:700; font-size:.95rem; cursor:pointer; }
+  button.sec { background:#26304a; }
+  button.bad { background:var(--bad); }
+  button.sm { padding:7px 12px; font-size:.85rem; }
+  button:disabled { opacity:.5; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center; }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin:12px 0 14px; }
+  .tabs button.on { background:var(--brand); }
+  .item { display:flex; justify-content:space-between; gap:10px; align-items:center; padding:12px 0; border-top:1px solid var(--line); }
+  .item:first-child { border-top:0; }
+  .item small { color:var(--muted); display:block; }
+  .item .btns { display:flex; gap:6px; flex-shrink:0; }
+  .msg { padding:11px 14px; border-radius:10px; margin:10px 0; font-size:.92rem; display:none; }
+  .msg.ok { display:block; background:rgba(31,191,117,.15); border:1px solid var(--ok); }
+  .msg.err { display:block; background:rgba(255,93,93,.15); border:1px solid var(--bad); }
+  .hint { color:var(--muted); font-size:.8rem; margin-top:4px; }
+  .hide { display:none !important; }
+  .chk { display:flex; gap:10px; align-items:center; margin-top:14px; }
+  .chk input { width:20px; height:20px; }
+  .chk label { margin:0; font-size:.95rem; color:var(--text); }
+  .lrow { border:1px solid var(--line); border-radius:12px; padding:10px 12px 12px; margin-top:10px; background:#101728; }
+  .lrow .fld > label:first-child { margin-top:8px; }
+  .lctl { display:flex; gap:6px; justify-content:flex-end; margin-top:8px; }
+  details.det { border:1px solid var(--line); border-radius:12px; margin-top:12px; padding:0 12px 12px; background:#101728; }
+  details.det > summary { cursor:pointer; padding:12px 0; font-weight:700; }
+  .imgf img { display:block; max-width:100%; max-height:200px; border-radius:10px; margin:8px 0; border:1px solid var(--line); }
+  .imgf .row { margin-top:8px; }
+  .top { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><h1>Admin Website</h1><a id="siteLink" href="#" target="_blank">Lihat website</a></div>
+  <div id="msg" class="msg"></div>
+
+  <div class="card" id="setup">
+    <h2>Hubungkan ke GitHub (sekali saja)</h2>
+    <label>Username GitHub</label>
+    <input type="text" id="owner" placeholder="contoh: geelywins" autocapitalize="none" />
+    <label>Nama repository</label>
+    <input type="text" id="repo" value="geely-website" autocapitalize="none" />
+    <label>Branch</label>
+    <input type="text" id="branch" value="main" autocapitalize="none" />
+    <label>Token GitHub (fine-grained, izin Contents: Read and write)</label>
+    <input type="password" id="token" placeholder="github_pat_..." autocapitalize="none" />
+    <p class="hint">Token hanya disimpan di browser HP ini dan hanya dikirim ke GitHub.</p>
+    <div class="row"><button id="saveCfg">Simpan &amp; Masuk</button></div>
+  </div>
+
+  <div class="tabs hide" id="tabs">
+    <button class="sec" data-tab="artikel">Artikel</button>
+    <button class="sec" data-tab="model">Model Mobil</button>
+    <button class="sec" data-tab="promo">Promo</button>
+    <button class="sec" data-tab="halaman">Isi Halaman</button>
+    <button class="sec" data-tab="setelan">Pengaturan</button>
+    <button class="sec" data-tab="keluar">Keluar</button>
+  </div>
+
+  <div id="view"></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var BASE = location.pathname.replace(/\/admin\/(index\.html)?$/, '').replace(/\/$/, '');
+  var view = $('view');
+  var DIR = 'src/content/artikel';
+  var navId = 0; // penanda: kalau pindah menu saat data masih dimuat, hasil lama diabaikan
+  $('siteLink').href = BASE + '/';
+
+  // =============== utilitas ===============
+  function el(tag, props) {
+    var e = document.createElement(tag);
+    if (props) Object.keys(props).forEach(function (k) {
+      var v = props[k];
+      if (v === undefined || v === null) return;
+      if (k === 'class') e.className = v;
+      else if (k === 'text') e.textContent = v;
+      else if (k === 'value' || k === 'checked' || k === 'disabled' || k === 'onclick' || k === 'oninput' || k === 'onchange') e[k] = v;
+      else e.setAttribute(k, v);
+    });
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (Array.isArray(c)) c.forEach(function (x) { if (x) e.append(x); });
+      else if (c) e.append(c);
+    }
+    return e;
+  }
+  function btn(text, cls, fn) { return el('button', { type: 'button', class: cls || '', text: text, onclick: fn }); }
+  function show(text, type) { var m = $('msg'); m.textContent = text; m.className = 'msg ' + (type || 'ok'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  function hideMsg() { $('msg').className = 'msg'; }
+  function enc(s) { var b = new TextEncoder().encode(s), r = ''; b.forEach(function (x) { r += String.fromCharCode(x); }); return btoa(r); }
+  function dec(b64) { var r = atob(b64.replace(/\s/g, '')), u = new Uint8Array(r.length); for (var i = 0; i < r.length; i++) u[i] = r.charCodeAt(i); return new TextDecoder().decode(u); }
+  function slugify(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70); }
+  function today() { var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); }
+  function imgSrc(p) { return /^(https?:)?\/\/|^data:|^blob:/.test(p) ? p : (p.charAt(0) === '/' ? BASE + p : p); }
+
+  function cfg() { return { owner: localStorage.g_owner, repo: localStorage.g_repo, branch: localStorage.g_branch || 'main', token: localStorage.g_token }; }
+
+  async function gh(path, opts) {
+    var c = cfg();
+    var res = await fetch('https://api.github.com/repos/' + c.owner + '/' + c.repo + (path ? '/' + path : ''), Object.assign({
+      headers: { Authorization: 'Bearer ' + c.token, Accept: 'application/vnd.github+json' }
+    }, opts || {}));
+    if (!res.ok) {
+      var detail = ''; try { detail = (await res.json()).message; } catch (e) {}
+      var hint = res.status === 401 ? ' (token salah atau kedaluwarsa)' : res.status === 404 ? ' (cek username, nama repo, dan izin token)' : res.status === 409 || res.status === 422 ? ' (data sudah berubah atau nama sudah dipakai, buka ulang menu ini)' : '';
+      throw new Error('GitHub ' + res.status + (detail ? ': ' + detail : '') + hint);
+    }
+    return res.status === 204 ? null : res.json();
+  }
+  async function readFile(path) {
+    var f = await gh('contents/' + path + '?ref=' + encodeURIComponent(cfg().branch));
+    return { text: dec(f.content), sha: f.sha };
+  }
+  async function putFile(path, contentB64, message, sha) {
+    var body = { message: message, content: contentB64, branch: cfg().branch };
+    if (sha) body.sha = sha;
+    return gh('contents/' + path, { method: 'PUT', body: JSON.stringify(body) });
+  }
+  async function readJson(path) { var r = await readFile(path); return { data: JSON.parse(r.text), sha: r.sha }; }
+  function writeJson(path, data, sha, message) { return putFile(path, enc(JSON.stringify(data, null, 2) + '\n'), message, sha); }
+
+  // =============== unggah gambar ===============
+  function fileToB64(blob) {
+    return new Promise(function (res, rej) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(',')[1]); }; r.onerror = rej; r.readAsDataURL(blob); });
+  }
+  async function prepImage(file) {
+    if (/svg|gif/.test(file.type)) return { blob: file, ext: file.type.indexOf('svg') >= 0 ? 'svg' : 'gif' };
+    try {
+      var bmp = await createImageBitmap(file);
+      var sc = Math.min(1, 1600 / bmp.width), w = Math.round(bmp.width * sc), h = Math.round(bmp.height * sc);
+      var cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+      var cx = cv.getContext('2d'); cx.fillStyle = '#fff'; cx.fillRect(0, 0, w, h); cx.drawImage(bmp, 0, 0, w, h);
+      var blob = await new Promise(function (r) { cv.toBlob(r, 'image/jpeg', 0.85); });
+      if (blob) return { blob: blob, ext: 'jpg' };
+    } catch (e) {}
+    return { blob: file, ext: (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '') };
+  }
+  async function uploadImage(file, folder) {
+    var p = await prepImage(file);
+    if (p.blob.size > 8 * 1024 * 1024) throw new Error('Ukuran foto terlalu besar (maks. 8 MB).');
+    var name = (slugify(file.name.replace(/\.[^.]+$/, '')) || 'foto') + '-' + Date.now().toString(36) + '.' + p.ext;
+    var path = 'public/images/' + folder + '/' + name;
+    await putFile(path, await fileToB64(p.blob), 'Unggah gambar ' + name);
+    return '/images/' + folder + '/' + name;
+  }
+
+  // =============== pembuat form dari skema ===============
+  // Setiap field dibuat menjadi {el, get(), check()}.
+  function build(f, val, refs) {
+    var t = f.type || 'text', ctl, wrap, label;
+    function wrapField(control, extra) {
+      var d = el('div', { class: 'fld' });
+      if (f.label) d.append(el('label', { text: f.label + (f.req ? ' *' : '') }));
+      d.append(control);
+      if (f.hint) d.append(el('div', { class: 'hint', text: f.hint }));
+      if (extra) d.append(extra);
+      return d;
+    }
+    function simple(control, getter) {
+      var o = { el: wrapField(control), get: getter, check: function () { return f.req && !String(getter() || '').trim() ? (f.label || f.key) + ' wajib diisi.' : ''; } };
+      if (refs && f.key) refs[f.key] = control;
+      return o;
+    }
+
+    if (t === 'text' || t === 'date' || t === 'tags' || t === 'slug') {
+      var v = val == null ? '' : (t === 'tags' ? (val || []).join(', ') : String(val));
+      ctl = el('input', { type: t === 'date' ? 'date' : 'text', value: t === 'date' && !v ? today() : v, autocapitalize: (t === 'slug' || f.lower) ? 'none' : undefined });
+      if (t === 'slug') {
+        if (f.lock) ctl.disabled = true;
+        else {
+          var manual = !!v;
+          ctl.oninput = function () { manual = true; };
+          var src = refs && refs[f.from];
+          if (src) src.addEventListener('input', function () { if (!manual) ctl.value = slugify(src.value); });
+        }
+        return simple(ctl, function () { return slugify(ctl.value); });
+      }
+      if (t === 'tags') return simple(ctl, function () { return ctl.value.split(',').map(function (s) { return s.trim(); }).filter(Boolean); });
+      return simple(ctl, function () { return ctl.value.trim(); });
+    }
+    if (t === 'textarea') {
+      ctl = el('textarea', { class: f.mono ? 'mono' : '', value: val == null ? '' : val, maxlength: f.max });
+      if (f.rows) ctl.style.minHeight = (f.rows * 24) + 'px';
+      var counter = null;
+      if (f.max) { counter = el('div', { class: 'hint', text: '' }); var upd = function () { counter.textContent = ctl.value.length + ' / ' + f.max + ' karakter'; }; ctl.oninput = upd; upd(); }
+      var o2 = simple(ctl, function () { return f.keepSpace ? ctl.value : ctl.value.trim(); });
+      if (counter) o2.el.append(counter);
+      return o2;
+    }
+    if (t === 'lines') {
+      ctl = el('textarea', { value: (val || []).join('\n') });
+      if (f.rows) ctl.style.minHeight = (f.rows * 24) + 'px';
+      return simple(ctl, function () { return ctl.value.split('\n').map(function (s) { return s.trim(); }).filter(Boolean); });
+    }
+    if (t === 'color') { ctl = el('input', { type: 'color', value: val || '#3b8cff' }); return simple(ctl, function () { return ctl.value; }); }
+    if (t === 'select') {
+      ctl = el('select');
+      (f.options || []).forEach(function (op) { var o = el('option', { value: op.v, text: op.l }); ctl.append(o); });
+      ctl.value = val == null ? '' : val;
+      return simple(ctl, function () { return ctl.value; });
+    }
+    if (t === 'check') {
+      var cb = el('input', { type: 'checkbox', checked: val === undefined ? !!f.def : !!val, id: 'cb' + Math.random().toString(36).slice(2) });
+      var d = el('div', { class: 'chk' }, cb, el('label', { for: cb.id, text: f.label }));
+      if (refs && f.key) refs[f.key] = cb;
+      return { el: d, get: function () { return cb.checked; }, check: function () { return ''; } };
+    }
+    if (t === 'image') {
+      var path = el('input', { type: 'text', value: val || '', placeholder: 'kosong = tanpa foto', autocapitalize: 'none' });
+      var prev = el('img', { alt: '' });
+      var setPrev = function (src) { if (src) { prev.src = src; prev.classList.remove('hide'); } else prev.classList.add('hide'); };
+      setPrev(val ? imgSrc(val) : '');
+      path.oninput = function () { setPrev(path.value.trim() ? imgSrc(path.value.trim()) : ''); };
+      var fileIn = el('input', { type: 'file', accept: 'image/*', class: 'hide' });
+      var status = el('div', { class: 'hint', text: '' });
+      var pick = btn('Pilih foto', 'sec sm', function () { fileIn.click(); });
+      fileIn.onchange = async function () {
+        var file = fileIn.files[0]; if (!file) return;
+        pick.disabled = true; status.textContent = 'Mengunggah...';
+        try {
+          var url = await uploadImage(file, f.folder || 'umum');
+          path.value = url; setPrev(URL.createObjectURL(file)); status.textContent = 'Berhasil diunggah: ' + url;
+          if (f.onUploaded) f.onUploaded(url);
+        } catch (e) { status.textContent = ''; show(e.message, 'err'); }
+        pick.disabled = false; fileIn.value = '';
+      };
+      var clear = btn('Hapus foto', 'sec sm', function () { path.value = ''; setPrev(''); status.textContent = ''; });
+      var box = el('div', { class: 'imgf' }, prev, path, el('div', { class: 'row' }, pick, clear, fileIn), status);
+      var o3 = { el: wrapField(box), get: function () { return path.value.trim(); }, check: function () { return f.req && !path.value.trim() ? (f.label || 'Foto') + ' wajib diisi.' : ''; } };
+      if (refs && f.key) refs[f.key] = path;
+      return o3;
+    }
+    if (t === 'group') {
+      var kids = f.fields.map(function (sf) { return build(sf, (val || {})[sf.key], {}); });
+      var inner = el('div', { class: 'grp' }, kids.map(function (k) { return k.el; }));
+      var root = inner;
+      if (f.label && f.collapse) root = el('details', { class: 'det' }, el('summary', { text: f.label }), inner);
+      else if (f.label) root = el('div', null, el('h3', { text: f.label }), inner);
+      return {
+        el: root,
+        get: function () { var o = {}; f.fields.forEach(function (sf, i) { o[sf.key] = kids[i].get(); }); return o; },
+        check: function () { for (var i = 0; i < kids.length; i++) { var e = kids[i].check(); if (e) return e; } return ''; }
+      };
+    }
+    if (t === 'list') {
+      var sub = f.of || { type: 'group', fields: f.fields };
+      var rows = el('div');
+      function addRow(v) {
+        var b = build(sub, v, {});
+        var row = el('div', { class: 'lrow' });
+        row._b = b;
+        var ctlBar = el('div', { class: 'lctl' },
+          btn('↑', 'sec sm', function () { var p = row.previousElementSibling; if (p) rows.insertBefore(row, p); }),
+          btn('↓', 'sec sm', function () { var n = row.nextElementSibling; if (n) rows.insertBefore(n, row); }),
+          btn('Hapus', 'bad sm', function () { row.remove(); }));
+        row.append(b.el, ctlBar); rows.append(row);
+      }
+      (val || []).forEach(addRow);
+      var addBtn = btn('+ ' + (f.addLabel || 'Tambah'), 'sec sm', function () { addRow(f.blank !== undefined ? JSON.parse(JSON.stringify(f.blank)) : (sub.type === 'group' ? {} : '')); });
+      var holder = el('div', null, rows, el('div', { class: 'row' }, addBtn));
+      return {
+        el: wrapField(holder),
+        get: function () { return Array.prototype.map.call(rows.children, function (r) { return r._b.get(); }).filter(function (x) { return sub.type === 'group' ? true : !!x; }); },
+        check: function () { for (var i = 0; i < rows.children.length; i++) { var e = rows.children[i]._b.check(); if (e) return e; } return ''; }
+      };
+    }
+    throw new Error('Jenis field tidak dikenal: ' + t);
+  }
+
+  // Menampilkan form lengkap di #view.
+  // opts: {title, fields, data, saveLabel, onSave(values), onCancel, onDelete, intro}
+  function renderForm(opts) {
+    view.innerHTML = '';
+    var refs = {}, data = opts.data || {};
+    var built = opts.fields.map(function (f) { return build(f, data[f.key], refs); });
+    var save = btn(opts.saveLabel || 'Simpan', '', null);
+    var bar = el('div', { class: 'row' }, save);
+    if (opts.onCancel) bar.append(btn('Kembali', 'sec', function () { hideMsg(); opts.onCancel(); }));
+    var del = null;
+    if (opts.onDelete) { del = btn('Hapus', 'bad', null); bar.append(del); }
+    view.append(el('div', { class: 'card' }, el('h2', { text: opts.title }), opts.intro ? el('div', { class: 'hint', text: opts.intro }) : null, built.map(function (b) { return b.el; }), bar,
+      el('p', { class: 'hint', text: 'Setelah disimpan, website diperbarui otomatis dalam ±1-3 menit.' })));
+    save.onclick = async function () {
+      hideMsg();
+      for (var i = 0; i < built.length; i++) { var e = built[i].check(); if (e) return show(e, 'err'); }
+      var values = {}; opts.fields.forEach(function (f, i) { values[f.key] = built[i].get(); });
+      save.disabled = true;
+      try { await opts.onSave(values); } catch (err) { show(err.message || String(err), 'err'); save.disabled = false; }
+    };
+    if (del) del.onclick = async function () {
+      if (!confirm('Hapus? Tindakan ini tidak bisa dibatalkan dari sini.')) return;
+      del.disabled = true;
+      try { await opts.onDelete(); } catch (err) { show(err.message || String(err), 'err'); del.disabled = false; }
+    };
+    window.scrollTo(0, 0);
+  }
+
+  // =============== skema ===============
+  var SCH = {};
+  SCH.settings = function () { return [
+    { key: 'namaSitus', label: 'Nama website (muncul di logo, judul, footer)', req: true, hint: 'Contoh: Wins Geely' },
+    { key: 'namaPanggilan', label: 'Nama panggilan sales', req: true },
+    { key: 'namaLengkap', label: 'Nama lengkap', req: true },
+    { key: 'profesi', label: 'Profesi / jabatan', req: true },
+    { key: 'tagline', label: 'Tagline singkat (dipakai di judul Google)', req: true },
+    { key: 'deskripsi', label: 'Deskripsi website untuk Google (maks. 160 karakter)', type: 'textarea', max: 200, req: true },
+    { key: 'dealer', label: 'Nama dealer' },
+    { key: 'whatsapp', label: 'Nomor WhatsApp', req: true, hint: 'Boleh ditulis 087710208822, otomatis jadi format 62...' },
+    { key: 'pesanWa', label: 'Pesan awal WhatsApp (yang terkirim saat orang menekan tombol WA)', type: 'textarea' },
+    { key: 'email', label: 'Email (boleh kosong)', lower: true },
+    { key: 'ogImage', label: 'Gambar saat link dibagikan ke sosmed (ideal 1200x630)', type: 'image', folder: 'umum' },
+    { key: 'sosmed', label: 'Media sosial', type: 'list', addLabel: 'Tambah sosmed', blank: { platform: '', label: '', url: '' }, fields: [
+      { key: 'platform', label: 'Platform (Instagram, TikTok, ...)', req: true },
+      { key: 'label', label: 'Tulisan yang ditampilkan (contoh: @geelywins)', req: true },
+      { key: 'url', label: 'Link (boleh kosong)', lower: true } ] },
+    { key: 'situsLain', label: 'Website lain (ditampilkan di footer dan halaman Kontak)', type: 'list', addLabel: 'Tambah website', blank: { nama: '', url: '', deskripsi: '' }, fields: [
+      { key: 'nama', label: 'Nama website', req: true },
+      { key: 'url', label: 'Alamat (https://...)', req: true, lower: true },
+      { key: 'deskripsi', label: 'Keterangan singkat' } ] },
+    { key: 'lokasi', label: 'Lokasi dealer', type: 'list', addLabel: 'Tambah lokasi', blank: { nama: '', area: '' }, fields: [
+      { key: 'nama', label: 'Nama lokasi', req: true }, { key: 'area', label: 'Wilayah / alamat', req: true } ] }
+  ]; };
+
+  function grp(key, label, fields) { return { key: key, label: label, type: 'group', collapse: true, fields: fields }; }
+  SCH.content = function () { return [
+    grp('beranda', 'Beranda', [
+      { key: 'hero', label: 'Bagian utama (paling atas)', type: 'group', fields: [
+        { key: 'label', label: 'Tulisan kecil di atas judul' },
+        { key: 'judul', label: 'Judul besar', hint: 'Kata dalam kurung kurawal diberi warna sorot. Contoh: Mobil {Geely} modern' },
+        { key: 'teks', label: 'Teks pengantar', type: 'textarea' },
+        { key: 'tombolUtama', label: 'Tulisan tombol hijau (WhatsApp)' },
+        { key: 'tombolKedua', label: 'Tulisan tombol kedua' } ] },
+      { key: 'stats', label: 'Tiga poin singkat di bawah tombol', type: 'list', addLabel: 'Tambah poin', blank: { angka: '', teks: '' }, fields: [ { key: 'angka', label: 'Tulisan tebal' }, { key: 'teks', label: 'Keterangan' } ] },
+      { key: 'modelJudul', label: 'Judul bagian Model' }, { key: 'modelTeks', label: 'Teks bagian Model', type: 'textarea' },
+      { key: 'promoJudul', label: 'Judul bagian Promo' }, { key: 'promoTeks', label: 'Teks bagian Promo', type: 'textarea' },
+      { key: 'keunggulanJudul', label: 'Judul bagian Keunggulan' },
+      { key: 'keunggulan', label: 'Daftar keunggulan', type: 'list', addLabel: 'Tambah keunggulan', blank: { ikon: '⭐', judul: '', teks: '' }, fields: [
+        { key: 'ikon', label: 'Ikon (emoji)' }, { key: 'judul', label: 'Judul' }, { key: 'teks', label: 'Penjelasan', type: 'textarea' } ] },
+      { key: 'artikelJudul', label: 'Judul bagian Artikel' }, { key: 'artikelTeks', label: 'Teks bagian Artikel', type: 'textarea' },
+      { key: 'faqJudul', label: 'Judul bagian Pertanyaan (FAQ)' },
+      { key: 'faq', label: 'Daftar pertanyaan & jawaban', type: 'list', addLabel: 'Tambah pertanyaan', blank: { tanya: '', jawab: '' }, fields: [
+        { key: 'tanya', label: 'Pertanyaan' }, { key: 'jawab', label: 'Jawaban', type: 'textarea' } ] },
+      { key: 'ctaJudul', label: 'Judul kotak ajakan di bawah' }, { key: 'ctaTeks', label: 'Teks kotak ajakan', type: 'textarea' }, { key: 'ctaTombol', label: 'Tulisan tombol kotak ajakan' } ]),
+    grp('halamanModel', 'Halaman Model Mobil', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('halamanPromo', 'Halaman Promo', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'kosong', label: 'Tulisan kalau belum ada promo aktif', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('halamanArtikel', 'Halaman Daftar Artikel', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('kontak', 'Halaman Kontak', [ { key: 'judul', label: 'Judul halaman' }, { key: 'teks', label: 'Teks pengantar', type: 'textarea' }, { key: 'layananJudul', label: 'Judul daftar layanan' }, { key: 'layanan', label: 'Daftar layanan (satu baris = satu poin)', type: 'lines', rows: 5 }, { key: 'seoDeskripsi', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200 } ]),
+    grp('footer', 'Footer (bagian paling bawah)', [ { key: 'catatan', label: 'Catatan footer', type: 'textarea' } ])
+  ]; };
+
+  SCH.model = function (isNew) { return [
+    { key: 'nama', label: 'Nama model', req: true, hint: 'Contoh: Geely EX5' },
+    { key: 'slug', label: 'Alamat halaman (otomatis dari nama)', type: 'slug', from: 'nama', lock: !isNew },
+    { key: 'tipe', label: 'Jenis / segmen', hint: 'Contoh: SUV Listrik' },
+    { key: 'foto', label: 'Foto utama mobil', type: 'image', folder: 'model' },
+    { key: 'ringkas', label: 'Ringkasan satu kalimat', type: 'textarea', req: true },
+    { key: 'deskripsi', label: 'Deskripsi lengkap', type: 'textarea', rows: 5 },
+    { key: 'keunggulan', label: 'Keunggulan (satu baris = satu poin)', type: 'lines', rows: 5 },
+    { key: 'harga', label: 'Harga / keterangan harga', hint: 'Contoh: Mulai Rp 000.000.000 (OTR Jakarta)' },
+    { key: 'spesifikasi', label: 'Spesifikasi', type: 'list', addLabel: 'Tambah spesifikasi', blank: { label: '', nilai: '' }, fields: [ { key: 'label', label: 'Nama (contoh: Jarak tempuh)', req: true }, { key: 'nilai', label: 'Isi', req: true } ] },
+    { key: 'galeri', label: 'Galeri foto tambahan', type: 'list', addLabel: 'Tambah foto', of: { type: 'image', folder: 'model' } },
+    { key: 'warna', label: 'Warna kartu (dipakai kalau belum ada foto)', type: 'color' }
+  ]; };
+
+  SCH.promo = function (isNew, models) { return [
+    { key: 'judul', label: 'Judul promo', req: true },
+    { key: 'id', label: 'Alamat internal (otomatis dari judul)', type: 'slug', from: 'judul', lock: !isNew },
+    { key: 'deskripsi', label: 'Isi / syarat promo', type: 'textarea', req: true, rows: 5 },
+    { key: 'periode', label: 'Periode berlaku', hint: 'Contoh: 1-31 Oktober 2026' },
+    { key: 'foto', label: 'Foto / banner promo', type: 'image', folder: 'promo' },
+    { key: 'model', label: 'Terkait model (boleh kosong)', type: 'select', options: [{ v: '', l: '- semua / tidak spesifik -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
+    { key: 'aktif', label: 'Tampilkan promo ini di website', type: 'check', def: true }
+  ]; };
+
+  SCH.artikel = function (isNew) { return [
+    { key: 'title', label: 'Judul (ideal ±60 karakter)', req: true },
+    { key: 'slug', label: 'Alamat artikel (otomatis dari judul)', type: 'slug', from: 'title', lock: !isNew },
+    { key: 'description', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200, req: true },
+    { key: 'category', label: 'Kategori', req: true },
+    { key: 'tags', label: 'Tag (pisahkan dengan koma)', type: 'tags' },
+    { key: 'date', label: 'Tanggal tayang', type: 'date' },
+    { key: 'image', label: 'Gambar utama artikel', type: 'image', folder: 'artikel', onUploaded: function (u) { lastArticleImg = u; } },
+    { key: 'body', label: 'Isi artikel (Markdown: ## Judul bagian, - daftar, **tebal**, ![keterangan](/images/artikel/foto.jpg))', type: 'textarea', mono: true, rows: 14, req: true, keepSpace: true },
+    { key: 'draft', label: 'Simpan sebagai draft (belum tayang)', type: 'check', def: false }
+  ]; };
+  var lastArticleImg = '';
+
+  // =============== artikel ===============
+  function parseMd(text) {
+    var m = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/), fm = {}, body = text;
+    if (m) {
+      body = m[2];
+      m[1].split(/\r?\n/).forEach(function (line) {
+        var i = line.indexOf(':'); if (i < 0) return;
+        var k = line.slice(0, i).trim(), v = line.slice(i + 1).trim();
+        try { fm[k] = JSON.parse(v); } catch (e) { fm[k] = v.replace(/^['"]|['"]$/g, ''); }
+      });
+    }
+    return { fm: fm, body: body.replace(/^\n+/, '') };
+  }
+  function buildMd(a) {
+    var l = ['---', 'title: ' + JSON.stringify(a.title), 'description: ' + JSON.stringify(a.description), 'date: ' + a.date];
+    if (a.updated) l.push('updated: ' + a.updated);
+    l.push('category: ' + JSON.stringify(a.category || 'Info Geely'), 'tags: ' + JSON.stringify(a.tags || []));
+    if (a.image) l.push('image: ' + JSON.stringify(a.image));
+    if (a.draft) l.push('draft: true');
+    l.push('---', '', a.body.trim(), '');
+    return l.join('\n');
+  }
+
+  async function tabArtikel() {
+    var my = navId;
+    view.innerHTML = '<div class="card">Memuat...</div>';
+    var items;
+    try { items = await gh('contents/' + DIR + '?ref=' + encodeURIComponent(cfg().branch)); }
+    catch (e) { if (my !== navId) return; if (/404/.test(e.message)) items = []; else return show(e.message, 'err'); }
+    if (my !== navId) return;
+    var files = items.filter(function (f) { return /\.md$/.test(f.name); }).sort(function (a, b) { return b.name.localeCompare(a.name); });
+    var card = el('div', { class: 'card' }, el('h2', { text: 'Daftar Artikel' }), el('div', { class: 'row', style: 'margin-top:0' }, btn('+ Tulis Artikel Baru', '', function () { editArticle(null); })));
+    if (!files.length) card.append(el('p', { class: 'hint', text: 'Belum ada artikel.' }));
+    files.forEach(function (f) {
+      card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: f.name.replace(/\.md$/, '') }), el('small', { text: f.path })), el('div', { class: 'btns' }, btn('Edit', 'sec sm', function () { editArticle(f.path); }))));
+    });
+    view.innerHTML = ''; view.append(card);
+  }
+
+  async function editArticle(path) {
+    hideMsg(); var my = navId; var data = { date: today(), category: 'Info Geely' }, sha = null;
+    if (path) {
+      try { var r = await readFile(path); sha = r.sha; var p = parseMd(r.text); data = Object.assign({}, p.fm, { body: p.body, slug: path.split('/').pop().replace(/\.md$/, ''), date: String(p.fm.date || today()).slice(0, 10) }); }
+      catch (e) { return show(e.message, 'err'); }
+    }
+    var isNew = !path; lastArticleImg = '';
+    renderForm({
+      title: isNew ? 'Artikel Baru' : 'Edit Artikel', fields: SCH.artikel(isNew), data: data, saveLabel: 'Simpan & Terbitkan', onCancel: tabArtikel,
+      intro: 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan.',
+      onSave: async function (v) {
+        var slug = v.slug || slugify(v.title); if (!slug) throw new Error('Alamat artikel kosong.');
+        var a = { title: v.title, description: v.description, date: v.date || today(), category: v.category, tags: v.tags, image: v.image, draft: v.draft, body: v.body };
+        if (!isNew && a.date !== today()) a.updated = today();
+        var target = path || (DIR + '/' + slug + '.md');
+        await putFile(target, enc(buildMd(a)), (isNew ? 'Artikel baru: ' : 'Update artikel: ') + a.title, sha);
+        if (my !== navId) return;
+        show('Tersimpan! Website diperbarui otomatis (±1-3 menit).'); tabArtikel();
+      },
+      onDelete: isNew ? null : async function () {
+        await gh('contents/' + path, { method: 'DELETE', body: JSON.stringify({ message: 'Hapus artikel: ' + path, sha: sha, branch: cfg().branch }) });
+        if (my !== navId) return;
+        show('Artikel dihapus. Website diperbarui otomatis.'); tabArtikel();
+      }
+    });
+  }
+
+  // =============== koleksi (model, promo) ===============
+  async function openCollection(c) {
+    var my = navId;
+    view.innerHTML = '<div class="card">Memuat...</div>';
+    var r; try { r = await readJson(c.path); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
+    var arr = r.data, sha = r.sha, dirty = false;
+    var extra = c.extra ? await c.extra() : null;
+    if (my !== navId) return;
+
+    function draw() {
+      var card = el('div', { class: 'card' }, el('h2', { text: c.label }));
+      var top = el('div', { class: 'row', style: 'margin-top:0' }, btn('+ Tambah', '', function () { edit(-1); }));
+      if (dirty) top.append(btn('Simpan Urutan', 'sec', async function () {
+        try { await writeJson(c.path, arr, sha, 'Ubah urutan ' + c.label); if (my !== navId) return; show('Urutan tersimpan. Website diperbarui otomatis.'); openCollection(c); } catch (e) { show(e.message, 'err'); }
+      }));
+      card.append(top);
+      if (!arr.length) card.append(el('p', { class: 'hint', text: 'Belum ada data.' }));
+      arr.forEach(function (it, i) {
+        card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: c.title(it) }), el('small', { text: c.sub(it) })),
+          el('div', { class: 'btns' },
+            btn('↑', 'sec sm', function () { if (i > 0) { var t = arr[i - 1]; arr[i - 1] = arr[i]; arr[i] = t; dirty = true; draw(); } }),
+            btn('↓', 'sec sm', function () { if (i < arr.length - 1) { var t = arr[i + 1]; arr[i + 1] = arr[i]; arr[i] = t; dirty = true; draw(); } }),
+            btn('Edit', 'sec sm', function () { edit(i); }))));
+      });
+      view.innerHTML = ''; view.append(card);
+    }
+    function edit(i) {
+      hideMsg(); var isNew = i < 0, item = isNew ? c.blank() : arr[i];
+      renderForm({
+        title: isNew ? 'Tambah ' + c.single : 'Edit ' + c.title(item), fields: c.schema(isNew, extra), data: item, onCancel: draw,
+        onSave: async function (v) {
+          var merged = Object.assign({}, isNew ? {} : arr[i], v);
+          if (isNew && arr.some(function (x) { return x[c.idKey] === merged[c.idKey]; })) throw new Error('Alamat internal sudah dipakai, ganti judul/namanya.');
+          var next = arr.slice(); if (isNew) next.push(merged); else next[i] = merged;
+          await writeJson(c.path, next, sha, (isNew ? 'Tambah ' : 'Update ') + c.single + ': ' + c.title(merged));
+          if (my !== navId) return;
+          show('Tersimpan! Website diperbarui otomatis (±1-3 menit).'); openCollection(c);
+        },
+        onDelete: isNew ? null : async function () {
+          var next = arr.slice(); next.splice(i, 1);
+          await writeJson(c.path, next, sha, 'Hapus ' + c.single + ': ' + c.title(arr[i]));
+          if (my !== navId) return;
+          show('Dihapus. Website diperbarui otomatis.'); openCollection(c);
+        }
+      });
+    }
+    draw();
+  }
+
+  var COL = {
+    model: { path: 'src/data/models.json', label: 'Model Mobil', single: 'model', idKey: 'slug', schema: SCH.model,
+      title: function (m) { return m.nama; }, sub: function (m) { return m.harga || ''; },
+      blank: function () { return { warna: '#3b8cff', keunggulan: [], spesifikasi: [], galeri: [], foto: '', harga: 'Hubungi sales untuk harga & promo terbaru' }; } },
+    promo: { path: 'src/data/promo.json', label: 'Promo', single: 'promo', idKey: 'id', schema: SCH.promo,
+      title: function (p) { return p.judul + (p.aktif ? '' : ' (nonaktif)'); }, sub: function (p) { return p.periode || ''; },
+      blank: function () { return { aktif: true, foto: '', model: '', periode: '' }; },
+      extra: async function () { try { return (await readJson('src/data/models.json')).data; } catch (e) { return []; } } }
+  };
+
+  // =============== dokumen tunggal (pengaturan, isi halaman) ===============
+  async function openDoc(path, title, schemaFn, normalize, intro) {
+    var my = navId;
+    view.innerHTML = '<div class="card">Memuat...</div>';
+    var r; try { r = await readJson(path); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
+    if (my !== navId) return;
+    renderForm({
+      title: title, fields: schemaFn(), data: r.data, intro: intro,
+      onSave: async function (v) {
+        var merged = Object.assign({}, r.data, v); if (normalize) merged = normalize(merged);
+        await writeJson(path, merged, r.sha, 'Update ' + title);
+        if (my !== navId) return;
+        show('Tersimpan! Website diperbarui otomatis (±1-3 menit).'); openDoc(path, title, schemaFn, normalize, intro);
+      }
+    });
+  }
+  function normSettings(d) {
+    var wa = String(d.whatsapp || '').replace(/[^0-9]/g, '');
+    if (wa.charAt(0) === '0') wa = '62' + wa.slice(1);
+    if (wa.length < 9) throw new Error('Nomor WhatsApp belum benar. Contoh: 087710208822');
+    d.whatsapp = wa; return d;
+  }
+
+  // =============== menu & awal ===============
+  function setTab(name) { Array.prototype.forEach.call($('tabs').querySelectorAll('button'), function (b) { b.classList.toggle('on', b.getAttribute('data-tab') === name); }); }
+  function go(name) {
+    navId++; hideMsg(); setTab(name);
+    if (name === 'artikel') return tabArtikel();
+    if (name === 'model') return openCollection(COL.model);
+    if (name === 'promo') return openCollection(COL.promo);
+    if (name === 'halaman') return openDoc('src/data/content.json', 'Isi Halaman', SCH.content, null, 'Buka tiap bagian di bawah untuk mengubah tulisan di website.');
+    if (name === 'setelan') return openDoc('src/data/settings.json', 'Pengaturan Website', SCH.settings, normSettings);
+    if (name === 'keluar') { ['g_owner', 'g_repo', 'g_branch', 'g_token'].forEach(function (k) { localStorage.removeItem(k); }); $('token').value = ''; showLogin(); show('Anda sudah keluar. Data login dihapus dari browser ini.'); }
+  }
+  Array.prototype.forEach.call($('tabs').querySelectorAll('button'), function (b) { b.onclick = function () { go(b.getAttribute('data-tab')); }; });
+
+  function showLogin() { $('setup').classList.remove('hide'); $('tabs').classList.add('hide'); view.innerHTML = ''; }
+  function showApp() { $('setup').classList.add('hide'); $('tabs').classList.remove('hide'); go('artikel'); }
+
+  $('saveCfg').onclick = async function () {
+    var o = $('owner').value.trim(), r = $('repo').value.trim(), b = $('branch').value.trim() || 'main', t = $('token').value.trim();
+    if (!o || !r || !t) return show('Isi username, nama repository dan token dulu.', 'err');
+    localStorage.g_owner = o; localStorage.g_repo = r; localStorage.g_branch = b; localStorage.g_token = t;
+    try { await gh(''); } catch (e) { return show(e.message, 'err'); }
+    hideMsg(); showApp();
+  };
+
+  var c0 = cfg();
+  $('owner').value = c0.owner || ''; $('repo').value = c0.repo || 'geely-website'; $('branch').value = c0.branch || 'main';
+  if (c0.owner && c0.repo && c0.token) showApp(); else showLogin();
+})();
+</script>
+</body>
+</html>

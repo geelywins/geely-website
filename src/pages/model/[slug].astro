@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MODELS, getModel } from '../../data/models';
+import { ACTIVE_PROMOS } from '../../data/promo';
+import { waLink, SITE } from '../../config';
+import { href, asset } from '../../lib/url';
+
+export function getStaticPaths() {
+  return MODELS.map((m) => ({ params: { slug: m.slug } }));
+}
+
+const { slug } = Astro.params;
+const m = getModel(slug!)!;
+const promos = ACTIVE_PROMOS.filter((p) => p.model === m.slug);
+const galeri = (m.galeri ?? []).filter(Boolean);
+
+const url = new URL(href(`/model/${m.slug}/`), Astro.site).href;
+const fotoAbs = m.foto ? new URL(asset(m.foto), Astro.site).href : undefined;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Car',
+    name: m.nama,
+    brand: { '@type': 'Brand', name: 'Geely' },
+    description: m.deskripsi,
+    image: fotoAbs,
+    url,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Beranda', item: new URL(href('/'), Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: 'Model Mobil', item: new URL(href('/model/'), Astro.site).href },
+      { '@type': 'ListItem', position: 3, name: m.nama, item: url },
+    ],
+  },
+];
+const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
+---
+
+<Base
+  title={`${m.nama} - Harga, Promo & Test Drive`}
+  description={`${m.ringkas} Tanyakan harga, promo dan jadwal test drive ${m.nama} di ${lokasi}.`}
+  image={m.foto || undefined}
+  jsonLd={jsonLd}
+>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href={href('/')}>Beranda</a> / <a href={href('/model/')}>Model Mobil</a> / {m.nama}</div>
+      <span class="tag">{m.tipe}</span>
+      <h1 style="margin-top:10px">{m.nama}</h1>
+      <p>{m.ringkas}</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap prose">
+      {m.foto
+        ? <img class="photo" src={asset(m.foto)} alt={m.nama} width="1200" height="675" style="margin:0" />
+        : <div class="model-visual" style={`height:200px;background: linear-gradient(135deg, ${m.warna}66, ${m.warna}11);`}>{m.nama}</div>}
+
+      <h2>Tentang {m.nama}</h2>
+      <p>{m.deskripsi}</p>
+
+      {m.keunggulan.length > 0 && (<><h2>Keunggulan</h2><ul>{m.keunggulan.map((k) => <li>{k}</li>)}</ul></>)}
+
+      {galeri.length > 0 && (
+        <>
+          <h2>Galeri Foto</h2>
+          <div class="gallery">{galeri.map((g, i) => <img src={asset(g)} alt={`${m.nama} foto ${i + 1}`} loading="lazy" width="400" height="300" />)}</div>
+        </>
+      )}
+
+      <h2>Spesifikasi &amp; Harga</h2>
+      <table class="spec">
+        {m.spesifikasi.map((s) => <tr><td>{s.label}</td><td>{s.nilai}</td></tr>)}
+        <tr><td>Harga</td><td>{m.harga}</td></tr>
+      </table>
+      <p style="margin-top:12px;font-size:.9rem;color:var(--muted)">Harga dan spesifikasi dapat berubah sewaktu-waktu.</p>
+
+      {promos.length > 0 && (
+        <>
+          <h2>Promo {m.nama}</h2>
+          {promos.map((p) => <div class="site-card"><b>{p.judul}</b><small>{p.deskripsi}</small>{p.periode && <small style="color:var(--brand-2)">{p.periode}</small>}</div>)}
+        </>
+      )}
+
+      <div class="cta-box">
+        <h3>Tertarik dengan {m.nama}?</h3>
+        <p>Minta harga terbaru, simulasi kredit, atau jadwalkan test drive sekarang.</p>
+        <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya tertarik dengan ${m.nama}. Boleh minta harga, promo dan simulasi kreditnya?`)} target="_blank" rel="noopener">Tanya {m.nama} via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Base>

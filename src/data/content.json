@@ -1,0 +1,69 @@
+{
+  "beranda": {
+    "hero": {
+      "label": "Sales Consultant Geely - Jakarta & BSD City",
+      "judul": "Mobil {Geely} modern, konsultasi mudah dan cepat.",
+      "teks": "Cari info harga, promo, simulasi kredit dan jadwal test drive Geely EX2, EX5, Starray dan model lainnya. Langsung tanya saya, respon cepat lewat WhatsApp.",
+      "tombolUtama": "Tanya Harga & Promo",
+      "tombolKedua": "Lihat Semua Model"
+    },
+    "stats": [
+      { "angka": "2 Lokasi", "teks": "BSD City & Tanah Abang" },
+      { "angka": "Test Drive", "teks": "Jadwal fleksibel" },
+      { "angka": "Simulasi Kredit", "teks": "Gratis, tanpa ribet" }
+    ],
+    "modelJudul": "Pilihan Model Geely",
+    "modelTeks": "Dari mobil listrik kompak sampai SUV hybrid, pilih yang paling cocok dengan kebutuhan Anda.",
+    "promoJudul": "Promo Geely Terbaru",
+    "promoTeks": "Penawaran yang sedang berlaku. Tanyakan syarat dan ketentuannya ke saya.",
+    "keunggulanJudul": "Kenapa beli lewat saya?",
+    "keunggulan": [
+      { "ikon": "💬", "judul": "Respon cepat", "teks": "Tanya lewat WhatsApp, saya jawab langsung tanpa berbelit." },
+      { "ikon": "💰", "judul": "Simulasi kredit jelas", "teks": "DP, tenor dan cicilan dihitung terbuka sebelum Anda memutuskan." },
+      { "ikon": "🚗", "judul": "Test drive mudah", "teks": "Atur jadwal sesuai waktu Anda di dealer terdekat." },
+      { "ikon": "🤝", "judul": "Pendampingan sampai serah terima", "teks": "Dari pilih model, pengajuan, sampai mobil sampai ke tangan Anda." }
+    ],
+    "artikelJudul": "Artikel Terbaru",
+    "artikelTeks": "Tips, panduan dan kabar terbaru seputar mobil Geely.",
+    "faqJudul": "Pertanyaan yang sering ditanyakan",
+    "faq": [
+      { "tanya": "Bagaimana cara test drive Geely?", "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City atau Tanah Abang." },
+      { "tanya": "Apakah bisa simulasi kredit Geely?", "jawab": "Bisa. Kirim pilihan model, besar DP dan tenor yang diinginkan lewat WhatsApp, lalu saya kirimkan simulasi cicilannya." },
+      { "tanya": "Di mana lokasi dealer Geely?", "jawab": "Dealer kami ada di BSD City (Tangerang Selatan) dan Tanah Abang (Jakarta Pusat)." }
+    ],
+    "ctaJudul": "Siap konsultasi?",
+    "ctaTeks": "Kirim pesan sekarang, saya bantu pilihkan model dan skema pembelian yang paling pas.",
+    "ctaTombol": "Chat WhatsApp Sekarang"
+  },
+  "halamanModel": {
+    "judul": "Model Mobil Geely",
+    "teks": "Pilih model yang sesuai kebutuhan Anda, lalu tanyakan harga dan promo terbaru ke saya.",
+    "seoDeskripsi": "Daftar lengkap mobil Geely: EX2, EX5, Starray dan Starray EM-i. Lihat keunggulan tiap model dan tanyakan harga serta promo terbaru."
+  },
+  "halamanPromo": {
+    "judul": "Promo Geely Terbaru",
+    "teks": "Penawaran spesial yang sedang berlaku. Syarat dan ketentuan berlaku, silakan konfirmasi ke saya.",
+    "kosong": "Belum ada promo aktif saat ini. Hubungi saya untuk info penawaran terbaru.",
+    "seoDeskripsi": "Promo Geely terbaru: diskon, bonus dan penawaran spesial mobil Geely EX2, EX5 dan Starray di Jakarta dan BSD City."
+  },
+  "halamanArtikel": {
+    "judul": "Artikel & Tips Geely",
+    "teks": "Panduan membeli, perawatan, dan kabar terbaru seputar mobil Geely.",
+    "seoDeskripsi": "Kumpulan artikel, tips membeli, perawatan, dan kabar terbaru seputar mobil Geely di Indonesia."
+  },
+  "kontak": {
+    "judul": "Hubungi Saya",
+    "teks": "Cara tercepat adalah lewat WhatsApp. Sebutkan model yang Anda minati dan kebutuhan Anda.",
+    "layananJudul": "Layanan",
+    "layanan": [
+      "Info harga dan promo terbaru",
+      "Simulasi kredit (DP dan tenor)",
+      "Jadwal test drive",
+      "Pendampingan sampai serah terima unit"
+    ],
+    "seoDeskripsi": "Hubungi sales Geely lewat WhatsApp untuk tanya harga, promo, simulasi kredit dan test drive. Dealer di BSD City dan Tanah Abang."
+  },
+  "footer": {
+    "catatan": "Website ini dikelola oleh sales consultant dealer resmi Geely. Harga, promo dan spesifikasi dapat berubah sewaktu-waktu, silakan konfirmasi ke sales."
+  }
+}

@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
+import { href } from '../lib/url';
+
+const K = CONTENT.kontak;
+---
+
+<Base title="Kontak Sales Geely & Lokasi Dealer" description={K.seoDeskripsi}>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href={href('/')}>Beranda</a> / Kontak</div>
+      <h1>{K.judul}</h1>
+      <p>{K.teks}</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap prose">
+      <p><a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener" style="text-decoration:none;color:#06210f">Chat WhatsApp {phoneDisplay}</a></p>
+      {SITE.email && <p>Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>}
+
+      <h2>Media Sosial</h2>
+      <div class="social-row">
+        {SITE.sosmed.map((s) => s.url
+          ? <a class="chip" href={s.url} target="_blank" rel="noopener me">{s.platform}: {s.label}</a>
+          : <span class="chip">{s.platform}: {s.label}</span>)}
+      </div>
+
+      <h2>Lokasi Dealer</h2>
+      <ul>{SITE.locations.map((l) => <li><strong>{l.nama}</strong> - {l.area}</li>)}</ul>
+
+      <h2>{K.layananJudul}</h2>
+      <ul>{K.layanan.map((l) => <li>{l}</li>)}</ul>
+
+      {SITE.situsLain.length > 0 && (
+        <>
+          <h2>Website Lainnya</h2>
+          {SITE.situsLain.map((s) => <a class="site-card" href={s.url} target="_blank" rel="noopener"><b>{s.nama}</b><small>{s.deskripsi}</small></a>)}
+        </>
+      )}
+    </div>
+  </section>
+</Base>

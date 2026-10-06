@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { SITE, waLink } from '../../config';
+import { href, asset } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const all = await getCollection('artikel', ({ data }) => !data.draft);
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+
+const url = new URL(href(`/artikel/${entry.id}/`), Astro.site).href;
+const fmt = (x: Date) => x.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+const imageAbs = d.image ? new URL(asset(d.image), Astro.site).href : undefined;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: d.title,
+    description: d.description,
+    datePublished: d.date.toISOString(),
+    dateModified: (d.updated ?? d.date).toISOString(),
+    inLanguage: 'id-ID',
+    mainEntityOfPage: url,
+    image: imageAbs ? [imageAbs] : undefined,
+    author: { '@type': 'Person', name: SITE.person, alternateName: SITE.nickname, jobTitle: SITE.job },
+    publisher: { '@type': 'Organization', name: SITE.name },
+    keywords: d.tags.join(', '),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Beranda', item: new URL(href('/'), Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: 'Artikel', item: new URL(href('/artikel/'), Astro.site).href },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  image={d.image}
+  type="article"
+  published={d.date}
+  modified={d.updated ?? d.date}
+  jsonLd={jsonLd}
+>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href={href('/')}>Beranda</a> / <a href={href('/artikel/')}>Artikel</a> / {d.category}</div>
+      <h1>{d.title}</h1>
+      <p>{d.description}</p>
+      <p class="meta">Ditulis oleh {SITE.nickname} &middot; <time datetime={d.date.toISOString()}>{fmt(d.date)}</time>{d.updated && <> &middot; Diperbarui {fmt(d.updated)}</>}</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <article class="prose">
+        {d.image && <img src={asset(d.image)} alt={d.title} loading="eager" width="1200" height="630" />}
+        <Content />
+        <div class="cta-box">
+          <h3>Ada pertanyaan soal Geely?</h3>
+          <p>Konsultasi gratis seputar harga, promo, simulasi kredit dan test drive.</p>
+          <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya baca artikel "${d.title}" dan ingin bertanya.`)} target="_blank" rel="noopener">Tanya via WhatsApp</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</Base>

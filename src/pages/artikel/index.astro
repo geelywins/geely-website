@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { CONTENT } from '../../config';
+import { href, asset } from '../../lib/url';
+
+const P = CONTENT.halamanArtikel;
+const fmt = (d: Date) => d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const artikel = (await getCollection('artikel', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Base title="Artikel & Tips Seputar Mobil Geely" description={P.seoDeskripsi}>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href={href('/')}>Beranda</a> / Artikel</div>
+      <h1>{P.judul}</h1>
+      <p>{P.teks}</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      {artikel.length === 0 && <p style="color:var(--muted)">Belum ada artikel.</p>}
+      <div class="grid">
+        {artikel.map((a) => (
+          <a class="card" href={href(`/artikel/${a.id}/`)}>
+            {a.data.image && <img class="photo" src={asset(a.data.image)} alt={a.data.title} loading="lazy" width="640" height="400" />}
+            <span class="tag">{a.data.category}</span>
+            <h2 style="font-size:1.15rem;margin:8px 0">{a.data.title}</h2>
+            <p>{a.data.description}</p>
+            <span class="meta">{fmt(a.data.date)}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
+import { asset, href } from '../lib/url';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  published?: Date;
+  modified?: Date;
+  jsonLd?: object | object[];
+  noindex?: boolean;
+}
+
+const { title, description, image, type = 'website', published, modified, jsonLd, noindex = false } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(asset(image || SITE.ogImage), Astro.site).href;
+const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+
+// Logo: kata pertama putih, sisanya berwarna. Contoh "Wins Geely" -> WINS + GEELY
+const [logoA, ...logoRest] = SITE.name.split(' ');
+const logoB = logoRest.join(' ');
+
+const sameAs = [...SITE.sosmed.map((s) => s.url), ...SITE.situsLain.map((s) => s.url)].filter(Boolean);
+
+// Data terstruktur dasar (selalu ada di semua halaman)
+const baseLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoDealer',
+  name: `${SITE.name} - ${SITE.dealer}`,
+  description: SITE.description,
+  url: new URL(href('/'), Astro.site).href,
+  telephone: `+${SITE.whatsapp}`,
+  areaServed: ['Jakarta', 'Tangerang Selatan', 'BSD City'],
+  brand: { '@type': 'Brand', name: 'Geely' },
+  employee: { '@type': 'Person', name: SITE.person, alternateName: SITE.nickname, jobTitle: SITE.job },
+  address: SITE.locations.map((l) => ({
+    '@type': 'PostalAddress',
+    streetAddress: l.nama,
+    addressLocality: l.area,
+    addressCountry: 'ID',
+  })),
+  sameAs,
+};
+const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+    <meta name="theme-color" content="#07090f" />
+    <link rel="icon" type="image/svg+xml" href={href('/favicon.svg')} />
+    <link rel="sitemap" href={href('/sitemap-index.xml')} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    {modified && <meta property="article:modified_time" content={modified.toISOString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {lds.map((ld) => <script type="application/ld+json" set:html={JSON.stringify(ld)} />)}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap nav">
+        <a href={href('/')} class="logo">{logoA.toUpperCase()}{logoB && <span>{logoB.toUpperCase()}</span>}</a>
+        <button class="menu-btn" aria-label="Buka menu" id="menuBtn">Menu</button>
+        <nav class="nav-links" id="navLinks" aria-label="Menu utama">
+          <a href={href('/')}>Beranda</a>
+          <a href={href('/model/')}>Model Mobil</a>
+          <a href={href('/promo/')}>Promo</a>
+          <a href={href('/artikel/')}>Artikel</a>
+          <a href={href('/kontak/')}>Kontak</a>
+          <a class="btn btn-wa" href={waLink()} rel="noopener" target="_blank">WhatsApp</a>
+        </nav>
+      </div>
+    </header>
+
+    <main><slot /></main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="foot-grid">
+          <div>
+            <h4>{SITE.name}</h4>
+            <p>{SITE.person} ({SITE.nickname})<br />{SITE.job}<br />{SITE.dealer}</p>
+            <p style="margin-top:8px">WhatsApp: <a href={waLink()} target="_blank" rel="noopener">{phoneDisplay}</a></p>
+          </div>
+          <div>
+            <h4>Lokasi Dealer</h4>
+            <ul>{SITE.locations.map((l) => <li>{l.nama}, {l.area}</li>)}</ul>
+          </div>
+          <div>
+            <h4>Ikuti Saya</h4>
+            <ul>
+              {SITE.sosmed.map((s) => (
+                <li>
+                  {s.url
+                    ? <a href={s.url} target="_blank" rel="noopener me">{s.platform}: {s.label}</a>
+                    : <span>{s.platform}: {s.label}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4>Website Lain</h4>
+            <ul>
+              {SITE.situsLain.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.nama}</a></li>)}
+              <li><a href={href('/model/')}>Model Mobil Geely</a></li>
+              <li><a href={href('/promo/')}>Promo Terbaru</a></li>
+              <li><a href={href('/artikel/')}>Artikel &amp; Tips</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="copy">
+          &copy; {new Date().getFullYear()} {SITE.name}. {CONTENT.footer.catatan}
+        </p>
+      </div>
+    </footer>
+
+    <a class="wa-float" href={waLink()} rel="noopener" target="_blank" aria-label="Chat WhatsApp">Chat WhatsApp</a>
+
+    <script is:inline>
+      const b = document.getElementById('menuBtn');
+      const n = document.getElementById('navLinks');
+      if (b && n) b.addEventListener('click', () => n.classList.toggle('open'));
+    </script>
+  </body>
+</html>

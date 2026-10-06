@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { MODELS, getModel } from '../data/models';
+import { ACTIVE_PROMOS } from '../data/promo';
+import { SITE, CONTENT, waLink } from '../config';
+import { href, asset, splitHighlight } from '../lib/url';
+
+const B = CONTENT.beranda;
+const hero = splitHighlight(B.hero.judul);
+
+const artikel = (await getCollection('artikel', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const promos = ACTIVE_PROMOS.slice(0, 3);
+const fmt = (d: Date) => d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    url: new URL(href('/'), Astro.site).href,
+    inLanguage: 'id-ID',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: B.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.tanya,
+      acceptedAnswer: { '@type': 'Answer', text: f.jawab },
+    })),
+  },
+];
+---
+
+<Base
+  title={`${SITE.tagline} - Harga, Promo, Test Drive`}
+  description={SITE.description}
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">{B.hero.label}</span>
+      <h1>{hero.before}{hero.mark && <em>{hero.mark}</em>}{hero.after}</h1>
+      <p>{B.hero.teks}</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener">{B.hero.tombolUtama}</a>
+        <a class="btn btn-ghost" href={href('/model/')}>{B.hero.tombolKedua}</a>
+      </div>
+      <div class="stats">
+        {B.stats.map((s) => <div class="stat"><b>{s.angka}</b><span>{s.teks}</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>{B.modelJudul}</h2>
+        <p>{B.modelTeks}</p>
+      </div>
+      <div class="grid">
+        {MODELS.map((m) => (
+          <a class="card" href={href(`/model/${m.slug}/`)}>
+            {m.foto
+              ? <img class="photo" src={asset(m.foto)} alt={m.nama} loading="lazy" width="640" height="400" />
+              : <div class="model-visual" style={`background: linear-gradient(135deg, ${m.warna}55, ${m.warna}11);`}>{m.nama.replace('Geely ', '')}</div>}
+            <span class="tag">{m.tipe}</span>
+            <h3>{m.nama}</h3>
+            <p>{m.ringkas}</p>
+            <span class="link-more">Lihat detail &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {promos.length > 0 && (
+    <section class="sec-alt">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>{B.promoJudul}</h2>
+          <p>{B.promoTeks}</p>
+        </div>
+        <div class="grid">
+          {promos.map((p) => (
+            <div class="card promo-card">
+              {p.foto && <img class="photo" src={asset(p.foto)} alt={p.judul} loading="lazy" width="640" height="400" />}
+              {p.model && getModel(p.model) && <span class="tag">{getModel(p.model)!.nama}</span>}
+              <h3>{p.judul}</h3>
+              <p>{p.deskripsi}</p>
+              {p.periode && <span class="periode">{p.periode}</span>}
+              <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya tertarik dengan promo "${p.judul}". Boleh minta infonya?`)} target="_blank" rel="noopener">Tanya promo ini</a>
+            </div>
+          ))}
+        </div>
+        <p style="margin-top:20px"><a class="link-more" href={href('/promo/')}>Lihat semua promo &rarr;</a></p>
+      </div>
+    </section>
+  )}
+
+  <section class={promos.length > 0 ? '' : 'sec-alt'}>
+    <div class="wrap">
+      <div class="sec-head"><h2>{B.keunggulanJudul}</h2></div>
+      <div class="grid">
+        {B.keunggulan.map((k) => (
+          <div class="feat"><i>{k.ikon}</i><div><h3>{k.judul}</h3><p>{k.teks}</p></div></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {artikel.length > 0 && (
+    <section class={promos.length > 0 ? 'sec-alt' : ''}>
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>{B.artikelJudul}</h2>
+          <p>{B.artikelTeks}</p>
+        </div>
+        <div class="grid">
+          {artikel.map((a) => (
+            <a class="card" href={href(`/artikel/${a.id}/`)}>
+              {a.data.image && <img class="photo" src={asset(a.data.image)} alt={a.data.title} loading="lazy" width="640" height="400" />}
+              <span class="tag">{a.data.category}</span>
+              <h3>{a.data.title}</h3>
+              <p>{a.data.description}</p>
+              <span class="meta">{fmt(a.data.date)}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class={promos.length > 0 && artikel.length > 0 ? '' : 'sec-alt'}>
+    <div class="wrap prose">
+      <div class="sec-head"><h2>{B.faqJudul}</h2></div>
+      {B.faq.map((f) => (
+        <>
+          <h3>{f.tanya}</h3>
+          <p>{f.jawab}</p>
+        </>
+      ))}
+      <div class="cta-box">
+        <h3>{B.ctaJudul}</h3>
+        <p>{B.ctaTeks}</p>
+        <a class="btn btn-wa" href={waLink()} target="_blank" rel="noopener">{B.ctaTombol}</a>
+      </div>
+    </div>
+  </section>
+</Base>

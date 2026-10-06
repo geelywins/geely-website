@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ACTIVE_PROMOS } from '../../data/promo';
+import { getModel } from '../../data/models';
+import { CONTENT, waLink } from '../../config';
+import { href, asset } from '../../lib/url';
+
+const P = CONTENT.halamanPromo;
+---
+
+<Base title="Promo Geely Terbaru" description={P.seoDeskripsi}>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href={href('/')}>Beranda</a> / Promo</div>
+      <h1>{P.judul}</h1>
+      <p>{P.teks}</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      {ACTIVE_PROMOS.length === 0 && <p style="color:var(--muted)">{P.kosong}</p>}
+      <div class="grid">
+        {ACTIVE_PROMOS.map((p) => (
+          <div class="card promo-card">
+            {p.foto && <img class="photo" src={asset(p.foto)} alt={p.judul} loading="lazy" width="640" height="400" />}
+            {p.model && getModel(p.model) && <span class="tag">{getModel(p.model)!.nama}</span>}
+            <h2 style="font-size:1.2rem;margin:6px 0">{p.judul}</h2>
+            <p>{p.deskripsi}</p>
+            {p.periode && <span class="periode">{p.periode}</span>}
+            <a class="btn btn-wa" href={waLink(`Halo Kak Wins, saya tertarik dengan promo "${p.judul}". Boleh minta infonya?`)} target="_blank" rel="noopener">Tanya promo ini</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

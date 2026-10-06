@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base title="Halaman tidak ditemukan" description="Halaman yang Anda cari tidak ditemukan." noindex={true}>
+  <section>
+    <div class="wrap prose" style="text-align:center">
+      <h1>404</h1>
+      <p>Halaman tidak ditemukan.</p>
+      <p><a class="btn btn-primary" href={`${base}/`} style="text-decoration:none;color:#fff">Kembali ke Beranda</a></p>
+    </div>
+  </section>
+</Base>

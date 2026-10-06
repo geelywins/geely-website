@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import { MODELS } from '../../data/models';
+import { CONTENT } from '../../config';
+import { href, asset } from '../../lib/url';
+
+const P = CONTENT.halamanModel;
+---
+
+<Base title="Daftar Model Mobil Geely Terbaru" description={P.seoDeskripsi}>
+  <div class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href={href('/')}>Beranda</a> / Model Mobil</div>
+      <h1>{P.judul}</h1>
+      <p>{P.teks}</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap grid">
+      {MODELS.map((m) => (
+        <a class="card" href={href(`/model/${m.slug}/`)}>
+          {m.foto
+            ? <img class="photo" src={asset(m.foto)} alt={m.nama} loading="lazy" width="640" height="400" />
+            : <div class="model-visual" style={`background: linear-gradient(135deg, ${m.warna}55, ${m.warna}11);`}>{m.nama.replace('Geely ', '')}</div>}
+          <span class="tag">{m.tipe}</span>
+          <h2 style="font-size:1.2rem;margin:6px 0">{m.nama}</h2>
+          <p>{m.ringkas}</p>
+          <span class="link-more">Lihat detail &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

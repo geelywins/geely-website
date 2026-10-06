@@ -20,6 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Kalau ada file .zip di halaman utama repository, ekstrak otomatis.
+      # Isi yang sudah diatur lewat admin (src/data, src/content, public/images) tidak ditimpa.
       - name: Ekstrak ZIP kalau ada
         env:
           BRANCH: ${{ github.ref_name }}
@@ -39,8 +41,13 @@ jobs:
               echo "package.json tidak ditemukan di dalam ZIP"; exit 1
             fi
             rm -rf "$SRC/.github"
+            # Folder isi (data, artikel, foto): hanya tambah file yang belum ada, file yang sudah Anda ubah tidak ditimpa
             for d in src/data src/content public/images; do
-              if [ -d "$d" ]; then rm -rf "$SRC/$d"; fi
+              if [ -d "$SRC/$d" ]; then
+                mkdir -p "$d"
+                cp -an "$SRC/$d/." "$d/"
+                rm -rf "$SRC/$d"
+              fi
             done
             cp -a "$SRC"/. .
             rm -f "$Z"
@@ -59,6 +66,10 @@ jobs:
       - name: Install
         run: npm install
 
+      # Alamat otomatis: https://USERNAME.github.io/NAMA-REPO/
+      # Kalau nanti pakai domain sendiri, ganti dua baris di bawah:
+      #   SITE_URL: https://domainanda.com
+      #   BASE_PATH: ""
       - name: Build
         run: npm run build
         env:

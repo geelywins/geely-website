@@ -37,7 +37,13 @@
     "keunggulan": [
       "Kabin lega untuk keluarga",
       "Tanpa BBM, perawatan lebih sederhana",
-      "Fitur modern untuk kenyamanan berkendara"
+      "Fitur modern untuk kenyamanan berkendara",
+      "Kursi Pijat",
+      "Ventilated Seat",
+      "Speaker by Flyme Sound",
+      "HUD",
+      "ADAS Lvl 2",
+      "Easy Entry Access"
     ],
     "harga": "Hubungi sales untuk harga & promo terbaru",
     "spesifikasi": [
@@ -50,35 +56,11 @@
         "nilai": "SUV keluarga"
       }
     ],
-    "foto": "",
-    "galeri": [],
+    "foto": "/images/model/190257-muxao8b2.jpg",
+    "galeri": [
+      "/images/model/114038-muxaum91.jpg"
+    ],
     "warna": "#00a98f"
-  },
-  {
-    "slug": "geely-starray",
-    "nama": "Geely Coolray",
-    "tipe": "SUV Premium",
-    "ringkas": "Crossover bergaya modern dengan kabin nyaman dan fitur lengkap.",
-    "deskripsi": "Geely Coolray hadir sebagai Crossover dengan desain modern dan kabin yang nyaman untuk perjalanan dalam kota maupun luar kota.",
-    "keunggulan": [
-      "Desain modern dan elegan",
-      "Kabin nyaman untuk perjalanan jauh",
-      "Pilihan varian sesuai kebutuhan"
-    ],
-    "harga": "Mulai Rp 333.000.000 (OTR jakarta)",
-    "spesifikasi": [
-      {
-        "label": "Tipe",
-        "nilai": "Crossover"
-      },
-      {
-        "label": "Segmen",
-        "nilai": "Crossover Turbo"
-      }
-    ],
-    "foto": "",
-    "galeri": [],
-    "warna": "#7b61ff"
   },
   {
     "slug": "geely-starray-em-i",
@@ -105,5 +87,31 @@
     "foto": "",
     "galeri": [],
     "warna": "#f2994a"
+  },
+  {
+    "slug": "geely-starray",
+    "nama": "Geely Coolray",
+    "tipe": "SUV Premium",
+    "ringkas": "Crossover bergaya modern dengan kabin nyaman dan fitur lengkap.",
+    "deskripsi": "Geely Coolray hadir sebagai Crossover dengan desain modern dan kabin yang nyaman untuk perjalanan dalam kota maupun luar kota.",
+    "keunggulan": [
+      "Desain modern dan elegan",
+      "Kabin nyaman untuk perjalanan jauh",
+      "Pilihan varian sesuai kebutuhan"
+    ],
+    "harga": "Mulai Rp 333.000.000 (OTR jakarta)",
+    "spesifikasi": [
+      {
+        "label": "Tipe",
+        "nilai": "Crossover"
+      },
+      {
+        "label": "Segmen",
+        "nilai": "Crossover Turbo"
+      }
+    ],
+    "foto": "",
+    "galeri": [],
+    "warna": "#7b61ff"
   }
 ]

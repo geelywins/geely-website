@@ -2,8 +2,9 @@
 title: "Cara Test Drive Geely di Jakarta dan BSD City"
 description: "Panduan singkat mengatur jadwal test drive Geely, apa yang perlu disiapkan, dan hal yang sebaiknya dicek saat mencoba mobil."
 date: 2026-10-06
+updated: 2026-10-07
 category: "Tips Membeli"
-tags: ["test drive", "geely", "jakarta", "bsd city"]
+tags: ["test drive","geely","jakarta","bsd city"]
 ---
 
 Test drive adalah cara terbaik untuk memastikan mobil benar-benar cocok sebelum Anda memutuskan membeli. Berikut langkah mudahnya.

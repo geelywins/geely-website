@@ -1,9 +1,9 @@
 {
   "namaSitus": "Wins Geely",
   "namaPanggilan": "Wins",
-  "namaLengkap": "Edwin Sowita S.",
-  "profesi": "Sales Mobil Geely",
-  "tagline": "Sales Consultant Geely Jakarta & BSD City",
+  "namaLengkap": "Edwin SS",
+  "profesi": "Geely Sales Consultant",
+  "tagline": "Sales Consultant Terbaik dan Terpercaya Geely BSD City",
   "deskripsi": "Konsultan penjualan Geely di Jakarta dan BSD City. Info harga, promo, simulasi kredit dan test drive Geely EX2, EX5, Starray dan model lainnya.",
   "dealer": "PT Dwi Putra Motor (Geely Group)",
   "whatsapp": "6287710208822",
@@ -11,19 +11,53 @@
   "email": "",
   "ogImage": "/og-default.png",
   "sosmed": [
-    { "platform": "Instagram", "label": "@geelywins", "url": "https://www.instagram.com/geelywins" },
-    { "platform": "Threads", "label": "@geelywins", "url": "https://www.threads.com/@geelywins" },
-    { "platform": "YouTube", "label": "@geelywindps", "url": "https://www.youtube.com/@geelywindps" },
-    { "platform": "TikTok", "label": "@geely.auto.bsd", "url": "https://www.tiktok.com/@geely.auto.bsd" },
-    { "platform": "TikTok", "label": "@geelywinss", "url": "https://www.tiktok.com/@geelywinss" },
-    { "platform": "Facebook", "label": "Geely wins", "url": "" }
+    {
+      "platform": "Instagram",
+      "label": "@geelywins",
+      "url": "https://www.instagram.com/geelywins"
+    },
+    {
+      "platform": "Threads",
+      "label": "@geelywins",
+      "url": "https://www.threads.com/@geelywins"
+    },
+    {
+      "platform": "YouTube",
+      "label": "@geelywindps",
+      "url": "https://www.youtube.com/@geelywindps"
+    },
+    {
+      "platform": "TikTok",
+      "label": "@geely.auto.bsd",
+      "url": "https://www.tiktok.com/@geely.auto.bsd"
+    },
+    {
+      "platform": "TikTok",
+      "label": "@geelywinss",
+      "url": "https://www.tiktok.com/@geelywinss"
+    },
+    {
+      "platform": "Facebook",
+      "label": "Geely wins",
+      "url": ""
+    }
   ],
   "situsLain": [
-    { "nama": "LapakMu", "url": "https://lapakmu.store", "deskripsi": "Toko online aksesoris mobil dan produk pilihan" },
-    { "nama": "Promo Geely Auto", "url": "https://promogeelyauto.com", "deskripsi": "Website promo dan info Geely" }
+    {
+      "nama": "LapakMu",
+      "url": "https://lapakmu.store",
+      "deskripsi": "Toko online aksesoris mobil dan produk pilihan"
+    },
+    {
+      "nama": "Promo Geely Auto",
+      "url": "https://promogeelyauto.com",
+      "deskripsi": "Website promo dan info Geely"
+    }
   ],
   "lokasi": [
-    { "nama": "Geely BSD City", "area": "BSD City, Tangerang Selatan" },
-    { "nama": "Geely Tanah Abang", "area": "Tanah Abang, Jakarta Pusat" }
+    {
+      "nama": "Geely BSD City",
+      "area": "Kav. Commercial de Park, Jl. Boulevard Utara No.lot 2 no.17, Lengkong Wetan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15331 BSD City, Tangerang Selatan"
+    }
   ]
 }

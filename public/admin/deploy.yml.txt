@@ -1,0 +1,92 @@
+name: Deploy website ke GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Kalau ada file .zip di halaman utama repository, ekstrak otomatis.
+      # Isi yang sudah diatur lewat admin (src/data, src/content, public/images) tidak ditimpa.
+      - name: Ekstrak ZIP kalau ada
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          shopt -s nullglob
+          zips=(*.zip)
+          if [ ${#zips[@]} -gt 0 ]; then
+            for Z in "${zips[@]}"; do
+              echo "Mengekstrak $Z"
+              rm -rf /tmp/zipx && mkdir /tmp/zipx
+              unzip -q "$Z" -d /tmp/zipx
+              SRC=/tmp/zipx
+              if [ ! -f "$SRC/package.json" ]; then
+                SRC=$(find /tmp/zipx -maxdepth 2 -name package.json -not -path '*/node_modules/*' | head -1 | xargs -r dirname)
+              fi
+              if [ -z "$SRC" ] || [ ! -f "$SRC/package.json" ]; then
+                echo "package.json tidak ditemukan di dalam $Z"; exit 1
+              fi
+              rm -rf "$SRC/.github"
+              # Folder isi (data, artikel, foto): hanya tambah file yang belum ada, file yang sudah Anda ubah tidak ditimpa
+              for d in src/data src/content public/images; do
+                if [ -d "$SRC/$d" ]; then
+                  mkdir -p "$d"
+                  cp -an "$SRC/$d/." "$d/"
+                  rm -rf "$SRC/$d"
+                fi
+              done
+              cp -a "$SRC"/. .
+              rm -f "$Z"
+            done
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Terapkan pembaruan dari ZIP otomatis" || true
+            git push origin "HEAD:$BRANCH"
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm install
+
+      # Alamat otomatis: https://USERNAME.github.io/NAMA-REPO/
+      # Kalau nanti pakai domain sendiri, ganti dua baris di bawah:
+      #   SITE_URL: https://domainanda.com
+      #   BASE_PATH: ""
+      - name: Build
+        run: npm run build
+        env:
+          SITE_URL: https://${{ github.repository_owner }}.github.io
+          BASE_PATH: /${{ github.event.repository.name }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

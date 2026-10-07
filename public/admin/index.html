@@ -80,6 +80,7 @@
     <button class="sec" data-tab="delivery">Delivery</button>
     <button class="sec" data-tab="testimoni">Testimoni</button>
     <button class="sec" data-tab="halaman">Isi Halaman</button>
+    <button class="sec" data-tab="unggah">Upload ZIP</button>
     <button class="sec" data-tab="setelan">Pengaturan</button>
     <button class="sec" data-tab="keluar">Keluar</button>
   </div>
@@ -483,7 +484,7 @@
     { key: 'date', label: 'Tanggal tayang', type: 'date' },
     { key: 'image', label: 'Gambar utama artikel', type: 'image', folder: 'artikel', onUploaded: function (u) { lastArticleImg = u; } },
     { key: 'body', label: 'Isi artikel (Markdown: ## Judul bagian, - daftar, **tebal**, ![keterangan](/images/artikel/foto.jpg))', type: 'textarea', mono: true, rows: 14, req: true, keepSpace: true },
-    { key: 'draft', label: 'Simpan sebagai draft (belum tayang)', type: 'check', def: false }
+    { key: 'draft', label: 'Draft (belum tayang). Hilangkan centang lalu Simpan untuk menerbitkan', type: 'check', def: false }
   ]; };
   var lastArticleImg = '';
 
@@ -517,12 +518,40 @@
     try { items = await gh('contents/' + DIR + '?ref=' + encodeURIComponent(cfg().branch)); }
     catch (e) { if (my !== navId) return; if (/404/.test(e.message)) items = []; else return show(e.message, 'err'); }
     if (my !== navId) return;
-    var files = items.filter(function (f) { return /\.md$/.test(f.name); }).sort(function (a, b) { return b.name.localeCompare(a.name); });
-    var card = el('div', { class: 'card' }, el('h2', { text: 'Daftar Artikel' }), el('div', { class: 'row', style: 'margin-top:0' }, btn('+ Tulis Artikel Baru', '', function () { editArticle(null); })));
-    if (!files.length) card.append(el('p', { class: 'hint', text: 'Belum ada artikel.' }));
-    files.forEach(function (f) {
-      card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: f.name.replace(/\.md$/, '') }), el('small', { text: f.path })), el('div', { class: 'btns' }, btn('Edit', 'sec sm', function () { editArticle(f.path); }))));
-    });
+    var files = items.filter(function (f) { return /\.md$/.test(f.name); });
+    // baca judul & status tiap artikel
+    var metas = await Promise.all(files.map(async function (f) {
+      try { var r = await readFile(f.path); var m = parseMd(r.text); return { f: f, fm: m.fm, text: r.text, sha: r.sha }; }
+      catch (e) { return { f: f, fm: {}, text: null, sha: null }; }
+    }));
+    if (my !== navId) return;
+    metas.forEach(function (m) { m.draft = m.fm.draft === true || m.fm.draft === 'true'; m.title = m.fm.title || m.f.name.replace(/\.md$/, ''); m.date = String(m.fm.date || '').slice(0, 10); });
+    var byDate = function (a, b) { return (b.date || '').localeCompare(a.date || '') || b.f.name.localeCompare(a.f.name); };
+    var drafts = metas.filter(function (m) { return m.draft; }).sort(byDate);
+    var live = metas.filter(function (m) { return !m.draft; }).sort(byDate);
+
+    var card = el('div', { class: 'card' }, el('h2', { text: 'Artikel' }), el('div', { class: 'row', style: 'margin-top:0' }, btn('+ Tulis Artikel Baru', '', function () { editArticle(null); })));
+    function section(title, hint, list, isDraft) {
+      card.append(el('h3', { text: title + ' (' + list.length + ')' }));
+      if (hint) card.append(el('p', { class: 'hint', text: hint }));
+      if (!list.length) card.append(el('p', { class: 'hint', text: isDraft ? 'Tidak ada draft.' : 'Belum ada artikel terbit.' }));
+      list.forEach(function (m) {
+        var b = [btn('Edit', 'sec sm', function () { editArticle(m.f.path); })];
+        if (isDraft && m.text) b.unshift(btn('Terbitkan', 'sm', async function (ev) {
+          if (!confirm('Terbitkan artikel ini sekarang?\n\n' + m.title)) return;
+          ev.target.disabled = true;
+          try {
+            var p2 = parseMd(m.text); var a = Object.assign({}, p2.fm, { body: p2.body, draft: false, date: today() });
+            await putFile(m.f.path, enc(buildMd(a)), 'Terbitkan artikel: ' + m.title, m.sha);
+            if (my !== navId) return;
+            show('Artikel diterbitkan! Muncul di website dalam ±1-3 menit.'); tabArtikel();
+          } catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
+        }));
+        card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: m.title }), el('small', { text: (m.fm.category || '') + (m.date ? ' - ' + m.date : '') })), el('div', { class: 'btns' }, b)));
+      });
+    }
+    section('Draft siap ditinjau', 'Artikel yang sudah disiapkan tetapi belum tayang. Buka Edit untuk membaca dan mengubah, lalu tekan Terbitkan.', drafts, true);
+    section('Sudah terbit', '', live, false);
     view.innerHTML = ''; view.append(card);
   }
 
@@ -534,7 +563,7 @@
     }
     var isNew = !path; lastArticleImg = '';
     renderForm({
-      title: isNew ? 'Artikel Baru' : 'Edit Artikel', fields: SCH.artikel(isNew), data: data, saveLabel: 'Simpan & Terbitkan', onCancel: tabArtikel,
+      title: isNew ? 'Artikel Baru' : 'Edit Artikel', fields: SCH.artikel(isNew), data: data, saveLabel: 'Simpan', onCancel: tabArtikel,
       intro: 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan.',
       onSave: async function (v) {
         var slug = v.slug || slugify(v.title); if (!slug) throw new Error('Alamat artikel kosong.');
@@ -543,7 +572,7 @@
         var target = path || (DIR + '/' + slug + '.md');
         await putFile(target, enc(buildMd(a)), (isNew ? 'Artikel baru: ' : 'Update artikel: ') + a.title, sha);
         if (my !== navId) return;
-        show('Tersimpan! Website diperbarui otomatis (±1-3 menit).'); tabArtikel();
+        show(a.draft ? 'Draft tersimpan (belum tayang di website).' : 'Tersimpan! Website diperbarui otomatis (±1-3 menit).'); tabArtikel();
       },
       onDelete: isNew ? null : async function () {
         await gh('contents/' + path, { method: 'DELETE', body: JSON.stringify({ message: 'Hapus artikel: ' + path, sha: sha, branch: cfg().branch }) });
@@ -645,9 +674,57 @@
     d.whatsapp = wa; return d;
   }
 
+  // =============== upload ZIP pembaruan website ===============
+  function tabUnggah() {
+    var c = cfg(), file = null;
+    var inp = el('input', { type: 'file', accept: '.zip,application/zip,application/x-zip-compressed' });
+    var info = el('div', { class: 'hint', text: 'Belum ada file dipilih.' });
+    var go1 = btn('Unggah & Terapkan', '', async function () {
+      if (!file) return show('Pilih file ZIP dulu.', 'err');
+      if (!/\.zip$/i.test(file.name)) return show('File harus berformat .zip', 'err');
+      if (file.size > 40 * 1024 * 1024) return show('Ukuran ZIP terlalu besar (maks. 40 MB).', 'err');
+      if (!confirm('Unggah ' + file.name + ' dan terapkan ke website?\n\nIsi yang sudah Anda ubah lewat admin tidak akan ditimpa.')) return;
+      go1.disabled = true; info.textContent = 'Mengunggah...';
+      try {
+        var name = 'update-' + Date.now().toString(36) + '.zip';
+        await putFile(name, await fileToB64(file), 'Unggah pembaruan website: ' + file.name, null);
+        info.textContent = '';
+        show('Berhasil diunggah. Website diproses otomatis, tunggu ±2-4 menit lalu muat ulang website. Cek progres di tab Actions GitHub.');
+        inp.value = ''; file = null;
+      } catch (e) { info.textContent = ''; show(e.message, 'err'); }
+      go1.disabled = false;
+    });
+    inp.onchange = function () { file = inp.files[0] || null; info.textContent = file ? file.name + ' (' + Math.round(file.size / 1024) + ' KB)' : 'Belum ada file dipilih.'; };
+    var card = el('div', { class: 'card' }, el('h2', { text: 'Upload ZIP Pembaruan Website' }),
+      el('p', { class: 'hint', text: 'Pilih file ZIP yang dikirim Claude. File akan dikirim ke GitHub, lalu website membangun ulang dan terbit otomatis. Isi yang sudah Anda ubah lewat admin (artikel, model, promo, foto, pengaturan) tidak ditimpa.' }),
+      el('label', { text: 'File ZIP' }), inp, info, el('div', { class: 'row' }, go1),
+      el('p', { class: 'hint', text: 'Catatan: file proses (folder .github) tidak ikut diterapkan lewat ZIP. Perbarui lewat tombol di bawah.' }));
+    var wfInfo = el('div', { class: 'hint', text: '' });
+    var wfBtn = btn('Perbarui file proses (deploy.yml)', 'sec', async function () {
+      if (!confirm('Perbarui file proses website (deploy.yml) ke versi terbaru?')) return;
+      wfBtn.disabled = true; wfInfo.textContent = 'Memproses...';
+      try {
+        var r0 = await fetch('./deploy.yml.txt', { cache: 'no-cache' });
+        if (!r0.ok) throw new Error('File deploy.yml.txt belum ada di website. Unggah ZIP terbaru dulu.');
+        var txt = await r0.text(), path = '.github/workflows/deploy.yml', sha = null;
+        try { sha = (await readFile(path)).sha; } catch (e) { if (String(e.message).indexOf('GitHub 404') !== 0) throw e; }
+        await putFile(path, enc(txt), 'Perbarui file proses website (deploy.yml)', sha);
+        wfInfo.textContent = ''; show('deploy.yml berhasil diperbarui.');
+      } catch (e) {
+        wfInfo.textContent = '';
+        var m = /403|404|workflow/i.test(e.message) && !/deploy.yml.txt/.test(e.message) ? e.message + ' | Kemungkinan token belum punya izin "Workflows: Read and write". Buka GitHub, Settings, Developer settings, Fine-grained tokens, edit token, tambahkan izin Workflows = Read and write, lalu simpan.' : e.message;
+        show(m, 'err');
+      }
+      wfBtn.disabled = false;
+    });
+    card.append(el('h3', { text: 'File proses website' }), el('p', { class: 'hint', text: 'Dipakai kalau Claude memberi tahu deploy.yml berubah. Token harus punya izin Workflows: Read and write.' }), el('div', { class: 'row' }, wfBtn), wfInfo);
+    view.innerHTML = ''; view.append(card);
+  }
+
   // =============== menu & awal ===============
   function setTab(name) { Array.prototype.forEach.call($('tabs').querySelectorAll('button'), function (b) { b.classList.toggle('on', b.getAttribute('data-tab') === name); }); }
   function go(name) {
+    if (name === 'keluar' && !confirm('Yakin mau keluar?\n\nAnda harus memasukkan token GitHub lagi untuk masuk.')) return;
     navId++; hideMsg(); setTab(name);
     if (name === 'artikel') return tabArtikel();
     if (name === 'model') return openCollection(COL.model);
@@ -655,6 +732,7 @@
     if (name === 'slider') return openCollection(COL.slider);
     if (name === 'delivery') return openCollection(COL.delivery);
     if (name === 'testimoni') return openCollection(COL.testimoni);
+    if (name === 'unggah') return tabUnggah();
     if (name === 'halaman') return openDoc('src/data/content.json', 'Isi Halaman', SCH.content, null, 'Buka tiap bagian di bawah untuk mengubah tulisan di website.', 'content');
     if (name === 'setelan') return openDoc('src/data/settings.json', 'Pengaturan Website', SCH.settings, normSettings, undefined, 'settings');
     if (name === 'keluar') { ['g_owner', 'g_repo', 'g_branch', 'g_token'].forEach(function (k) { localStorage.removeItem(k); }); $('token').value = ''; showLogin(); show('Anda sudah keluar. Data login dihapus dari browser ini.'); }

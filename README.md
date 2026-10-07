@@ -8,7 +8,8 @@ Buka `https://USERNAME.github.io/geely-website/admin/`
 
 | Menu | Isinya |
 |---|---|
-| **Artikel** | Tulis, edit, hapus artikel. Bisa unggah foto utama dan foto di dalam tulisan. Bisa simpan sebagai draft. |
+| **Artikel** | Daftar **Draft siap ditinjau** (disiapkan Claude) dan **Sudah terbit**. Buka Edit untuk membaca/mengubah, tekan **Terbitkan** untuk tayang. Bisa tulis artikel baru, unggah foto, dan simpan sebagai draft. |
+| **Upload ZIP** | Pilih ZIP pembaruan dari Claude, tekan Unggah. Terkirim ke GitHub dan website terbit otomatis (±2-4 menit). Isi yang sudah Anda ubah tidak ditimpa. |
 | **Model Mobil** | Nama, foto utama, galeri foto, deskripsi, keunggulan, harga, spesifikasi, tambah/hapus model, atur urutan. |
 | **Slider** | Slide besar di paling atas Beranda: judul (kata dalam `{kurung}` berwarna), teks, foto latar, dua tombol, aktif/nonaktif, atur urutan. |
 | **Promo** | Judul, isi, periode, foto/banner, kaitkan ke model tertentu, aktif/nonaktif, atur urutan. |

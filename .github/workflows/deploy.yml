@@ -98,3 +98,41 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Setelah website tayang: kabari mesin pencari (IndexNow) hanya untuk halaman baru/berubah.
+  # Hanya jalan kalau memakai domain sendiri (ada file public/CNAME dan file kunci public/<kunci>.txt).
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Siapkan
+        id: cfg
+        run: |
+          DOMAIN=""; KEY=""
+          if [ -s public/CNAME ]; then DOMAIN=$(head -1 public/CNAME | tr -d '[:space:]'); fi
+          for f in public/*.txt; do
+            b=$(basename "$f" .txt)
+            if echo "$b" | grep -Eq '^[0-9a-f]{32}$'; then KEY="$b"; fi
+          done
+          echo "domain=$DOMAIN" >> "$GITHUB_OUTPUT"
+          echo "key=$KEY" >> "$GITHUB_OUTPUT"
+      - name: Ambil catatan sebelumnya
+        if: steps.cfg.outputs.domain != '' && steps.cfg.outputs.key != ''
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow
+          key: indexnow-none
+          restore-keys: indexnow-
+      - name: Kirim ke IndexNow
+        if: steps.cfg.outputs.domain != '' && steps.cfg.outputs.key != ''
+        run: |
+          sleep 90
+          node scripts/indexnow.mjs "${{ steps.cfg.outputs.domain }}" "${{ steps.cfg.outputs.key }}"
+      - name: Simpan catatan
+        if: steps.cfg.outputs.domain != '' && steps.cfg.outputs.key != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow
+          key: indexnow-${{ github.run_id }}

@@ -5,7 +5,6 @@ date: 2026-10-07
 category: "Perbandingan"
 tags: ["geely ex2","geely ex5","perbandingan mobil listrik"]
 image: "/images/artikel/190258-muxfhnsg.jpg"
-draft: true
 ---
 
 Dua mobil listrik Geely di Indonesia ini punya karakter berbeda. Berikut perbandingan singkatnya berdasarkan data peluncuran. Angka dapat berubah, jadi konfirmasi ke sales.

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import fs from 'node:fs';
 
 // Dua nilai ini diisi otomatis oleh GitHub Actions (lihat .github/workflows/deploy.yml).
 // Kalau nanti sudah punya domain sendiri, isi SITE_URL dengan domain tersebut dan kosongkan BASE_PATH.
@@ -58,6 +59,18 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/admin/'),
+      // Tanggal terakhir diubah untuk tiap artikel (membantu Google tahu mana yang baru/diperbarui)
+      serialize(item) {
+        const m = item.url.match(/\/artikel\/([^/]+)\/$/);
+        if (m) {
+          try {
+            const t = fs.readFileSync(`src/content/artikel/${m[1]}.md`, 'utf8');
+            const d = (t.match(/^updated:\s*(\d{4}-\d{2}-\d{2})/m) || t.match(/^date:\s*(\d{4}-\d{2}-\d{2})/m) || [])[1];
+            if (d) item.lastmod = d;
+          } catch {}
+        }
+        return item;
+      },
     }),
   ],
 });

@@ -118,3 +118,12 @@ File `public/CNAME` berisi nama domain. Kalau file itu ada, website otomatis dib
 - Artikel tanpa gambar sampul otomatis memakai gambar buatan sistem (`/img/artikel/<slug>/sampul.png`).
 - Artikel yang isinya belum punya gambar otomatis diberi **gambar sisipan di tengah** (`sisip.png`, berisi poin penting dari heading artikel). Kalau Anda menaruh gambar sendiri di isi artikel, sisipan otomatis tidak ditambahkan.
 - Cek standar SEO artikel (kata, kalimat, tag, tautan, FAQ): `node scripts-validate.mjs` (opsional, butuh Node di komputer; di HP cukup lihat hasil di website).
+
+## Indexing otomatis
+- Sitemap (`/sitemap-index.xml`) memuat tanggal terakhir diubah tiap artikel, supaya Google tahu mana yang baru.
+- Setiap kali website tayang (update admin, ZIP, atau artikel terjadwal), proses `indexnow` mengirim **hanya halaman baru/berubah** ke Bing, Yandex dll lewat IndexNow (`scripts/indexnow.mjs`, kunci di `public/<kunci>.txt`). Hanya aktif kalau ada `public/CNAME`.
+- Google tidak menerima IndexNow; Google membaca sitemap sendiri (Search Console). Setelah menerbitkan artikel penting, boleh minta pengindeksan manual (URL inspection → Request indexing).
+- Wajib: tekan "Perbarui file proses (deploy.yml)" di Admin setelah mengunggah ZIP ini.
+
+## Salin link artikel untuk Google Search Console
+Admin → Artikel → bagian "Sudah terbit": tombol **Salin link** (per artikel) dan **Salin semua link terbit**. Link otomatis memakai domain dari `public/CNAME`.

@@ -389,6 +389,8 @@
     { key: 'whatsapp', label: 'Nomor WhatsApp', req: true, hint: 'Boleh ditulis 087710208822, otomatis jadi format 62...' },
     { key: 'pesanWa', label: 'Pesan awal WhatsApp (yang terkirim saat orang menekan tombol WA)', type: 'textarea' },
     { key: 'email', label: 'Email (boleh kosong)', lower: true },
+    { key: 'fotoProfil', label: 'Foto profil Anda (tampil kecil di bawah slider beranda, ideal persegi 400x400, wajah di tengah)', type: 'image', folder: 'umum' },
+    { key: 'sapaanProfil', label: 'Tulisan kecil di samping foto profil (contoh: Konsultan Anda untuk Geely)' },
     { key: 'ogImage', label: 'Gambar saat link dibagikan ke sosmed (ideal 1200x630)', type: 'image', folder: 'umum' },
     { key: 'sosmed', label: 'Media sosial', type: 'list', addLabel: 'Tambah sosmed', blank: { platform: 'Instagram', label: '', url: '' }, fields: [
       { key: 'platform', label: 'Platform (logo tampil otomatis)', type: 'select', options: ['Instagram', 'Threads', 'YouTube', 'TikTok', 'Facebook', 'WhatsApp', 'X', 'Telegram', 'Lainnya'].map(function (x) { return { v: x, l: x }; }) },

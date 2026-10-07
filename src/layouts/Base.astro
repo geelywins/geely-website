@@ -1,9 +1,6 @@
 ---
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fontsource-variable/bricolage-grotesque';
-import '@fontsource-variable/dm-sans';
 import '../styles/global.css';
-import '../styles/studio.css';
 import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
 import { asset, href, smartLink } from '../lib/url';
 import Icon from '../components/Icon.astro';
@@ -76,8 +73,8 @@ const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : 
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href={href('/favicon.ico')} sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href={href('/favicon-32.png')} />
     <link rel="apple-touch-icon" href={href('/apple-touch-icon.png')} />

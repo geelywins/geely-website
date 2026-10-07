@@ -17,6 +17,8 @@ export const SITE = {
   dealer: settings.dealer as string,
   whatsapp: settings.whatsapp as string,
   email: settings.email as string,
+  photo: (settings.fotoProfil || '') as string,
+  greet: (settings.sapaanProfil || '') as string,
   ogImage: (settings.ogImage || '/og-default.png') as string,
   sosmed: settings.sosmed as Sosmed[],
   situsLain: settings.situsLain as SitusLain[],

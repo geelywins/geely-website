@@ -36,7 +36,6 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
 <Base title={`${SITE.tagline} - Harga, Promo, Test Drive`} description={SITE.description} jsonLd={jsonLd}>
   {SLIDES.length > 0 && (
     <section class="hero-slider" data-slider aria-roledescription="carousel" aria-label="Sorotan" style="padding:0">
-      <canvas class="hero-fx" aria-hidden="true"></canvas>
       {SLIDES.map((s, i) => {
         const h = splitHighlight(s.judul);
         const Tag = i === 0 ? 'h1' : 'h2';
@@ -73,34 +72,23 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
   )}
 
   <section class="stats-strip">
-    <div class="container"><div class="stats-grid">
+    <div class="container">
+      <div class="profile-chip reveal">
+        {SITE.photo
+          ? <img src={asset(SITE.photo)} alt={`Foto ${SITE.person}`} width="56" height="56" loading="eager" decoding="async" />
+          : <span class="pc-ph" aria-hidden="true">{SITE.nickname.slice(0, 1).toUpperCase()}</span>}
+        <div class="pc-t"><b>{SITE.person}</b><span>{SITE.job}{SITE.greet ? ` · ${SITE.greet}` : ''}</span></div>
+        <a class="pc-wa" href={wa} target="_blank" rel="noopener" aria-label="Chat WhatsApp"><Icon name="whatsapp" size={18} /><span>Chat</span></a>
+      </div>
+      <div class="stats-grid">
       {B.stats.map((s, i) => <div class="stat reveal" style={`--d:${i * 0.08}s`}><b>{s.angka}</b><span>{s.teks}</span></div>)}
     </div></div>
   </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      {[0, 1].map(() => (
-        <div class="marquee-set">
-          {MODELS.map((m) => <><span>{m.nama.replace('Geely ', '')}</span><i></i></>)}
-          <span>Geely</span><i></i>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  <section class="models-sec">
+  <section>
     <div class="container">
-      <div class="rail-head">
-        <SectionHead title={B.modelJudul} text={B.modelTeks} />
-        <div class="rail-ctrl" aria-label="Geser model">
-          <button type="button" class="rail-btn" data-rail="-1" aria-label="Model sebelumnya">&#8592;</button>
-          <button type="button" class="rail-btn" data-rail="1" aria-label="Model berikutnya">&#8594;</button>
-        </div>
-      </div>
-    </div>
-    <div class="rail" data-rail-track tabindex="0" aria-label="Daftar model Geely">
-      {MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} />)}
+      <SectionHead title={B.modelJudul} text={B.modelTeks} />
+      <div class="grid-x">{MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} />)}</div>
     </div>
   </section>
 
@@ -181,6 +169,5 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
 
   <script>
     import '../scripts/slider.ts';
-    import '../scripts/hero-fx.ts';
   </script>
 </Base>

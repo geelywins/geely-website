@@ -128,8 +128,5 @@ File `public/CNAME` berisi nama domain. Kalau file itu ada, website otomatis dib
 ## Salin link artikel untuk Google Search Console
 Admin → Artikel → bagian "Sudah terbit": tombol **Salin link** (per artikel) dan **Salin semua link terbit**. Link otomatis memakai domain dari `public/CNAME`.
 
-## Tampilan "studio" (gelap sinematik)
-Gaya baru ada di `src/styles/studio.css` (menimpa sebagian `global.css`), latar bergerak hero di `src/scripts/hero-fx.ts`, huruf Bricolage Grotesque + DM Sans (terpasang di website, tanpa Google Fonts). Untuk kembali ke tampilan lama: hapus baris `import '../styles/studio.css'` di `src/layouts/Base.astro`.
-
-## Efek tambahan (tema studio)
-Bar progres scroll, marquee nama model, carousel model (tombol panah + geser), kartu kaca dengan efek sorot mengikuti kursor, dan judul hero muncul per kata. Semua mati otomatis jika perangkat memakai "kurangi gerakan". Kode: `src/scripts/fx.ts` dan bagian bawah `src/styles/studio.css`.
+## Foto profil di bawah slider
+Beranda menampilkan kartu kecil berisi foto, nama, jabatan, dan tombol Chat WhatsApp. Foto diganti lewat Admin, menu Pengaturan, kolom "Foto profil Anda". Kalau foto kosong, tampil huruf awal nama.

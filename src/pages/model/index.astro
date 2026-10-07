@@ -8,5 +8,5 @@ const P = CONTENT.halamanModel;
 ---
 <Base title="Model Mobil Geely: EX2, EX5, Starray" description={P.seoDeskripsi}>
   <PageHead title={P.judul} text={P.teks} crumbs={[{ label: 'Model Mobil' }]} />
-  <section><div class="container"><div class="grid-models">{MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} heading="h2" />)}</div></div></section>
+  <section><div class="container"><div class="grid-x">{MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} heading="h2" />)}</div></div></section>
 </Base>

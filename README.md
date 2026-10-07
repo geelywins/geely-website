@@ -127,3 +127,6 @@ File `public/CNAME` berisi nama domain. Kalau file itu ada, website otomatis dib
 
 ## Salin link artikel untuk Google Search Console
 Admin → Artikel → bagian "Sudah terbit": tombol **Salin link** (per artikel) dan **Salin semua link terbit**. Link otomatis memakai domain dari `public/CNAME`.
+
+## Tampilan "studio" (gelap sinematik)
+Gaya baru ada di `src/styles/studio.css` (menimpa sebagian `global.css`), latar bergerak hero di `src/scripts/hero-fx.ts`, huruf Bricolage Grotesque + DM Sans (terpasang di website, tanpa Google Fonts). Untuk kembali ke tampilan lama: hapus baris `import '../styles/studio.css'` di `src/layouts/Base.astro`.

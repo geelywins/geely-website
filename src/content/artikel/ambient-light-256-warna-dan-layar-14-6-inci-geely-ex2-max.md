@@ -1,10 +1,10 @@
 ---
-title: "Ambient Light 256 Warna dan Layar 14,6 Inci Geely EX2 Max"
+title: "Geely EX2 Max Ambient Light 256 Warna dan Layar 14,6 Inci"
 description: "Ambient light 256 warna dan layar 14,6 inci Geely EX2 Max membuat kabin terasa modern dan mudah dioperasikan. Coba langsung lewat test drive."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "ambient light", "layar 14,6 inci", "infotainment mobil", "mobil listrik kompak"]
-draft: true
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","ambient light","layar 14","6 inci","infotainment mobil","mobil listrik kompak"]
+image: "/images/artikel/204204-muxmgion.jpg"
 ---
 
 Ambient light 256 warna dan layar 14,6 inci adalah dua fitur yang langsung terasa saat Anda masuk ke kabin Geely EX2 Max. Pencahayaan lembut membentuk suasana, sedangkan layar besar menjadi pusat kendali mobil. Artikel ini membahas manfaatnya secara praktis, bukan sekadar gaya.

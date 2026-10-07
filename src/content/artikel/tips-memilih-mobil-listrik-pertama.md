@@ -5,6 +5,7 @@ date: 2026-10-05
 updated: 2026-10-07
 category: "Panduan"
 tags: ["mobil listrik","ev","tips"]
+image: "/images/artikel/205171-muxfpfhg.jpg"
 ---
 
 Beralih ke mobil listrik terasa baru bagi banyak orang. Supaya tidak salah pilih, perhatikan hal berikut.

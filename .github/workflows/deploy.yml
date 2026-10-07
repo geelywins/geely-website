@@ -29,32 +29,33 @@ jobs:
           shopt -s nullglob
           zips=(*.zip)
           if [ ${#zips[@]} -gt 0 ]; then
-            Z="${zips[0]}"
-            echo "Mengekstrak $Z"
-            rm -rf /tmp/zipx && mkdir /tmp/zipx
-            unzip -q "$Z" -d /tmp/zipx
-            SRC=/tmp/zipx
-            if [ ! -f "$SRC/package.json" ]; then
-              SRC=$(find /tmp/zipx -maxdepth 2 -name package.json -not -path '*/node_modules/*' | head -1 | xargs -r dirname)
-            fi
-            if [ -z "$SRC" ] || [ ! -f "$SRC/package.json" ]; then
-              echo "package.json tidak ditemukan di dalam ZIP"; exit 1
-            fi
-            rm -rf "$SRC/.github"
-            # Folder isi (data, artikel, foto): hanya tambah file yang belum ada, file yang sudah Anda ubah tidak ditimpa
-            for d in src/data src/content public/images; do
-              if [ -d "$SRC/$d" ]; then
-                mkdir -p "$d"
-                cp -an "$SRC/$d/." "$d/"
-                rm -rf "$SRC/$d"
+            for Z in "${zips[@]}"; do
+              echo "Mengekstrak $Z"
+              rm -rf /tmp/zipx && mkdir /tmp/zipx
+              unzip -q "$Z" -d /tmp/zipx
+              SRC=/tmp/zipx
+              if [ ! -f "$SRC/package.json" ]; then
+                SRC=$(find /tmp/zipx -maxdepth 2 -name package.json -not -path '*/node_modules/*' | head -1 | xargs -r dirname)
               fi
+              if [ -z "$SRC" ] || [ ! -f "$SRC/package.json" ]; then
+                echo "package.json tidak ditemukan di dalam $Z"; exit 1
+              fi
+              rm -rf "$SRC/.github"
+              # Folder isi (data, artikel, foto): hanya tambah file yang belum ada, file yang sudah Anda ubah tidak ditimpa
+              for d in src/data src/content public/images; do
+                if [ -d "$SRC/$d" ]; then
+                  mkdir -p "$d"
+                  cp -an "$SRC/$d/." "$d/"
+                  rm -rf "$SRC/$d"
+                fi
+              done
+              cp -a "$SRC"/. .
+              rm -f "$Z"
             done
-            cp -a "$SRC"/. .
-            rm -f "$Z"
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "Ekstrak $Z otomatis" || true
+            git commit -m "Terapkan pembaruan dari ZIP otomatis" || true
             git push origin "HEAD:$BRANCH"
           fi
 

@@ -113,3 +113,8 @@ File `public/CNAME` berisi nama domain. Kalau file itu ada, website otomatis dib
 - Siapa pun bisa membuka halaman `/admin/`, tapi tidak bisa mengubah apa pun tanpa token GitHub Anda. Jaga token, jangan dibagikan.
 - Token hanya tersimpan di browser HP Anda. Tekan **Keluar** di admin untuk menghapusnya.
 - Harga, promo dan spesifikasi yang tampil sebaiknya selalu dicek ulang agar sesuai informasi resmi dealer.
+
+## Gambar otomatis & standar SEO artikel
+- Artikel tanpa gambar sampul otomatis memakai gambar buatan sistem (`/img/artikel/<slug>/sampul.png`).
+- Artikel yang isinya belum punya gambar otomatis diberi **gambar sisipan di tengah** (`sisip.png`, berisi poin penting dari heading artikel). Kalau Anda menaruh gambar sendiri di isi artikel, sisipan otomatis tidak ditambahkan.
+- Cek standar SEO artikel (kata, kalimat, tag, tautan, FAQ): `node scripts-validate.mjs` (opsional, butuh Node di komputer; di HP cukup lihat hasil di website).

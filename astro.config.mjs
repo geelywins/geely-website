@@ -26,12 +26,35 @@ function rehypeBase() {
   };
 }
 
+// Kalau isi artikel belum punya gambar sama sekali, sisipkan otomatis satu gambar di tengah artikel
+// (dibuat sistem di /img/artikel/<slug>/sisip.png). Kalau admin sudah menaruh gambar di isi artikel, tidak ditambah.
+function rehypeAutoImage() {
+  return (tree, file) => {
+    const fm = file?.data?.astro?.frontmatter || {};
+    const slug = String(file?.path || '').split(/[\\/]/).pop()?.replace(/\.md$/, '');
+    if (!slug) return;
+    let hasImg = false;
+    const find = (n) => { if (n.type === 'element' && n.tagName === 'img') hasImg = true; (n.children || []).forEach(find); };
+    find(tree);
+    if (hasImg) return;
+    const kids = tree.children;
+    const h2 = kids.map((n, i) => (n.type === 'element' && n.tagName === 'h2' ? i : -1)).filter((i) => i >= 0);
+    let at = h2.length >= 2 ? h2[Math.floor(h2.length / 2)] : Math.floor(kids.length / 2);
+    const alt = `Ilustrasi poin penting: ${fm.title || slug}`;
+    const fig = { type: 'element', tagName: 'figure', properties: { className: ['auto-fig'] }, children: [
+      { type: 'element', tagName: 'img', properties: { src: `/img/artikel/${slug}/sisip.png`, alt, loading: 'lazy', decoding: 'async', width: 1200, height: 630 }, children: [] },
+      { type: 'element', tagName: 'figcaption', properties: {}, children: [{ type: 'text', value: alt }] },
+    ] };
+    kids.splice(at, 0, fig);
+  };
+}
+
 export default defineConfig({
   site: SITE_URL,
   base: BASE_PATH || '/',
   trailingSlash: 'always',
   prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
-  markdown: { rehypePlugins: [rehypeBase] },
+  markdown: { rehypePlugins: [rehypeAutoImage, rehypeBase] },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/admin/'),

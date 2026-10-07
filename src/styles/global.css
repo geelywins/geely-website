@@ -251,3 +251,8 @@ a.card-x { text-decoration: none !important; }
 .yt-lite:hover img { opacity: 1; transform: scale(1.03); }
 .yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px; border-radius: 14px; background: #e62117; box-shadow: 0 6px 18px rgba(0,0,0,.4); }
 .yt-play::after { content: ''; position: absolute; left: 27px; top: 14px; border-left: 20px solid #fff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }
+
+/* Gambar sisipan otomatis di tengah artikel */
+.prose .auto-fig { margin: 26px 0; }
+.prose .auto-fig img { width: 100%; height: auto; margin: 0; }
+.prose .auto-fig figcaption { font-size: .85rem; color: var(--muted); margin-top: 6px; text-align: center; }

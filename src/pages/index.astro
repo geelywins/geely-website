@@ -78,10 +78,29 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
     </div></div>
   </section>
 
-  <section>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      {[0, 1].map(() => (
+        <div class="marquee-set">
+          {MODELS.map((m) => <><span>{m.nama.replace('Geely ', '')}</span><i></i></>)}
+          <span>Geely</span><i></i>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="models-sec">
     <div class="container">
-      <SectionHead title={B.modelJudul} text={B.modelTeks} />
-      <div class="grid-models">{MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} />)}</div>
+      <div class="rail-head">
+        <SectionHead title={B.modelJudul} text={B.modelTeks} />
+        <div class="rail-ctrl" aria-label="Geser model">
+          <button type="button" class="rail-btn" data-rail="-1" aria-label="Model sebelumnya">&#8592;</button>
+          <button type="button" class="rail-btn" data-rail="1" aria-label="Model berikutnya">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="rail" data-rail-track tabindex="0" aria-label="Daftar model Geely">
+      {MODELS.map((m, i) => <ModelCard m={m} delay={i * 0.07} />)}
     </div>
   </section>
 

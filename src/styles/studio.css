@@ -147,3 +147,46 @@ body:has(.hero-slider) .site-header:not(.scrolled) .btn-wa-soft { color: #fff; b
 .cta-box .btn-wa { color: #0a3d2a; }
 /* Daftar model: 4 kolom di layar lebar */
 .grid-models { display: grid; gap: clamp(16px, 2.4vw, 28px); grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr)); }
+
+/* ===== Efek tambahan ===== */
+.scroll-progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; z-index: 1100; transform-origin: left; transform: scaleX(0); background: linear-gradient(90deg, #2b55f0, #38e1d0); pointer-events: none; }
+
+/* Sorot cahaya mengikuti kursor/jari di kartu */
+.card-x { position: relative; isolation: isolate; }
+.card-x::after { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .35s; background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(110, 150, 255, .22), transparent 62%); }
+.card-x:hover::after { opacity: 1; }
+[data-bs-theme='dark'] .card-x { background: linear-gradient(160deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02) 40%), var(--surface); backdrop-filter: blur(6px); }
+
+/* Judul hero muncul per kata */
+.slide h1.split.anim, .slide h2.split.anim { opacity: 1; animation: none !important; }
+.slide .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .04em .1em 0; margin-bottom: -.1em; }
+.slide .w > span { display: inline-block; transform: translateY(110%); }
+.slide.active .w > span { animation: wordup .95s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(.2s + var(--k, 0) * .07s); }
+@keyframes wordup { from { transform: translateY(110%); } to { transform: none; } }
+
+/* Pita nama model berjalan */
+.marquee { overflow: hidden; background: var(--ink); border-block: 1px solid rgba(255, 255, 255, .08); padding: clamp(18px, 3vw, 32px) 0; }
+.marquee-track { display: flex; width: max-content; animation: marq 38s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-set { display: flex; align-items: center; flex: none; }
+.marquee-set span { font-family: var(--f-display); font-weight: 800; letter-spacing: -.04em; font-size: clamp(2.6rem, 8vw, 6rem); line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .55); padding: 0 clamp(16px, 3vw, 40px); white-space: nowrap; }
+.marquee-set i { width: clamp(10px, 1.6vw, 18px); height: clamp(10px, 1.6vw, 18px); border-radius: 50%; background: linear-gradient(135deg, #2b55f0, #38e1d0); flex: none; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* Carousel model */
+.rail-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.rail-head .sec-head { margin-bottom: clamp(24px, 3vw, 40px); }
+.rail-ctrl { display: flex; gap: 10px; margin-bottom: clamp(24px, 3vw, 40px); flex: none; }
+.rail-btn { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: 1.3rem; display: grid; place-items: center; transition: background-color .25s, color .25s, transform .25s, opacity .25s; }
+.rail-btn:hover:not(:disabled) { background: var(--brand); color: #fff; border-color: var(--brand); transform: scale(1.06); }
+.rail-btn:disabled { opacity: .35; }
+.models-sec.no-scroll .rail-ctrl { display: none; }
+.rail { display: flex; gap: clamp(16px, 2vw, 24px); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px max(14px, calc((100vw - 1140px) / 2 + 24px)) 28px; scroll-padding-inline: max(14px, calc((100vw - 1140px) / 2 + 24px)); cursor: grab; overscroll-behavior-x: contain; }
+.rail::-webkit-scrollbar { display: none; }
+.rail.dragging { cursor: grabbing; scroll-snap-type: none; }
+.rail.dragging * { pointer-events: none; }
+.rail > .card-x { flex: 0 0 clamp(264px, 78vw, 372px); scroll-snap-align: start; height: auto; }
+.rail .card-media, .rail .media-fallback { aspect-ratio: 4 / 5; }
+.rail .media-fallback span { font-size: clamp(3rem, 9vw, 4.4rem); }
+@media (max-width: 575.98px) { .rail-ctrl { display: none; } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } .scroll-progress { display: none; } }

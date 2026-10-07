@@ -1,6 +1,7 @@
 // Skrip utama (kecil): menu HP, popup, perbesar foto, animasi muncul saat scroll.
 import 'bootstrap/js/dist/collapse';
 import Modal from 'bootstrap/js/dist/modal';
+import './fx';
 
 // Bayangan header saat halaman di-scroll
 const header = document.querySelector('.site-header');

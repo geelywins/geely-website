@@ -5,6 +5,7 @@ date: 2026-10-06
 updated: 2026-10-07
 category: "Tips Membeli"
 tags: ["test drive","geely","jakarta","bsd city"]
+image: "/images/artikel/205167-muxfkzjo.jpg"
 ---
 
 Test drive adalah cara terbaik untuk memastikan mobil benar-benar cocok sebelum Anda memutuskan membeli. Berikut langkah mudahnya.

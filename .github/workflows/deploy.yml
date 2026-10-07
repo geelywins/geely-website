@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Bangun ulang tiap hari pukul 05:30 WIB supaya artikel terjadwal tayang otomatis
+  schedule:
+    - cron: '30 22 * * *'
 
 permissions:
   contents: write
@@ -67,15 +70,20 @@ jobs:
       - name: Install
         run: npm install
 
-      # Alamat otomatis: https://USERNAME.github.io/NAMA-REPO/
-      # Kalau nanti pakai domain sendiri, ganti dua baris di bawah:
-      #   SITE_URL: https://domainanda.com
-      #   BASE_PATH: ""
+      # Alamat otomatis: kalau ada file public/CNAME (isi: nama domain), website memakai domain itu.
+      # Kalau tidak ada, dipakai https://USERNAME.github.io/NAMA-REPO/
       - name: Build
-        run: npm run build
-        env:
-          SITE_URL: https://${{ github.repository_owner }}.github.io
-          BASE_PATH: /${{ github.event.repository.name }}
+        run: |
+          if [ -s public/CNAME ]; then
+            DOMAIN=$(head -1 public/CNAME | tr -d '[:space:]')
+            export SITE_URL="https://$DOMAIN"
+            export BASE_PATH=""
+          else
+            export SITE_URL="https://${{ github.repository_owner }}.github.io"
+            export BASE_PATH="/${{ github.event.repository.name }}"
+          fi
+          echo "SITE_URL=$SITE_URL BASE_PATH=$BASE_PATH"
+          npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:

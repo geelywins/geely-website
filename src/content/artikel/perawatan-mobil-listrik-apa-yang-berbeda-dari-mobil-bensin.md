@@ -1,10 +1,9 @@
 ---
 title: "Perawatan Mobil Listrik: Apa yang Berbeda dari Mobil Bensin?"
 description: "Mobil listrik tidak perlu ganti oli mesin, tetapi tetap butuh perawatan. Ini daftar yang berbeda, jadwal yang perlu diperhatikan, dan hal yang masih harus dicek rutin."
-date: 2026-10-07
+date: 2026-10-08
 category: "Panduan EV"
-tags: ["perawatan mobil listrik", "servis", "garansi baterai"]
-draft: true
+tags: ["perawatan mobil listrik","servis","garansi baterai"]
 ---
 
 Salah satu alasan orang tertarik pada mobil listrik adalah perawatan yang lebih sederhana. Itu benar, tetapi bukan berarti tanpa perawatan sama sekali.

@@ -11,6 +11,7 @@ const artikel = defineCollection({
     category: z.string().default('Info Geely'),
     tags: z.array(z.string()).default([]),
     image: z.string().optional(),
+    video: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

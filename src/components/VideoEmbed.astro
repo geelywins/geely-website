@@ -1,0 +1,15 @@
+---
+import { youtubeId } from '../lib/video';
+interface Props { url: string; title: string }
+const { url, title } = Astro.props;
+const id = youtubeId(url);
+---
+{id && (
+  <figure class="yt-wrap">
+    <a class="yt-lite" href={`https://www.youtube.com/watch?v=${id}`} data-yt={id} target="_blank" rel="noopener" aria-label={`Putar video: ${title}`}>
+      <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt={`Video: ${title}`} loading="lazy" decoding="async" width="480" height="360" />
+      <span class="yt-play" aria-hidden="true"></span>
+    </a>
+    <figcaption>Video: {title}</figcaption>
+  </figure>
+)}

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import { getLiveArticles } from '../lib/articles';
 import { MODELS, ACTIVE_PROMOS, SLIDES, TESTIMONI, DELIVERY } from '../lib/data';
 import { SITE, CONTENT, waLink } from '../config';
 import { href, asset, splitHighlight, smartLink } from '../lib/url';
@@ -13,7 +13,7 @@ import Icon from '../components/Icon.astro';
 
 const B = CONTENT.beranda;
 const wa = waLink();
-const artikel = (await getCollection('artikel', ({ data }) => !data.draft))
+const artikel = (await getLiveArticles())
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 const promos = ACTIVE_PROMOS.slice(0, 3);

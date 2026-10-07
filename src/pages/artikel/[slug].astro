@@ -1,19 +1,22 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getLiveArticles } from '../../lib/articles';
 import { SITE, waLink } from '../../config';
 import { MODELS } from '../../lib/data';
 import { href, asset } from '../../lib/url';
+import VideoEmbed from '../../components/VideoEmbed.astro';
+import { youtubeId } from '../../lib/video';
 import PageHead from '../../components/PageHead.astro';
 import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
-  const all = await getCollection('artikel', ({ data }) => !data.draft);
+  const all = await getLiveArticles();
   return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
 const { entry } = Astro.props;
-const allArt = await getCollection('artikel', ({ data }) => !data.draft);
+const allArt = await getLiveArticles();
 const body = entry.body ?? '';
 // Artikel terkait: tag & kategori sama diprioritaskan, yang sudah ditautkan di isi artikel tidak diulang
 const related = allArt
@@ -32,7 +35,18 @@ const url = new URL(href(`/artikel/${entry.id}/`), Astro.site).href;
 const fmt = (x: Date) => x.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 const imageAbs = d.image ? new URL(asset(d.image), Astro.site).href : undefined;
 
+const vid = youtubeId(d.video);
+const videoLd = vid ? [{
+  '@context': 'https://schema.org', '@type': 'VideoObject',
+  name: d.title, description: d.description,
+  thumbnailUrl: [`https://i.ytimg.com/vi/${vid}/hqdefault.jpg`],
+  uploadDate: d.date.toISOString(),
+  embedUrl: `https://www.youtube.com/embed/${vid}`,
+  contentUrl: `https://www.youtube.com/watch?v=${vid}`,
+}] : [];
+
 const jsonLd = [
+  ...videoLd,
   {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -76,6 +90,7 @@ const jsonLd = [
     <div class="container">
       <article class="prose">
         {d.image && <img src={asset(d.image)} alt={d.title} loading="eager" width="1200" height="630" />}
+        {vid && <VideoEmbed url={d.video!} title={d.title} />}
         <Content />
         {relModels.length > 0 && (
           <p class="mt-4"><b>Model terkait:</b> {relModels.map((m, i) => <>{i > 0 && ' | '}<a href={href(`/model/${m.slug}/`)}>{m.nama}</a></>)}</p>

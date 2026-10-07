@@ -53,3 +53,19 @@ if (pop) {
     }, delay);
   }
 }
+
+// Video YouTube: dimuat hanya saat diklik (lebih cepat, lebih hemat data)
+document.querySelectorAll<HTMLAnchorElement>('.yt-lite').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const id = a.dataset.yt;
+    if (!id) return;
+    e.preventDefault();
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    f.title = a.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.allowFullscreen = true;
+    f.loading = 'lazy';
+    a.replaceWith(f);
+  });
+});

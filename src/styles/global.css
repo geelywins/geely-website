@@ -242,3 +242,12 @@ a.card-x { text-decoration: none !important; }
 .rel-list { padding-left: 20px; }
 .rel-list li { margin-bottom: 8px; }
 .rel-links { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .92rem; color: var(--muted); }
+
+/* Video YouTube */
+.yt-wrap { margin: 24px 0; }
+.yt-wrap figcaption { font-size: .85rem; color: var(--muted); margin-top: 8px; }
+.yt-lite, .yt-wrap iframe { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 16px; overflow: hidden; background: #000; box-shadow: var(--shadow); }
+.yt-lite img { width: 100%; height: 100%; object-fit: cover; margin: 0; border-radius: 0; opacity: .92; transition: opacity .3s, transform .5s; }
+.yt-lite:hover img { opacity: 1; transform: scale(1.03); }
+.yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px; border-radius: 14px; background: #e62117; box-shadow: 0 6px 18px rgba(0,0,0,.4); }
+.yt-play::after { content: ''; position: absolute; left: 27px; top: 14px; border-left: 20px solid #fff; border-top: 10px solid transparent; border-bottom: 10px solid transparent; }

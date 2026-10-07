@@ -1,13 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
-import { getCollection } from 'astro:content';
+import { getLiveArticles } from '../../lib/articles';
 import { CONTENT } from '../../config';
 import { href, asset } from '../../lib/url';
 
 const P = CONTENT.halamanArtikel;
 const fmt = (d: Date) => d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-const artikel = (await getCollection('artikel', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const artikel = (await getLiveArticles()).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <Base title="Artikel & Tips Seputar Mobil Geely" description={P.seoDeskripsi}>
   <PageHead title={P.judul} text={P.teks} crumbs={[{ label: 'Artikel' }]} />

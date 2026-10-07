@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { MODELS, getModel, ACTIVE_PROMOS } from '../../lib/data';
-import { getCollection } from 'astro:content';
+import { getLiveArticles } from '../../lib/articles';
 import PageHead from '../../components/PageHead.astro';
 import PromoCard from '../../components/PromoCard.astro';
 import Icon from '../../components/Icon.astro';
@@ -16,7 +16,7 @@ const { slug } = Astro.params;
 const m = getModel(slug!)!;
 const promos = ACTIVE_PROMOS.filter((p) => p.model === m.slug);
 const needle = m.nama.toLowerCase();
-const artikelTerkait = (await getCollection('artikel', ({ data }) => !data.draft))
+const artikelTerkait = (await getLiveArticles())
   .filter((a) => (a.data.title + ' ' + a.data.tags.join(' ')).toLowerCase().includes(needle) || (a.data.title + ' ' + a.data.tags.join(' ')).toLowerCase().includes(needle.replace('geely ', '')))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4);

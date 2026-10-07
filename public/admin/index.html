@@ -481,8 +481,9 @@
     { key: 'description', label: 'Deskripsi untuk Google (maks. 160 karakter)', type: 'textarea', max: 200, req: true },
     { key: 'category', label: 'Kategori', req: true },
     { key: 'tags', label: 'Tag (pisahkan dengan koma)', type: 'tags' },
-    { key: 'date', label: 'Tanggal tayang', type: 'date' },
+    { key: 'date', label: 'Tanggal tayang', type: 'date', hint: 'Isi tanggal di masa depan untuk menjadwalkan. Artikel tayang otomatis pukul ±06:00 WIB pada tanggal itu (pastikan Draft tidak dicentang).' },
     { key: 'image', label: 'Gambar utama artikel', type: 'image', folder: 'artikel', onUploaded: function (u) { lastArticleImg = u; } },
+    { key: 'video', label: 'Link video YouTube (boleh kosong)', hint: 'Tempel link video YouTube Anda, contoh https://youtu.be/xxxxxxxxxxx. Video tampil di atas isi artikel dan ikut dibaca Google.', lower: true },
     { key: 'body', label: 'Isi artikel (Markdown: ## Judul bagian, - daftar, **tebal**, ![keterangan](/images/artikel/foto.jpg))', type: 'textarea', mono: true, rows: 14, req: true, keepSpace: true },
     { key: 'draft', label: 'Draft (belum tayang). Hilangkan centang lalu Simpan untuk menerbitkan', type: 'check', def: false }
   ]; };
@@ -506,6 +507,7 @@
     if (a.updated) l.push('updated: ' + a.updated);
     l.push('category: ' + JSON.stringify(a.category || 'Info Geely'), 'tags: ' + JSON.stringify(a.tags || []));
     if (a.image) l.push('image: ' + JSON.stringify(a.image));
+    if (a.video) l.push('video: ' + JSON.stringify(a.video));
     if (a.draft) l.push('draft: true');
     l.push('---', '', a.body.trim(), '');
     return l.join('\n');
@@ -527,16 +529,54 @@
     if (my !== navId) return;
     metas.forEach(function (m) { m.draft = m.fm.draft === true || m.fm.draft === 'true'; m.title = m.fm.title || m.f.name.replace(/\.md$/, ''); m.date = String(m.fm.date || '').slice(0, 10); });
     var byDate = function (a, b) { return (b.date || '').localeCompare(a.date || '') || b.f.name.localeCompare(a.f.name); };
+    var td = today();
     var drafts = metas.filter(function (m) { return m.draft; }).sort(byDate);
-    var live = metas.filter(function (m) { return !m.draft; }).sort(byDate);
+    var sched = metas.filter(function (m) { return !m.draft && m.date > td; }).sort(function (a, b) { return a.date.localeCompare(b.date); });
+    var live = metas.filter(function (m) { return !m.draft && m.date <= td; }).sort(byDate);
+    function addDays(d, n) { var x = new Date(d + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); }
+    async function setSchedule(m, date, asDraft) {
+      var p2 = parseMd(m.text); var a = Object.assign({}, p2.fm, { body: p2.body, draft: !!asDraft, date: date });
+      await putFile(m.f.path, enc(buildMd(a)), (asDraft ? 'Batalkan jadwal: ' : 'Jadwalkan artikel: ') + m.title, m.sha);
+    }
+    var validDate = function (v) { return /^\d{4}-\d{2}-\d{2}$/.test(v) && !isNaN(new Date(v + 'T00:00:00Z').getTime()); };
 
     var card = el('div', { class: 'card' }, el('h2', { text: 'Artikel' }), el('div', { class: 'row', style: 'margin-top:0' }, btn('+ Tulis Artikel Baru', '', function () { editArticle(null); })));
-    function section(title, hint, list, isDraft) {
+    if (drafts.length) card.firstChild.nextSibling.append(btn('Jadwalkan semua draft', 'sec', async function (ev) {
+      var start = prompt('Mulai tayang tanggal berapa? (format TTTT-BB-HH)', addDays(td, 1)); if (start === null) return;
+      if (!validDate(start.trim())) return show('Format tanggal belum benar. Contoh: ' + addDays(td, 1), 'err');
+      var per = parseInt(prompt('Berapa artikel tayang per hari?', '2'), 10);
+      if (!per || per < 1 || per > 10) return show('Jumlah per hari harus 1 sampai 10.', 'err');
+      var list = drafts.filter(function (m) { return m.text; });
+      if (!confirm(list.length + ' draft dijadwalkan mulai ' + start.trim() + ', ' + per + ' artikel per hari. Lanjutkan?')) return;
+      ev.target.disabled = true;
+      try {
+        for (var i = 0; i < list.length; i++) {
+          show('Menjadwalkan ' + (i + 1) + ' dari ' + list.length + '...');
+          await setSchedule(list[i], addDays(start.trim(), Math.floor(i / per)), false);
+        }
+        if (my !== navId) return;
+        show('Selesai. ' + list.length + ' artikel dijadwalkan dan akan tayang otomatis.'); tabArtikel();
+      } catch (e) { show(e.message, 'err'); tabArtikel(); }
+    }));
+    function section(title, hint, list, isDraft, isSched) {
       card.append(el('h3', { text: title + ' (' + list.length + ')' }));
       if (hint) card.append(el('p', { class: 'hint', text: hint }));
       if (!list.length) card.append(el('p', { class: 'hint', text: isDraft ? 'Tidak ada draft.' : 'Belum ada artikel terbit.' }));
       list.forEach(function (m) {
         var b = [btn('Edit', 'sec sm', function () { editArticle(m.f.path); })];
+        if (isDraft && m.text) b.unshift(btn('Jadwalkan', 'sec sm', async function (ev) {
+          var dt = prompt('Tayang tanggal berapa? (format TTTT-BB-HH)', addDays(td, 1)); if (dt === null) return;
+          if (!validDate(dt.trim())) return show('Format tanggal belum benar. Contoh: ' + addDays(td, 1), 'err');
+          ev.target.disabled = true;
+          try { await setSchedule(m, dt.trim(), false); if (my !== navId) return; show('Dijadwalkan tayang ' + dt.trim() + '.'); tabArtikel(); }
+          catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
+        }));
+        if (isSched && m.text) b.unshift(btn('Batalkan', 'sec sm', async function (ev) {
+          if (!confirm('Batalkan jadwal dan kembalikan ke draft?\n\n' + m.title)) return;
+          ev.target.disabled = true;
+          try { await setSchedule(m, m.date, true); if (my !== navId) return; show('Jadwal dibatalkan, artikel kembali jadi draft.'); tabArtikel(); }
+          catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
+        }));
         if (isDraft && m.text) b.unshift(btn('Terbitkan', 'sm', async function (ev) {
           if (!confirm('Terbitkan artikel ini sekarang?\n\n' + m.title)) return;
           ev.target.disabled = true;
@@ -550,7 +590,8 @@
         card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: m.title }), el('small', { text: (m.fm.category || '') + (m.date ? ' - ' + m.date : '') })), el('div', { class: 'btns' }, b)));
       });
     }
-    section('Draft siap ditinjau', 'Artikel yang sudah disiapkan tetapi belum tayang. Buka Edit untuk membaca dan mengubah, lalu tekan Terbitkan.', drafts, true);
+    section('Draft siap ditinjau', 'Belum tayang. Buka Edit untuk membaca dan mengubah, lalu tekan Terbitkan (tayang sekarang) atau Jadwalkan (tayang otomatis di tanggal pilihan).', drafts, true);
+    section('Terjadwal', 'Tayang otomatis setiap pukul ±06:00 WIB pada tanggalnya.', sched, false, true);
     section('Sudah terbit', '', live, false);
     view.innerHTML = ''; view.append(card);
   }
@@ -567,12 +608,12 @@
       intro: 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan. Untuk SEO, tautkan ke halaman lain: [teks](/model/geely-ex5/), [teks](/promo/), [teks](/kontak/), atau artikel lain [teks](/artikel/alamat-artikel/). Di bawah artikel, website otomatis menampilkan artikel terkait.',
       onSave: async function (v) {
         var slug = v.slug || slugify(v.title); if (!slug) throw new Error('Alamat artikel kosong.');
-        var a = { title: v.title, description: v.description, date: v.date || today(), category: v.category, tags: v.tags, image: v.image, draft: v.draft, body: v.body };
-        if (!isNew && a.date !== today()) a.updated = today();
+        var a = { title: v.title, description: v.description, date: v.date || today(), category: v.category, tags: v.tags, image: v.image, video: v.video, draft: v.draft, body: v.body };
+        if (!isNew && a.date < today()) a.updated = today();
         var target = path || (DIR + '/' + slug + '.md');
         await putFile(target, enc(buildMd(a)), (isNew ? 'Artikel baru: ' : 'Update artikel: ') + a.title, sha);
         if (my !== navId) return;
-        show(a.draft ? 'Draft tersimpan (belum tayang di website).' : 'Tersimpan! Website diperbarui otomatis (±1-3 menit).'); tabArtikel();
+        show(a.draft ? 'Draft tersimpan (belum tayang di website).' : (a.date > today() ? 'Tersimpan. Artikel dijadwalkan tayang ' + a.date + '.' : 'Tersimpan! Website diperbarui otomatis (±1-3 menit).')); tabArtikel();
       },
       onDelete: isNew ? null : async function () {
         await gh('contents/' + path, { method: 'DELETE', body: JSON.stringify({ message: 'Hapus artikel: ' + path, sha: sha, branch: cfg().branch }) });

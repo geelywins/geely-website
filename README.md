@@ -9,6 +9,7 @@ Buka `https://USERNAME.github.io/geely-website/admin/`
 | Menu | Isinya |
 |---|---|
 | **Artikel** | Daftar **Draft siap ditinjau** (disiapkan Claude) dan **Sudah terbit**. Buka Edit untuk membaca/mengubah, tekan **Terbitkan** untuk tayang. Bisa tulis artikel baru, unggah foto, dan simpan sebagai draft. |
+| **Jadwal tayang** | Di daftar draft: **Jadwalkan** (satu artikel) atau **Jadwalkan semua draft** (mulai tanggal X, N artikel per hari). Artikel tayang otomatis sekitar pukul 06:00 WIB pada tanggalnya. Batalkan lewat tombol Batalkan. |
 | **Upload ZIP** | Pilih ZIP pembaruan dari Claude, tekan Unggah. Terkirim ke GitHub dan website terbit otomatis (±2-4 menit). Isi yang sudah Anda ubah tidak ditimpa. |
 | **Model Mobil** | Nama, foto utama, galeri foto, deskripsi, keunggulan, harga, spesifikasi, tambah/hapus model, atur urutan. |
 | **Slider** | Slide besar di paling atas Beranda: judul (kata dalam `{kurung}` berwarna), teks, foto latar, dua tombol, aktif/nonaktif, atur urutan. |
@@ -87,7 +88,19 @@ Catatan: setelah website pertama kali tayang, tunggu 1-3 menit setiap kali seles
 5. Pasang link website ini di bio Instagram, TikTok, YouTube, Threads dan Facebook, serta di website LapakMu dan promogeelyauto.com. Link balik (backlink) membantu Google menemukan dan mempercayai website baru.
 6. Isi **Deskripsi untuk Google** di setiap artikel, model dan halaman dengan kalimat yang jelas (maks. 160 karakter).
 
-## Pakai domain sendiri (nanti)
+## Video YouTube di artikel
+
+Di form artikel (admin), isi kolom **Link video YouTube**. Video tampil di atas isi artikel (dimuat saat diklik supaya website tetap cepat) dan data videonya ikut dibaca Google.
+
+## Rencana artikel
+
+Lihat `RENCANA-ARTIKEL.md` untuk 30 ide artikel beserta urutan terbit.
+
+## Pakai domain sendiri (geelywins.com)
+
+File `public/CNAME` berisi nama domain. Kalau file itu ada, website otomatis dibangun untuk domain tersebut. Hapus file itu untuk kembali ke alamat github.io. Urutan pasang: atur DNS di registrar, isi Custom domain di GitHub Pages, baru unggah ZIP ini.
+
+## (Catatan lama) Pakai domain sendiri
 
 1. Beli domain, arahkan ke GitHub Pages (Settings, Pages, Custom domain).
 2. Di `.github/workflows/deploy.yml` ubah:

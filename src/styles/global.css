@@ -237,3 +237,8 @@ a.card-x { text-decoration: none !important; }
   .js .reveal, .slide .anim { opacity: 1 !important; transform: none !important; }
 }
 @media (max-width: 575.98px) { section { padding: 48px 0; } .brand-logo { width: 96px; height: 30px; } .brand-sub { display: none; } }
+
+/* Tautan terkait di bawah artikel */
+.rel-list { padding-left: 20px; }
+.rel-list li { margin-bottom: 8px; }
+.rel-links { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .92rem; color: var(--muted); }

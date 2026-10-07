@@ -564,7 +564,7 @@
     var isNew = !path; lastArticleImg = '';
     renderForm({
       title: isNew ? 'Artikel Baru' : 'Edit Artikel', fields: SCH.artikel(isNew), data: data, saveLabel: 'Simpan', onCancel: tabArtikel,
-      intro: 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan.',
+      intro: 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan. Untuk SEO, tautkan ke halaman lain: [teks](/model/geely-ex5/), [teks](/promo/), [teks](/kontak/), atau artikel lain [teks](/artikel/alamat-artikel/). Di bawah artikel, website otomatis menampilkan artikel terkait.',
       onSave: async function (v) {
         var slug = v.slug || slugify(v.title); if (!slug) throw new Error('Alamat artikel kosong.');
         var a = { title: v.title, description: v.description, date: v.date || today(), category: v.category, tags: v.tags, image: v.image, draft: v.draft, body: v.body };

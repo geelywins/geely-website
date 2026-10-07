@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { MODELS, getModel, ACTIVE_PROMOS } from '../../lib/data';
+import { getCollection } from 'astro:content';
 import PageHead from '../../components/PageHead.astro';
 import PromoCard from '../../components/PromoCard.astro';
 import Icon from '../../components/Icon.astro';
@@ -14,6 +15,11 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const m = getModel(slug!)!;
 const promos = ACTIVE_PROMOS.filter((p) => p.model === m.slug);
+const needle = m.nama.toLowerCase();
+const artikelTerkait = (await getCollection('artikel', ({ data }) => !data.draft))
+  .filter((a) => (a.data.title + ' ' + a.data.tags.join(' ')).toLowerCase().includes(needle) || (a.data.title + ' ' + a.data.tags.join(' ')).toLowerCase().includes(needle.replace('geely ', '')))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
 const galeri = (m.galeri ?? []).filter(Boolean);
 
 const url = new URL(href(`/model/${m.slug}/`), Astro.site).href;
@@ -89,6 +95,13 @@ const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
         <>
           <h2>Promo {m.nama}</h2>
           <div class="grid-x">{promos.map((p) => <PromoCard p={p} />)}</div>
+        </>
+      )}
+
+      {artikelTerkait.length > 0 && (
+        <>
+          <h2>Artikel tentang {m.nama}</h2>
+          <ul>{artikelTerkait.map((a) => <li><a href={href(`/artikel/${a.id}/`)}>{a.data.title}</a></li>)}</ul>
         </>
       )}
 

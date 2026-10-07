@@ -4,6 +4,7 @@ description: "Mobil listrik tidak perlu ganti oli mesin, tetapi tetap butuh pera
 date: 2026-10-08
 category: "Panduan EV"
 tags: ["perawatan mobil listrik","servis","garansi baterai"]
+image: "/images/artikel/205416-muxixlbr.jpg"
 ---
 
 Salah satu alasan orang tertarik pada mobil listrik adalah perawatan yang lebih sederhana. Itu benar, tetapi bukan berarti tanpa perawatan sama sekali.

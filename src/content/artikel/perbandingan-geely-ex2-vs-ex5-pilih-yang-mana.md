@@ -3,7 +3,8 @@ title: "Perbandingan Geely EX2 vs EX5: Pilih yang Mana?"
 description: "EX2 atau EX5? Bandingkan baterai, jarak tempuh, tenaga, ukuran dan fitur Geely EX2 dan EX5, lalu pilih sesuai kebutuhan harian dan anggaran Anda."
 date: 2026-10-07
 category: "Perbandingan"
-tags: ["geely ex2", "geely ex5", "perbandingan mobil listrik"]
+tags: ["geely ex2","geely ex5","perbandingan mobil listrik"]
+image: "/images/artikel/190258-muxfhnsg.jpg"
 draft: true
 ---
 

@@ -2,7 +2,7 @@
   {
     "slug": "geely-ex2",
     "nama": "Geely EX2",
-    "tipe": "Mobil Listrik Kompak",
+    "tipe": "Mobil Listrik Compact",
     "ringkas": "Mobil listrik kompak yang lincah untuk dipakai harian di perkotaan.",
     "deskripsi": "Geely EX2 cocok untuk Anda yang ingin beralih ke mobil listrik dengan ukuran ringkas, mudah parkir, dan hemat biaya operasional harian di kota besar seperti Jakarta dan sekitarnya.",
     "keunggulan": [
@@ -19,6 +19,26 @@
       {
         "label": "Segmen",
         "nilai": "Kompak perkotaan"
+      },
+      {
+        "label": "Jarak Tempuh",
+        "nilai": "395 KM (NEDC)"
+      },
+      {
+        "label": "Dimensi",
+        "nilai": "4135 x 1805 x 1580"
+      },
+      {
+        "label": "Penggerak",
+        "nilai": "RWD (Rear Wheel Drive)"
+      },
+      {
+        "label": "Battery Capacity",
+        "nilai": "40,8 kWh"
+      },
+      {
+        "label": "Pengecasan 30-80%",
+        "nilai": "25 Menit"
       }
     ],
     "foto": "/images/model/195450-muwwf5cj.jpg",

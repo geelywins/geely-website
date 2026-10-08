@@ -61,11 +61,12 @@ section { padding: 64px 0; content-visibility: auto; contain-intrinsic-size: 1px
 .wa-float:hover { background: var(--wa-hover); color: #fff; transform: scale(1.06); }
 
 /* ===== Slider beranda ===== */
-.hero-slider { position: relative; height: clamp(500px, 80svh, 700px); overflow: hidden; color: #fff; background: #0a0e16; }
+.hero-slider { position: relative; height: clamp(520px, 56.25vw, 720px); max-height: 88svh; min-height: 480px; overflow: hidden; color: #fff; background: #0a0e16; }
 .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility .9s; display: flex; align-items: center; }
 .slide.active { opacity: 1; visibility: visible; z-index: 1; }
 .slide-bg { position: absolute; inset: 0; background: radial-gradient(1200px 600px at 80% 20%, color-mix(in srgb, var(--c) 55%, transparent), transparent 60%), linear-gradient(135deg, #0a0e16, color-mix(in srgb, var(--c) 35%, #0a0e16)); }
-.slide-bg img { width: 100%; height: 100%; object-fit: cover; }
+.slide-bg picture { display: block; width: 100%; height: 100%; }
+.slide-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 72% 50%; }
 .slide.active .slide-bg img { animation: kenburns 9s ease-out both; }
 .slide-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5, 8, 14, .82) 0%, rgba(5, 8, 14, .5) 55%, rgba(5, 8, 14, .15) 100%); }
 .slide .container { position: relative; z-index: 2; }
@@ -266,3 +267,43 @@ a.card-x { text-decoration: none !important; }
 .pc-t span { color: var(--muted); font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pc-wa { display: inline-flex; align-items: center; gap: 6px; background: #25d366; color: #fff !important; text-decoration: none; font-weight: 700; font-size: .9rem; padding: 9px 14px; border-radius: 999px; flex: none; }
 @media (max-width: 420px) { .pc-wa span { display: none; } .pc-wa { padding: 10px; } }
+
+/* ===== Slider responsif ===== */
+@media (max-width: 991.98px) { .hero-slider { height: clamp(520px, 70vw, 640px); } .slide-box { max-width: 560px; } }
+@media (max-width: 575.98px) {
+  .hero-slider { height: auto; min-height: 0; max-height: none; aspect-ratio: 3 / 4; }
+  .slide-bg img { object-position: 60% 25%; }
+  .slide h1, .slide h2.slide-title { font-size: clamp(1.6rem, 7.4vw, 2rem); margin: 12px 0 10px; }
+  .slide p { font-size: .95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .slide .btn-lg { padding: 10px 16px; font-size: .95rem; }
+  .slide-box { padding-bottom: 8px; }
+}
+@media (max-width: 575.98px) and (max-aspect-ratio: 9/17) { .hero-slider { aspect-ratio: auto; height: 540px; } }
+@media (min-width: 1700px) { .hero-slider { height: 720px; } }
+
+/* ===== Penyesuaian HP biasa, HP lipat (layar dalam hampir persegi), tablet ===== */
+@media (max-width: 575.98px) {
+  .profile-chip { max-width: 330px; }
+  .pc-greet { display: none; }
+  .slide-box { max-width: 92%; }
+  .slide .d-flex.flex-wrap { gap: 8px !important; }
+}
+@media (min-width: 576px) and (max-width: 1100px) {
+  .container { max-width: 1040px; }
+  .hero-slider { height: clamp(600px, 80vw, 660px); }
+  .slide { padding-bottom: 64px; }
+  .slide h1, .slide h2.slide-title { font-size: clamp(2.1rem, 5.2vw, 2.8rem); }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .slide.teks-kanan .container { display: flex; justify-content: flex-end; }
+  .slide.teks-kanan .slide-box { max-width: 48%; }
+  .slide.teks-kanan .slide-shade { background: linear-gradient(270deg, rgba(5, 8, 14, .85) 0%, rgba(5, 8, 14, .5) 55%, rgba(5, 8, 14, .1) 100%); }
+}
+@media (min-width: 1101px) {
+  .slide.teks-kanan .container { display: flex; justify-content: flex-end; }
+  .slide.teks-kanan .slide-box { max-width: 560px; }
+  .slide.teks-kanan .slide-shade { background: linear-gradient(270deg, rgba(5, 8, 14, .85) 0%, rgba(5, 8, 14, .5) 55%, rgba(5, 8, 14, .1) 100%); }
+  .slide.teks-kanan .slide-bg img { object-position: 28% 50%; }
+}
+@media (max-width: 575.98px) { .slide.teks-kanan .slide-shade { background: linear-gradient(0deg, rgba(5, 8, 14, .85), rgba(5, 8, 14, .35)); } }
+@media (min-width: 901px) and (max-width: 1100px) { .hero-slider { height: clamp(520px, 56vw, 620px); } }

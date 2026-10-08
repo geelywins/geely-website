@@ -41,9 +41,14 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
         const Tag = i === 0 ? 'h1' : 'h2';
         const l1 = smartLink(s.link, wa), l2 = smartLink(s.link2, wa);
         return (
-          <div class={`slide ${i === 0 ? 'active' : ''}`} style={`--c:${s.warna || '#3b8cff'}`} aria-hidden={i === 0 ? 'false' : 'true'} role="group" aria-roledescription="slide">
+          <div class={`slide ${i === 0 ? 'active' : ''} ${s.posisiTeks === 'kanan' ? 'teks-kanan' : ''}`} style={`--c:${s.warna || '#3b8cff'}`} aria-hidden={i === 0 ? 'false' : 'true'} role="group" aria-roledescription="slide">
             <div class="slide-bg">
-              {s.foto && <img src={asset(s.foto)} alt="" width="1600" height="900" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />}
+              {s.foto && (
+                <picture>
+                  {s.fotoHp && <source media="(max-width: 575.98px)" srcset={asset(s.fotoHp)} />}
+                  <img src={asset(s.foto)} alt="" width="1920" height="1080" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
+                </picture>
+              )}
             </div>
             <div class="slide-shade"></div>
             <div class="container">
@@ -77,7 +82,7 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
         {SITE.photo
           ? <img src={asset(SITE.photo)} alt={`Foto ${SITE.person}`} width="56" height="56" loading="eager" decoding="async" />
           : <span class="pc-ph" aria-hidden="true">{SITE.nickname.slice(0, 1).toUpperCase()}</span>}
-        <div class="pc-t"><b>{SITE.person}</b><span>{SITE.job}{SITE.greet ? ` · ${SITE.greet}` : ''}</span></div>
+        <div class="pc-t"><b>{SITE.person}</b><span>{SITE.job}{SITE.greet && <span class="pc-greet"> · {SITE.greet}</span>}</span></div>
         <a class="pc-wa" href={wa} target="_blank" rel="noopener" aria-label="Chat WhatsApp"><Icon name="whatsapp" size={18} /><span>Chat</span></a>
       </div>
       <div class="stats-grid">

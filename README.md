@@ -130,3 +130,11 @@ Admin → Artikel → bagian "Sudah terbit": tombol **Salin link** (per artikel)
 
 ## Foto profil di bawah slider
 Beranda menampilkan kartu kecil berisi foto, nama, jabatan, dan tombol Chat WhatsApp. Foto diganti lewat Admin, menu Pengaturan, kolom "Foto profil Anda". Kalau foto kosong, tampil huruf awal nama.
+
+## Ukuran foto slider
+- Laptop & tablet (kolom "Foto slide"): 1920x1080, landscape, mobil di sisi kanan.
+- HP (kolom "Foto slide khusus HP", opsional): 900x1200, portrait, mobil di sepertiga atas. Kalau kosong, foto laptop dipotong otomatis.
+- Tinggi slider menyesuaikan layar: HP rasio 3:4, tablet sekitar 520-640 px, laptop sekitar 520-720 px.
+
+## Posisi tulisan slider & HP lipat
+Tiap slide punya pilihan "Posisi tulisan" (kiri/kanan) di Admin, untuk laptop, tablet, dan HP lipat. Pilih "kanan" kalau foto Anda ada di sisi kiri gambar. Di HP biasa, tulisan selalu di bawah.

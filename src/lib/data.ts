@@ -23,7 +23,7 @@ export interface GeelyModel {
   foto?: string; galeri?: string[]; warna: string;
 }
 export interface Promo { id: string; judul: string; deskripsi: string; periode?: string; foto?: string; model?: string; aktif: boolean }
-export interface Slide { label: string; judul: string; teks: string; foto?: string; tombol?: string; link?: string; tombol2?: string; link2?: string; warna?: string; aktif: boolean }
+export interface Slide { label: string; judul: string; teks: string; foto?: string; fotoHp?: string; posisiTeks?: string; tombol?: string; link?: string; tombol2?: string; link2?: string; warna?: string; aktif: boolean }
 export interface Testimoni { nama: string; keterangan?: string; model?: string; teks: string; rating?: string | number; foto?: string; aktif: boolean }
 export interface Delivery { judul: string; nama?: string; model?: string; tanggal?: string; foto: string; caption?: string; link?: string; aktif: boolean }
 

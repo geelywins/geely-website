@@ -26,13 +26,15 @@
   {
     "label": "Test Drive",
     "judul": "Rasakan sendiri {Geely} pilihan Anda",
-    "teks": "Jadwalkan test drive di BSD City atau Tanah Abang, gratis dan tanpa ribet.",
+    "teks": "Jadwalkan test drive di BSD City, gratis dan tanpa ribet.",
     "foto": "/images/slider/196922-muyvry3y.jpg",
     "tombol": "Booking Test Drive",
     "link": "wa",
     "tombol2": "Artikel & Tips",
     "link2": "/artikel/",
     "warna": "#7b61ff",
-    "aktif": true
+    "aktif": true,
+    "fotoHp": "",
+    "posisiTeks": ""
   }
 ]

@@ -25,5 +25,14 @@
     "rating": "5",
     "foto": "/images/testimoni/207127-muyxqcwi.jpg",
     "aktif": true
+  },
+  {
+    "nama": "Pak BY",
+    "keterangan": "Google Review",
+    "model": "geely-ex2",
+    "teks": "Great service and thanks to mas Edwin for being helpful!",
+    "rating": "5",
+    "foto": "/images/testimoni/207142-muyxvs4s.jpg",
+    "aktif": true
   }
 ]

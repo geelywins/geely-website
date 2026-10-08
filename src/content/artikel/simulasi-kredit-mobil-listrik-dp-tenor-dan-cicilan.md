@@ -2,9 +2,10 @@
 title: "Simulasi Kredit Mobil Listrik: Cara Menghitung DP, Tenor, dan Cicilan"
 description: "Panduan memahami DP, tenor, bunga dan cicilan saat kredit mobil listrik. Ada langkah mudah menyiapkan simulasi dan hal yang wajib ditanyakan ke leasing."
 date: 2026-10-07
+updated: 2026-10-08
 category: "Tips Membeli"
-tags: ["simulasi kredit", "kredit mobil listrik", "dp mobil", "cicilan"]
-draft: true
+tags: ["simulasi kredit","kredit mobil listrik","dp mobil","cicilan"]
+image: "/images/artikel/207065-muyul6nh.jpg"
 ---
 
 Sebelum memutuskan, hampir semua calon pembeli bertanya hal yang sama: **berapa DP dan cicilannya?** Berikut cara memahaminya agar Anda tidak bingung saat simulasi.

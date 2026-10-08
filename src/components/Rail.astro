@@ -1,0 +1,14 @@
+---
+// Baris yang bisa digeser ke samping. auto = jeda geser otomatis (ms), 0 = tanpa geser otomatis.
+interface Props { auto?: number; rows?: 1 | 2; width?: number; label?: string }
+const { auto = 0, rows = 1, width = 300, label = 'Daftar' } = Astro.props;
+---
+<div class="rail2" data-rail2 data-auto={auto} style={`--w:${width}px`}>
+  <div class="rail2-ctrl">
+    <button type="button" class="r2-btn prev" aria-label="Geser ke kiri">&#8249;</button>
+    <button type="button" class="r2-btn next" aria-label="Geser ke kanan">&#8250;</button>
+  </div>
+  <div class={`rail2-track ${rows === 2 ? 'rows-2' : ''}`} role="group" aria-label={label} tabindex="0">
+    <slot />
+  </div>
+</div>

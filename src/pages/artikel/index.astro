@@ -16,7 +16,7 @@ const artikel = (await getLiveArticles()).sort((a, b) => b.data.date.valueOf() -
     <div class="grid-x">
       {artikel.map((a, i) => (
         <a class="card-x reveal" style={`--d:${(i % 3) * 0.07}s`} href={href(`/artikel/${a.id}/`)}>
-          <div class="card-media"><img src={asset(a.data.image || `/img/artikel/${a.id}/sampul.png`)} alt={a.data.title} loading="lazy" decoding="async" width="640" height="400" /></div>
+          <div class="card-media wide"><img src={asset(a.data.image || `/img/artikel/${a.id}/sampul.png`)} alt={a.data.title} loading="lazy" decoding="async" width="640" height="400" /></div>
           <div class="card-body-x">
             <span class="tag">{a.data.category}</span>
             <h2 class="card-title-x">{a.data.title}</h2>

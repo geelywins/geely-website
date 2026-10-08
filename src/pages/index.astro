@@ -10,15 +10,15 @@ import DeliveryCard from '../components/DeliveryCard.astro';
 import TestimoniCard from '../components/TestimoniCard.astro';
 import SectionHead from '../components/SectionHead.astro';
 import Icon from '../components/Icon.astro';
+import Rail from '../components/Rail.astro';
 
 const B = CONTENT.beranda;
 const wa = waLink();
 const artikel = (await getLiveArticles())
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const promos = ACTIVE_PROMOS.slice(0, 3);
-const testi = TESTIMONI.slice(0, 6);
-const delivery = DELIVERY.slice(0, 8);
+const testi = TESTIMONI;
+const delivery = DELIVERY;
 const fmt = (d: Date) => d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 const isExt = (u: string) => /^https?:/.test(u);
 
@@ -111,7 +111,7 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
     <section>
       <div class="container">
         <SectionHead title={B.deliveryJudul} text={B.deliveryTeks} />
-        <div class="delivery-grid">{delivery.map((d, i) => <DeliveryCard d={d} delay={(i % 4) * 0.07} />)}</div>
+        <Rail auto={5000} width={280} label="Foto delivery moment">{delivery.map((d) => <DeliveryCard d={d} />)}</Rail>
         <p class="mt-4"><a class="link-more" href={href('/delivery/')}>Lihat semua delivery &rarr;</a></p>
       </div>
     </section>
@@ -130,7 +130,7 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
     <section class={bg()}>
       <div class="container">
         <SectionHead title={B.testimoniJudul} text={B.testimoniTeks} />
-        <div class="grid-x">{testi.map((t, i) => <TestimoniCard t={t} delay={(i % 3) * 0.07} />)}</div>
+        <Rail auto={5000} width={320} label="Testimoni pelanggan">{testi.map((t) => <TestimoniCard t={t} />)}</Rail>
         <p class="mt-4"><a class="link-more" href={href('/testimoni/')}>Lihat semua testimoni &rarr;</a></p>
       </div>
     </section>
@@ -140,10 +140,10 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
     <section class={bg()}>
       <div class="container">
         <SectionHead title={B.artikelJudul} text={B.artikelTeks} />
-        <div class="grid-x">
-          {artikel.map((a, i) => (
-            <a class="card-x reveal" style={`--d:${i * 0.07}s`} href={href(`/artikel/${a.id}/`)}>
-              <div class="card-media"><img src={asset(a.data.image || `/img/artikel/${a.id}/sampul.png`)} alt={a.data.title} loading="lazy" decoding="async" width="640" height="400" /></div>
+        <Rail rows={2} width={300} label="Artikel terbaru">
+          {artikel.map((a) => (
+            <a class="card-x" href={href(`/artikel/${a.id}/`)}>
+              <div class="card-media wide"><img src={asset(a.data.image || `/img/artikel/${a.id}/sampul.png`)} alt={a.data.title} loading="lazy" decoding="async" width="640" height="400" /></div>
               <div class="card-body-x">
                 <span class="tag">{a.data.category}</span>
                 <h3 class="card-title-x">{a.data.title}</h3>
@@ -152,7 +152,7 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
               </div>
             </a>
           ))}
-        </div>
+        </Rail>
         <p class="mt-4"><a class="link-more" href={href('/artikel/')}>Lihat semua artikel &rarr;</a></p>
       </div>
     </section>
@@ -174,5 +174,6 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
 
   <script>
     import '../scripts/slider.ts';
+    import '../scripts/rail2.ts';
   </script>
 </Base>

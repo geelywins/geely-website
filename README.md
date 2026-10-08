@@ -138,3 +138,6 @@ Beranda menampilkan kartu kecil berisi foto, nama, jabatan, dan tombol Chat What
 
 ## Posisi tulisan slider & HP lipat
 Tiap slide punya pilihan "Posisi tulisan" (kiri/kanan) di Admin, untuk laptop, tablet, dan HP lipat. Pilih "kanan" kalau foto Anda ada di sisi kiri gambar. Di HP biasa, tulisan selalu di bawah.
+
+## Baris geser (carousel) di beranda
+Delivery moment dan testimoni bergeser otomatis ke kiri tiap 5 detik (berhenti saat disentuh/diarahkan kursor, mati kalau perangkat memakai "kurangi gerakan"). Artikel tampil 2 baris, semua artikel terbit, digeser manual. Foto testimoni tampil besar di atas review. Kode: `src/components/Rail.astro`, `src/scripts/rail2.ts`. Ubah jeda di `auto={5000}` pada `src/pages/index.astro`.

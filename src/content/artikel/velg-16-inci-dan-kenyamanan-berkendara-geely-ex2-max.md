@@ -2,8 +2,10 @@
 title: "Velg 16 Inci dan Kenyamanan Berkendara Geely EX2 Max"
 description: "Velg 16 inci Geely EX2 Max dan suspensi MacPherson-multi-link memengaruhi kenyamanan berkendara. Rasakan sendiri lewat test drive bersama sales."
 date: 2026-10-07
+updated: 2026-10-08
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "velg 16 inci", "suspensi mobil", "kenyamanan berkendara", "mobil listrik kompak"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","velg 16 inci","suspensi mobil","kenyamanan berkendara","mobil listrik kompak"]
+image: "/images/artikel/190472-muzn0yq6.jpg"
 draft: true
 ---
 

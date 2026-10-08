@@ -2,8 +2,10 @@
 title: "Review Geely EX2 Max: Fitur, Kelebihan, dan Kekurangan"
 description: "Review Geely EX2 Max yang jujur: fitur, kelebihan, dan kekurangannya untuk pemakaian harian. Hubungi sales Geely untuk jadwal test drive."
 date: 2026-10-07
+updated: 2026-10-08
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik kompak", "review mobil listrik", "ev indonesia"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","mobil listrik kompak","review mobil listrik","ev indonesia"]
+image: "/images/artikel/207067-muyuzy1s.jpg"
 draft: true
 ---
 

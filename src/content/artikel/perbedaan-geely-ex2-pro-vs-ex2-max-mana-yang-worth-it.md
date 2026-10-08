@@ -1,10 +1,9 @@
 ---
 title: "Perbedaan Geely EX2 Pro vs EX2 Max, Mana yang Worth It?"
 description: "Perbedaan Geely EX2 Pro vs EX2 Max dijelaskan lewat tabel sederhana, lengkap dengan tips memilih varian. Konsultasi gratis dengan sales Geely."
-date: 2026-10-07
+date: 2026-10-09
 category: "Perbandingan"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex2 pro", "mobil listrik kompak", "harga mobil listrik geely", "perbandingan mobil listrik"]
-draft: true
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","geely ex2 pro","mobil listrik kompak","harga mobil listrik geely","perbandingan mobil listrik"]
 ---
 
 Perbedaan Geely EX2 Pro vs EX2 Max adalah pertanyaan yang paling sering saya terima dari calon pembeli. Wajar saja, sebab kedua varian ini memakai mesin listrik dan baterai yang sama. Artikel ini membantu Anda memahami apa saja yang berbeda, lalu menentukan varian yang paling sesuai dengan kebutuhan Anda.

@@ -1,11 +1,11 @@
 ---
 title: "Pengisian Cepat DC Geely EX2 Max 30-80% dalam 25 Menit"
 description: "Pengisian cepat DC Geely EX2 Max 30-80% sekitar 25 menit di SPKLU. Pelajari tips, etika antre, dan kapan dipakai, lalu tanyakan pada kami."
-date: 2026-10-07
+date: 2026-10-12
 category: "Mobil Listrik"
-tags: ["geely ex2", "geely ex2 max", "pengisian cepat dc", "spklu", "mobil listrik geely", "geely ev", "mobil listrik jakarta", "ev indonesia", "mobil listrik kompak"]
-draft: true
+tags: ["geely ex2","geely ex2 max","pengisian cepat dc","spklu","mobil listrik geely","geely ev","mobil listrik jakarta","ev indonesia","mobil listrik kompak"]
 ---
+
 Pengisian cepat DC Geely EX2 Max memungkinkan baterai naik dari 30% ke 80% dalam sekitar 25 menit. Angka ini adalah klaim, dan sangat membantu saat Anda bepergian atau butuh tambahan daya dengan cepat. Anda tidak perlu menunggu berjam-jam seperti pengisian di rumah.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Mari kita bahas cara kerja, tips, dan etika memakai SPKLU.

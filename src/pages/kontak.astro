@@ -4,6 +4,7 @@ import PageHead from '../components/PageHead.astro';
 import SocialIcons from '../components/SocialIcons.astro';
 import Icon from '../components/Icon.astro';
 import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
+import { href, slugify } from '../lib/url';
 
 const K = CONTENT.kontak;
 ---
@@ -18,7 +19,10 @@ const K = CONTENT.kontak;
       <SocialIcons items={SITE.sosmed} size={24} class="soc-lg" />
 
       <h2>Lokasi Dealer</h2>
-      <ul>{SITE.locations.map((l) => <li><strong>{l.nama}</strong> - {l.area}</li>)}</ul>
+      <ul>{SITE.locations.map((l) => <li><a href={href(`/lokasi/${slugify(l.nama)}/`)}><strong>{l.nama}</strong></a> - {l.area}</li>)}</ul>
+      {SITE.locations.map((l) => (
+        <div class="map-wrap"><iframe src={`https://www.google.com/maps?q=${encodeURIComponent((l.maps && l.maps.trim()) || `${l.nama} ${l.area}`)}&output=embed`} title={`Peta ${l.nama}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+      ))}
 
       <h2>{K.layananJudul}</h2>
       <ul>{K.layanan.map((l) => <li>{l}</li>)}</ul>

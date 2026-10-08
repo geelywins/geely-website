@@ -141,3 +141,10 @@ Tiap slide punya pilihan "Posisi tulisan" (kiri/kanan) di Admin, untuk laptop, t
 
 ## Baris geser (carousel) di beranda
 Delivery moment dan testimoni bergeser otomatis ke kiri tiap 5 detik (berhenti saat disentuh/diarahkan kursor, mati kalau perangkat memakai "kurangi gerakan"). Artikel tampil 2 baris, semua artikel terbit, digeser manual. Foto testimoni tampil besar di atas review. Kode: `src/components/Rail.astro`, `src/scripts/rail2.ts`. Ubah jeda di `auto={5000}` pada `src/pages/index.astro`.
+
+## SEO tambahan
+- Judul dan deskripsi beranda bisa diubah di Admin, Teks Halaman, Beranda (kolom "Judul beranda di Google").
+- Admin, saat menulis atau mengedit artikel: panel "Analisis SEO" (skor 0-100 dan saran), tombol sisipkan gambar dan video YouTube di isi artikel. Daftar artikel menampilkan skor SEO tiap artikel.
+- Paragraf pertama artikel tampil sebagai kotak "Ringkasan" (40-60 kata). Validator: `node scripts-validate.mjs`.
+- Halaman lokasi: /lokasi/ dan /lokasi/nama-lokasi/ dengan peta Google Maps. Alamat lengkap, kata kunci peta, dan jam buka diisi di Admin, Pengaturan, Lokasi dealer.
+- Setiap kolom foto di Admin menampilkan ukuran standar dan memberi peringatan kalau foto yang dipilih terlalu kecil atau proporsinya berbeda.

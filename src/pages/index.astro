@@ -33,7 +33,7 @@ let alt = false;
 const bg = () => ((alt = !alt) ? 'sec-alt' : '');
 ---
 
-<Base title={`${SITE.tagline} - Harga, Promo, Test Drive`} description={SITE.description} jsonLd={jsonLd}>
+<Base title={B.seoJudul || `${SITE.tagline} - Harga, Promo, Test Drive`} description={B.seoDeskripsi || SITE.description} jsonLd={jsonLd}>
   {SLIDES.length > 0 && (
     <section class="hero-slider" data-slider aria-roledescription="carousel" aria-label="Sorotan" style="padding:0">
       {SLIDES.map((s, i) => {

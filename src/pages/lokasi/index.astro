@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { SITE } from '../../config';
+import { href, slugify } from '../../lib/url';
+---
+<Base title="Lokasi Dealer Geely Jakarta & BSD City" description="Daftar lokasi dealer Geely di Jakarta dan BSD City lengkap dengan peta. Hubungi sales Geely untuk jadwal test drive dan info promo terbaru.">
+  <PageHead title="Lokasi Dealer Geely Jakarta & BSD City" text="Pilih dealer terdekat untuk melihat unit langsung, test drive, dan konsultasi dengan sales." crumbs={[{ label: 'Lokasi' }]} />
+  <section><div class="container"><div class="grid-x">
+    {SITE.locations.map((l) => (
+      <a class="card-x" href={href(`/lokasi/${slugify(l.nama)}/`)}>
+        <div class="card-body-x"><span class="tag">Dealer</span><h2 class="card-title-x h4">{l.nama}</h2><p>{l.alamat || l.area}</p><span class="link-more">Lihat peta dan jadwal &rarr;</span></div>
+      </a>
+    ))}
+  </div></div></section>
+</Base>

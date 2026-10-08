@@ -29,3 +29,7 @@ export function smartLink(link: string | undefined, wa: string): string {
   if (link.trim().toLowerCase() === 'wa') return wa;
   return /^(https?:|mailto:|tel:)/i.test(link) ? link : href(link.startsWith('/') ? link : '/' + link);
 }
+
+export function slugify(t: string): string {
+  return String(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}

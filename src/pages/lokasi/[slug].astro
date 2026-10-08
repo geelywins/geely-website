@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+import { SITE, waLink, phoneDisplay } from '../../config';
+import { href, slugify } from '../../lib/url';
+export function getStaticPaths() {
+  return SITE.locations.map((l) => ({ params: { slug: slugify(l.nama) }, props: { l } }));
+}
+const { l } = Astro.props;
+const query = (l.maps && l.maps.trim()) || `${l.nama} ${l.area}`;
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+const url = new URL(href(`/lokasi/${slugify(l.nama)}/`), Astro.site).href;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'AutoDealer', name: `${l.nama} - ${SITE.dealer}`, url,
+    telephone: `+${SITE.whatsapp}`, brand: { '@type': 'Brand', name: 'Geely' },
+    address: { '@type': 'PostalAddress', streetAddress: l.alamat || l.nama, addressLocality: l.area, addressCountry: 'ID' },
+    ...(l.jam ? { openingHours: l.jam } : {}),
+    hasMap: mapLink,
+  },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Beranda', item: new URL(href('/'), Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Lokasi', item: new URL(href('/lokasi/'), Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: l.nama, item: url } ] },
+];
+const title = `${l.nama} - Dealer Geely ${l.area.split(',')[0]}`;
+---
+<Base title={title} description={`${l.nama} di ${l.area}. Lihat lokasi di peta, jam buka, dan hubungi sales Geely untuk test drive, harga dan promo terbaru.`} jsonLd={jsonLd}>
+  <PageHead title={`${l.nama}: Dealer Geely di ${l.area.split(',')[0]}`} text={`Kunjungi ${l.nama} untuk melihat unit, test drive, dan konsultasi langsung dengan sales Geely.`} crumbs={[{ label: 'Lokasi', url: href('/lokasi/') }, { label: l.nama }]} />
+  <section><div class="container prose">
+    <h2>Alamat dan kontak</h2>
+    <ul>
+      <li><strong>Dealer:</strong> {SITE.dealer}</li>
+      <li><strong>Lokasi:</strong> {l.nama}, {l.area}</li>
+      {l.alamat && <li><strong>Alamat:</strong> {l.alamat}</li>}
+      {l.jam && <li><strong>Jam buka:</strong> {l.jam}</li>}
+      <li><strong>WhatsApp sales:</strong> <a href={waLink()} target="_blank" rel="noopener">{phoneDisplay}</a> ({SITE.person})</li>
+    </ul>
+    <div class="map-wrap"><iframe src={mapSrc} title={`Peta ${l.nama}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+    <p class="mt-3"><a class="link-more" href={mapLink} target="_blank" rel="noopener">Buka di Google Maps &rarr;</a></p>
+    <h2>Yang bisa dilakukan di sini</h2>
+    <ul>
+      <li>Melihat langsung model Geely, mulai dari <a href={href('/model/geely-ex2/')}>Geely EX2</a> sampai <a href={href('/model/')}>semua model</a>.</li>
+      <li>Test drive. Baca dulu <a href={href('/artikel/cara-test-drive-geely/')}>cara test drive Geely</a> agar siap.</li>
+      <li>Menanyakan <a href={href('/promo/')}>promo terbaru</a> dan simulasi kredit.</li>
+    </ul>
+    <div class="cta-box"><h3>Mau datang? Buat janji dulu</h3><p>Kabari hari dan jam kunjungan Anda supaya unit dan sales siap menyambut.</p>
+      <a class="btn btn-wa btn-lg" href={waLink(`Halo Kak Wins, saya ingin berkunjung ke ${l.nama}. Boleh atur jadwalnya?`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Atur jadwal via WhatsApp</a></div>
+  </div></section>
+</Base>

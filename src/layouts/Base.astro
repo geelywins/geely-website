@@ -2,7 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.css';
 import { SITE, CONTENT, waLink, phoneDisplay } from '../config';
-import { asset, href, smartLink } from '../lib/url';
+import { asset, href, smartLink, slugify } from '../lib/url';
 import Icon from '../components/Icon.astro';
 import SocialIcons from '../components/SocialIcons.astro';
 
@@ -146,7 +146,7 @@ const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : 
           </div>
           <div class="col-6 col-lg-3">
             <h4>Lokasi Dealer</h4>
-            <ul class="list-unstyled">{SITE.locations.map((l) => <li>{l.nama}<br /><small>{l.area}</small></li>)}</ul>
+            <ul class="list-unstyled">{SITE.locations.map((l) => <li><a href={href(`/lokasi/${slugify(l.nama)}/`)}>{l.nama}</a><br /><small>{l.area}</small></li>)}</ul>
           </div>
           <div class="col-6 col-lg-2">
             <h4>Menu</h4>

@@ -4,7 +4,7 @@ import { settings, content } from './lib/data';
 
 export interface Sosmed { platform: string; label: string; url: string }
 export interface SitusLain { nama: string; url: string; deskripsi: string }
-export interface Lokasi { nama: string; area: string }
+export interface Lokasi { nama: string; area: string; alamat?: string; maps?: string; jam?: string }
 
 export const SITE = {
   name: settings.namaSitus as string,

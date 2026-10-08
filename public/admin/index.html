@@ -39,6 +39,16 @@
   .msg.ok { display:block; background:rgba(31,191,117,.15); border:1px solid var(--ok); }
   .msg.err { display:block; background:rgba(255,93,93,.15); border:1px solid var(--bad); }
   .hint { color:var(--muted); font-size:.8rem; margin-top:4px; }
+  .seo { margin-top:14px; border:1px solid var(--line); border-radius:12px; padding:12px; }
+  .seo-h { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:6px 0 10px; font-size:.9rem; }
+  .seo-s { font-weight:800; padding:4px 12px; border-radius:99px; color:#fff; background:#c0392b; }
+  .seo-s.cukup { background:#d68910; } .seo-s.bagus { background:#1e8e4e; }
+  .seo-i { padding:6px 0; border-top:1px solid var(--line); font-size:.85rem; }
+  .seo-i.ok b { color:#1e8e4e; font-weight:600; } .seo-i.no b { color:#c0392b; }
+  .seo-b { font-weight:700; } .seo-b.bagus { color:#1e8e4e; } .seo-b.cukup { color:#d68910; } .seo-b.kurang { color:#c0392b; }
+  .seo-i small { display:block; color:var(--muted); margin-top:2px; }
+  .sizeinfo { background:#eaf2ff; color:#1a4fa0; border-radius:8px; padding:7px 10px; font-size:.8rem; margin-bottom:8px; }
+  @media (prefers-color-scheme: dark) { .sizeinfo { background:#12233f; color:#9cc2ff; } }
   .hide { display:none !important; }
   .chk { display:flex; gap:10px; align-items:center; margin-top:14px; }
   .chk input { width:20px; height:20px; }
@@ -223,6 +233,74 @@
     return '/images/' + folder + '/' + name;
   }
 
+
+  // =============== analisis SEO artikel ===============
+  function seoAnalyze(a) {
+    var title = (a.title || '').trim(), desc = (a.description || '').trim(), body = a.body || '';
+    var tags = (a.tags || []).map(function (t) { return String(t).trim(); }).filter(Boolean);
+    var kw = (tags[0] || '').toLowerCase();
+    var plain = body.replace(/<[^>]+>/g, ' ').replace(/`[^`]*`/g, ' ').replace(/!\[[^\]]*\]\([^)]*\)/g, ' ').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/^\s*(#+|[-*>|])\s?/gm, ' ');
+    var words = (plain.match(/\S+/g) || []).length;
+    var paras = body.trim().split(/\n\s*\n/);
+    var first = (paras[0] || '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1'); var firstOk = !/^\s*(#|[-*|<])/.test(first);
+    var fw = firstOk ? (first.match(/\S+/g) || []).length : 0;
+    var first100 = (plain.match(/\S+/g) || []).slice(0, 100).join(' ').toLowerCase();
+    var sents = body.split('\n').filter(function (l) { return !/^\s*(#|\||<)/.test(l); }).join(' ').split(/(?<=[.!?])\s+/).filter(function (x) { return x.trim().split(/\s+/).length >= 3; }).length;
+    var links = []; body.replace(/\]\((\/[^)]*)\)/g, function (m, u) { links.push(u); return m; });
+    var artLinks = links.filter(function (l, i) { return l.indexOf('/artikel/') === 0 && links.indexOf(l) === i; }).length;
+    var h2 = (body.match(/^## /gm) || []).length;
+    var imgs = []; body.replace(/!\[([^\]]*)\]\(([^)]*)\)/g, function (m, alt) { imgs.push(alt.trim()); return m; });
+    var kwWords = kw.split(/\s+/).filter(function (w) { return w.length > 2; });
+    var slug = (a.slug || '');
+    var items = [];
+    function add(w, ok, label, tip) { items.push({ w: w, ok: ok, label: label, tip: tip }); }
+    add(8, title.length >= 45 && title.length <= 65, 'Judul 45-65 karakter (sekarang ' + title.length + ')', 'Judul terlalu ' + (title.length < 45 ? 'pendek' : 'panjang') + '. Ideal 50-60 karakter agar utuh di hasil Google.');
+    add(8, !!kw && title.toLowerCase().indexOf(kw) >= 0, 'Keyword utama ada di judul' + (kw ? ' ("' + kw + '")' : ''), kw ? 'Taruh keyword "' + kw + '" di judul, sebaiknya di bagian awal.' : 'Isi kolom Tag. Tag pertama dipakai sebagai keyword utama, contoh: geely ex2 max.');
+    add(4, !!kw && desc.toLowerCase().indexOf(kw) >= 0, 'Keyword utama ada di deskripsi', 'Masukkan keyword utama ke deskripsi.');
+    add(8, desc.length >= 120 && desc.length <= 160, 'Deskripsi 120-160 karakter (sekarang ' + desc.length + ')', 'Deskripsi ' + (desc.length < 120 ? 'terlalu pendek' : 'terlalu panjang') + '. Tulis 140-160 karakter dan ajak orang mengklik.');
+    add(8, firstOk && fw >= 40 && fw <= 60, 'Ringkasan 40-60 kata di paragraf pertama (sekarang ' + fw + ')', 'Paragraf pertama dijadikan ringkasan jawaban 40-60 kata (disukai Google dan pencarian AI), dan jangan diawali judul bagian.');
+    add(8, !!kw && first100.indexOf(kw) >= 0, 'Keyword utama muncul di 100 kata pertama', 'Sebut keyword utama di kalimat pertama paragraf pembuka.');
+    add(10, words >= 900, 'Panjang artikel minimal 900 kata (sekarang ' + words + ')', 'Tambahkan isi sampai minimal 900 kata (ideal 1.000-1.500) dengan jawaban yang bermanfaat.');
+    add(6, h2 >= 5, 'Minimal 5 subjudul (## ...) (sekarang ' + h2 + ')', 'Pecah isi dengan subjudul ## agar mudah dipindai. Subjudul sebaiknya memuat variasi keyword.');
+    add(6, /^## Pertanyaan yang sering diajukan/m.test(body), 'Ada bagian FAQ "## Pertanyaan yang sering diajukan"', 'Tambahkan FAQ: tiap pertanyaan ditulis ### lalu jawaban 1-3 kalimat. Muncul sebagai rich result di Google.');
+    add(4, /^## Kesimpulan/m.test(body), 'Ada bagian "## Kesimpulan"', 'Tutup dengan ## Kesimpulan dan ajakan menghubungi via WhatsApp.');
+    add(8, artLinks >= 3, 'Minimal 3 tautan ke artikel lain (sekarang ' + artLinks + ')', 'Tautkan ke artikel terkait: [teks anchor](/artikel/alamat-artikel/).');
+    add(4, links.some(function (l) { return l.indexOf('/model/') === 0; }), 'Ada tautan ke halaman model', 'Tautkan ke model, contoh: [lihat Geely EX2](/model/geely-ex2/).');
+    add(4, links.some(function (l) { return l === '/promo/' || l === '/kontak/'; }), 'Ada tautan ke Promo atau Kontak', 'Tambah ajakan: [hubungi sales](/kontak/) atau [lihat promo](/promo/).');
+    add(6, !!(a.image || '').trim(), 'Gambar utama diisi', 'Unggah gambar utama 1200 x 630. Kalau kosong, website membuat sampul otomatis (tetap sah, tapi foto asli lebih menarik).');
+    add(4, imgs.every(function (x) { return x.length >= 8; }), imgs.length ? 'Semua gambar di isi punya keterangan (alt) deskriptif' : 'Gambar sisipan: otomatis dibuat oleh website', 'Beri keterangan gambar yang deskriptif, contoh: ![Geely EX2 Max warna abu metalik](/images/...).');
+    add(4, tags.length >= 5 && tags.length <= 10 && tags.every(function (t) { return t === t.toLowerCase(); }), 'Tag 5-10 buah, huruf kecil (sekarang ' + tags.length + ')', 'Isi 5-10 tag huruf kecil yang relevan, contoh: mobil listrik geely, geely ev, geely indonesia.');
+    add(4, !!slug && slug.length <= 70 && (!kwWords.length || kwWords.some(function (w) { return slug.indexOf(w) >= 0; })), 'Alamat artikel pendek dan memuat keyword', 'Alamat (slug) sebaiknya maksimal 60-70 karakter dan memuat kata dari keyword utama.');
+    add(2, !/^# /m.test(body), 'Tidak ada judul H1 (#) di dalam isi', 'Hapus baris yang diawali satu tanda #. Judul artikel sudah otomatis menjadi H1.');
+    var tot = 0, got = 0; items.forEach(function (i) { tot += i.w; if (i.ok) got += i.w; });
+    var score = Math.round(got / tot * 100);
+    return { score: score, items: items, words: words, sents: sents, level: score >= 85 ? 'bagus' : (score >= 60 ? 'cukup' : 'kurang') };
+  }
+  function seoBadge(m) {
+    if (!m.text) return null;
+    var p = parseMd(m.text), fm = p.fm || {};
+    var r = seoAnalyze({ title: fm.title, description: fm.description, tags: Array.isArray(fm.tags) ? fm.tags : [], image: fm.image, body: p.body, slug: m.f.name.replace(/\.md$/, '') });
+    return el('small', { class: 'seo-b ' + r.level, text: 'SEO ' + r.score + '/100' + (r.level === 'bagus' ? '' : ' - buka Edit untuk melihat saran') });
+  }
+  function seoPanel(getVals) {
+    var wrap = el('div', { class: 'seo' });
+    var head = el('div', { class: 'seo-h' }), list = el('div', { class: 'seo-l' });
+    wrap.append(el('label', { text: 'Analisis SEO (otomatis, diperbarui saat Anda menulis)' }), head, list);
+    var last = '';
+    function render() {
+      if (!wrap.isConnected) { clearInterval(tm); return; }
+      var r = seoAnalyze(getVals()), sig = JSON.stringify(r.items.map(function (i) { return i.ok ? 1 : 0; })) + r.score + r.words;
+      if (sig === last) return; last = sig;
+      head.innerHTML = ''; head.append(el('span', { class: 'seo-s ' + r.level, text: r.score + '/100' }), el('span', { text: ' ' + (r.level === 'bagus' ? 'Sangat baik, siap terbit.' : (r.level === 'cukup' ? 'Cukup. Perbaiki poin merah agar lebih mudah naik di Google.' : 'Masih kurang. Perbaiki poin merah di bawah.')) + ' (' + r.words + ' kata, ' + r.sents + ' kalimat)' }));
+      list.innerHTML = '';
+      r.items.slice().sort(function (a, b) { return (a.ok ? 1 : 0) - (b.ok ? 1 : 0); }).forEach(function (i) {
+        list.append(el('div', { class: 'seo-i ' + (i.ok ? 'ok' : 'no') }, el('b', { text: (i.ok ? '✔ ' : '✖ ') + i.label }), i.ok ? null : el('small', { text: i.tip })));
+      });
+    }
+    var tm = setInterval(render, 1000); setTimeout(render, 50);
+    return wrap;
+  }
+
   // =============== pembuat form dari skema ===============
   // Setiap field dibuat menjadi {el, get(), check()}.
   function build(f, val, refs) {
@@ -241,6 +319,13 @@
       return o;
     }
 
+    if (t === 'seo') {
+      var sp = seoPanel(function () {
+        var g = function (k) { return refs && refs[k] ? refs[k].value : ''; };
+        return { title: g('title'), description: g('description'), slug: g('slug'), image: g('image'), body: g('body'), tags: g('tags').split(',') };
+      });
+      return { el: sp, get: function () { return undefined; }, check: function () { return ''; } };
+    }
     if (t === 'text' || t === 'date' || t === 'tags' || t === 'slug') {
       var v = val == null ? '' : (t === 'tags' ? (val || []).join(', ') : String(val));
       ctl = el('input', { type: t === 'date' ? 'date' : 'text', value: t === 'date' && !v ? today() : v, autocapitalize: (t === 'slug' || f.lower) ? 'none' : undefined });
@@ -264,6 +349,38 @@
       if (f.max) { counter = el('div', { class: 'hint', text: '' }); var upd = function () { counter.textContent = ctl.value.length + ' / ' + f.max + ' karakter'; }; ctl.oninput = upd; upd(); }
       var o2 = simple(ctl, function () { return f.keepSpace ? ctl.value : ctl.value.trim(); });
       if (counter) o2.el.append(counter);
+      if (f.tools) {
+        var insertAt = function (txt) {
+          var st = ctl.selectionStart == null ? ctl.value.length : ctl.selectionStart, en = ctl.selectionEnd == null ? st : ctl.selectionEnd;
+          ctl.value = ctl.value.slice(0, st) + txt + ctl.value.slice(en);
+          var pos = st + txt.length; try { ctl.focus(); ctl.setSelectionRange(pos, pos); } catch (e) {}
+        };
+        var tfile = el('input', { type: 'file', accept: 'image/*', class: 'hide' });
+        var tstat = el('div', { class: 'hint', text: '' });
+        var bImg = btn('+ Sisipkan gambar', 'sec sm', function () { tfile.click(); });
+        tfile.onchange = async function () {
+          var file = tfile.files[0]; if (!file) return;
+          bImg.disabled = true; tstat.textContent = 'Mengunggah gambar...';
+          try {
+            var url = await uploadImage(file, 'artikel');
+            var alt = prompt('Keterangan gambar (alt text). Tulis deskriptif dan sertakan keyword, contoh: Geely EX2 Max warna abu metalik', '');
+            insertAt('\n\n![' + (alt || '').trim().replace(/[\[\]]/g, '') + '](' + url + ')\n\n');
+            tstat.textContent = 'Gambar disisipkan di posisi kursor. Ukuran standar gambar isi artikel: 1200 x 675 px.';
+          } catch (e) { tstat.textContent = ''; show(e.message, 'err'); }
+          bImg.disabled = false; tfile.value = '';
+        };
+        var bVid = btn('+ Sisipkan video YouTube', 'sec sm', function () {
+          var u = prompt('Tempel link video YouTube, contoh https://youtu.be/xxxxxxxxxxx', ''); if (!u) return;
+          var m = String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/))([\w-]{11})/);
+          if (!m) return show('Link YouTube belum benar. Contoh: https://youtu.be/xxxxxxxxxxx', 'err');
+          var cap = (prompt('Keterangan video (boleh kosong)', '') || '').trim().replace(/[<>"]/g, '');
+          var id = m[1];
+          insertAt('\n\n<figure class="yt-wrap"><a class="yt-lite" href="https://www.youtube.com/watch?v=' + id + '" data-yt="' + id + '" target="_blank" rel="noopener" aria-label="Putar video"><img src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="Video: ' + (cap || 'YouTube') + '" loading="lazy" width="480" height="360"><span class="yt-play" aria-hidden="true"></span></a>' + (cap ? '<figcaption>' + cap + '</figcaption>' : '') + '</figure>\n\n');
+          tstat.textContent = 'Video disisipkan di posisi kursor. Tampil sebagai gambar pratinjau, diputar saat diketuk.';
+        });
+        o2.el.insertBefore(el('div', { class: 'row' }, bImg, bVid, tfile), ctl);
+        o2.el.insertBefore(tstat, ctl);
+      }
       return o2;
     }
     if (t === 'lines') {
@@ -294,19 +411,30 @@
       path.oninput = function () { setPrev(path.value.trim() ? imgSrc(path.value.trim()) : ''); };
       var fileIn = el('input', { type: 'file', accept: 'image/*', class: 'hide' });
       var status = el('div', { class: 'hint', text: '' });
+      var sizeInfo = f.size ? el('div', { class: 'sizeinfo', text: 'Ukuran standar: ' + f.size.w + ' x ' + f.size.h + ' px (' + f.size.txt + '). Format JPG/PNG/WebP, maks. 8 MB. Foto yang lebih lebar dari 1600 px otomatis diperkecil dan dikompres.' }) : null;
+      async function sizeCheck(file) {
+        if (!f.size) return '';
+        try {
+          var bm = await createImageBitmap(file), w = bm.width, h = bm.height, msg = 'Foto Anda ' + w + ' x ' + h + ' px. ';
+          var ratioOk = Math.abs((w / h) / (f.size.w / f.size.h) - 1) <= 0.12;
+          if (w < f.size.w * 0.6) msg += 'Agak kecil dari standar, bisa terlihat pecah. ';
+          msg += ratioOk ? 'Proporsinya sudah sesuai.' : 'Proporsinya berbeda dari standar (' + f.size.w + ' x ' + f.size.h + '), sebagian tepi bisa terpotong atau ada ruang kosong. Tetap bisa dipakai.';
+          return msg;
+        } catch (e) { return ''; }
+      }
       var pick = btn('Pilih foto', 'sec sm', function () { fileIn.click(); });
       fileIn.onchange = async function () {
         var file = fileIn.files[0]; if (!file) return;
         pick.disabled = true; status.textContent = 'Mengunggah...';
         try {
           var url = await uploadImage(file, f.folder || 'umum');
-          path.value = url; setPrev(URL.createObjectURL(file)); status.textContent = 'Berhasil diunggah: ' + url;
+          path.value = url; setPrev(URL.createObjectURL(file)); status.textContent = 'Berhasil diunggah: ' + url; var sc = await sizeCheck(file); if (sc) status.textContent += '. ' + sc;
           if (f.onUploaded) f.onUploaded(url);
         } catch (e) { status.textContent = ''; show(e.message, 'err'); }
         pick.disabled = false; fileIn.value = '';
       };
       var clear = btn('Hapus foto', 'sec sm', function () { path.value = ''; setPrev(''); status.textContent = ''; });
-      var box = el('div', { class: 'imgf' }, prev, path, el('div', { class: 'row' }, pick, clear, fileIn), status);
+      var box = el('div', { class: 'imgf' }, sizeInfo, prev, path, el('div', { class: 'row' }, pick, clear, fileIn), status);
       var o3 = { el: wrapField(box), get: function () { return path.value.trim(); }, check: function () { return f.req && !path.value.trim() ? (f.label || 'Foto') + ' wajib diisi.' : ''; } };
       if (refs && f.key) refs[f.key] = path;
       return o3;
@@ -389,9 +517,9 @@
     { key: 'whatsapp', label: 'Nomor WhatsApp', req: true, hint: 'Boleh ditulis 087710208822, otomatis jadi format 62...' },
     { key: 'pesanWa', label: 'Pesan awal WhatsApp (yang terkirim saat orang menekan tombol WA)', type: 'textarea' },
     { key: 'email', label: 'Email (boleh kosong)', lower: true },
-    { key: 'fotoProfil', label: 'Foto profil Anda (tampil kecil di bawah slider beranda, ideal persegi 400x400, wajah di tengah)', type: 'image', folder: 'umum' },
+    { key: 'fotoProfil', label: 'Foto profil Anda (tampil kecil di bawah slider beranda)', type: 'image', folder: 'umum', size: { w: 400, h: 400, txt: 'persegi, wajah di tengah' } },
     { key: 'sapaanProfil', label: 'Tulisan kecil di samping foto profil (contoh: Konsultan Anda untuk Geely)' },
-    { key: 'ogImage', label: 'Gambar saat link dibagikan ke sosmed (ideal 1200x630)', type: 'image', folder: 'umum' },
+    { key: 'ogImage', label: 'Gambar saat link dibagikan ke sosmed (WhatsApp, Facebook, dll)', type: 'image', folder: 'umum', size: { w: 1200, h: 630, txt: 'tulisan penting di tengah' } },
     { key: 'sosmed', label: 'Media sosial', type: 'list', addLabel: 'Tambah sosmed', blank: { platform: 'Instagram', label: '', url: '' }, fields: [
       { key: 'platform', label: 'Platform (logo tampil otomatis)', type: 'select', options: ['Instagram', 'Threads', 'YouTube', 'TikTok', 'Facebook', 'WhatsApp', 'X', 'Telegram', 'Lainnya'].map(function (x) { return { v: x, l: x }; }) },
       { key: 'label', label: 'Nama akun (contoh: @geelywins, dipakai untuk aksesibilitas)', req: true },
@@ -400,13 +528,18 @@
       { key: 'nama', label: 'Nama website', req: true },
       { key: 'url', label: 'Alamat (https://...)', req: true, lower: true },
       { key: 'deskripsi', label: 'Keterangan singkat' } ] },
-    { key: 'lokasi', label: 'Lokasi dealer', type: 'list', addLabel: 'Tambah lokasi', blank: { nama: '', area: '' }, fields: [
-      { key: 'nama', label: 'Nama lokasi', req: true }, { key: 'area', label: 'Wilayah / alamat', req: true } ] }
+    { key: 'lokasi', label: 'Lokasi dealer (tiap lokasi punya halaman sendiri: /lokasi/nama-lokasi/)', type: 'list', addLabel: 'Tambah lokasi', blank: { nama: '', area: '', alamat: '', maps: '', jam: '' }, fields: [
+      { key: 'nama', label: 'Nama lokasi', req: true }, { key: 'area', label: 'Wilayah (contoh: BSD City, Tangerang Selatan)', req: true },
+      { key: 'alamat', label: 'Alamat lengkap (nama, alamat, telepon harus sama di semua platform: Google Business Profile, sosmed, website)', type: 'textarea' },
+      { key: 'maps', label: 'Kata kunci peta Google Maps (boleh kosong). Tulis nama dealer + alamat persis supaya pin tepat' },
+      { key: 'jam', label: 'Jam buka (contoh: Senin-Sabtu 09.00-18.00)' } ] }
   ]; };
 
   function grp(key, label, fields) { return { key: key, label: label, type: 'group', collapse: true, fields: fields }; }
   SCH.content = function () { return [
     grp('beranda', 'Beranda', [
+      { key: 'seoJudul', label: 'Judul beranda di Google (45-60 karakter, keyword di awal)', max: 70, hint: 'Contoh: Geely EX2 Jakarta - Harga, Promo & Test Drive. Nama website otomatis ditambahkan di belakangnya.' },
+      { key: 'seoDeskripsi', label: 'Deskripsi beranda di Google (140-160 karakter, ajak klik)', type: 'textarea', max: 200 },
       { key: 'stats', label: 'Tiga poin singkat di bawah slider', type: 'list', addLabel: 'Tambah poin', blank: { angka: '', teks: '' }, fields: [ { key: 'angka', label: 'Tulisan tebal' }, { key: 'teks', label: 'Keterangan' } ] },
       { key: 'modelJudul', label: 'Judul bagian Model' }, { key: 'modelTeks', label: 'Teks bagian Model', type: 'textarea' },
       { key: 'promoJudul', label: 'Judul bagian Promo' }, { key: 'promoTeks', label: 'Teks bagian Promo', type: 'textarea' },
@@ -432,7 +565,7 @@
       { key: 'label', label: 'Tulisan kecil di atas judul' },
       { key: 'judul', label: 'Judul pop up' },
       { key: 'teks', label: 'Isi pop up', type: 'textarea' },
-      { key: 'foto', label: 'Foto pop up (boleh kosong)', type: 'image', folder: 'promo' },
+      { key: 'foto', label: 'Foto pop up (boleh kosong)', type: 'image', folder: 'promo', size: { w: 1280, h: 720, txt: 'landscape 16:9' } },
       { key: 'tombol', label: 'Tulisan tombol (kosongkan kalau tanpa tombol)' },
       { key: 'link', label: 'Tujuan tombol', hint: 'Tulis wa untuk WhatsApp, /promo/ untuk halaman website, atau https://... untuk situs lain.', lower: true } ]),
     grp('footer', 'Footer (bagian paling bawah)', [ { key: 'catatan', label: 'Catatan footer', type: 'textarea' } ])
@@ -442,13 +575,13 @@
     { key: 'nama', label: 'Nama model', req: true, hint: 'Contoh: Geely EX5' },
     { key: 'slug', label: 'Alamat halaman (otomatis dari nama)', type: 'slug', from: 'nama', lock: !isNew },
     { key: 'tipe', label: 'Jenis / segmen', hint: 'Contoh: SUV Listrik' },
-    { key: 'foto', label: 'Foto utama mobil', type: 'image', folder: 'model' },
+    { key: 'foto', label: 'Foto utama mobil', type: 'image', folder: 'model', size: { w: 1600, h: 900, txt: 'landscape 16:9, mobil di tengah dan jangan terlalu mepet tepi' } },
     { key: 'ringkas', label: 'Ringkasan satu kalimat', type: 'textarea', req: true },
     { key: 'deskripsi', label: 'Deskripsi lengkap', type: 'textarea', rows: 5 },
     { key: 'keunggulan', label: 'Keunggulan (satu baris = satu poin)', type: 'lines', rows: 5 },
     { key: 'harga', label: 'Harga / keterangan harga', hint: 'Contoh: Mulai Rp 000.000.000 (OTR Jakarta)' },
     { key: 'spesifikasi', label: 'Spesifikasi', type: 'list', addLabel: 'Tambah spesifikasi', blank: { label: '', nilai: '' }, fields: [ { key: 'label', label: 'Nama (contoh: Jarak tempuh)', req: true }, { key: 'nilai', label: 'Isi', req: true } ] },
-    { key: 'galeri', label: 'Galeri foto tambahan', type: 'list', addLabel: 'Tambah foto', of: { type: 'image', folder: 'model' } },
+    { key: 'galeri', label: 'Galeri foto tambahan', type: 'list', addLabel: 'Tambah foto', of: { type: 'image', folder: 'model', size: { w: 1200, h: 900, txt: 'landscape 4:3' } } },
     { key: 'warna', label: 'Warna kartu (dipakai kalau belum ada foto)', type: 'color' }
   ]; };
 
@@ -457,7 +590,7 @@
     { key: 'id', label: 'Alamat internal (otomatis dari judul)', type: 'slug', from: 'judul', lock: !isNew },
     { key: 'deskripsi', label: 'Isi / syarat promo', type: 'textarea', req: true, rows: 5 },
     { key: 'periode', label: 'Periode berlaku', hint: 'Contoh: 1-31 Oktober 2026' },
-    { key: 'foto', label: 'Foto / banner promo', type: 'image', folder: 'promo' },
+    { key: 'foto', label: 'Foto / banner promo', type: 'image', folder: 'promo', size: { w: 1200, h: 750, txt: 'landscape 16:10, tulisan penting di tengah' } },
     { key: 'model', label: 'Terkait model (boleh kosong)', type: 'select', options: [{ v: '', l: '- semua / tidak spesifik -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
     { key: 'aktif', label: 'Tampilkan promo ini di website', type: 'check', def: true }
   ]; };
@@ -466,8 +599,8 @@
     { key: 'judul', label: 'Judul besar', req: true, hint: 'Kata dalam kurung kurawal diberi warna sorot. Contoh: Mobil {Geely} modern' },
     { key: 'label', label: 'Tulisan kecil di atas judul' },
     { key: 'teks', label: 'Teks pengantar', type: 'textarea' },
-    { key: 'foto', label: 'Foto slide untuk laptop & tablet: ukuran 1920x1080 (landscape). Mobil di sisi kanan, sisi kiri dibiarkan lapang untuk tulisan', type: 'image', folder: 'slider' },
-    { key: 'fotoHp', label: 'Foto slide khusus HP (boleh kosong): ukuran 900x1200 (portrait). Mobil di sepertiga bagian atas, bagian bawah dibiarkan lapang untuk tulisan. Kalau kosong, dipakai foto laptop yang dipotong otomatis', type: 'image', folder: 'slider' },
+    { key: 'foto', label: 'Foto slide untuk laptop & tablet', type: 'image', folder: 'slider', size: { w: 1920, h: 1080, txt: 'landscape 16:9, mobil di sisi kanan, sisi kiri lapang untuk tulisan' } },
+    { key: 'fotoHp', label: 'Foto slide khusus HP (boleh kosong, kalau kosong dipakai foto laptop yang dipotong otomatis)', type: 'image', folder: 'slider', size: { w: 900, h: 1200, txt: 'portrait 3:4, mobil di sepertiga atas, bagian bawah lapang untuk tulisan' } },
     { key: 'posisiTeks', label: 'Posisi tulisan di laptop, tablet & HP lipat', type: 'select', options: [{ v: 'kiri', l: 'Tulisan di kiri (mobil/foto di kanan)' }, { v: 'kanan', l: 'Tulisan di kanan (foto Anda/mobil di kiri)' }] },
     { key: 'warna', label: 'Warna sorot (dipakai kalau belum ada foto)', type: 'color' },
     { key: 'tombol', label: 'Tulisan tombol utama' },
@@ -479,7 +612,7 @@
 
   SCH.delivery = function (isNew, models) { return [
     { key: 'judul', label: 'Judul foto', req: true, hint: 'Contoh: Serah terima Geely EX5' },
-    { key: 'foto', label: 'Foto delivery', type: 'image', folder: 'delivery', req: true },
+    { key: 'foto', label: 'Foto delivery', type: 'image', folder: 'delivery', req: true, size: { w: 1200, h: 900, txt: 'landscape 4:3, pelanggan dan mobil di tengah' } },
     { key: 'nama', label: 'Nama pelanggan (izin pelanggan dulu ya)' },
     { key: 'model', label: 'Model mobil', type: 'select', options: [{ v: '', l: '- tidak disebutkan -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
     { key: 'tanggal', label: 'Tanggal serah terima', type: 'date' },
@@ -492,7 +625,7 @@
     { key: 'model', label: 'Model mobil', type: 'select', options: [{ v: '', l: '- tidak disebutkan -' }].concat((models || []).map(function (m) { return { v: m.slug, l: m.nama }; })) },
     { key: 'teks', label: 'Isi testimoni (kata-kata asli pelanggan)', type: 'textarea', req: true, rows: 5 },
     { key: 'rating', label: 'Bintang (1 sampai 5)', type: 'select', options: ['5', '4', '3', '2', '1'].map(function (x) { return { v: x, l: x + ' bintang' }; }) },
-    { key: 'foto', label: 'Foto pelanggan (boleh kosong)', type: 'image', folder: 'testimoni' },
+    { key: 'foto', label: 'Foto pelanggan (boleh kosong)', type: 'image', folder: 'testimoni', size: { w: 800, h: 600, txt: 'bebas, tampil utuh tanpa dipotong (tinggi tampil 190 px)' } },
     { key: 'aktif', label: 'Tampilkan di website', type: 'check', def: true }
   ]; };
 
@@ -503,9 +636,10 @@
     { key: 'category', label: 'Kategori', req: true },
     { key: 'tags', label: 'Tag (pisahkan dengan koma)', type: 'tags' },
     { key: 'date', label: 'Tanggal tayang', type: 'date', hint: 'Isi tanggal di masa depan untuk menjadwalkan. Artikel tayang otomatis pukul ±06:00 WIB pada tanggal itu (pastikan Draft tidak dicentang).' },
-    { key: 'image', label: 'Gambar utama artikel', type: 'image', folder: 'artikel', onUploaded: function (u) { lastArticleImg = u; } },
+    { key: 'image', label: 'Gambar utama artikel', type: 'image', folder: 'artikel', size: { w: 1200, h: 630, txt: 'landscape, judul/objek penting di tengah. Kalau kosong, website membuat sampul otomatis' }, onUploaded: function (u) { lastArticleImg = u; } },
     { key: 'video', label: 'Link video YouTube (boleh kosong)', hint: 'Tempel link video YouTube Anda, contoh https://youtu.be/xxxxxxxxxxx. Video tampil di atas isi artikel dan ikut dibaca Google.', lower: true },
-    { key: 'body', label: 'Isi artikel (Markdown: ## Judul bagian, - daftar, **tebal**, ![keterangan](/images/artikel/foto.jpg))', type: 'textarea', mono: true, rows: 14, req: true, keepSpace: true },
+    { key: 'body', label: 'Isi artikel (Markdown: ## Judul bagian, - daftar, **tebal**, ![keterangan](/images/artikel/foto.jpg))', type: 'textarea', mono: true, rows: 14, req: true, keepSpace: true, tools: true },
+    { key: '_seo', type: 'seo' },
     { key: 'draft', label: 'Draft (belum tayang). Hilangkan centang lalu Simpan untuk menerbitkan', type: 'check', def: false }
   ]; };
   var lastArticleImg = '';
@@ -613,7 +747,7 @@
           if (ok) { ev.target.textContent = 'Tersalin ✓'; setTimeout(function () { ev.target.textContent = 'Salin link'; }, 2000); show('Link tersalin: ' + u + ' — tempel di Google Search Console (Periksa URL → Minta pengindeksan).'); }
           else prompt('Salin link ini secara manual:', u);
         }));
-        card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: m.title }), el('small', { text: (m.fm.category || '') + (m.date ? ' - ' + m.date : '') })), el('div', { class: 'btns' }, b)));
+        card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: m.title }), el('small', { text: (m.fm.category || '') + (m.date ? ' - ' + m.date : '') }), seoBadge(m)), el('div', { class: 'btns' }, b)));
       });
     }
     section('Draft siap ditinjau', 'Belum tayang. Buka Edit untuk membaca dan mengubah, lalu tekan Terbitkan (tayang sekarang) atau Jadwalkan (tayang otomatis di tanggal pilihan).', drafts, true);

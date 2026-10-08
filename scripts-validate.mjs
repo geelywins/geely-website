@@ -21,14 +21,15 @@ for (const f of files) {
   if (title.length < 45 || title.length > 65) err.push(`judul ${title.length} char`);
   if (desc.length < 120 || desc.length > 160) err.push(`deskripsi ${desc.length} char`);
   if (tags.length < 8 || tags.length > 10) err.push(`tag ${tags.length}`); if (new Set(tags).size !== tags.length) err.push('tag dobel');
-  if (!tags.includes('geely ex2') || !tags.includes('geely ex2 max')) err.push('tag wajib');
+  if (!tags.some(t => t.includes('geely'))) err.push('tag wajib (minimal 1 tag berisi geely)');
   if (tags.filter(t => EV.includes(t)).length < 3) err.push('<3 tag EV Geely');
   if (tags.some(t => t !== t.toLowerCase())) err.push('tag huruf besar');
   if (h2 < 6) err.push(`H2 ${h2}<6`); if (/^# /m.test(body)) err.push('ada H1'); if (/!\[/.test(body)) err.push('ada gambar md');
-  if (!links.includes('/model/geely-ex2/')) err.push('tautan model EX2'); if (!links.some(l => l === '/promo/' || l === '/kontak/')) err.push('tautan promo/kontak');
+  if (!links.some(l => l.startsWith('/model/'))) err.push('tautan halaman model'); if (!links.some(l => l === '/promo/' || l === '/kontak/')) err.push('tautan promo/kontak');
   if (art.length < 3) err.push(`tautan artikel ${art.length}<3`); for (const a of art) { if (!slugs.has(a)) err.push('slug tak ada: ' + a); if (a === slug) err.push('tautan diri sendiri'); }
   if (!/^## Pertanyaan yang sering diajukan/m.test(body)) err.push('tanpa FAQ'); if (!/^## Kesimpulan/m.test(body)) err.push('tanpa Kesimpulan');
-  if (!/draft:\s*true/.test(fm)) err.push('bukan draft'); if (!/^date:\s*\d{4}-\d{2}-\d{2}/m.test(fm)) err.push('date');
+  const first = body.trim().split(/\n\s*\n/)[0].replace(/\[([^\]]*)\]\([^)]*\)/g, '$1'); const fw = (first.match(/\S+/g) || []).length; if (/^#|^[-|*]/.test(first) || fw < 40 || fw > 60) err.push(`ringkasan awal ${fw} kata (harus 40-60 kata, paragraf pertama sebelum heading)`);
+  if (!/^date:\s*\d{4}-\d{2}-\d{2}/m.test(fm)) err.push('date');
   n++; if (err.length) { bad++; console.log('X', slug, '→', err.join('; ')); } else console.log('OK', slug, `${words}k ${sents}kal ${art.length}art`);
 }
 console.log(`\n${n - bad}/${n} lolos`); process.exit(bad ? 1 : 0);

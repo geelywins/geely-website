@@ -1,10 +1,9 @@
 ---
 title: "Perawatan Geely EX2 Max: Servis Berkala dan Biaya Rutin"
 description: "Perawatan Geely EX2 Max lebih sederhana dari mobil bensin. Pelajari apa yang dicek saat servis berkala dan cara menekan biaya. Tanya sales untuk detailnya."
-date: 2026-10-07
+date: 2026-10-10
 category: "Perawatan"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "perawatan mobil listrik", "servis berkala", "baterai lfp", "mobil listrik jakarta"]
-draft: true
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","perawatan mobil listrik","servis berkala","baterai lfp","mobil listrik jakarta"]
 ---
 
 Perawatan Geely EX2 Max pada dasarnya lebih sederhana dibanding mobil bensin sekelas. Alasannya jelas: mobil listrik tidak punya mesin pembakaran, oli mesin, busi, atau knalpot. Dalam artikel ini saya, Wins, sales consultant Geely di Jakarta dan BSD, merangkum apa saja yang tetap perlu dicek dan bagaimana Anda bisa merencanakan biayanya dengan tenang.

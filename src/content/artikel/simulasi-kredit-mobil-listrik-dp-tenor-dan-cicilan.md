@@ -5,7 +5,7 @@ date: 2026-10-07
 updated: 2026-10-08
 category: "Tips Membeli"
 tags: ["simulasi kredit","kredit mobil listrik","dp mobil","cicilan"]
-image: "/images/artikel/207065-muyul6nh.jpg"
+image: "/images/artikel/207066-muyur4qn.jpg"
 ---
 
 Sebelum memutuskan, hampir semua calon pembeli bertanya hal yang sama: **berapa DP dan cicilannya?** Berikut cara memahaminya agar Anda tidak bingung saat simulasi.

@@ -1,11 +1,11 @@
 ---
 title: "Pajak dan Insentif Mobil Listrik untuk Geely EX2 Max: Panduan"
 description: "Pajak dan insentif mobil listrik untuk Geely EX2 Max berubah sesuai aturan terbaru. Pahami gambaran umumnya, lalu konfirmasi ke sales kami sebelum membeli."
-date: 2026-10-07
+date: 2026-10-09
 category: "Kredit & Biaya"
-tags: ["geely ex2", "geely ex2 max", "pajak mobil listrik", "insentif mobil listrik", "kredit mobil listrik", "mobil listrik geely", "geely ev", "harga mobil listrik geely", "ev indonesia"]
-draft: true
+tags: ["geely ex2","geely ex2 max","pajak mobil listrik","insentif mobil listrik","kredit mobil listrik","mobil listrik geely","geely ev","harga mobil listrik geely","ev indonesia"]
 ---
+
 Pajak dan insentif mobil listrik untuk Geely EX2 Max adalah topik yang sering membingungkan calon pembeli. Aturannya bisa berubah dari waktu ke waktu, sehingga angka yang Anda baca di internet belum tentu masih berlaku. Karena itu, artikel ini hanya memberi gambaran umum.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Saya tidak menyebut tarif atau potongan tertentu, dan akan menunjukkan cara memastikannya.

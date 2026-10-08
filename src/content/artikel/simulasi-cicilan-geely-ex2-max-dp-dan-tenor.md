@@ -1,11 +1,12 @@
 ---
 title: "Simulasi Cicilan Geely EX2 Max: Cara Hitung DP dan Tenor"
 description: "Simulasi cicilan Geely EX2 Max: pahami cara hitung DP dan tenor tanpa angka eksak, lalu minta simulasi resmi dari sales kami sesuai kebutuhan Anda."
-date: 2026-10-07
+date: 2026-10-08
 category: "Kredit & Biaya"
-tags: ["geely ex2", "geely ex2 max", "simulasi cicilan", "kredit mobil listrik", "dp mobil listrik", "harga mobil listrik geely", "mobil listrik geely", "geely ev", "geely indonesia"]
-draft: true
+tags: ["geely ex2","geely ex2 max","simulasi cicilan","kredit mobil listrik","dp mobil listrik","harga mobil listrik geely","mobil listrik geely","geely ev","geely indonesia"]
+image: "/images/artikel/207065-muyun8jv.jpg"
 ---
+
 Simulasi cicilan Geely EX2 Max membantu Anda merencanakan keuangan sebelum membeli. Dengan memahami DP, tenor, dan bunga, Anda bisa memilih skema yang nyaman. Saya sengaja tidak menyebut angka cicilan pasti, karena harga dan promo bisa berubah.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Mari kita bahas cara menghitungnya langkah demi langkah.

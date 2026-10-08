@@ -1,10 +1,9 @@
 ---
 title: "Tips Booking dan Negosiasi Geely EX2 Max dengan Tenang"
 description: "Tips booking dan negosiasi Geely EX2 Max: persiapan, pertanyaan ke sales, dan cara membandingkan penawaran. Hubungi kami untuk promo terbaru yang berlaku."
-date: 2026-10-07
+date: 2026-10-12
 category: "Tips Membeli"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely indonesia", "harga mobil listrik geely", "booking mobil listrik", "kredit mobil listrik", "promo mobil listrik", "tips negosiasi"]
-draft: true
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely indonesia","harga mobil listrik geely","booking mobil listrik","kredit mobil listrik","promo mobil listrik","tips negosiasi"]
 ---
 
 Tips booking dan negosiasi Geely EX2 Max berikut ini bertujuan membuat Anda lebih siap, bukan lebih agresif. Membeli mobil adalah keputusan besar, dan persiapan yang baik membuat prosesnya terasa tenang. Saya, Wins, sales consultant Geely di Jakarta dan BSD, ingin berbagi sudut pandang dari dalam: apa yang sebaiknya Anda siapkan, tanyakan, dan bandingkan sebelum menandatangani apa pun.

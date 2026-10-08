@@ -6,7 +6,6 @@ updated: 2026-10-08
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","mobil listrik kompak","review mobil listrik","ev indonesia"]
 image: "/images/artikel/207067-muyuzy1s.jpg"
-draft: true
 ---
 
 Review Geely EX2 Max ini saya tulis dari sudut pandang sales yang setiap hari menjelaskan mobil ini kepada calon pembeli. Saya akan membahas fitur, kelebihan, dan juga kekurangannya secara jujur. Dengan begitu Anda bisa menilai sendiri apakah mobil listrik kompak ini cocok untuk kebutuhan Anda.

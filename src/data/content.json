@@ -30,7 +30,7 @@
         "teks": "Tanya lewat WhatsApp, saya jawab langsung tanpa berbelit."
       },
       {
-        "ikon": "💰",
+        "ikon": "⚖️",
         "judul": "Simulasi kredit jelas",
         "teks": "DP, tenor dan cicilan dihitung terbuka sebelum Anda memutuskan."
       },
@@ -51,7 +51,7 @@
     "faq": [
       {
         "tanya": "Bagaimana cara test drive Geely?",
-        "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City atau Tanah Abang."
+        "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City."
       },
       {
         "tanya": "Apakah bisa simulasi kredit Geely?",
@@ -92,7 +92,7 @@
       "Jadwal test drive",
       "Pendampingan sampai serah terima unit"
     ],
-    "seoDeskripsi": "Hubungi sales Geely lewat WhatsApp untuk tanya harga, promo, simulasi kredit dan test drive. Dealer di BSD City dan Tanah Abang."
+    "seoDeskripsi": "Hubungi sales Geely lewat WhatsApp untuk tanya harga, promo, simulasi kredit dan test drive. Dealer di BSD City."
   },
   "footer": {
     "catatan": "Website ini dikelola oleh sales consultant dealer resmi Geely. Harga, promo dan spesifikasi dapat berubah sewaktu-waktu, silakan konfirmasi ke sales."

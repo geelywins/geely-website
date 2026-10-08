@@ -2,8 +2,10 @@
 title: "Geely Starray EM-i: Kenali SUV Hybrid Plug-in dari Geely"
 description: "Mengenal Geely Starray EM-i, SUV hybrid plug-in yang dirakit di Indonesia: cara kerja sistem EM-i, siapa yang cocok, dan hal yang perlu ditanyakan sebelum membeli."
 date: 2026-10-07
+updated: 2026-10-08
 category: "Model Geely"
-tags: ["geely starray", "starray em-i", "suv hybrid", "phev"]
+tags: ["geely starray","starray em-i","suv hybrid","phev"]
+image: "/images/artikel/150709-muzn7h6a.jpg"
 draft: true
 ---
 

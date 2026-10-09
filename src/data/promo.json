@@ -1,5 +1,14 @@
 [
   {
+    "judul": "Promo Discount 10% Kaca Film Solar Gard",
+    "id": "promo-discount-10-kaca-film-solar-gard",
+    "deskripsi": "Disc 10 % untuk kaca Film Solar Gard Black Phantom Setiap Pembelian Geely Model Apapun",
+    "periode": "30 November 2026",
+    "foto": "/images/promo/208017-mv11txz1.jpg",
+    "model": "",
+    "aktif": true
+  },
+  {
     "judul": "Promo Free Wallcharging",
     "id": "free-wallcharging",
     "deskripsi": "🎁 FREE WALL CHARGER.\n💰 SUBSIDI LEASING KHUSUS CREDIT.\n🛡️ FREE INSURANCE 1 TAHUN KHUSUS CASH.\n\nPerlindungan kendaraan selama 1 tahun\nby Zurich Insurance",
@@ -14,15 +23,6 @@
     "deskripsi": "Jadwalkan test drive Geely dan dapatkan simulasi kredit gratis. Ini hanya contoh promo, ganti isinya lewat halaman admin menu Promo.",
     "periode": "Berlaku sampai ada pemberitahuan",
     "foto": "",
-    "model": "",
-    "aktif": true
-  },
-  {
-    "judul": "Promo Discount 10% Kaca Film Solar Gard",
-    "id": "promo-discount-10-kaca-film-solar-gard",
-    "deskripsi": "Disc 10 % untuk kaca Film Solar Gard Black Phantom Setiap Pembelian Geely Model Apapun",
-    "periode": "30 November 2026",
-    "foto": "/images/promo/208017-mv11txz1.jpg",
     "model": "",
     "aktif": true
   }

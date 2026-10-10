@@ -3,9 +3,10 @@ title: "Garansi Baterai dan Mobil Geely EX2 Max: 8 Tahun 150.000 Km"
 description: "Garansi baterai dan mobil Geely EX2 Max 8 tahun atau 150.000 km sesuai informasi peluncuran. Pahami syarat umumnya dan konfirmasikan ke sales kami."
 date: 2026-10-07
 category: "Kredit & Biaya"
-tags: ["geely ex2", "geely ex2 max", "garansi baterai", "garansi mobil", "baterai lfp", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik kompak"]
+tags: ["geely ex2","geely ex2 max","garansi baterai","garansi mobil","baterai lfp","mobil listrik geely","geely ev","geely indonesia","mobil listrik kompak"]
 draft: true
 ---
+
 Garansi baterai dan mobil Geely EX2 Max adalah faktor penting bagi pembeli mobil listrik pertama. Sesuai informasi saat peluncuran, garansinya 8 tahun atau 150.000 km. Mohon konfirmasi ke sales untuk ketentuan terbaru, karena syarat dapat diperbarui.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Mari kita bahas apa arti garansi ini dan hal yang perlu Anda tanyakan.
@@ -114,6 +115,8 @@ Cakupan baterai bisa memiliki ketentuan khusus. Tanyakan rinciannya ke sales dan
 ### Apakah servis harus di bengkel resmi?
 
 Umumnya ya, agar garansi tetap berlaku. Pastikan dengan sales untuk ketentuan yang berlaku.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

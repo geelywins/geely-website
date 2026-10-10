@@ -3,7 +3,7 @@ title: "Cara Mengisi Daya Mobil Listrik: di Rumah, AC vs DC, dan SPKLU"
 description: "Panduan mengisi daya mobil listrik untuk pemula: perbedaan charger AC dan DC, waktu pengisian, tips mengisi di rumah, dan etika memakai SPKLU."
 date: 2026-10-07
 category: "Panduan EV"
-tags: ["charging", "spklu", "wallbox", "mobil listrik"]
+tags: ["charging","spklu","wallbox","mobil listrik"]
 draft: true
 ---
 
@@ -37,3 +37,5 @@ Waktu nyata bergantung daya charger, suhu dan kondisi baterai.
 - Ikuti panduan buku manual dan anjuran dealer.
 
 Ingin tahu apakah rumah Anda siap untuk mobil listrik? Tanyakan ke saya lewat WhatsApp, saya arahkan langkah-langkahnya.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

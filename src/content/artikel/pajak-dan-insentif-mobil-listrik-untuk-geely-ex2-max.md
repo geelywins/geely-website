@@ -119,6 +119,8 @@ Secara umum pajak dihitung dari harga dan ketentuan yang berlaku. Karena harga k
 
 Dari sales resmi dan instansi pemerintah terkait. Hindari informasi yang tidak jelas sumbernya.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Pajak dan insentif mobil listrik dapat berubah, jadi selalu verifikasi sebelum memutuskan. Jangan mengandalkan angka lama, dan minta rincian tertulis dari sales.

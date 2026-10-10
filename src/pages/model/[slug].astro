@@ -71,6 +71,16 @@ const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
           </div>
         )}
 
+      {m.link3d && /^https:\/\//.test(m.link3d) && (
+        <div class="link3d reveal">
+          <div>
+            <strong>Lihat tampilan 3D resmi {m.nama}</strong>
+            <p>Putar mobilnya 360&deg; di situs resmi Geely. Halaman ini tetap terbuka di tab sebelumnya, tinggal tutup tab 3D atau tekan Kembali untuk melanjutkan di sini.</p>
+          </div>
+          <a class="btn btn-brand btn-lg" href={m.link3d} target="_blank" rel="noopener noreferrer">Buka 3D resmi Geely <span aria-hidden="true">&nearr;</span></a>
+        </div>
+      )}
+
       <h2>Tentang {m.nama}</h2>
       <p>{m.deskripsi}</p>
 

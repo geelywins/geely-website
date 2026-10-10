@@ -621,6 +621,7 @@
     { key: 'harga', label: 'Harga / keterangan harga', hint: 'Contoh: Mulai Rp 000.000.000 (OTR Jakarta)' },
     { key: 'spesifikasi', label: 'Spesifikasi', type: 'list', addLabel: 'Tambah spesifikasi', blank: { label: '', nilai: '' }, fields: [ { key: 'label', label: 'Nama (contoh: Jarak tempuh)', req: true }, { key: 'nilai', label: 'Isi', req: true } ] },
     { key: 'model3d', label: 'File 3D mobil (.glb) untuk putar 360°', type: 'glb', hint: 'Unggah file .glb dari Geely/pabrikan (maks. 40 MB, ideal di bawah 15 MB supaya cepat dibuka di HP). Kalau terisi, halaman model menampilkan viewer 3D yang bisa diputar. Kosongkan untuk memakai foto biasa.' },
+    { key: 'link3d', label: 'Link 3D resmi Geely (boleh kosong)', lower: true, hint: 'Tempel alamat halaman 3D di situs Geely, contoh https://global.geely.com/digital/3d/en/ex2. Website menampilkan tombol yang membuka halaman itu di tab baru, sehingga geelywins.com tetap terbuka.' },
     { key: 'galeri', label: 'Galeri foto tambahan', type: 'list', addLabel: 'Tambah foto', of: { type: 'image', folder: 'model', size: { w: 1200, h: 900, txt: 'landscape 4:3' } } },
     { key: 'warna', label: 'Warna kartu (dipakai kalau belum ada foto)', type: 'color' }
   ]; };
@@ -1285,7 +1286,7 @@
   var COL = {
     model: { def: 'models', path: 'src/data/models.json', label: 'Model Mobil', single: 'model', idKey: 'slug', schema: SCH.model,
       title: function (m) { return m.nama; }, sub: function (m) { return m.harga || ''; },
-      blank: function () { return { warna: '#3b8cff', keunggulan: [], spesifikasi: [], galeri: [], foto: '', model3d: '', harga: 'Hubungi sales untuk harga & promo terbaru' }; },
+      blank: function () { return { warna: '#3b8cff', keunggulan: [], spesifikasi: [], galeri: [], foto: '', model3d: '', link3d: '', harga: 'Hubungi sales untuk harga & promo terbaru' }; },
       seed: function (arr) {
         return arr.some(function (m) { return m.slug === 'geely-coolray'; }) ? [] : [{ label: 'Geely Coolray', item: { slug: 'geely-coolray', nama: 'Geely Coolray', tipe: 'SUV Kompak', ringkas: 'SUV kompak bermesin bensin untuk pemakaian harian. Tanyakan spesifikasi lengkap dan promo ke sales.', deskripsi: 'Geely Coolray adalah SUV kompak bermesin bensin. Spesifikasi resmi belum dicantumkan di halaman ini. Hubungi sales untuk data dan penawaran terbaru.', keunggulan: [], harga: 'Hubungi sales untuk harga & promo terbaru', spesifikasi: [{ label: 'Jenis', nilai: 'SUV kompak, mesin bensin' }], foto: '', galeri: [], warna: '#2f80ed', model3d: '' } }];
       } },

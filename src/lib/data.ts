@@ -20,7 +20,7 @@ export function fill(def: any, val: any): any {
 export interface GeelyModel {
   slug: string; nama: string; tipe: string; ringkas: string; deskripsi: string;
   keunggulan: string[]; harga: string; spesifikasi: { label: string; nilai: string }[];
-  foto?: string; galeri?: string[]; warna: string; model3d?: string;
+  foto?: string; galeri?: string[]; warna: string; model3d?: string; link3d?: string;
 }
 export interface Promo { id: string; judul: string; deskripsi: string; periode?: string; foto?: string; model?: string; aktif: boolean }
 export interface Slide { label: string; judul: string; teks: string; foto?: string; fotoHp?: string; posisiTeks?: string; tombol?: string; link?: string; tombol2?: string; link2?: string; warna?: string; aktif: boolean }
@@ -30,7 +30,13 @@ export interface Delivery { judul: string; nama?: string; model?: string; tangga
 export const settings = fill(defaults.settings, file('settings'));
 export const content = fill(defaults.content, file('content'));
 
-export const MODELS: GeelyModel[] = fill(defaults.models, file('models'));
+// Link 3D resmi Geely (dipakai kalau kolom "Link 3D resmi Geely" di admin masih kosong)
+const LINK3D_BAWAAN: Record<string, string> = {
+  'geely-ex2': 'https://global.geely.com/digital/3d/en/ex2',
+  'geely-ex5': 'https://global.geely.com/digital/3d/en/ex5',
+  'geely-starray-em-i': 'https://global.geely.com/digital/3d/en/p145',
+};
+export const MODELS: GeelyModel[] = (fill(defaults.models, file('models')) as GeelyModel[]).map((m) => ({ ...m, link3d: m.link3d || LINK3D_BAWAAN[m.slug] || '' }));
 export const getModel = (slug?: string) => MODELS.find((m) => m.slug === slug);
 
 export const PROMOS: Promo[] = fill(defaults.promo, file('promo'));

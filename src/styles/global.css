@@ -360,3 +360,7 @@ a.card-x { text-decoration: none !important; }
 .model-card .v3d-badge { position: absolute; top: .6rem; left: .6rem; padding: .25rem .6rem; border-radius: 999px; background: #10203a; color: #fff; font-size: .75rem; font-weight: 800; }
 .model-card .card-media { position: relative; }
 @media (max-width: 575px) { .v3d model-viewer { aspect-ratio: 4 / 3; min-height: 260px; } }
+
+.link3d { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; margin: 1.25rem 0; padding: 1.1rem 1.25rem; border: 1px solid var(--line, #dde5f0); border-radius: 16px; background: var(--surface, #fff); }
+.link3d p { margin: .25rem 0 0; font-size: .9rem; color: var(--muted, #6b7b95); max-width: 52ch; }
+.link3d .btn { min-height: 48px; }

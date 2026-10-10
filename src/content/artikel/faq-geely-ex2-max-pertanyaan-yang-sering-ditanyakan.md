@@ -3,7 +3,7 @@ title: "FAQ Geely EX2 Max: Pertanyaan yang Sering Ditanyakan"
 description: "FAQ Geely EX2 Max: jawaban singkat soal baterai, pengisian, fitur, garansi, dan perbedaan dengan Pro. Hubungi sales untuk harga dan promo terbaru."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik kompak", "faq mobil listrik", "harga mobil listrik geely", "ev indonesia"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","mobil listrik kompak","faq mobil listrik","harga mobil listrik geely","ev indonesia"]
 draft: true
 ---
 
@@ -116,6 +116,8 @@ Ya, test drive adalah cara mengenal mobil. Hubungi kami untuk menjadwalkannya.
 
 ### Dari mana saya mendapat harga terbaru?
 Hubungi sales kami lewat halaman kontak. Harga dan promo dapat berubah sewaktu-waktu.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

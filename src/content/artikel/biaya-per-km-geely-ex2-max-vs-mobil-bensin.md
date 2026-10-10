@@ -109,6 +109,8 @@ Dari sisi biaya energi, mobil listrik biasanya lebih murah per km. Namun total b
 
 Umumnya tarif SPKLU berbeda dan sering lebih tinggi. Cek tarif penyedia yang Anda pakai.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Biaya per km Geely EX2 Max cenderung lebih rendah dibanding mobil bensin sekelas dalam contoh asumsi ini. Namun hitung juga cicilan, servis, dan pajak agar gambaran Anda utuh.

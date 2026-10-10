@@ -107,6 +107,8 @@ Ya. Keduanya memakai baterai LFP 40,8 kWh dengan klaim pengisian yang sama.
 
 Boleh saat diperlukan, tetapi untuk kebiasaan harian pengisian AC lebih disarankan. Itu membantu menjaga baterai tetap sehat.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Pengisian cepat DC membuat Geely EX2 Max praktis untuk perjalanan jauh dan situasi mendesak. Rencanakan rute, patuhi etika antre, dan gunakan AC untuk rutinitas harian.

@@ -106,6 +106,8 @@ Itu tergantung kebijakan dealer. Tanyakan syarat tertulisnya sebelum membayar.
 ### Sebaiknya booking Pro atau Max?
 Pilih sesuai kebutuhan dan anggaran. Max menambah ADAS, kamera 540 derajat, V2L, dan kontrol aplikasi.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Booking dan negosiasi Geely EX2 Max berjalan lebih mulus bila Anda siap dengan kebutuhan, pertanyaan, dan perbandingan tertulis. Bersikap terbuka dan jangan terburu-buru. Lihat [Geely EX2](/model/geely-ex2/), cek [promo terbaru](/promo/), lalu hubungi kami di Jakarta atau BSD untuk diskusi dan test drive.

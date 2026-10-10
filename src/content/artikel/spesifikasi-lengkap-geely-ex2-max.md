@@ -2,12 +2,14 @@
 title: "Spesifikasi Lengkap Geely EX2 Max dan Arti Tiap Angkanya"
 description: "Spesifikasi lengkap Geely EX2 Max dalam tabel, plus arti tiap angka dengan bahasa mudah. Hubungi sales Geely untuk konfirmasi data terbaru."
 date: 2026-10-07
+updated: 2026-10-10
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "spesifikasi mobil listrik", "baterai lfp", "mobil listrik kompak", "ev indonesia"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","spesifikasi mobil listrik","baterai lfp","mobil listrik kompak","ev indonesia"]
+image: "/images/artikel/209074-mv279cba.jpg"
 draft: true
 ---
 
-Spesifikasi lengkap Geely EX2 Max sering terlihat seperti deretan angka yang sulit dipahami. Padahal setiap angka punya arti praktis untuk pemakaian sehari-hari. Di artikel ini saya merangkum datanya dalam tabel, lalu menjelaskan maknanya dengan bahasa yang mudah diikuti.
+Spesifikasi lengkap Geely EX2 Max sering terlihat seperti deretan angka yang sulit dipahami. Padahal setiap angka punya arti praktis untuk pemakaian sehari-hari. Di artikel ini saya merangkum datanya dalam tabel, lalu menjelaskan maknanya dengan bahasa yang mudah dipahami yang akan di jadikan bahan referensi untuk pilihan mobil anda.
 
 ## Tabel spesifikasi Geely EX2 Max
 

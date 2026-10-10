@@ -105,6 +105,8 @@ Garansi saat peluncuran mencakup 8 tahun atau 150.000 km, sesuai informasi pelun
 ### Seberapa sering saya harus servis?
 Interval pastinya mengikuti buku servis resmi. Tanyakan ke sales atau bengkel resmi agar Anda mendapat jadwal terbaru.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Perawatan Geely EX2 Max lebih sederhana karena tidak ada mesin bensin, namun servis berkala tetap penting. Ikuti jadwal resmi, jaga kebiasaan harian, dan simpan bukti servis. Agar rencana biaya Anda lebih jelas, silakan lihat halaman [Geely EX2](/model/geely-ex2/) atau [hubungi kontak kami](/kontak/) untuk menanyakan jadwal servis, paket perawatan, dan promo terbaru. Anda juga bisa menjadwalkan test drive bila ingin merasakan langsung kenyamanannya.

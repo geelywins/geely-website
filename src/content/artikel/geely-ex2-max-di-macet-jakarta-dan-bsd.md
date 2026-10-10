@@ -3,7 +3,7 @@ title: "Geely EX2 Max di Macet Jakarta dan BSD: Nyaman dan Efisien"
 description: "Geely EX2 Max di macet Jakarta dan BSD: senyap, pengereman regeneratif, dan kamera 540 derajat memudahkan parkir. Coba test drive untuk merasakannya."
 date: 2026-10-07
 category: "Mobil Listrik"
-tags: ["geely ex2", "geely ex2 max", "ev geely jakarta", "mobil listrik kompak", "mobil listrik geely", "geely indonesia", "mobil listrik jakarta", "mobil listrik bsd", "macet jakarta"]
+tags: ["geely ex2","geely ex2 max","ev geely jakarta","mobil listrik kompak","mobil listrik geely","geely indonesia","mobil listrik jakarta","mobil listrik bsd","macet jakarta"]
 draft: true
 ---
 
@@ -88,6 +88,8 @@ Tidak. Kamera panorama 540 derajat hanya ada di Max, sedangkan Pro memakai kamer
 
 ### Berapa lama mengisi saat butuh cepat di kota?
 Pengisian DC cepat 30 hingga 80% sekitar 25 menit, sesuai klaim. Ketersediaan stasiun sebaiknya Anda cek lebih dulu.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

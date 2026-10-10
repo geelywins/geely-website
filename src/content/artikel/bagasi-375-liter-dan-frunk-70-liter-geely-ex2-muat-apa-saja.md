@@ -3,9 +3,10 @@ title: "Bagasi 375 Liter dan Frunk 70 Liter Geely EX2 Muat Apa Saja?"
 description: "Bagasi 375 liter dan frunk 70 liter Geely EX2 muat apa saja? Lihat contoh barang harian hingga liburan, lalu jadwalkan test drive bersama kami."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "bagasi mobil listrik", "frunk", "mobil listrik geely", "geely ev", "mobil listrik kompak", "mobil keluarga listrik", "geely indonesia"]
+tags: ["geely ex2","geely ex2 max","bagasi mobil listrik","frunk","mobil listrik geely","geely ev","mobil listrik kompak","mobil keluarga listrik","geely indonesia"]
 draft: true
 ---
+
 Bagasi 375 liter dan frunk 70 liter adalah dua ruang simpan yang bisa Anda manfaatkan di Geely EX2. Banyak calon pembeli bertanya apakah mobil listrik kompak sanggup membawa barang keluarga. Jawabannya cukup menggembirakan, asal Anda tahu cara mengaturnya.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Di artikel ini saya beri contoh nyata barang yang muat, tanpa melebih-lebihkan.
@@ -111,6 +112,8 @@ Kapasitasnya bertambah hingga 1.320 liter. Angka ini berguna untuk barang besar 
 ### Apakah frunk aman untuk menyimpan kabel pengisian?
 
 Frunk cocok untuk barang kecil seperti kabel dan perlengkapan darurat. Pastikan kabel kering dan tertata, lalu konfirmasi saran penyimpanan ke sales.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

@@ -3,7 +3,7 @@ title: "Fitur V2L Geely EX2 Max: Listrik untuk Camping dan Darurat"
 description: "Fitur V2L Geely EX2 Max menyalurkan listrik dari baterai ke perangkat luar, cocok untuk camping dan darurat. Tanya sales untuk detail dan demo."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "v2l", "camping mobil listrik", "baterai lfp", "mobil listrik kompak"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","v2l","camping mobil listrik","baterai lfp","mobil listrik kompak"]
 draft: true
 ---
 
@@ -101,6 +101,8 @@ Kami belum mencantumkan angka daya karena belum terverifikasi. Silakan tanyakan 
 ### Apakah memakai V2L mengurangi jarak tempuh?
 
 Ya. Listrik yang disalurkan keluar berasal dari baterai yang sama dengan untuk berkendara, sehingga sisa jarak tempuh akan berkurang.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

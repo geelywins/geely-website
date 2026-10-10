@@ -3,7 +3,7 @@ title: "Jarak Tempuh Geely EX2 Max: Klaim 395 km vs Pemakaian Harian"
 description: "Jarak tempuh Geely EX2 Max diklaim 395 km (NEDC). Pelajari faktor yang memengaruhinya dan tips agar lebih jauh. Tanyakan ke sales untuk test drive."
 date: 2026-10-07
 category: "Mobil Listrik"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "jarak tempuh mobil listrik", "baterai lfp", "mobil listrik jakarta", "ev indonesia"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","jarak tempuh mobil listrik","baterai lfp","mobil listrik jakarta","ev indonesia"]
 draft: true
 ---
 
@@ -97,6 +97,8 @@ Tidak. Keduanya memakai baterai LFP 40,8 kWh dan memiliki klaim jarak yang sama.
 ### Apakah cukup untuk pemakaian harian di Jakarta?
 
 Untuk rute dalam kota, banyak pengguna merasa cukup. Tetap hitung rute harian Anda dan siapkan tempat pengisian daya.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

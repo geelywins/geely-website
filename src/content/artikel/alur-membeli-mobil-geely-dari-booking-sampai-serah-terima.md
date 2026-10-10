@@ -3,7 +3,7 @@ title: "Alur Membeli Mobil Geely: dari Konsultasi sampai Serah Terima"
 description: "Langkah demi langkah membeli mobil Geely: konsultasi, test drive, simulasi kredit, booking, pengajuan, pembayaran, hingga serah terima unit. Lengkap dengan checklist."
 date: 2026-10-07
 category: "Tips Membeli"
-tags: ["cara beli mobil geely", "booking", "serah terima", "dealer geely"]
+tags: ["cara beli mobil geely","booking","serah terima","dealer geely"]
 draft: true
 ---
 
@@ -53,3 +53,5 @@ Momen serah terima biasanya dirayakan dengan foto bersama. Jika Anda berkenan, f
 - [ ] Tempat pengisian daya siap
 
 Siap mulai? Hubungi saya lewat WhatsApp untuk jadwal test drive dan simulasi.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

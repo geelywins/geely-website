@@ -91,7 +91,7 @@ const jsonLd = [
         <div class="cta-box">
           <h3>Ada pertanyaan soal Geely?</h3>
           <p>Konsultasi gratis seputar harga, promo, simulasi kredit dan test drive.</p>
-          <a class="btn btn-wa btn-lg" href={waLink(`Halo Kak Wins, saya baca halaman "${d.title}" dan ingin bertanya.`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Tanya via WhatsApp</a>
+          <a class="btn btn-wa btn-lg" href={waLink(d.pesanWa || `Halo Kak Wins, saya baca halaman "${d.title}" dan ingin bertanya.`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Tanya via WhatsApp</a>
         </div>
       </article>
       <nav class="prose mt-5" aria-label="Tautan terkait">

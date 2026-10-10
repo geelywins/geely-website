@@ -61,6 +61,14 @@
   .imgf img { display:block; max-width:100%; max-height:200px; border-radius:10px; margin:8px 0; border:1px solid var(--line); }
   .imgf .row { margin-top:8px; }
   .top { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+  .bdg { display:inline-block; font-size:.72rem; font-weight:700; padding:2px 9px; border-radius:99px; background:#26304a; color:#cfd8ee; }
+  .bdg.tayang { background:#1e8e4e; color:#fff; } .bdg.terjadwal { background:#2a6fd6; color:#fff; } .bdg.draft { background:#d68910; color:#fff; } .bdg.belum { background:#5b6478; color:#fff; } .bdg.jenis { background:#3a2f6b; color:#dcd2ff; }
+  .alert { display:flex; justify-content:space-between; gap:10px; align-items:center; padding:10px 12px; margin-top:8px; border:1px solid var(--bad); background:rgba(255,93,93,.12); border-radius:10px; font-size:.88rem; }
+  .note { padding:10px 12px; margin-top:10px; border:1px solid var(--ok); background:rgba(31,191,117,.12); border-radius:10px; font-size:.88rem; }
+  .item small.kl { color:#e8b64a; }
+  .seo-i.wr b { color:#d68910; font-weight:600; }
+  .seo-s.kurang { background:#c0392b; }
+  .row input[type=text] { flex:1; min-width:160px; } .row select { width:auto; }
 </style>
 </head>
 <body>
@@ -84,6 +92,8 @@
 
   <div class="tabs hide" id="tabs">
     <button class="sec" data-tab="artikel">Artikel</button>
+    <button class="sec" data-tab="lp">Landing Page</button>
+    <button class="sec" data-tab="topik">Rencana Topik</button>
     <button class="sec" data-tab="model">Model Mobil</button>
     <button class="sec" data-tab="slider">Slider</button>
     <button class="sec" data-tab="promo">Promo</button>
@@ -173,6 +183,7 @@
   async function putFile(path, contentB64, message, sha) {
     var body = { message: message, content: contentB64, branch: cfg().branch };
     if (sha) body.sha = sha;
+    if (String(path).indexOf('src/content/') === 0) ALL = null;
     return gh('contents/' + path, { method: 'PUT', body: JSON.stringify(body) });
   }
   // Data bawaan (untuk website lama yang belum punya file baru)
@@ -325,6 +336,13 @@
         return { title: g('title'), description: g('description'), slug: g('slug'), image: g('image'), body: g('body'), tags: g('tags').split(',') };
       });
       return { el: sp, get: function () { return undefined; }, check: function () { return ''; } };
+    }
+    if (t === 'dup') {
+      var dp = dupPanel(function () {
+        var g = function (k) { return refs && refs[k] ? refs[k].value : ''; };
+        return { kind: EDIT.kind, slug: g('slug') || slugify(g('title')), title: g('title'), tags: g('tags').split(',').map(function (s) { return s.trim(); }).filter(Boolean), body: g('body') };
+      });
+      return { el: dp, get: function () { return undefined; }, check: function () { return ''; } };
     }
     if (t === 'text' || t === 'date' || t === 'tags' || t === 'slug') {
       var v = val == null ? '' : (t === 'tags' ? (val || []).join(', ') : String(val));
@@ -640,7 +658,23 @@
     { key: 'video', label: 'Link video YouTube (boleh kosong)', hint: 'Tempel link video YouTube Anda, contoh https://youtu.be/xxxxxxxxxxx. Video tampil di atas isi artikel dan ikut dibaca Google.', lower: true },
     { key: 'body', label: 'Isi artikel (Markdown: ## Judul bagian, - daftar, **tebal**, ![keterangan](/images/artikel/foto.jpg))', type: 'textarea', mono: true, rows: 14, req: true, keepSpace: true, tools: true },
     { key: '_seo', type: 'seo' },
+    { key: '_dup', type: 'dup' },
     { key: 'draft', label: 'Draft (belum tayang). Hilangkan centang lalu Simpan untuk menerbitkan', type: 'check', def: false }
+  ]; };
+  SCH.lp = function (isNew, models) { return [
+    { key: 'title', label: 'Judul (45-65 karakter, kata kunci di awal)', req: true },
+    { key: 'slug', label: 'Alamat halaman (otomatis dari judul)', type: 'slug', from: 'title', lock: !isNew },
+    { key: 'description', label: 'Deskripsi untuk Google (120-160 karakter)', type: 'textarea', max: 200, req: true },
+    { key: 'tags', label: 'Tag (koma). TAG PERTAMA = kata kunci utama, harus unik', type: 'tags' },
+    { key: 'date', label: 'Tanggal tayang', type: 'date', hint: 'Tanggal di masa depan = terjadwal (pastikan Draft tidak dicentang).' },
+    { key: 'model', label: 'Model mobil terkait', type: 'select', options: models },
+    { key: 'image', label: 'Gambar utama (boleh kosong, sampul dibuat otomatis)', type: 'image', folder: 'lp', size: { w: 1200, h: 630, txt: 'landscape, objek penting di tengah' } },
+    { key: 'artikel', label: 'Artikel penunjang (alamat artikel, satu per baris, 4-8 artikel)', type: 'lines', rows: 5, hint: 'Contoh: cara-test-drive-geely. Tampil sebagai daftar Artikel relevan di bawah LP.' },
+    { key: 'pesanWa', label: 'Pesan awal WhatsApp khusus LP ini (boleh kosong)', type: 'textarea' },
+    { key: 'body', label: 'Isi landing page (Markdown, aturan sama seperti artikel)', type: 'textarea', mono: true, rows: 16, req: true, keepSpace: true, tools: true },
+    { key: '_seo', type: 'seo' },
+    { key: '_dup', type: 'dup' },
+    { key: 'draft', label: 'Draft (belum tayang). Hilangkan centang lalu Simpan untuk menerbitkan', type: 'check', def: true }
   ]; };
   var lastArticleImg = '';
 
@@ -657,31 +691,170 @@
     }
     return { fm: fm, body: body.replace(/^\n+/, '') };
   }
-  function buildMd(a) {
+  // =============== artikel & landing page: format file ===============
+  var KIND = {
+    artikel: { dir: 'src/content/artikel', label: 'Artikel', baru: '+ Tulis Artikel Baru', path: 'artikel/' },
+    lp: { dir: 'src/content/lp', label: 'Landing Page', baru: '+ Buat Landing Page Baru', path: 'lp/' }
+  };
+  function kUrl(base, kind, m) { return base + KIND[kind].path + m.f.name.replace(/\.md$/, '') + '/'; }
+  function buildMd(a, kind) {
     var l = ['---', 'title: ' + JSON.stringify(a.title), 'description: ' + JSON.stringify(a.description), 'date: ' + a.date];
     if (a.updated) l.push('updated: ' + a.updated);
-    l.push('category: ' + JSON.stringify(a.category || 'Info Geely'), 'tags: ' + JSON.stringify(a.tags || []));
-    if (a.image) l.push('image: ' + JSON.stringify(a.image));
-    if (a.video) l.push('video: ' + JSON.stringify(a.video));
+    if (kind === 'lp') {
+      l.push('tags: ' + JSON.stringify(a.tags || []));
+      if (a.model) l.push('model: ' + JSON.stringify(a.model));
+      if (a.image) l.push('image: ' + JSON.stringify(a.image));
+      if (a.artikel && a.artikel.length) l.push('artikel: ' + JSON.stringify(a.artikel));
+      if (a.pesanWa) l.push('pesanWa: ' + JSON.stringify(a.pesanWa));
+    } else {
+      l.push('category: ' + JSON.stringify(a.category || 'Info Geely'), 'tags: ' + JSON.stringify(a.tags || []));
+      if (a.image) l.push('image: ' + JSON.stringify(a.image));
+      if (a.video) l.push('video: ' + JSON.stringify(a.video));
+    }
     if (a.draft) l.push('draft: true');
     l.push('---', '', a.body.trim(), '');
     return l.join('\n');
   }
 
-  async function tabArtikel() {
-    var my = navId;
+  // =============== muat semua halaman (dipakai daftar, rencana topik, dan cek duplikat) ===============
+  var ALL = null;
+  async function pool(items, n, fn) {
+    var out = new Array(items.length), i = 0;
+    async function worker() { while (i < items.length) { var k = i++; out[k] = await fn(items[k], k); } }
+    var ws = []; for (var w = 0; w < Math.min(n, items.length); w++) ws.push(worker());
+    await Promise.all(ws); return out;
+  }
+  async function loadAll(force) {
+    if (ALL && !force) return ALL;
+    var res = {};
+    for (var kind in KIND) {
+      var items;
+      try { items = await gh('contents/' + KIND[kind].dir + '?ref=' + encodeURIComponent(cfg().branch)); }
+      catch (e) { if (/404/.test(e.message)) items = []; else throw e; }
+      var files = items.filter(function (f) { return /\.md$/.test(f.name); });
+      res[kind] = await pool(files, 6, async function (f) {
+        try { var r = await readFile(f.path); var m = parseMd(r.text); return { f: f, fm: m.fm, body: m.body, text: r.text, sha: r.sha }; }
+        catch (e) { return { f: f, fm: {}, body: '', text: null, sha: null }; }
+      });
+    }
+    ALL = res; return ALL;
+  }
+
+  // =============== peta topik (src/data/topik.json) ===============
+  var TOPIK = null, TOPIK_SHA = null;
+  var MAKSUD = { transaksi: 'Siap beli', banding: 'Banding', info: 'Informasi', lokal: 'Lokal' };
+  var KAT = { ex2: 'Model Geely', ex5: 'Model Geely', starray: 'Model Geely', edukasi: 'Panduan EV', pembelian: 'Tips Membeli', kota: 'Mobil Listrik', usaha: 'Mobil Listrik', keluarga: 'Mobil Listrik', keputusan: 'Panduan EV', kepercayaan: 'Tips Membeli' };
+  async function loadTopik(force) {
+    if (TOPIK && !force) return TOPIK;
+    try { var r = await readJson('src/data/topik.json'); TOPIK = r.data; TOPIK_SHA = r.sha; }
+    catch (e) { if (String(e.message).indexOf('GitHub 404') !== 0) throw e; TOPIK = { versi: 1, aturan: [], kluster: [], halaman_sistem: [], topik: [] }; TOPIK_SHA = null; }
+    TOPIK.topik = TOPIK.topik || []; TOPIK.kluster = TOPIK.kluster || []; TOPIK.halaman_sistem = TOPIK.halaman_sistem || [];
+    return TOPIK;
+  }
+  async function saveTopik(msg) {
+    var r = await writeJson('src/data/topik.json', TOPIK, TOPIK_SHA, msg);
+    TOPIK_SHA = r && r.content ? r.content.sha : null;
+  }
+  function topikOf(slug, jenis) { var t = (TOPIK && TOPIK.topik || []).filter(function (x) { return x.slug === slug && (!jenis || x.jenis === jenis); }); return t[0] || null; }
+
+  // =============== cek duplikat / kanibalisasi ===============
+  var STOPW = {}; 'dan atau yang di ke dari untuk pada dengan ini itu adalah akan juga dalam tidak bisa anda kami saya kita lebih agar karena sebagai oleh serta para jika bila saat sudah belum masih pun lah kah nya'.split(' ').forEach(function (w) { STOPW[w] = 1; });
+  function normS(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim(); }
+  function tokSet(s) { return normS(s).split(' ').filter(function (w) { return w && !STOPW[w]; }); }
+  function jacArr(a, b) { var A = {}, B = {}, i, n = 0, u = 0; a.forEach(function (x) { A[x] = 1; }); b.forEach(function (x) { B[x] = 1; }); for (i in A) { u++; if (B[i]) n++; } for (i in B) if (!A[i]) u++; return u ? n / u : 0; }
+  function shingles(body) {
+    var text = String(body || '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/<[^>]+>/g, ' ').replace(/^\|.*$/gm, ' ').replace(/[#*>`_-]/g, ' ');
+    var w = normS(text).split(' ').filter(Boolean), s = {}, n = 0;
+    for (var i = 0; i + 5 <= w.length; i++) { var k = w.slice(i, i + 5).join(' '); if (!s[k]) { s[k] = 1; n++; } }
+    return { s: s, n: n };
+  }
+  function jacSh(a, b) { var i = 0, k; for (k in a.s) if (b.s[k]) i++; var u = a.n + b.n - i; return u ? i / u : 0; }
+  function dupAnalyze(c) {
+    var items = [], T = TOPIK || { topik: [], halaman_sistem: [] };
+    function add(lvl, label, tip) { items.push({ lvl: lvl, label: label, tip: tip || '' }); }
+    var kwRaw = (c.tags || [])[0] || '', kw = normS(kwRaw), others = [];
+    ['artikel', 'lp'].forEach(function (k) { ((ALL && ALL[k]) || []).forEach(function (m) {
+      var sl = m.f.name.replace(/\.md$/, '');
+      if (k === c.kind && sl === c.slug) return;
+      others.push({ kind: k, slug: sl, m: m });
+    }); });
+    // 1. alamat
+    var sameSlug = others.filter(function (o) { return o.slug === c.slug; })[0];
+    if (c.slug && sameSlug) add('berat', 'Alamat "' + c.slug + '" sudah dipakai ' + sameSlug.kind + ' lain', 'Ganti alamat (slug) agar tidak sama.');
+    // 2. kata kunci utama
+    if (!kw) add('waspada', 'Kata kunci utama belum diisi (tag pertama)', 'Isi tag pertama dengan kata kunci utama halaman ini. Satu kata kunci hanya boleh dimiliki satu halaman.');
+    else {
+      var sys = (T.halaman_sistem || []).filter(function (h) { return normS(h.kata_kunci) === kw; })[0];
+      var own = (T.topik || []).filter(function (t) { return normS(t.kata_kunci) === kw && t.slug !== c.slug; })[0];
+      if (!own) { // halaman yang belum terdaftar: pakai tag pertamanya
+        var un = others.filter(function (o) { return !topikOf(o.slug, o.kind === 'lp' ? 'lp' : 'artikel') && normS(((o.m.fm.tags || [])[0])) === kw; })[0];
+        if (un) own = { jenis: un.kind, judul: un.m.fm.title || un.slug };
+      }
+      if (sys) add('berat', 'Kata kunci "' + kwRaw + '" milik halaman ' + sys.url, 'Halaman itu dikelola dari admin. Pilih kata kunci lain agar tidak bersaing.');
+      else if (own) add('berat', 'Kata kunci "' + kwRaw + '" sudah dimiliki: ' + own.judul, 'Gabungkan ke halaman itu, atau pilih kata kunci / sudut lain. Dua halaman dengan maksud sama saling bersaing di Google.');
+      else add('ok', 'Kata kunci utama "' + kwRaw + '" unik');
+    }
+    // 3. judul mirip
+    var tt = tokSet(c.title || ''), bt = null, bj = 0;
+    if (tt.length) others.forEach(function (o) { var j = jacArr(tt, tokSet(o.m.fm.title || '')); if (j > bj) { bj = j; bt = o; } });
+    if (bt && bj >= 0.75) add('berat', 'Judul hampir sama (' + Math.round(bj * 100) + '%) dengan "' + bt.m.fm.title + '"', 'Ubah judul atau gabungkan halaman.');
+    else if (bt && bj >= 0.55) add('waspada', 'Judul mirip (' + Math.round(bj * 100) + '%) dengan "' + bt.m.fm.title + '"', 'Pastikan sudut bahasannya benar-benar berbeda.');
+    else add('ok', 'Judul tidak menyerupai halaman lain');
+    // 4. isi mirip
+    var mine = shingles(c.body || ''), bb = null, bs = 0;
+    if (mine.n > 50) others.forEach(function (o) { if (!o.m.body) return; o._sh = o._sh || (o.m._sh = o.m._sh || shingles(o.m.body)); var j = jacSh(mine, o._sh); if (j > bs) { bs = j; bb = o; } });
+    if (mine.n <= 50) add('waspada', 'Isi masih terlalu pendek untuk dicek kemiripannya', '');
+    else if (bb && bs >= 0.35) add('berat', 'Isi terlalu mirip (' + Math.round(bs * 100) + '%) dengan "' + (bb.m.fm.title || bb.slug) + '"', 'Tulis ulang dengan sudut berbeda, atau gabungkan.');
+    else if (bb && bs >= 0.18) add('waspada', 'Isi agak mirip (' + Math.round(bs * 100) + '%) dengan "' + (bb.m.fm.title || bb.slug) + '"', 'Kurangi bagian yang sama, tautkan saja ke halaman itu.');
+    else add('ok', 'Isi tidak menyerupai halaman lain (kemiripan tertinggi ' + Math.round(bs * 100) + '%)');
+    // 5. tautan ke LP pilar
+    var tp = topikOf(c.slug, c.kind === 'lp' ? 'lp' : 'artikel');
+    if (c.kind === 'artikel' && tp && tp.pilar) {
+      if ((c.body || '').indexOf('/lp/' + tp.pilar + '/') >= 0) add('ok', 'Menaut ke LP pilar (/lp/' + tp.pilar + '/)');
+      else add('waspada', 'Belum menaut ke LP pilar', 'Tambahkan tautan: [teks](/lp/' + tp.pilar + '/). Ini yang mengalirkan kekuatan SEO ke halaman utama topik.');
+    }
+    var ord = { berat: 0, waspada: 1, ok: 2 };
+    items.sort(function (a, b) { return ord[a.lvl] - ord[b.lvl]; });
+    return items;
+  }
+  function dupPanel(getVals) {
+    var wrap = el('div', { class: 'seo' }), head = el('div', { class: 'seo-h' }), list = el('div', { class: 'seo-l' });
+    wrap.append(el('label', { text: 'Cek halaman ganda (otomatis, terhadap semua artikel dan landing page)' }), head, list);
+    var last = '', ready = false;
+    head.textContent = 'Memeriksa halaman lain...';
+    function render() {
+      if (!wrap.isConnected) { clearInterval(tm); return; }
+      if (!ready) return;
+      var v = getVals(), items = dupAnalyze(v), sig = JSON.stringify(items.map(function (i) { return i.lvl + i.label; }));
+      if (sig === last) return; last = sig;
+      var nb = items.filter(function (i) { return i.lvl === 'berat'; }).length, nw = items.filter(function (i) { return i.lvl === 'waspada'; }).length;
+      head.innerHTML = '';
+      head.append(el('span', { class: 'seo-s ' + (nb ? 'kurang' : (nw ? 'cukup' : 'bagus')), text: nb ? nb + ' masalah' : (nw ? nw + ' catatan' : 'Aman') }),
+        el('span', { text: ' ' + (nb ? 'Jangan diterbitkan sebelum diperbaiki.' : (nw ? 'Boleh terbit, tapi baca catatannya.' : 'Tidak ada halaman yang bersaing.')) }));
+      list.innerHTML = '';
+      items.forEach(function (i) { list.append(el('div', { class: 'seo-i ' + (i.lvl === 'ok' ? 'ok' : (i.lvl === 'waspada' ? 'wr' : 'no')) }, el('b', { text: (i.lvl === 'ok' ? '✔ ' : (i.lvl === 'waspada' ? '! ' : '✖ ')) + i.label }), i.tip ? el('small', { text: i.tip }) : null)); });
+    }
+    var tm = setInterval(render, 1500);
+    Promise.all([loadTopik().catch(function () {}), loadAll()]).then(function () { ready = true; render(); }, function (e) { head.textContent = 'Gagal memeriksa: ' + e.message; });
+    return wrap;
+  }
+  async function guardDup(kind, m) { // dipakai tombol Terbitkan / Jadwalkan
+    await loadTopik().catch(function () {}); await loadAll();
+    var p = parseMd(m.text), fm = p.fm;
+    var items = dupAnalyze({ kind: kind, slug: m.f.name.replace(/\.md$/, ''), title: fm.title, tags: Array.isArray(fm.tags) ? fm.tags : [], body: p.body });
+    var bad = items.filter(function (i) { return i.lvl === 'berat'; });
+    if (bad.length) { show('Tidak bisa terbit: ' + bad.map(function (b) { return b.label; }).join(' | ') + ' - perbaiki lewat Edit atau lihat tab Rencana Topik.', 'err'); return false; }
+    return true;
+  }
+
+  // =============== daftar artikel / landing page ===============
+  async function tabKonten(kind) {
+    var K = KIND[kind], my = navId;
     view.innerHTML = '<div class="card">Memuat...</div>';
-    var items;
-    try { items = await gh('contents/' + DIR + '?ref=' + encodeURIComponent(cfg().branch)); }
-    catch (e) { if (my !== navId) return; if (/404/.test(e.message)) items = []; else return show(e.message, 'err'); }
+    var all;
+    try { all = await loadAll(true); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
     if (my !== navId) return;
-    var files = items.filter(function (f) { return /\.md$/.test(f.name); });
-    // baca judul & status tiap artikel
-    var metas = await Promise.all(files.map(async function (f) {
-      try { var r = await readFile(f.path); var m = parseMd(r.text); return { f: f, fm: m.fm, text: r.text, sha: r.sha }; }
-      catch (e) { return { f: f, fm: {}, text: null, sha: null }; }
-    }));
-    if (my !== navId) return;
+    var metas = all[kind].slice();
     metas.forEach(function (m) { m.draft = m.fm.draft === true || m.fm.draft === 'true'; m.title = m.fm.title || m.f.name.replace(/\.md$/, ''); m.date = String(m.fm.date || '').slice(0, 10); });
     var byDate = function (a, b) { return (b.date || '').localeCompare(a.date || '') || b.f.name.localeCompare(a.f.name); };
     var td = today();
@@ -691,102 +864,305 @@
     function addDays(d, n) { var x = new Date(d + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); }
     async function setSchedule(m, date, asDraft) {
       var p2 = parseMd(m.text); var a = Object.assign({}, p2.fm, { body: p2.body, draft: !!asDraft, date: date });
-      await putFile(m.f.path, enc(buildMd(a)), (asDraft ? 'Batalkan jadwal: ' : 'Jadwalkan artikel: ') + m.title, m.sha);
+      await putFile(m.f.path, enc(buildMd(a, kind)), (asDraft ? 'Batalkan jadwal: ' : 'Jadwalkan ' + K.label.toLowerCase() + ': ') + m.title, m.sha);
     }
     var validDate = function (v) { return /^\d{4}-\d{2}-\d{2}$/.test(v) && !isNaN(new Date(v + 'T00:00:00Z').getTime()); };
 
-    var card = el('div', { class: 'card' }, el('h2', { text: 'Artikel' }), el('div', { class: 'row', style: 'margin-top:0' }, btn('+ Tulis Artikel Baru', '', function () { editArticle(null); })));
-    if (drafts.length) card.firstChild.nextSibling.append(btn('Jadwalkan semua draft', 'sec', async function (ev) {
+    var card = el('div', { class: 'card' }, el('h2', { text: K.label }), el('div', { class: 'row', style: 'margin-top:0' }, btn(K.baru, '', function () { editKonten(kind, null); })));
+    var topRow = card.firstChild.nextSibling;
+    if (kind === 'lp') topRow.append(btn('Lihat Rencana Topik', 'sec', function () { go('topik'); }));
+    if (drafts.length) topRow.append(btn('Jadwalkan semua draft', 'sec', async function (ev) {
       var start = prompt('Mulai tayang tanggal berapa? (format TTTT-BB-HH)', addDays(td, 1)); if (start === null) return;
       if (!validDate(start.trim())) return show('Format tanggal belum benar. Contoh: ' + addDays(td, 1), 'err');
-      var per = parseInt(prompt('Berapa artikel tayang per hari?', '2'), 10);
+      var per = parseInt(prompt('Berapa ' + K.label.toLowerCase() + ' tayang per hari?', kind === 'lp' ? '1' : '2'), 10);
       if (!per || per < 1 || per > 10) return show('Jumlah per hari harus 1 sampai 10.', 'err');
       var list = drafts.filter(function (m) { return m.text; });
-      if (!confirm(list.length + ' draft dijadwalkan mulai ' + start.trim() + ', ' + per + ' artikel per hari. Lanjutkan?')) return;
+      if (!confirm(list.length + ' draft dijadwalkan mulai ' + start.trim() + ', ' + per + ' per hari. Yang terdeteksi bentrok/duplikat akan dilewati. Lanjutkan?')) return;
       ev.target.disabled = true;
       try {
+        var done = 0, skipped = [];
         for (var i = 0; i < list.length; i++) {
-          show('Menjadwalkan ' + (i + 1) + ' dari ' + list.length + '...');
-          await setSchedule(list[i], addDays(start.trim(), Math.floor(i / per)), false);
+          show('Memeriksa dan menjadwalkan ' + (i + 1) + ' dari ' + list.length + '...');
+          var okd = await guardDupQuiet(kind, list[i]);
+          if (!okd) { skipped.push(list[i].title); continue; }
+          await setSchedule(list[i], addDays(start.trim(), Math.floor(done / per)), false); done++;
         }
         if (my !== navId) return;
-        show('Selesai. ' + list.length + ' artikel dijadwalkan dan akan tayang otomatis.'); tabArtikel();
-      } catch (e) { show(e.message, 'err'); tabArtikel(); }
+        show('Selesai. ' + done + ' dijadwalkan.' + (skipped.length ? ' Dilewati karena duplikat/bentrok (' + skipped.length + '): ' + skipped.join('; ') : ''), skipped.length ? 'err' : 'ok'); tabKonten(kind);
+      } catch (e) { show(e.message, 'err'); tabKonten(kind); }
     }));
+    async function guardDupQuiet(k, m) {
+      await loadTopik().catch(function () {}); var p = parseMd(m.text), fm = p.fm;
+      return !dupAnalyze({ kind: k, slug: m.f.name.replace(/\.md$/, ''), title: fm.title, tags: Array.isArray(fm.tags) ? fm.tags : [], body: p.body }).some(function (i) { return i.lvl === 'berat'; });
+    }
     function section(title, hint, list, isDraft, isSched) {
       card.append(el('h3', { text: title + ' (' + list.length + ')' }));
       if (hint) card.append(el('p', { class: 'hint', text: hint }));
-      if (!list.length) card.append(el('p', { class: 'hint', text: isDraft ? 'Tidak ada draft.' : 'Belum ada artikel terbit.' }));
+      if (!list.length) card.append(el('p', { class: 'hint', text: isDraft ? 'Tidak ada draft.' : 'Belum ada yang terbit.' }));
       list.forEach(function (m) {
-        var b = [btn('Edit', 'sec sm', function () { editArticle(m.f.path); })];
+        var b = [btn('Edit', 'sec sm', function () { editKonten(kind, m.f.path); })];
         if (isDraft && m.text) b.unshift(btn('Jadwalkan', 'sec sm', async function (ev) {
           var dt = prompt('Tayang tanggal berapa? (format TTTT-BB-HH)', addDays(td, 1)); if (dt === null) return;
           if (!validDate(dt.trim())) return show('Format tanggal belum benar. Contoh: ' + addDays(td, 1), 'err');
           ev.target.disabled = true;
-          try { await setSchedule(m, dt.trim(), false); if (my !== navId) return; show('Dijadwalkan tayang ' + dt.trim() + '.'); tabArtikel(); }
+          try { if (!(await guardDup(kind, m))) { ev.target.disabled = false; return; } await setSchedule(m, dt.trim(), false); if (my !== navId) return; show('Dijadwalkan tayang ' + dt.trim() + '.'); tabKonten(kind); }
           catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
         }));
         if (isSched && m.text) b.unshift(btn('Batalkan', 'sec sm', async function (ev) {
           if (!confirm('Batalkan jadwal dan kembalikan ke draft?\n\n' + m.title)) return;
           ev.target.disabled = true;
-          try { await setSchedule(m, m.date, true); if (my !== navId) return; show('Jadwal dibatalkan, artikel kembali jadi draft.'); tabArtikel(); }
+          try { await setSchedule(m, m.date, true); if (my !== navId) return; show('Jadwal dibatalkan, kembali jadi draft.'); tabKonten(kind); }
           catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
         }));
         if (isDraft && m.text) b.unshift(btn('Terbitkan', 'sm', async function (ev) {
-          if (!confirm('Terbitkan artikel ini sekarang?\n\n' + m.title)) return;
+          if (!confirm('Terbitkan sekarang?\n\n' + m.title)) return;
           ev.target.disabled = true;
           try {
+            if (!(await guardDup(kind, m))) { ev.target.disabled = false; return; }
             var p2 = parseMd(m.text); var a = Object.assign({}, p2.fm, { body: p2.body, draft: false, date: today() });
-            await putFile(m.f.path, enc(buildMd(a)), 'Terbitkan artikel: ' + m.title, m.sha);
+            await putFile(m.f.path, enc(buildMd(a, kind)), 'Terbitkan ' + K.label.toLowerCase() + ': ' + m.title, m.sha);
             if (my !== navId) return;
-            show('Artikel diterbitkan! Muncul di website dalam ±1-3 menit. Setelah itu tekan "Salin link" di bagian Sudah terbit untuk didaftarkan ke Google Search Console.'); tabArtikel();
+            show('Diterbitkan! Muncul di website dalam ±1-3 menit. Setelah itu tekan "Salin link" di bagian Sudah terbit untuk didaftarkan ke Google Search Console.'); tabKonten(kind);
           } catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
         }));
         if (!isDraft && !isSched) b.unshift(btn('Salin link', 'sec sm', async function (ev) {
-          var u = artUrl(await siteBase(), m); var ok = await copyText(u);
+          var u = kUrl(await siteBase(), kind, m); var ok = await copyText(u);
           if (ok) { ev.target.textContent = 'Tersalin ✓'; setTimeout(function () { ev.target.textContent = 'Salin link'; }, 2000); show('Link tersalin: ' + u + ' — tempel di Google Search Console (Periksa URL → Minta pengindeksan).'); }
           else prompt('Salin link ini secara manual:', u);
         }));
-        card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: m.title }), el('small', { text: (m.fm.category || '') + (m.date ? ' - ' + m.date : '') }), seoBadge(m)), el('div', { class: 'btns' }, b)));
+        var tp = topikOf(m.f.name.replace(/\.md$/, ''), kind);
+        card.append(el('div', { class: 'item' }, el('div', null, el('b', { text: m.title }), el('small', { text: (kind === 'lp' ? (m.fm.model || 'landing page') : (m.fm.category || '')) + (m.date ? ' - ' + m.date : '') + (tp ? ' - kata kunci: ' + tp.kata_kunci : '') }), seoBadge(m)), el('div', { class: 'btns' }, b)));
       });
     }
-    section('Draft siap ditinjau', 'Belum tayang. Buka Edit untuk membaca dan mengubah, lalu tekan Terbitkan (tayang sekarang) atau Jadwalkan (tayang otomatis di tanggal pilihan).', drafts, true);
+    section('Draft siap ditinjau', 'Belum tayang. Buka Edit untuk membaca dan mengubah, lalu tekan Terbitkan (tayang sekarang) atau Jadwalkan (tayang otomatis di tanggal pilihan). Tombol akan menolak halaman yang bentrok/duplikat dengan halaman lain.', drafts, true);
     section('Terjadwal', 'Tayang otomatis setiap pukul ±06:00 WIB pada tanggalnya.', sched, false, true);
     section('Sudah terbit', 'Tekan "Salin link" lalu tempel di Google Search Console: kolom pencarian atas, Enter, lalu "Minta pengindeksan" (Request indexing).', live, false);
     if (live.length) {
       var hd = Array.from(card.children).filter(function (n) { return n.tagName === 'H3' && /^Sudah terbit/.test(n.textContent); })[0];
-      if (hd) hd.after(el('div', { class: 'row', style: 'margin:4px 0 8px' }, btn('Salin semua link terbit', 'sec sm', async function (ev) {
-        var base = await siteBase(); var all = live.map(function (m) { return artUrl(base, m); }).join('\n');
-        var ok = await copyText(all);
-        if (ok) show(live.length + ' link tersalin (satu baris per artikel).'); else prompt('Salin link ini secara manual:', all);
+      if (hd) hd.after(el('div', { class: 'row', style: 'margin:4px 0 8px' }, btn('Salin semua link terbit', 'sec sm', async function () {
+        var base = await siteBase(); var allu = live.map(function (m) { return kUrl(base, kind, m); }).join('\n');
+        var ok = await copyText(allu);
+        if (ok) show(live.length + ' link tersalin (satu baris per halaman).'); else prompt('Salin link ini secara manual:', allu);
       })));
     }
     view.innerHTML = ''; view.append(card);
   }
+  function tabArtikel() { return tabKonten('artikel'); }
+  function tabLp() { return tabKonten('lp'); }
 
-  async function editArticle(path) {
-    hideMsg(); var my = navId; var data = { date: today(), category: 'Info Geely' }, sha = null;
+  // =============== form tulis / ubah (artikel & landing page) ===============
+  var EDIT = { kind: 'artikel', isNew: true, path: null };
+  async function editKonten(kind, path, prefill) {
+    hideMsg(); var my = navId, K = KIND[kind];
+    var data = Object.assign({ date: today(), category: 'Info Geely' }, prefill || {}), sha = null;
+    try { await Promise.all([loadTopik().catch(function () {}), loadAll()]); } catch (e) { return show(e.message, 'err'); }
     if (path) {
       try { var r = await readFile(path); sha = r.sha; var p = parseMd(r.text); data = Object.assign({}, p.fm, { body: p.body, slug: path.split('/').pop().replace(/\.md$/, ''), date: String(p.fm.date || today()).slice(0, 10) }); }
       catch (e) { return show(e.message, 'err'); }
     }
     var isNew = !path; lastArticleImg = '';
+    EDIT = { kind: kind, isNew: isNew, path: path };
+    var models = [{ v: '', l: '- tidak terkait satu model -' }];
+    if (kind === 'lp') {
+      try { var mj = await readJson('src/data/models.json'); models = models.concat(mj.data.map(function (x) { return { v: x.slug, l: x.nama }; })); }
+      catch (e) { models = models.concat([{ v: 'geely-ex2', l: 'Geely EX2' }, { v: 'geely-ex5', l: 'Geely EX5' }, { v: 'geely-starray', l: 'Geely Starray' }, { v: 'geely-starray-em-i', l: 'Geely Starray EM-i' }]); }
+    }
     renderForm({
-      title: isNew ? 'Artikel Baru' : 'Edit Artikel', fields: SCH.artikel(isNew), data: data, saveLabel: 'Simpan', onCancel: tabArtikel,
-      intro: 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan. Untuk SEO, tautkan ke halaman lain: [teks](/model/geely-ex5/), [teks](/promo/), [teks](/kontak/), atau artikel lain [teks](/artikel/alamat-artikel/). Di bawah artikel, website otomatis menampilkan artikel terkait.',
+      title: (isNew ? K.label + ' Baru' : 'Edit ' + K.label), fields: kind === 'lp' ? SCH.lp(isNew, models) : SCH.artikel(isNew), data: data, saveLabel: 'Simpan', onCancel: function () { tabKonten(kind); },
+      intro: kind === 'lp'
+        ? 'Landing page (LP) untuk kata kunci orang yang siap beli. Satu LP = satu kata kunci utama (tag pertama) yang tidak dimiliki halaman lain. Tautkan 4-6 artikel penunjang, model, lokasi, dan kontak. Tanpa harga/angka promo. Kotak "Cek halaman ganda" di bawah memperingatkan kalau bentrok dengan halaman lain.'
+        : 'Tips: unggah foto di kolom "Gambar utama", lalu tulis ![keterangan](alamat foto) di isi artikel untuk menaruh foto di dalam tulisan. Untuk SEO, tautkan ke halaman lain: [teks](/model/geely-ex5/), [teks](/promo/), [teks](/kontak/), artikel lain [teks](/artikel/alamat-artikel/), dan LP pilarnya [teks](/lp/alamat-lp/). Kotak "Cek halaman ganda" di bawah memperingatkan kalau bentrok dengan halaman lain.',
       onSave: async function (v) {
-        var slug = v.slug || slugify(v.title); if (!slug) throw new Error('Alamat artikel kosong.');
-        var a = { title: v.title, description: v.description, date: v.date || today(), category: v.category, tags: v.tags, image: v.image, video: v.video, draft: v.draft, body: v.body };
+        var slug = v.slug || slugify(v.title); if (!slug) throw new Error('Alamat kosong.');
+        var a = kind === 'lp'
+          ? { title: v.title, description: v.description, date: v.date || today(), tags: v.tags, model: v.model, image: v.image, artikel: v.artikel, pesanWa: v.pesanWa, draft: v.draft, body: v.body }
+          : { title: v.title, description: v.description, date: v.date || today(), category: v.category, tags: v.tags, image: v.image, video: v.video, draft: v.draft, body: v.body };
         if (!isNew && a.date < today()) a.updated = today();
-        var target = path || (DIR + '/' + slug + '.md');
-        await putFile(target, enc(buildMd(a)), (isNew ? 'Artikel baru: ' : 'Update artikel: ') + a.title, sha);
+        // pagar duplikat
+        var items = dupAnalyze({ kind: kind, slug: slug, title: a.title, tags: a.tags, body: a.body }), bad = items.filter(function (i) { return i.lvl === 'berat'; });
+        if (bad.length) {
+          if (!a.draft) throw new Error('Tidak bisa diterbitkan: ' + bad.map(function (b) { return b.label; }).join(' | ') + '. Centang Draft untuk menyimpan sementara, lalu perbaiki.');
+          if (!confirm('Ada masalah halaman ganda:\n\n- ' + bad.map(function (b) { return b.label; }).join('\n- ') + '\n\nSimpan sebagai DRAFT saja (belum tayang)?')) throw new Error('Dibatalkan. Perbaiki dulu lewat kotak Cek halaman ganda.');
+        }
+        if (kind === 'lp' && a.artikel && a.artikel.length) {
+          var known = {}; ((ALL && ALL.artikel) || []).forEach(function (m) { known[m.f.name.replace(/\.md$/, '')] = 1; });
+          var unk = a.artikel.filter(function (s) { return !known[s]; });
+          if (unk.length && !confirm('Artikel penunjang berikut tidak ditemukan:\n' + unk.join('\n') + '\n\nLanjut simpan? (tautannya tidak akan muncul)')) throw new Error('Dibatalkan. Perbaiki daftar artikel penunjang.');
+        }
+        var target = path || (K.dir + '/' + slug + '.md');
+        await putFile(target, enc(buildMd(a, kind)), (isNew ? K.label + ' baru: ' : 'Update ' + K.label.toLowerCase() + ': ') + a.title, sha);
+        // daftarkan ke peta topik bila belum ada
+        try {
+          await loadTopik(true);
+          if (TOPIK_SHA !== null && !topikOf(slug, kind)) {
+            TOPIK.topik.push({ slug: slug, jenis: kind, kluster: '', kata_kunci: (a.tags || [])[0] || '', maksud: 'info', judul: a.title });
+            await saveTopik('Daftarkan di peta topik: ' + slug);
+          }
+        } catch (e) {}
         if (my !== navId) return;
-        show(a.draft ? 'Draft tersimpan (belum tayang di website).' : (a.date > today() ? 'Tersimpan. Artikel dijadwalkan tayang ' + a.date + '.' : 'Tersimpan! Website diperbarui otomatis (±1-3 menit).')); tabArtikel();
+        show(a.draft ? 'Draft tersimpan (belum tayang di website).' : (a.date > today() ? 'Tersimpan. Dijadwalkan tayang ' + a.date + '.' : 'Tersimpan! Website diperbarui otomatis (±1-3 menit).')); tabKonten(kind);
       },
       onDelete: isNew ? null : async function () {
-        await gh('contents/' + path, { method: 'DELETE', body: JSON.stringify({ message: 'Hapus artikel: ' + path, sha: sha, branch: cfg().branch }) });
+        await gh('contents/' + path, { method: 'DELETE', body: JSON.stringify({ message: 'Hapus ' + K.label.toLowerCase() + ': ' + path, sha: sha, branch: cfg().branch }) });
+        ALL = null;
+        try { await loadTopik(true); var sl = path.split('/').pop().replace(/\.md$/, ''); var n0 = TOPIK.topik.length; if (TOPIK_SHA !== null) { TOPIK.topik = TOPIK.topik.filter(function (t) { return !(t.slug === sl && t.jenis === kind && !t.garis_besar && !t.judul_rencana); }); if (TOPIK.topik.length !== n0) await saveTopik('Hapus dari peta topik: ' + sl); } } catch (e) {}
         if (my !== navId) return;
-        show('Artikel dihapus. Website diperbarui otomatis.'); tabArtikel();
+        show(K.label + ' dihapus. Website diperbarui otomatis.'); tabKonten(kind);
+      }
+    });
+  }
+  function editArticle(path) { return editKonten('artikel', path); }
+
+  // =============== rencana topik ===============
+  var TFILTER = { q: '', st: '' };
+  async function tabTopik() {
+    var my = navId;
+    view.innerHTML = '<div class="card">Memuat rencana topik...</div>';
+    var all;
+    try { all = await loadAll(true); await loadTopik(true); } catch (e) { if (my !== navId) return; return show(e.message, 'err'); }
+    if (my !== navId) return;
+    var td = today();
+    if (TOPIK_SHA === null) { view.innerHTML = ''; view.append(el('div', { class: 'card' }, el('h2', { text: 'Rencana Topik' }), el('p', { class: 'alert', text: 'File src/data/topik.json belum ada di GitHub. Upload ZIP versi terbaru lewat tab Upload ZIP, lalu buka menu ini lagi.' }))); return; }
+    var pages = {};
+    ['artikel', 'lp'].forEach(function (k) { all[k].forEach(function (m) {
+      var sl = m.f.name.replace(/\.md$/, ''), draft = m.fm.draft === true || m.fm.draft === 'true', dt = String(m.fm.date || '').slice(0, 10);
+      pages[k + '/' + sl] = { m: m, slug: sl, kind: k, status: draft ? 'draft' : (dt > td ? 'terjadwal' : 'tayang'), title: m.fm.title || sl };
+    }); });
+    function stOf(t) { var p = pages[t.jenis + '/' + t.slug]; return p ? p.status : 'belum'; }
+    var STL = { tayang: 'Tayang', terjadwal: 'Terjadwal', draft: 'Draft', belum: 'Belum dibuat' };
+    var card = el('div', { class: 'card' }, el('h2', { text: 'Rencana Topik' }),
+      el('p', { class: 'hint', text: 'Daftar semua topik landing page (LP) dan artikel, dikelompokkan per topik utama. Satu kata kunci utama hanya boleh dimiliki SATU halaman, jadi tidak ada halaman yang saling bersaing di Google. Setiap artikel menaut ke LP pilar topiknya.' }));
+    var cnt = { tayang: 0, terjadwal: 0, draft: 0, belum: 0 }; TOPIK.topik.forEach(function (t) { cnt[stOf(t)]++; });
+    card.append(el('div', { class: 'row', style: 'margin-top:6px' },
+      el('span', { class: 'bdg tayang', text: cnt.tayang + ' tayang' }), el('span', { class: 'bdg terjadwal', text: cnt.terjadwal + ' terjadwal' }), el('span', { class: 'bdg draft', text: cnt.draft + ' draft' }), el('span', { class: 'bdg belum', text: cnt.belum + ' belum dibuat' }),
+      btn('+ Tambah topik baru', 'sm', function () { formTopik(); })));
+
+    // ---- peringatan ----
+    var alerts = [];
+    var kwMap = {}; TOPIK.topik.forEach(function (t) { var k = normS(t.kata_kunci); (kwMap[k] = kwMap[k] || []).push(t); });
+    Object.keys(kwMap).forEach(function (k) { if (kwMap[k].length > 1) alerts.push({ txt: 'Kata kunci ganda "' + k + '": ' + kwMap[k].map(function (t) { return t.slug; }).join(', ') + '. Ubah salah satunya agar tidak bersaing.' }); });
+    var sysKw = {}; TOPIK.halaman_sistem.forEach(function (h) { sysKw[normS(h.kata_kunci)] = h.url; });
+    TOPIK.topik.forEach(function (t) { if (sysKw[normS(t.kata_kunci)]) alerts.push({ txt: 'Topik "' + t.slug + '" memakai kata kunci milik halaman sistem ' + sysKw[normS(t.kata_kunci)] + '.' }); });
+    var unreg = Object.keys(pages).filter(function (k) { return !topikOf(pages[k].slug, pages[k].kind); });
+    if (unreg.length) alerts.push({ txt: unreg.length + ' halaman belum terdaftar di peta topik (dibuat di luar rencana): ' + unreg.map(function (k) { return k; }).join(', '), act: 'Daftarkan semuanya', fn: async function () {
+      unreg.forEach(function (k) { var p = pages[k]; TOPIK.topik.push({ slug: p.slug, jenis: p.kind, kluster: '', kata_kunci: ((p.m.fm.tags || [])[0]) || '', maksud: 'info', judul: p.title }); });
+      await saveTopik('Daftarkan halaman ke peta topik'); } });
+    var homeFix = null;
+    try {
+      var hc = await readJson('src/data/content.json'); var hj = (hc.data.beranda || {}).seoJudul || '';
+      var hit = TOPIK.topik.filter(function (t) { return t.jenis === 'lp' && normS(t.kata_kunci).split(' ').length >= 3 && normS(hj).indexOf(normS(t.kata_kunci)) >= 0; })[0];
+      if (hit) alerts.push({ txt: 'Judul Google beranda ("' + hj + '") memuat kata kunci LP "' + hit.kata_kunci + '". Beranda dan LP akan saling bersaing.', act: 'Perbaiki judul beranda', fn: async function () {
+        var d2 = hc.data; d2.beranda.seoJudul = 'Sales Geely Jakarta & BSD City - EX2, EX5, Starray';
+        d2.beranda.seoDeskripsi = 'Konsultasi sales Geely di Jakarta & BSD City: pilih EX2, EX5 atau Starray EM-i, lihat promo terbaru, simulasi kredit dan jadwal test drive via WhatsApp.';
+        await writeJson('src/data/content.json', d2, hc.sha, 'Ganti judul beranda agar tidak bersaing dengan LP'); } });
+    } catch (e) {}
+    var noLink = [];
+    TOPIK.topik.forEach(function (t) { if (t.jenis !== 'artikel' || !t.pilar) return; var p = pages['artikel/' + t.slug]; if (p && p.m.text && p.m.body.indexOf('/lp/' + t.pilar + '/') < 0 && pages['lp/' + t.pilar]) noLink.push({ p: p, t: t }); });
+    if (noLink.length) alerts.push({ txt: noLink.length + ' artikel belum menaut ke LP pilar-nya (kekuatan SEO tidak mengalir ke halaman utama).', act: 'Tambah tautan otomatis', fn: async function () {
+      for (var i = 0; i < noLink.length; i++) {
+        var x = noLink[i], lp = pages['lp/' + x.t.pilar], pm = parseMd(x.p.m.text), body = pm.body;
+        var sent = '\nPanduan terkait yang bisa Anda baca: [' + (lp.title.split(':')[0]) + '](/lp/' + x.t.pilar + '/).\n\n';
+        var ix = body.indexOf('\n## Kesimpulan'); body = ix >= 0 ? body.slice(0, ix) + '\n' + sent.trim() + '\n\n' + body.slice(ix + 1) : body.trim() + '\n' + sent;
+        var a = Object.assign({}, pm.fm, { body: body });
+        await putFile(x.p.m.f.path, enc(buildMd(a, 'artikel')), 'Tambah tautan ke LP pilar: ' + x.p.slug, x.p.m.sha);
+        show('Menambah tautan ' + (i + 1) + ' dari ' + noLink.length + '...');
+      } } });
+    if (alerts.length) {
+      card.append(el('h3', { text: 'Perlu perhatian (' + alerts.length + ')' }));
+      alerts.forEach(function (a) {
+        var row = el('div', { class: 'alert' }, el('span', { text: a.txt }));
+        if (a.act) row.append(btn(a.act, 'sm', async function (ev) { ev.target.disabled = true; try { await a.fn(); ALL = null; show('Selesai.'); tabTopik(); } catch (e) { show(e.message, 'err'); ev.target.disabled = false; } }));
+        card.append(row);
+      });
+    } else card.append(el('p', { class: 'note', text: '✔ Tidak ada halaman ganda atau bentrok kata kunci.' }));
+
+    // ---- filter ----
+    var fq = el('input', { type: 'text', placeholder: 'Cari topik / kata kunci...', value: TFILTER.q });
+    var fs = el('select', null, [['', 'Semua status'], ['belum', 'Belum dibuat'], ['draft', 'Draft'], ['terjadwal', 'Terjadwal'], ['tayang', 'Tayang']].map(function (x) { return el('option', { value: x[0], text: x[1] }); }));
+    fs.value = TFILTER.st;
+    var listBox = el('div');
+    card.append(el('div', { class: 'row' }, fq, fs), listBox);
+    function draw() {
+      TFILTER.q = fq.value; TFILTER.st = fs.value; listBox.innerHTML = '';
+      var q = normS(fq.value);
+      var groups = TOPIK.kluster.slice(); if (TOPIK.topik.some(function (t) { return !t.kluster; })) groups.push({ id: '', nama: 'Belum dikelompokkan' });
+      groups.forEach(function (g) {
+        var items = TOPIK.topik.filter(function (t) { return (t.kluster || '') === g.id; }).filter(function (t) {
+          if (fs.value && stOf(t) !== fs.value) return false;
+          return !q || normS(t.judul + ' ' + t.kata_kunci + ' ' + t.slug).indexOf(q) >= 0;
+        });
+        if (!items.length) return;
+        items.sort(function (a, b) { return (a.jenis === 'lp' ? 0 : 1) - (b.jenis === 'lp' ? 0 : 1); });
+        var det = el('details', { class: 'det', open: q || fs.value ? 'open' : undefined }, el('summary', { text: g.nama + ' (' + items.length + ')' }));
+        items.forEach(function (t) {
+          var st = stOf(t), pg = pages[t.jenis + '/' + t.slug];
+          var b = [];
+          if (pg) b.push(btn('Edit', 'sec sm', function () { editKonten(t.jenis, pg.m.f.path); }));
+          else b.push(btn('Buat dari topik', 'sm', function () { buatDariTopik(t); }));
+          b.push(btn('Ubah', 'sec sm', function () { formTopik(t); }));
+          det.append(el('div', { class: 'item' }, el('div', null,
+            el('span', { class: 'bdg ' + st, text: STL[st] }), ' ', el('span', { class: 'bdg jenis', text: t.jenis === 'lp' ? 'LP' : 'Artikel' }), ' ', el('b', { text: t.judul }),
+            el('small', { text: 'kata kunci: ' + t.kata_kunci + ' · ' + (MAKSUD[t.maksud] || t.maksud) + ' · /' + (t.jenis === 'lp' ? 'lp' : 'artikel') + '/' + t.slug + '/' + (t.pilar ? ' · LP pilar: ' + t.pilar : '') }),
+            t.catatan ? el('small', { class: 'kl', text: 'Catatan: ' + t.catatan }) : null), el('div', { class: 'btns' }, b)));
+        });
+        listBox.append(det);
+      });
+      if (!listBox.children.length) listBox.append(el('p', { class: 'hint', text: 'Tidak ada topik yang cocok.' }));
+    }
+    fq.oninput = draw; fs.onchange = draw; draw();
+    view.innerHTML = ''; view.append(card);
+  }
+
+  function buatDariTopik(t) {
+    var gb = t.garis_besar || [];
+    var body = '[Tulis paragraf pembuka 40-60 kata yang memuat kata kunci "' + t.kata_kunci + '".]\n\n' + (gb.length ? gb.map(function (h) { return /^FAQ|^Pertanyaan/i.test(h) ? '## Pertanyaan yang sering diajukan\n\n### [Pertanyaan 1]\n\n[Jawaban]' : '## ' + h + '\n\n[Isi bagian ini]'; }).join('\n\n') : '## [Bagian 1]\n\n[Isi]\n\n## [Bagian 2]\n\n[Isi]\n\n## Pertanyaan yang sering diajukan\n\n### [Pertanyaan 1]\n\n[Jawaban]') + '\n\n## Kesimpulan\n\n[Ringkas dan ajak chat WhatsApp lewat [halaman kontak](/kontak/).]';
+    var pre = { title: t.judul, slug: t.slug, tags: [t.kata_kunci], body: body, draft: true, category: KAT[t.kluster] || 'Info Geely' };
+    if (t.jenis === 'lp') {
+      pre.artikel = TOPIK.topik.filter(function (x) { return x.jenis === 'artikel' && x.pilar === t.slug && ALL && ALL.artikel.some(function (m) { return m.f.name === x.slug + '.md'; }); }).map(function (x) { return x.slug; });
+      var kl = TOPIK.kluster.filter(function (k) { return k.id === t.kluster; })[0]; pre.model = /ex5/.test(t.slug) ? 'geely-ex5' : (/starray/.test(t.slug) ? 'geely-starray-em-i' : (/ex2/.test(t.slug) ? 'geely-ex2' : ''));
+    } else if (t.pilar) pre.body = pre.body.replace('## Kesimpulan', '## Kesimpulan\n\n[Sebut dan tautkan LP pilar: [teks](/lp/' + t.pilar + '/).]');
+    editKonten(t.jenis, null, pre);
+  }
+
+  function formTopik(t) {
+    hideMsg(); var isNew = !t, my = navId;
+    var kl = TOPIK.kluster.map(function (k) { return { v: k.id, l: k.nama }; });
+    var lps = [{ v: '', l: '- tidak ada -' }].concat(TOPIK.topik.filter(function (x) { return x.jenis === 'lp'; }).map(function (x) { return { v: x.slug, l: x.judul }; }));
+    renderForm({
+      title: isNew ? 'Topik Baru' : 'Ubah Topik', onCancel: tabTopik,
+      intro: 'Satu topik = satu halaman dengan satu kata kunci utama. Aplikasi menolak kata kunci atau alamat yang sudah dipakai halaman lain.',
+      fields: [
+        { key: 'jenis', label: 'Jenis halaman', type: 'select', options: [{ v: 'artikel', l: 'Artikel (informasi, edukasi)' }, { v: 'lp', l: 'Landing Page (orang siap beli / cari lokasi)' }] },
+        { key: 'judul', label: 'Rencana judul halaman', req: true },
+        { key: 'slug', label: 'Alamat halaman (otomatis dari judul)', type: 'slug', from: 'judul', lock: !isNew },
+        { key: 'kata_kunci', label: 'Kata kunci utama (yang diketik orang di Google)', req: true, lower: true, hint: 'Harus unik. Jadi tag pertama saat halaman ditulis.' },
+        { key: 'maksud', label: 'Maksud pencari', type: 'select', options: Object.keys(MAKSUD).map(function (k) { return { v: k, l: MAKSUD[k] }; }) },
+        { key: 'kluster', label: 'Kelompok topik', type: 'select', options: kl },
+        { key: 'pilar', label: 'LP pilar yang dituju (untuk artikel)', type: 'select', options: lps },
+        { key: 'catatan', label: 'Catatan (boleh kosong)', type: 'textarea' }
+      ],
+      data: t || { jenis: 'artikel', maksud: 'info', kluster: (kl[0] || {}).v },
+      saveLabel: 'Simpan topik',
+      onSave: async function (v) {
+        var kk = normS(v.kata_kunci), slug = v.slug || slugify(v.judul);
+        if (!slug) throw new Error('Alamat kosong.');
+        var dup = TOPIK.topik.filter(function (x) { return x !== t && normS(x.kata_kunci) === kk; })[0];
+        if (dup) throw new Error('Kata kunci "' + v.kata_kunci + '" sudah dimiliki topik: ' + dup.judul + '. Pilih kata kunci lain atau gabungkan.');
+        var sys = TOPIK.halaman_sistem.filter(function (h) { return normS(h.kata_kunci) === kk; })[0];
+        if (sys) throw new Error('Kata kunci itu milik halaman ' + sys.url + '.');
+        var sd = TOPIK.topik.filter(function (x) { return x !== t && x.slug === slug; })[0];
+        if (sd) throw new Error('Alamat "' + slug + '" sudah dipakai topik lain.');
+        var o = Object.assign({}, t || {}, { slug: slug, jenis: v.jenis, kluster: v.kluster, kata_kunci: v.kata_kunci, maksud: v.maksud, judul: v.judul });
+        if (v.pilar) o.pilar = v.pilar; else delete o.pilar;
+        if (v.catatan) o.catatan = v.catatan; else delete o.catatan;
+        if (isNew) TOPIK.topik.push(o); else TOPIK.topik[TOPIK.topik.indexOf(t)] = o;
+        await saveTopik((isNew ? 'Topik baru: ' : 'Ubah topik: ') + slug);
+        if (my !== navId) return; show('Topik tersimpan.'); tabTopik();
+      },
+      onDelete: isNew ? null : async function () {
+        if (!confirm('Hapus topik ini dari rencana? (Halaman yang sudah dibuat tidak ikut terhapus.)')) return;
+        TOPIK.topik = TOPIK.topik.filter(function (x) { return x !== t; });
+        await saveTopik('Hapus topik: ' + t.slug); show('Topik dihapus dari rencana.'); tabTopik();
       }
     });
   }
@@ -936,6 +1312,8 @@
     if (name === 'keluar' && !confirm('Yakin mau keluar?\n\nAnda harus memasukkan token GitHub lagi untuk masuk.')) return;
     navId++; hideMsg(); setTab(name);
     if (name === 'artikel') return tabArtikel();
+    if (name === 'lp') return tabLp();
+    if (name === 'topik') return tabTopik();
     if (name === 'model') return openCollection(COL.model);
     if (name === 'promo') return openCollection(COL.promo);
     if (name === 'slider') return openCollection(COL.slider);

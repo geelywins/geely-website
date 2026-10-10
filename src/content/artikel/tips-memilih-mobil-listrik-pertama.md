@@ -27,3 +27,5 @@ Bandingkan biaya energi dan perawatan dengan mobil bensin Anda sekarang. Minta s
 Jadwalkan test drive supaya Anda merasakan sendiri karakter mobil listrik: senyap dan responsif.
 
 Butuh bantuan memilih? Chat saya lewat WhatsApp, kita cari yang paling cocok.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

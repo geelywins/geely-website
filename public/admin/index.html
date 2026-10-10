@@ -1080,6 +1080,20 @@
         d2.beranda.seoDeskripsi = 'Konsultasi sales Geely di Jakarta & BSD City: pilih EX2, EX5 atau Starray EM-i, lihat promo terbaru, simulasi kredit dan jadwal test drive via WhatsApp.';
         await writeJson('src/data/content.json', d2, hc.sha, 'Ganti judul beranda agar tidak bersaing dengan LP'); } });
     } catch (e) {}
+    try { // bersihkan data lama yang masih menyebut lokasi yang sudah tidak ada
+      var OLD = /Tanah Abang/i, files = ['src/data/settings.json', 'src/data/content.json', 'src/data/slider.json'], dirty = [];
+      for (var fi = 0; fi < files.length; fi++) { try { var rr = await readFile(files[fi]); if (OLD.test(rr.text)) dirty.push({ path: files[fi], text: rr.text, sha: rr.sha }); } catch (e) {} }
+      var sysOld = TOPIK.halaman_sistem.filter(function (x) { return /tanah-abang/.test(x.url); });
+      if (dirty.length || sysOld.length) alerts.push({ txt: 'Masih ada tulisan "Tanah Abang" (lokasi lama) di ' + (dirty.map(function (d) { return d.path.split('/').pop(); }).join(', ') || 'peta topik') + '.', act: 'Bersihkan Tanah Abang', fn: async function () {
+        for (var di = 0; di < dirty.length; di++) {
+          var d0 = dirty[di], obj = JSON.parse(d0.text);
+          if (obj.lokasi) obj.lokasi = obj.lokasi.filter(function (l) { return !OLD.test(JSON.stringify(l)); });
+          var s2 = JSON.stringify(obj, null, 2).replace(/BSD City (?:&|dan|atau) Tanah Abang/g, 'BSD City').replace(/Dealer kami ada di BSD City \(Tangerang Selatan\) dan Tanah Abang \(Jakarta Pusat\)\./g, 'Dealer kami ada di BSD City (Tangerang Selatan).').replace(/ dan Tanah Abang/g, '').replace(/ atau Tanah Abang/g, '');
+          await putFile(d0.path, enc(s2 + '\n'), 'Hapus lokasi lama dari ' + d0.path, d0.sha);
+        }
+        if (sysOld.length) { TOPIK.halaman_sistem = TOPIK.halaman_sistem.filter(function (x) { return !/tanah-abang/.test(x.url); }); await saveTopik('Hapus lokasi lama dari peta topik'); }
+      } });
+    } catch (e) {}
     var noLink = [];
     TOPIK.topik.forEach(function (t) { if (t.jenis !== 'artikel' || !t.pilar) return; var p = pages['artikel/' + t.slug]; if (p && p.m.text && p.m.body.indexOf('/lp/' + t.pilar + '/') < 0 && pages['lp/' + t.pilar]) noLink.push({ p: p, t: t }); });
     if (noLink.length) alerts.push({ txt: noLink.length + ' artikel belum menaut ke LP pilar-nya (kekuatan SEO tidak mengalir ke halaman utama).', act: 'Tambah tautan otomatis', fn: async function () {

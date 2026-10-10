@@ -23,7 +23,6 @@ Tujuan: menjawab pertanyaan nyata calon pembeli supaya website muncul di Google 
 | 11 | 6 | Mobil Listrik, Hybrid, atau Bensin: Mana yang Cocok untuk Anda? | mobil listrik vs hybrid vs bensin | Edukasi |
 | 12 | 6 | Tukar Tambah Mobil Lama ke Geely: Cara dan Tips Harga Terbaik | tukar tambah mobil ke geely | Beli |
 | 13 | 7 | Dealer Geely BSD City: Alamat, Jam Buka, dan Cara ke Sana | dealer geely bsd, geely bsd city | Lokal |
-| 14 | 7 | Dealer Geely Tanah Abang: Alamat, Jam Buka, dan Cara ke Sana | dealer geely tanah abang, geely jakarta | Lokal |
 | 15 | 8 | Test Drive Geely di BSD dan Jakarta: Syarat dan Jadwalnya | test drive geely bsd | Lokal |
 | 16 | 8 | Mobil Listrik untuk Warga BSD dan Tangsel: Soal Charger di Perumahan | mobil listrik bsd, charger rumah tangsel | Lokal |
 | 17 | 9 | Jakarta-Bandung Pakai Geely EX5: Rute, SPKLU, dan Estimasi Waktu | jakarta bandung mobil listrik | Lokal |

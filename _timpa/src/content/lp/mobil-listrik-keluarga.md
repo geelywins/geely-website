@@ -75,7 +75,7 @@ Pastikan instalasi listrik rumah dicek oleh teknisi dan PLN. Jika Anda baru bera
 
 ## Cara mencoba sebelum memutuskan
 
-Keputusan keluarga sebaiknya diambil bersama. Datanglah dengan pasangan, anak, dan kalau perlu orang tua. Kami menerima kunjungan di [Geely BSD City](/lokasi/geely-bsd-city/) dan [Geely Tanah Abang](/lokasi/geely-tanah-abang/).
+Keputusan keluarga sebaiknya diambil bersama. Datanglah dengan pasangan, anak, dan kalau perlu orang tua. Kami menerima kunjungan di [Geely BSD City](/lokasi/geely-bsd-city/).
 
 Saat test drive, coba hal berikut.
 

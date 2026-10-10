@@ -61,10 +61,6 @@
       {
         "nama": "Geely BSD City",
         "area": "BSD City, Tangerang Selatan"
-      },
-      {
-        "nama": "Geely Tanah Abang",
-        "area": "Tanah Abang, Jakarta Pusat"
       }
     ]
   },
@@ -73,7 +69,7 @@
       "stats": [
         {
           "angka": "2 Lokasi",
-          "teks": "BSD City & Tanah Abang"
+          "teks": "BSD City"
         },
         {
           "angka": "Test Drive",
@@ -121,7 +117,7 @@
       "faq": [
         {
           "tanya": "Bagaimana cara test drive Geely?",
-          "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City atau Tanah Abang."
+          "jawab": "Hubungi saya lewat WhatsApp, sebutkan model yang ingin dicoba dan waktu yang Anda inginkan. Saya bantu atur jadwal test drive di dealer BSD City."
         },
         {
           "tanya": "Apakah bisa simulasi kredit Geely?",
@@ -129,7 +125,7 @@
         },
         {
           "tanya": "Di mana lokasi dealer Geely?",
-          "jawab": "Dealer kami ada di BSD City (Tangerang Selatan) dan Tanah Abang (Jakarta Pusat)."
+          "jawab": "Dealer kami ada di BSD City (Tangerang Selatan)."
         }
       ],
       "ctaJudul": "Siap konsultasi?",
@@ -176,7 +172,7 @@
         "Jadwal test drive",
         "Pendampingan sampai serah terima unit"
       ],
-      "seoDeskripsi": "Hubungi sales Geely lewat WhatsApp untuk tanya harga, promo, simulasi kredit dan test drive. Dealer di BSD City dan Tanah Abang."
+      "seoDeskripsi": "Hubungi sales Geely lewat WhatsApp untuk tanya harga, promo, simulasi kredit dan test drive. Dealer di BSD City."
     },
     "footer": {
       "catatan": "Website ini dikelola oleh sales consultant dealer resmi Geely. Harga, promo dan spesifikasi dapat berubah sewaktu-waktu, silakan konfirmasi ke sales."
@@ -220,7 +216,7 @@
     {
       "label": "Test Drive",
       "judul": "Rasakan sendiri {Geely} pilihan Anda",
-      "teks": "Jadwalkan test drive di BSD City atau Tanah Abang, gratis dan tanpa ribet.",
+      "teks": "Jadwalkan test drive di BSD City, gratis dan tanpa ribet.",
       "foto": "",
       "tombol": "Booking Test Drive",
       "link": "wa",

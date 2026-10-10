@@ -7,13 +7,13 @@ Semua angka jarak/pengisian/konsumsi adalah KLAIM PABRIKAN (NEDC/WLTP), bukan ha
 
 ## Penjual dan dealer
 - Nama: Edwin Sowita S., dipanggil Wins. Sales Consultant Geely. Dealer: PT Dwi Putra Motor (Geely Group).
-- Lokasi: Geely BSD City (BSD City, Tangerang Selatan) dan Geely Tanah Abang (Tanah Abang, Jakarta Pusat).
+- Lokasi: Geely BSD City (BSD City, Tangerang Selatan). Satu-satunya lokasi yang boleh ditulis. Jangan menyebut lokasi lain kecuali pemilik menambahkannya.
   Alamat jalan dan jam buka TIDAK tersedia di data: jangan ditulis.
 - WhatsApp: 087710208822. Konsultasi gratis, test drive, simulasi kredit. Harga & promo selalu berubah.
 - Situs lain milik Wins: LapakMu.store (aksesoris mobil), promogeelyauto.com.
 - Alamat halaman internal yang boleh ditautkan: /model/geely-ex2/, /model/geely-ex5/, /model/geely-starray/,
   /model/geely-starray-em-i/, /model/, /promo/, /kontak/, /delivery/, /testimoni/, /lokasi/geely-bsd-city/,
-  /lokasi/geely-tanah-abang/, /artikel/, /lp/, serta /artikel/<slug>/ dan /lp/<slug>/ yang ada di src/data/topik.json.
+  /artikel/, /lp/, serta /artikel/<slug>/ dan /lp/<slug>/ yang ada di src/data/topik.json.
 
 ## Geely EX2 Max (sudah dipakai di artikel EX2)
 - Baterai LFP 40,8 kWh. Motor 85 kW, torsi 150 Nm. Klaim jarak 395 km (NEDC).

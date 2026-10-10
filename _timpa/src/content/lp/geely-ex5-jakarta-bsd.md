@@ -9,7 +9,7 @@ artikel: ["geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan", "perbandin
 draft: false
 ---
 
-Geely EX5 Jakarta menjadi pilihan menarik bagi keluarga yang ingin beralih ke SUV listrik. Halaman ini merangkum data resmi EX5 Pro dan Max, mulai dari baterai, jarak tempuh, sampai bagasi 461 liter, lalu menjelaskan cara test drive di BSD City maupun Tanah Abang.
+Geely EX5 Jakarta menjadi pilihan menarik bagi keluarga yang ingin beralih ke SUV listrik. Halaman ini merangkum data resmi EX5 Pro dan Max, mulai dari baterai, jarak tempuh, sampai bagasi 461 liter, lalu menjelaskan cara test drive di BSD City.
 
 ## Kenapa memilih Geely EX5 untuk keluarga
 
@@ -86,7 +86,7 @@ Jika Anda mencari ukuran yang lebih ringkas untuk dalam kota, lihat halaman [Gee
 Test drive membantu Anda merasakan ruang kabin, kenyamanan, dan respons mobil secara langsung. Prosesnya tidak mengikat dan bisa diatur sesuai jadwal Anda.
 
 1. Chat WhatsApp sales lewat halaman [kontak](/kontak/) dan sebutkan bahwa Anda tertarik pada EX5.
-2. Pilih lokasi: [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/).
+2. Lokasi: [Geely BSD City](/lokasi/geely-bsd-city/).
 3. Tanyakan ketersediaan unit dan tentukan hari serta jam kunjungan.
 4. Datang, coba mobilnya bersama keluarga, lalu diskusikan kebutuhan Anda.
 
@@ -108,7 +108,7 @@ EX5 berada di segmen SUV listrik keluarga dengan bagasi 461 liter dan jok belaka
 
 ### Di mana test drive Geely EX5 di Jakarta dan BSD?
 
-Anda bisa datang ke dealer kami di BSD City atau Tanah Abang, Jakarta Pusat. Buat janji dulu lewat WhatsApp agar unit siap dicoba.
+Anda bisa datang ke dealer kami di BSD City. Buat janji dulu lewat WhatsApp agar unit siap dicoba.
 
 ### Apa bedanya EX5 dengan EX2?
 
@@ -118,4 +118,4 @@ EX5 adalah SUV listrik keluarga, sedangkan EX2 adalah mobil listrik kompak untuk
 
 Geely EX5 Jakarta layak dipertimbangkan jika keluarga Anda membutuhkan SUV listrik dengan kabin lega dan pemakaian tanpa BBM. Dengan klaim jarak hingga 495 km (NEDC) dan bagasi 461 liter, EX5 punya bekal yang cukup untuk pemakaian harian maupun perjalanan keluarga.
 
-Langkah terbaik adalah chat WhatsApp kami lewat halaman [kontak](/kontak/), lalu jadwalkan test drive di [BSD City](/lokasi/geely-bsd-city/) atau [Tanah Abang](/lokasi/geely-tanah-abang/). Kami siap membantu menjelaskan dengan santai dan tanpa paksaan.
+Langkah terbaik adalah chat WhatsApp kami lewat halaman [kontak](/kontak/), lalu jadwalkan test drive di [BSD City](/lokasi/geely-bsd-city/). Kami siap membantu menjelaskan dengan santai dan tanpa paksaan.

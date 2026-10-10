@@ -3,7 +3,7 @@ title: "Geely EX2 Max untuk Keluarga Muda: Muat, Aman, Hemat"
 description: "Geely EX2 Max untuk keluarga muda: 5 penumpang, bagasi luas, 6 airbag, dan biaya harian ramah. Cek apakah cocok dan hubungi sales untuk test drive."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik kompak", "mobil listrik geely", "geely ev", "mobil keluarga listrik", "mobil listrik murah", "keluarga muda", "mobil listrik jakarta"]
+tags: ["geely ex2","geely ex2 max","mobil listrik kompak","mobil listrik geely","geely ev","mobil keluarga listrik","mobil listrik murah","keluarga muda","mobil listrik jakarta"]
 draft: true
 ---
 
@@ -81,6 +81,8 @@ Mobil ini punya 6 airbag dan, di versi Max, ADAS Level 2. Gunakan selalu kursi a
 
 ### Apakah bisa dipakai sebagai satu-satunya mobil keluarga?
 Bisa, selama kebutuhan harian Anda masih dalam jangkauan pengisian dan Anda jarang membawa lebih dari 5 orang. Diskusikan pola pakai Anda dengan sales.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

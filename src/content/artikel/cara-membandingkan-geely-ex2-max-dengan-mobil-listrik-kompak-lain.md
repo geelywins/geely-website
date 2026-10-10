@@ -3,7 +3,7 @@ title: "Cara Membandingkan Geely EX2 Max dengan Mobil Listrik Lain"
 description: "Cara membandingkan Geely EX2 Max dengan mobil listrik kompak lain lewat checklist kriteria yang adil dan mudah. Ajak sales berdiskusi sebelum memutuskan."
 date: 2026-10-07
 category: "Perbandingan"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik kompak", "mobil listrik geely", "geely ev", "geely indonesia", "tips membeli mobil listrik", "checklist mobil listrik", "mobil listrik murah"]
+tags: ["geely ex2","geely ex2 max","mobil listrik kompak","mobil listrik geely","geely ev","geely indonesia","tips membeli mobil listrik","checklist mobil listrik","mobil listrik murah"]
 draft: true
 ---
 
@@ -100,6 +100,8 @@ Hanya bila memakai siklus uji yang sama. Klaim NEDC biasanya lebih tinggi dari p
 
 ### Apakah perlu test drive semuanya?
 Sangat disarankan. Rasa berkendara, kenyamanan, dan visibilitas sulit dinilai dari spesifikasi.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

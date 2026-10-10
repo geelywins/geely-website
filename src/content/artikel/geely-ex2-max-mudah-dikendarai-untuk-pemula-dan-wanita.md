@@ -3,7 +3,7 @@ title: "Geely EX2 Max Mudah Dikendarai untuk Pemula dan Wanita"
 description: "Geely EX2 Max mudah dikendarai untuk pemula dan wanita: ukuran kompak, kamera 540 derajat, dan ADAS Level 2. Cobalah test drive untuk membuktikannya."
 date: 2026-10-07
 category: "Tips Membeli"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik kompak", "mobil listrik geely", "geely ev", "mobil pertama", "adas", "test drive mobil listrik", "mobil listrik jakarta"]
+tags: ["geely ex2","geely ex2 max","mobil listrik kompak","mobil listrik geely","geely ev","mobil pertama","adas","test drive mobil listrik","mobil listrik jakarta"]
 draft: true
 ---
 
@@ -89,6 +89,8 @@ Tidak wajib. ADAS adalah bantuan tambahan, dan pengemudi tetap bertanggung jawab
 
 ### Apakah sulit belajar mobil listrik?
 Umumnya tidak sulit. Anda hanya perlu membiasakan diri dengan tenaga yang responsif dan pengereman regeneratif.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

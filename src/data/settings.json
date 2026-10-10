@@ -57,7 +57,10 @@
   "lokasi": [
     {
       "nama": "Geely BSD City",
-      "area": "Kav. Commercial de Park, Jl. Boulevard Utara No.lot 2 no.17, Lengkong Wetan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15331 BSD City, Tangerang Selatan"
+      "area": "Kav. Commercial de Park, Jl. Boulevard Utara No.lot 2 no.17, Lengkong Wetan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15331 BSD City, Tangerang Selatan",
+      "alamat": "Geely DPM BSD, Kav. Commercial de Park, Jl. Boulevard Utara No.lot 2 no.17 Lengkong Wetan  Kec. Pagedangan Kabupaten Tangerang, 087710208822",
+      "maps": "Geely DPM BSD + Kav. Commercial de Park, Jl. Boulevard Utara No.lot 2 no.17, Lengkong Wetan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15331",
+      "jam": "Senin - Minggu 08.30 - 22.00"
     }
   ],
   "fotoProfil": "/images/umum/206271-muyeghpp.jpg",

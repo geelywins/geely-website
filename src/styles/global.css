@@ -344,3 +344,19 @@ a.card-x { text-decoration: none !important; }
 /* Ringkasan di awal artikel */
 .article-body > p:first-of-type { background: var(--brand-soft); border-left: 4px solid var(--brand); border-radius: 0 12px 12px 0; padding: 14px 16px; font-size: 1.05rem; }
 .article-body > p:first-of-type::before { content: 'Ringkasan'; display: block; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--brand); margin-bottom: 4px; }
+
+/* ===== Viewer 3D putar 360 ===== */
+.v3d { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); background: var(--surface-2); }
+.v3d model-viewer { display: block; width: 100%; aspect-ratio: 16 / 9; min-height: 320px; background: linear-gradient(180deg, #eaf0f9 0%, #f8fafd 65%, #e4ebf5 100%); --poster-color: transparent; --progress-bar-color: var(--brand, #2f6fd6); }
+.v3d-bar { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding: .75rem 1rem; background: var(--surface, #fff); border-top: 1px solid var(--line, #dde5f0); }
+.v3d-btn { min-height: 44px; padding: 0 1rem; border-radius: 12px; border: 1.5px solid var(--line, #c9d6ea); background: #fff; color: inherit; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.v3d-btn[aria-pressed="true"] { background: #10203a; border-color: #10203a; color: #fff; }
+.v3d-vars { display: flex; flex-wrap: wrap; gap: .5rem; margin-left: auto; }
+.v3d-hint { margin: 0; padding: 0 1rem .75rem; font-size: .85rem; color: var(--muted, #6b7b95); background: var(--surface, #fff); }
+.v3d-ar { position: absolute; right: 12px; bottom: 12px; min-height: 44px; padding: 0 1rem; border-radius: 12px; border: 0; background: #10203a; color: #fff; font-weight: 700; font-size: .85rem; }
+.v3d-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: transparent; }
+.v3d-progress span { display: block; height: 100%; width: 0; background: var(--brand, #2f6fd6); }
+.v3d:fullscreen model-viewer { height: calc(100vh - 120px); aspect-ratio: auto; }
+.model-card .v3d-badge { position: absolute; top: .6rem; left: .6rem; padding: .25rem .6rem; border-radius: 999px; background: #10203a; color: #fff; font-size: .75rem; font-weight: 800; }
+.model-card .card-media { position: relative; }
+@media (max-width: 575px) { .v3d model-viewer { aspect-ratio: 4 / 3; min-height: 260px; } }

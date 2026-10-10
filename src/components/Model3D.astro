@@ -1,0 +1,64 @@
+---
+// Viewer 3D putar 360 derajat. Pakai <model-viewer> (file lokal /vendor/model-viewer.min.js), hanya dimuat di halaman yang punya file 3D.
+import { asset } from '../lib/url';
+interface Props { src: string; poster?: string; alt: string }
+const { src, poster, alt } = Astro.props;
+---
+<div class="v3d reveal" data-v3d>
+  <model-viewer
+    src={asset(src)}
+    poster={poster ? asset(poster) : undefined}
+    alt={`${alt}, model 3D yang bisa diputar 360 derajat`}
+    camera-controls
+    touch-action="pan-y"
+    auto-rotate
+    auto-rotate-delay="1200"
+    rotation-per-second="28deg"
+    shadow-intensity="1"
+    shadow-softness="0.9"
+    exposure="1"
+    environment-image="neutral"
+    loading="lazy"
+    reveal="auto"
+    interaction-prompt="auto"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    min-camera-orbit="auto auto 60%"
+  >
+    <button slot="ar-button" type="button" class="v3d-ar">Lihat di halaman Anda (AR)</button>
+    <div slot="progress-bar" class="v3d-progress"><span></span></div>
+  </model-viewer>
+  <div class="v3d-bar">
+    <button type="button" class="v3d-btn" data-act="rotate" aria-pressed="true">Putar otomatis</button>
+    <button type="button" class="v3d-btn" data-act="reset">Atur ulang</button>
+    <button type="button" class="v3d-btn" data-act="full">Layar penuh</button>
+    <span class="v3d-vars" data-vars></span>
+  </div>
+  <p class="v3d-hint">Seret untuk memutar 360&deg;, cubit atau scroll untuk zoom.</p>
+</div>
+<script is:inline type="module" src={asset('/vendor/model-viewer.min.js')}></script>
+<script is:inline>
+  document.querySelectorAll('[data-v3d]').forEach(function (box) {
+    var mv = box.querySelector('model-viewer'); if (!mv) return;
+    var rot = box.querySelector('[data-act=rotate]');
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { mv.removeAttribute('auto-rotate'); rot.setAttribute('aria-pressed', 'false'); }
+    rot.addEventListener('click', function () {
+      var on = mv.hasAttribute('auto-rotate');
+      if (on) mv.removeAttribute('auto-rotate'); else mv.setAttribute('auto-rotate', '');
+      rot.setAttribute('aria-pressed', String(!on));
+    });
+    box.querySelector('[data-act=reset]').addEventListener('click', function () { mv.cameraOrbit = 'auto auto auto'; mv.fieldOfView = 'auto'; mv.resetTurntableRotation && mv.resetTurntableRotation(0); });
+    box.querySelector('[data-act=full]').addEventListener('click', function () { var f = box.requestFullscreen || box.webkitRequestFullscreen; if (f) f.call(box); });
+    mv.addEventListener('load', function () {
+      var vs = mv.availableVariants || [], wrap = box.querySelector('[data-vars]');
+      if (!wrap || vs.length < 2) return;
+      wrap.innerHTML = '';
+      vs.forEach(function (name, i) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'v3d-btn v3d-var'; b.textContent = name; b.setAttribute('aria-pressed', String(i === 0));
+        b.addEventListener('click', function () { mv.variantName = name; wrap.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); });
+        wrap.appendChild(b);
+      });
+    });
+    mv.addEventListener('error', function () { box.classList.add('v3d-error'); var h = box.querySelector('.v3d-hint'); if (h) h.textContent = 'Model 3D belum bisa dimuat. Coba muat ulang halaman.'; });
+  });
+</script>

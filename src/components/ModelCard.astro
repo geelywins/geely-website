@@ -7,6 +7,7 @@ const H = heading;
 ---
 <a class="card-x model-card reveal" style={`--d:${delay}s`} href={href(`/model/${m.slug}/`)}>
   <div class="card-media">
+    {m.model3d && <span class="v3d-badge">360&deg;</span>}
     {m.foto
       ? <img src={asset(m.foto)} alt={m.nama} loading="lazy" decoding="async" width="640" height="400" />
       : <div class="media-fallback" style={`--c:${m.warna}`}><span>{m.nama.replace('Geely ', '')}</span></div>}

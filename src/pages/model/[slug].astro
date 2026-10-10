@@ -5,6 +5,7 @@ import { getLiveArticles } from '../../lib/articles';
 import PageHead from '../../components/PageHead.astro';
 import PromoCard from '../../components/PromoCard.astro';
 import Icon from '../../components/Icon.astro';
+import Model3D from '../../components/Model3D.astro';
 import { waLink, SITE } from '../../config';
 import { href, asset } from '../../lib/url';
 
@@ -60,11 +61,15 @@ const lokasi = SITE.locations.map((l) => l.nama).join(' dan ');
 
   <section>
     <div class="container prose">
-      <div class="model-hero reveal">
-        {m.foto
-          ? <img src={asset(m.foto)} alt={m.nama} width="1200" height="675" fetchpriority="high" />
-          : <div class="media-fallback" style={`--c:${m.warna}`}><span>{m.nama}</span></div>}
-      </div>
+      {m.model3d
+        ? <Model3D src={m.model3d} poster={m.foto || undefined} alt={m.nama} />
+        : (
+          <div class="model-hero reveal">
+            {m.foto
+              ? <img src={asset(m.foto)} alt={m.nama} width="1200" height="675" fetchpriority="high" />
+              : <div class="media-fallback" style={`--c:${m.warna}`}><span>{m.nama}</span></div>}
+          </div>
+        )}
 
       <h2>Tentang {m.nama}</h2>
       <p>{m.deskripsi}</p>

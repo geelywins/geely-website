@@ -457,6 +457,27 @@
       if (refs && f.key) refs[f.key] = path;
       return o3;
     }
+    if (t === 'glb') {
+      var gp = el('input', { type: 'text', value: val || '', placeholder: 'kosong = tanpa model 3D', autocapitalize: 'none' });
+      var gf = el('input', { type: 'file', accept: '.glb,model/gltf-binary', class: 'hide' }), gs = el('div', { class: 'hint', text: val ? 'File 3D terpasang.' : '' });
+      var gpick = btn('Pilih file .glb', 'sec sm', function () { gf.click(); });
+      gf.onchange = async function () {
+        var file = gf.files[0]; if (!file) return;
+        if (!/\.glb$/i.test(file.name)) { gf.value = ''; return show('File harus berformat .glb', 'err'); }
+        if (file.size > 40 * 1024 * 1024) { gf.value = ''; return show('File 3D terlalu besar (maks. 40 MB). Kecilkan dulu dengan gltf.report atau Blender.', 'err'); }
+        gpick.disabled = true; gs.textContent = 'Mengunggah ' + Math.round(file.size / 1048576 * 10) / 10 + ' MB, mohon tunggu...';
+        try {
+          var gname = (slugify(file.name.replace(/\.glb$/i, '')) || 'model') + '-' + Date.now().toString(36) + '.glb';
+          await putFile('public/models3d/' + gname, await fileToB64(file), 'Unggah model 3D ' + gname);
+          gp.value = '/models3d/' + gname; gs.textContent = 'Berhasil diunggah: ' + gp.value + '. Tekan Simpan di bawah supaya terpasang.';
+        } catch (e) { gs.textContent = ''; show(e.message, 'err'); }
+        gpick.disabled = false; gf.value = '';
+      };
+      var gclear = btn('Hapus 3D', 'sec sm', function () { gp.value = ''; gs.textContent = ''; });
+      var go3 = { el: wrapField(el('div', null, gp, el('div', { class: 'row' }, gpick, gclear, gf), gs)), get: function () { return gp.value.trim(); }, check: function () { return ''; } };
+      if (refs && f.key) refs[f.key] = gp;
+      return go3;
+    }
     if (t === 'group') {
       var kids = f.fields.map(function (sf) { return build(sf, (val || {})[sf.key], {}); });
       var inner = el('div', { class: 'grp' }, kids.map(function (k) { return k.el; }));
@@ -599,6 +620,7 @@
     { key: 'keunggulan', label: 'Keunggulan (satu baris = satu poin)', type: 'lines', rows: 5 },
     { key: 'harga', label: 'Harga / keterangan harga', hint: 'Contoh: Mulai Rp 000.000.000 (OTR Jakarta)' },
     { key: 'spesifikasi', label: 'Spesifikasi', type: 'list', addLabel: 'Tambah spesifikasi', blank: { label: '', nilai: '' }, fields: [ { key: 'label', label: 'Nama (contoh: Jarak tempuh)', req: true }, { key: 'nilai', label: 'Isi', req: true } ] },
+    { key: 'model3d', label: 'File 3D mobil (.glb) untuk putar 360°', type: 'glb', hint: 'Unggah file .glb dari Geely/pabrikan (maks. 40 MB, ideal di bawah 15 MB supaya cepat dibuka di HP). Kalau terisi, halaman model menampilkan viewer 3D yang bisa diputar. Kosongkan untuk memakai foto biasa.' },
     { key: 'galeri', label: 'Galeri foto tambahan', type: 'list', addLabel: 'Tambah foto', of: { type: 'image', folder: 'model', size: { w: 1200, h: 900, txt: 'landscape 4:3' } } },
     { key: 'warna', label: 'Warna kartu (dipakai kalau belum ada foto)', type: 'color' }
   ]; };
@@ -1220,6 +1242,12 @@
       if (dirty) top.append(btn('Simpan Urutan', 'sec', async function () {
         try { await writeJson(c.path, arr, sha, 'Ubah urutan ' + c.label); if (my !== navId) return; show('Urutan tersimpan. Website diperbarui otomatis.'); openCollection(c); } catch (e) { show(e.message, 'err'); }
       }));
+      if (c.seed) c.seed(arr).forEach(function (sd) {
+        top.append(btn('+ Tambah ' + sd.label, 'sec', async function (ev) {
+          ev.target.disabled = true;
+          try { await writeJson(c.path, arr.concat([sd.item]), sha, 'Tambah ' + c.single + ': ' + sd.label); if (my !== navId) return; show(sd.label + ' ditambahkan. Buka Edit untuk mengisi foto dan file 3D.'); openCollection(c); } catch (e) { show(e.message, 'err'); ev.target.disabled = false; }
+        }));
+      });
       card.append(top);
       if (!arr.length) card.append(el('p', { class: 'hint', text: 'Belum ada data.' }));
       arr.forEach(function (it, i) {
@@ -1257,7 +1285,10 @@
   var COL = {
     model: { def: 'models', path: 'src/data/models.json', label: 'Model Mobil', single: 'model', idKey: 'slug', schema: SCH.model,
       title: function (m) { return m.nama; }, sub: function (m) { return m.harga || ''; },
-      blank: function () { return { warna: '#3b8cff', keunggulan: [], spesifikasi: [], galeri: [], foto: '', harga: 'Hubungi sales untuk harga & promo terbaru' }; } },
+      blank: function () { return { warna: '#3b8cff', keunggulan: [], spesifikasi: [], galeri: [], foto: '', model3d: '', harga: 'Hubungi sales untuk harga & promo terbaru' }; },
+      seed: function (arr) {
+        return arr.some(function (m) { return m.slug === 'geely-coolray'; }) ? [] : [{ label: 'Geely Coolray', item: { slug: 'geely-coolray', nama: 'Geely Coolray', tipe: 'SUV Kompak', ringkas: 'SUV kompak bermesin bensin untuk pemakaian harian. Tanyakan spesifikasi lengkap dan promo ke sales.', deskripsi: 'Geely Coolray adalah SUV kompak bermesin bensin. Spesifikasi resmi belum dicantumkan di halaman ini. Hubungi sales untuk data dan penawaran terbaru.', keunggulan: [], harga: 'Hubungi sales untuk harga & promo terbaru', spesifikasi: [{ label: 'Jenis', nilai: 'SUV kompak, mesin bensin' }], foto: '', galeri: [], warna: '#2f80ed', model3d: '' } }];
+      } },
     promo: { def: 'promo', path: 'src/data/promo.json', label: 'Promo', single: 'promo', idKey: 'id', schema: SCH.promo,
       title: function (p) { return p.judul + (p.aktif ? '' : ' (nonaktif)'); }, sub: function (p) { return p.periode || ''; },
       blank: function () { return { aktif: true, foto: '', model: '', periode: '' }; },

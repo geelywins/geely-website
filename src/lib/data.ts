@@ -20,7 +20,7 @@ export function fill(def: any, val: any): any {
 export interface GeelyModel {
   slug: string; nama: string; tipe: string; ringkas: string; deskripsi: string;
   keunggulan: string[]; harga: string; spesifikasi: { label: string; nilai: string }[];
-  foto?: string; galeri?: string[]; warna: string;
+  foto?: string; galeri?: string[]; warna: string; model3d?: string;
 }
 export interface Promo { id: string; judul: string; deskripsi: string; periode?: string; foto?: string; model?: string; aktif: boolean }
 export interface Slide { label: string; judul: string; teks: string; foto?: string; fotoHp?: string; posisiTeks?: string; tombol?: string; link?: string; tombol2?: string; link2?: string; warna?: string; aktif: boolean }

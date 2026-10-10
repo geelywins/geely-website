@@ -1,1000 +1,1008 @@
 {
- "versi": 1,
- "aturan": [
-  "Satu kata kunci utama = satu halaman. Kalau sudah ada yang memiliki, pilih sudut lain atau perbarui halaman yang lama.",
-  "Landing page (LP) untuk kata kunci orang yang siap beli atau ke dealer. Artikel untuk pertanyaan dan informasi.",
-  "Jangan buat artikel/LP untuk kata kunci yang sudah dimiliki halaman sistem (Promo, Model, Lokasi, Kontak).",
-  "Tiap artikel menaut ke LP pilar-nya. LP menaut ke artikel penunjangnya. Antar LP saling menaut.",
-  "Dua halaman dengan maksud pencarian sama digabung, jangan dibuat dua.",
-  "Jangan menyalin kalimat yang sama antar halaman. Cek dengan node scripts-duplikat.mjs.",
-  "Jangan menulis harga atau angka promo. Arahkan ke sales/WhatsApp."
- ],
- "maksud": {
-  "transaksi": "Siap beli / cari dealer",
-  "banding": "Membandingkan pilihan",
-  "info": "Mencari informasi",
-  "lokal": "Mencari di area tertentu"
- },
- "kluster": [
-  {
-   "id": "ex2",
-   "nama": "Geely EX2 (mobil listrik kompak)",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "id": "ex5",
-   "nama": "Geely EX5 (SUV listrik keluarga)",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "id": "starray",
-   "nama": "Geely Starray EM-i (SUV plug-in hybrid)",
-   "pilar": "geely-starray-em-i-jakarta"
-  },
-  {
-   "id": "edukasi",
-   "nama": "Dasar-dasar mobil listrik",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "id": "pembelian",
-   "nama": "Proses membeli, kredit, tukar tambah",
-   "pilar": "tukar-tambah-ke-mobil-listrik"
-  },
-  {
-   "id": "kota",
-   "nama": "Mobil listrik untuk Jakarta dan BSD",
-   "pilar": "mobil-listrik-jakarta"
-  },
-  {
-   "id": "usaha",
-   "nama": "Mobil listrik untuk usaha",
-   "pilar": "mobil-listrik-taksi-online"
-  },
-  {
-   "id": "keluarga",
-   "nama": "Mobil listrik untuk keluarga",
-   "pilar": "mobil-listrik-keluarga"
-  },
-  {
-   "id": "keputusan",
-   "nama": "Memilih jenis mobil",
-   "pilar": "mobil-listrik-atau-hybrid"
-  }
- ],
- "halaman_sistem": [
-  {
-   "url": "/",
-   "kata_kunci": "sales geely jakarta bsd",
-   "catatan": "Beranda: milik semua istilah merek + sales + area."
-  },
-  {
-   "url": "/model/",
-   "kata_kunci": "model mobil geely",
-   "catatan": ""
-  },
-  {
-   "url": "/model/geely-ex2/",
-   "kata_kunci": "geely ex2",
-   "catatan": ""
-  },
-  {
-   "url": "/model/geely-ex5/",
-   "kata_kunci": "geely ex5",
-   "catatan": ""
-  },
-  {
-   "url": "/model/geely-starray/",
-   "kata_kunci": "geely starray",
-   "catatan": ""
-  },
-  {
-   "url": "/model/geely-starray-em-i/",
-   "kata_kunci": "geely starray em-i",
-   "catatan": ""
-  },
-  {
-   "url": "/promo/",
-   "kata_kunci": "promo geely",
-   "catatan": "Jangan buat artikel/LP untuk kata kunci promo; halaman Promo dikelola dari admin."
-  },
-  {
-   "url": "/kontak/",
-   "kata_kunci": "kontak sales geely",
-   "catatan": ""
-  },
-  {
-   "url": "/lokasi/geely-bsd-city/",
-   "kata_kunci": "dealer geely bsd city",
-   "catatan": ""
-  },
-  {
-   "url": "/lokasi/geely-tanah-abang/",
-   "kata_kunci": "dealer geely tanah abang",
-   "catatan": ""
-  },
-  {
-   "url": "/delivery/",
-   "kata_kunci": "delivery geely",
-   "catatan": ""
-  },
-  {
-   "url": "/testimoni/",
-   "kata_kunci": "testimoni geely",
-   "catatan": ""
-  },
-  {
-   "url": "/artikel/",
-   "kata_kunci": "artikel mobil listrik geely",
-   "catatan": ""
-  },
-  {
-   "url": "/lp/",
-   "kata_kunci": "panduan membeli mobil geely",
-   "catatan": ""
-  }
- ],
- "topik": [
-  {
-   "slug": "geely-ex2-jakarta",
-   "jenis": "lp",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 jakarta",
-   "maksud": "transaksi",
-   "judul": "Geely EX2 Jakarta: Mobil Listrik Kompak, Test Drive di BSD"
-  },
-  {
-   "slug": "geely-ex5-jakarta-bsd",
-   "jenis": "lp",
-   "kluster": "ex5",
-   "kata_kunci": "geely ex5 jakarta",
-   "maksud": "transaksi",
-   "judul": "Geely EX5 Jakarta: SUV Listrik Keluarga, Test Drive BSD",
-   "catatan": "Sudah diperbarui dengan data resmi brosur EX5."
-  },
-  {
-   "slug": "mobil-listrik-pertama",
-   "jenis": "lp",
-   "kluster": "edukasi",
-   "kata_kunci": "mobil listrik pertama",
-   "maksud": "transaksi",
-   "judul": "Mobil Listrik Pertama: Panduan Tenang Sebelum Beli di Jakarta",
-   "catatan": "WASPADA: dekat dengan artikel tips-memilih-mobil-listrik-pertama. Pembeda: LP = keputusan beli di dealer & langkah pertama; artikel = tips umum memilih. Jangan menambah tips umum ke LP."
-  },
-  {
-   "slug": "mobil-listrik-keluarga",
-   "jenis": "lp",
-   "kluster": "keluarga",
-   "kata_kunci": "mobil listrik keluarga",
-   "maksud": "transaksi",
-   "judul": "Mobil Listrik Keluarga: Panduan Memilih EX2 atau EX5"
-  },
-  {
-   "slug": "geely-starray-em-i-jakarta",
-   "jenis": "lp",
-   "kluster": "starray",
-   "kata_kunci": "geely starray em-i jakarta",
-   "maksud": "transaksi",
-   "judul": "Geely Starray EM-i Jakarta: SUV Plug-in Hybrid, Test Drive BSD"
-  },
-  {
-   "slug": "mobil-listrik-atau-hybrid",
-   "jenis": "lp",
-   "kluster": "keputusan",
-   "kata_kunci": "mobil listrik atau hybrid",
-   "maksud": "banding",
-   "judul": "Mobil Listrik atau Hybrid? Panduan Memilih Sesuai Pemakaian"
-  },
-  {
-   "slug": "tukar-tambah-ke-mobil-listrik",
-   "jenis": "lp",
-   "kluster": "pembelian",
-   "kata_kunci": "tukar tambah mobil listrik",
-   "maksud": "transaksi",
-   "judul": "Tukar Tambah Mobil Lama ke Mobil Listrik Geely: Alur Lengkap"
-  },
-  {
-   "slug": "mobil-listrik-jakarta",
-   "jenis": "lp",
-   "kluster": "kota",
-   "kata_kunci": "mobil listrik jakarta",
-   "maksud": "transaksi",
-   "judul": "Mobil Listrik Jakarta: Panduan Memilih untuk Macet dan Parkir"
-  },
-  {
-   "slug": "mobil-listrik-bsd",
-   "jenis": "lp",
-   "kluster": "kota",
-   "kata_kunci": "mobil listrik bsd",
-   "maksud": "lokal",
-   "judul": "Mobil Listrik BSD City dan Tangsel: Charger Rumah dan Test Drive"
-  },
-  {
-   "slug": "mobil-listrik-taksi-online",
-   "jenis": "lp",
-   "kluster": "usaha",
-   "kata_kunci": "mobil listrik untuk taksi online",
-   "maksud": "transaksi",
-   "judul": "Mobil Listrik untuk Taksi Online: Hitungan Biaya dan Pertimbangan"
-  },
-  {
-   "slug": "mobil-listrik-perusahaan",
-   "jenis": "lp",
-   "kluster": "usaha",
-   "kata_kunci": "mobil listrik untuk perusahaan",
-   "maksud": "transaksi",
-   "judul": "Mobil Listrik untuk Perusahaan dan Armada: Panduan Beli Geely"
-  },
-  {
-   "slug": "alur-membeli-mobil-geely-dari-booking-sampai-serah-terima",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "alur membeli mobil geely",
-   "maksud": "info",
-   "judul": "Alur Membeli Mobil Geely dari Booking sampai Serah Terima",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "ambient light geely ex2",
-   "maksud": "info",
-   "judul": "Ambient Light 256 Warna dan Layar 14,6 Inci Geely EX2 Max",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "bagasi-375-liter-dan-frunk-70-liter-geely-ex2-muat-apa-saja",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "bagasi geely ex2",
-   "maksud": "info",
-   "judul": "Bagasi 375 Liter dan Frunk 70 Liter Geely EX2 Muat Apa Saja?",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "baterai-lfp-40-8-kwh-geely-ex2-max-aman-dan-tahan-lama",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "baterai lfp geely ex2",
-   "maksud": "info",
-   "judul": "Baterai LFP 40,8 kWh Geely EX2 Max: Aman dan Tahan Lama?",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "biaya-per-km-geely-ex2-max-vs-mobil-bensin",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "biaya per km geely ex2",
-   "maksud": "info",
-   "judul": "Biaya per Km Geely EX2 Max vs Mobil Bensin: Hitungan Asumsi",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "cara-membandingkan-geely-ex2-max-dengan-mobil-listrik-kompak-lain",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "cara membandingkan mobil listrik kompak",
-   "maksud": "banding",
-   "judul": "Cara Membandingkan Geely EX2 Max dengan Mobil Listrik Lain",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "biaya operasional mobil listrik",
-   "maksud": "info",
-   "judul": "Cara Menghitung Biaya Operasional Mobil Listrik vs Bensin",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "cara-mengisi-daya-geely-ex2-max-di-rumah",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "mengisi daya geely ex2 di rumah",
-   "maksud": "info",
-   "judul": "Cara Mengisi Daya Geely EX2 Max di Rumah: Panduan Praktis",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "cara-mengisi-daya-mobil-listrik-di-rumah-dan-spklu",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "cara mengisi daya mobil listrik",
-   "maksud": "info",
-   "judul": "Cara Mengisi Daya Mobil Listrik di Rumah dan SPKLU untuk Pemula",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "cara-test-drive-geely",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "cara test drive geely",
-   "maksud": "info",
-   "judul": "Cara Test Drive Geely di Jakarta dan BSD City: Langkah Mudah",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Sudah terbit. Pemilik kata kunci 'test drive geely'. Jangan buat LP test drive terpisah."
-  },
-  {
-   "slug": "faq-geely-ex2-max-pertanyaan-yang-sering-ditanyakan",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "faq geely ex2 max",
-   "maksud": "info",
-   "judul": "FAQ Geely EX2 Max: Pertanyaan yang Sering Ditanyakan",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "fitur-adas-geely-ex2-max-apa-saja-dan-cara-kerjanya",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "fitur adas geely ex2",
-   "maksud": "info",
-   "judul": "Fitur ADAS Geely EX2 Max: 12 Fungsi dan Cara Kerjanya",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "fitur-v2l-geely-ex2-max-listrik-untuk-camping-dan-darurat",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "v2l geely ex2",
-   "maksud": "info",
-   "judul": "Fitur V2L Geely EX2 Max: Listrik untuk Camping dan Darurat",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "garansi-baterai-dan-mobil-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "garansi baterai geely ex2",
-   "maksud": "info",
-   "judul": "Garansi Baterai dan Mobil Geely EX2 Max: 8 Tahun 150.000 Km",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "geely-ex2-max-di-macet-jakarta-dan-bsd",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 macet jakarta",
-   "maksud": "info",
-   "judul": "Geely EX2 Max di Macet Jakarta dan BSD: Nyaman dan Efisien",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "geely-ex2-max-mudah-dikendarai-untuk-pemula-dan-wanita",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 untuk pemula dan wanita",
-   "maksud": "info",
-   "judul": "Geely EX2 Max Mudah Dikendarai untuk Pemula dan Wanita",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "geely-ex2-max-review-lengkap-fitur-dan-kelebihan",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "review geely ex2 max",
-   "maksud": "info",
-   "judul": "Review Geely EX2 Max: Fitur, Kelebihan, dan Kekurangan",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "geely-ex2-max-untuk-keluarga-muda",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 max untuk keluarga muda",
-   "maksud": "info",
-   "judul": "Geely EX2 Max untuk Keluarga Muda: Muat, Aman, Hemat",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "geely-ex2-mobil-listrik-kompak-apa-saja-yang-perlu-diketahui",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 mobil listrik kompak",
-   "maksud": "info",
-   "judul": "Geely EX2: Mobil Listrik Kompak untuk Harian dan Kota",
-   "pilar": "geely-ex2-jakarta",
-   "catatan": "Dekat dengan LP geely-ex2-jakarta dan review-lengkap. Pertahankan sudut 'pengenalan umum'."
-  },
-  {
-   "slug": "geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "geely ex5 suv listrik keluarga",
-   "maksud": "info",
-   "judul": "Geely EX5: SUV Listrik Keluarga, Kelebihan dan Pertimbangan",
-   "pilar": "geely-ex5-jakarta-bsd",
-   "catatan": "Sudah diperbarui dengan data resmi brosur."
-  },
-  {
-   "slug": "geely-starray-em-i-suv-hybrid-yang-perlu-anda-ketahui",
-   "jenis": "artikel",
-   "kluster": "starray",
-   "kata_kunci": "geely starray em-i suv hybrid",
-   "maksud": "info",
-   "judul": "Geely Starray EM-i: Kenali SUV Hybrid dari Geely Lebih Dekat",
-   "pilar": "geely-starray-em-i-jakarta",
-   "catatan": "Sudah diperbarui dengan data resmi brosur."
-  },
-  {
-   "slug": "jarak-tempuh-geely-ex2-max-klaim-vs-pemakaian-harian",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "jarak tempuh geely ex2",
-   "maksud": "info",
-   "judul": "Jarak Tempuh Geely EX2 Max: Klaim 395 km vs Pemakaian Harian",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "jok-elektrik-6-arah-dan-interior-ivory-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "jok elektrik geely ex2",
-   "maksud": "info",
-   "judul": "Jok Elektrik 6 Arah dan Interior Ivory Geely EX2 Max",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "kamera-540-derajat-geely-ex2-max-membantu-parkir",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "kamera 540 derajat geely ex2",
-   "maksud": "info",
-   "judul": "Kamera 540 Derajat Geely EX2 Max Membantu Parkir di Kota",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "keamanan-geely-ex2-max-6-airbag-dan-fitur-pelindung",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "keamanan geely ex2",
-   "maksud": "info",
-   "judul": "Keamanan Geely EX2 Max: 6 Airbag dan Fitur Pelindung Lainnya",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "kontrol-mobil-lewat-aplikasi-di-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "aplikasi geely ex2",
-   "maksud": "info",
-   "judul": "Kontrol Mobil Lewat Aplikasi di Geely EX2 Max: Ini Manfaatnya",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "mudik-dan-perjalanan-jauh-dengan-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "mudik geely ex2",
-   "maksud": "info",
-   "judul": "Mudik dan Perjalanan Jauh dengan Geely EX2 Max: Panduan",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "pajak mobil listrik geely ex2",
-   "maksud": "info",
-   "judul": "Pajak dan Insentif Mobil Listrik untuk Geely EX2 Max: Panduan",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "pengisian-cepat-dc-geely-ex2-max-30-80-persen-25-menit",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "pengisian cepat dc geely ex2",
-   "maksud": "info",
-   "judul": "Pengisian Cepat DC Geely EX2 Max 30-80% dalam 25 Menit",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "perawatan-geely-ex2-max-servis-berkala-dan-biaya",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "perawatan geely ex2",
-   "maksud": "info",
-   "judul": "Perawatan Geely EX2 Max: Servis Berkala dan Biaya Rutin",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "perawatan mobil listrik",
-   "maksud": "info",
-   "judul": "Perawatan Mobil Listrik: Apa yang Berbeda dari Mobil Bensin?",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "perbandingan-geely-ex2-vs-ex5-pilih-yang-mana",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 vs ex5",
-   "maksud": "banding",
-   "judul": "Perbandingan Geely EX2 vs EX5: Pilih yang Mana?",
-   "pilar": "geely-ex2-jakarta",
-   "catatan": "Pemilik 'geely ex2 vs ex5'. Artikel duplikat geely-ex2-max-vs-geely-ex5-pilih-yang-mana sudah dibuang."
-  },
-  {
-   "slug": "perbedaan-geely-ex2-pro-vs-ex2-max-mana-yang-worth-it",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "geely ex2 pro vs max",
-   "maksud": "banding",
-   "judul": "Perbedaan Geely EX2 Pro vs EX2 Max, Mana yang Worth It?",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "simulasi-cicilan-geely-ex2-max-dp-dan-tenor",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "cicilan geely ex2",
-   "maksud": "info",
-   "judul": "Simulasi Cicilan Geely EX2 Max: Cara Hitung DP dan Tenor",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "simulasi kredit mobil listrik",
-   "maksud": "info",
-   "judul": "Simulasi Kredit Mobil Listrik: Hitung DP, Tenor, dan Cicilan",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "spesifikasi-lengkap-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "spesifikasi geely ex2 max",
-   "maksud": "info",
-   "judul": "Spesifikasi Lengkap Geely EX2 Max dan Arti Tiap Angkanya",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "test-drive-geely-ex2-max-checklist-yang-perlu-dicek",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "checklist test drive geely ex2",
-   "maksud": "info",
-   "judul": "Test Drive Geely EX2 Max: Checklist yang Perlu Anda Cek",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "tips-booking-dan-negosiasi-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "tips booking dan nego geely ex2",
-   "maksud": "info",
-   "judul": "Tips Booking dan Negosiasi Geely EX2 Max dengan Tenang",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "tips-memilih-mobil-listrik-pertama",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "tips memilih mobil listrik pertama",
-   "maksud": "info",
-   "judul": "Tips Memilih Mobil Listrik Pertama untuk Keluarga",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Sudah terbit. Dekat dengan LP mobil-listrik-pertama: pertahankan sebagai artikel tips umum."
-  },
-  {
-   "slug": "velg-16-inci-dan-kenyamanan-berkendara-geely-ex2-max",
-   "jenis": "artikel",
-   "kluster": "ex2",
-   "kata_kunci": "velg 16 inci geely ex2",
-   "maksud": "info",
-   "judul": "Velg 16 Inci dan Kenyamanan Berkendara Geely EX2 Max",
-   "pilar": "geely-ex2-jakarta"
-  },
-  {
-   "slug": "spesifikasi-lengkap-geely-ex5-pro-dan-max",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "spesifikasi geely ex5",
-   "maksud": "info",
-   "judul": "Spesifikasi Lengkap Geely EX5 Pro dan Max, Arti Tiap Angka",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "perbedaan-geely-ex5-pro-vs-max-mana-yang-worth-it",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "geely ex5 pro vs max",
-   "maksud": "banding",
-   "judul": "Geely EX5 Pro vs Max: Selisih Fitur dan Mana yang Worth It",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "jarak-tempuh-geely-ex5-nedc-495-km-dan-wltp-430-km",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "jarak tempuh geely ex5",
-   "maksud": "info",
-   "judul": "Jarak Tempuh Geely EX5: NEDC 495 km dan WLTP 430 km",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "pengisian-daya-geely-ex5-ac-11-kw-dan-dc-100-kw",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "pengisian daya geely ex5",
-   "maksud": "info",
-   "judul": "Pengisian Daya Geely EX5: AC 11 kW dan DC 100 kW Dijelaskan",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "fitur-adas-geely-ex5-max-bantuan-berkendara",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "fitur adas geely ex5",
-   "maksud": "info",
-   "judul": "Fitur ADAS Geely EX5 Max: Bantuan Berkendara di Tol dan Kota",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "kabin-dan-bagasi-geely-ex5-461-liter",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "bagasi geely ex5",
-   "maksud": "info",
-   "judul": "Kabin dan Bagasi Geely EX5: 461 Liter hingga 1.877 Liter",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "fitur-kenyamanan-geely-ex5-jok-ventilasi-massage-dan-hud",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "kenyamanan geely ex5",
-   "maksud": "info",
-   "judul": "Fitur Kenyamanan Geely EX5: Jok Ventilasi, Massage dan HUD",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "v2l-dan-v2v-geely-ex5-listrik-mobil-untuk-perangkat-lain",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "v2l v2v geely ex5",
-   "maksud": "info",
-   "judul": "V2L dan V2V Geely EX5: Listrik Mobil untuk Perangkat Lain",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "warna-geely-ex5-pilihan-warna-pro-dan-max",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "warna geely ex5",
-   "maksud": "info",
-   "judul": "Warna Geely EX5: Pilihan Warna untuk Varian Pro dan Max",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "keamanan-geely-ex5-airbag-isofix-dan-kontrol-stabilitas",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "keamanan geely ex5",
-   "maksud": "info",
-   "judul": "Keamanan Geely EX5: Airbag, ISOFIX dan Kontrol Stabilitas",
-   "pilar": "geely-ex5-jakarta-bsd"
-  },
-  {
-   "slug": "spesifikasi-geely-starray-em-i-plug-in-hybrid",
-   "jenis": "artikel",
-   "kluster": "starray",
-   "kata_kunci": "spesifikasi geely starray em-i",
-   "maksud": "info",
-   "judul": "Spesifikasi Geely Starray EM-i Plug-in Hybrid dan Artinya",
-   "pilar": "geely-starray-em-i-jakarta"
-  },
-  {
-   "slug": "konsumsi-bbm-geely-starray-em-i-dan-jarak-tempuh-1000-km",
-   "jenis": "artikel",
-   "kluster": "starray",
-   "kata_kunci": "konsumsi bbm geely starray em-i",
-   "maksud": "info",
-   "judul": "Konsumsi BBM Geely Starray EM-i dan Klaim Jarak 1.000 km",
-   "pilar": "geely-starray-em-i-jakarta"
-  },
-  {
-   "slug": "cara-kerja-plug-in-hybrid-geely-em-i-dan-cara-mengisi-daya",
-   "jenis": "artikel",
-   "kluster": "starray",
-   "kata_kunci": "cara kerja plug-in hybrid",
-   "maksud": "info",
-   "judul": "Cara Kerja Plug-in Hybrid Geely EM-i dan Cara Mengisi Daya",
-   "pilar": "geely-starray-em-i-jakarta"
-  },
-  {
-   "slug": "geely-ex5-vs-starray-em-i-listrik-murni-atau-plug-in-hybrid",
-   "jenis": "artikel",
-   "kluster": "starray",
-   "kata_kunci": "geely ex5 vs starray em-i",
-   "maksud": "banding",
-   "judul": "Geely EX5 vs Starray EM-i: Listrik Murni atau Plug-in Hybrid?",
-   "pilar": "geely-starray-em-i-jakarta"
-  },
-  {
-   "slug": "nedc-vs-wltp-arti-jarak-tempuh-mobil-listrik",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "nedc vs wltp",
-   "maksud": "info",
-   "judul": "NEDC vs WLTP: Arti Klaim Jarak Tempuh Mobil Listrik",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "istilah-mobil-listrik-kwh-ac-dc-v2l-dan-regen",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "istilah mobil listrik",
-   "maksud": "info",
-   "judul": "Istilah Mobil Listrik: kWh, AC, DC, V2L, Regen dan Lainnya",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "mitos-mobil-listrik-yang-sering-dipercaya-dan-faktanya",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "mitos mobil listrik",
-   "maksud": "info",
-   "judul": "Mitos Mobil Listrik yang Sering Dipercaya dan Faktanya",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "umur-baterai-mobil-listrik-lfp-dan-cara-merawatnya",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "umur baterai mobil listrik",
-   "maksud": "info",
-   "judul": "Umur Baterai Mobil Listrik LFP dan Cara Merawatnya",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Dekat dengan artikel baterai LFP & garansi EX2. Pertahankan sudut umum (bukan satu model)."
-  },
-  {
-   "slug": "pasang-charger-mobil-listrik-di-rumah-daya-pln-dan-instalasi",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "pasang charger mobil listrik di rumah",
-   "maksud": "info",
-   "judul": "Pasang Charger Mobil Listrik di Rumah: Daya PLN dan Instalasi",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Dekat dengan cara-mengisi-daya-mobil-listrik-di-rumah-dan-spklu. Pembeda: hanya soal INSTALASI (daya PLN, MCB, teknisi), bukan cara mengisi."
-  },
-  {
-   "slug": "cek-mobil-baru-saat-serah-terima-checklist-pdi",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "pengecekan mobil baru saat serah terima",
-   "maksud": "info",
-   "judul": "Cek Mobil Baru Saat Serah Terima: Checklist Sebelum Pulang",
-   "pilar": "mobil-listrik-pertama"
-  },
-  {
-   "slug": "faq-geely-pertanyaan-calon-pembeli-sebelum-beli",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "faq geely",
-   "maksud": "info",
-   "judul": "FAQ Geely: Pertanyaan Calon Pembeli Sebelum Membeli",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Jangan mengulang FAQ spesifik EX2. Fokus proses beli, test drive, kredit, perawatan, garansi secara umum."
-  },
-  {
-   "slug": "mobil-listrik-saat-banjir-aman-atau-tidak",
-   "jenis": "artikel",
-   "kluster": "edukasi",
-   "kata_kunci": "mobil listrik banjir",
-   "maksud": "info",
-   "judul": "Mobil Listrik Saat Banjir: Aman atau Tidak untuk Jakarta?",
-   "pilar": "mobil-listrik-jakarta",
-   "catatan": "Butuh data resmi tingkat perlindungan baterai dari Geely sebelum menulis klaim apa pun.",
-   "garis_besar": [
-    "Kekhawatiran umum soal banjir",
-    "Cara baterai dan sistem listrik dilindungi (tanyakan data resmi ke sales)",
-    "Yang harus dilakukan saat jalan tergenang",
-    "Setelah terendam: jangan nyalakan, hubungi bengkel resmi",
-    "Cek perlindungan asuransi",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "asuransi-mobil-listrik-yang-perlu-dicek-sebelum-memilih",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "asuransi mobil listrik",
-   "maksud": "info",
-   "judul": "Asuransi Mobil Listrik: Hal yang Perlu Dicek Sebelum Memilih",
-   "pilar": "mobil-listrik-pertama",
-   "garis_besar": [
-    "All risk vs TLO untuk mobil listrik",
-    "Cakupan baterai dan charger",
-    "Bengkel rekanan dan suku cadang",
-    "Pertanyaan ke agen asuransi",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "nilai-jual-kembali-mobil-listrik-mitos-dan-faktanya",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "nilai jual kembali mobil listrik",
-   "maksud": "info",
-   "judul": "Nilai Jual Kembali Mobil Listrik: Mitos dan Faktanya",
-   "pilar": "tukar-tambah-ke-mobil-listrik",
-   "catatan": "Butuh data pasar terbaru; jangan menjanjikan persentase.",
-   "garis_besar": [
-    "Apa yang memengaruhi harga jual kembali",
-    "Peran baterai dan garansi",
-    "Kondisi pasar bekas mobil listrik saat ini (cek data terbaru)",
-    "Tips menjaga nilai",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "syarat-dan-dokumen-kredit-mobil-listrik",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "syarat kredit mobil listrik",
-   "maksud": "info",
-   "judul": "Syarat dan Dokumen Kredit Mobil Listrik Agar Cepat Disetujui",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Jangan mengulang simulasi cicilan di artikel simulasi-kredit.",
-   "garis_besar": [
-    "Dokumen karyawan, wiraswasta, profesional",
-    "Proses survei dan analisa leasing",
-    "Penyebab pengajuan ditolak",
-    "Tips menyiapkan DP",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "aksesori-mobil-listrik-yang-perlu-disiapkan",
-   "jenis": "artikel",
-   "kluster": "pembelian",
-   "kata_kunci": "aksesori mobil listrik",
-   "maksud": "info",
-   "judul": "Aksesori Mobil Listrik yang Perlu Disiapkan Sebelum Pengiriman",
-   "pilar": "mobil-listrik-pertama",
-   "catatan": "Tautkan ke LapakMu.store (situs lain milik Wins).",
-   "garis_besar": [
-    "Kabel dan adaptor pengisian",
-    "Pelindung kabin dan karpet",
-    "Dashcam dan kaca film",
-    "Tautkan ke LapakMu.store"
-   ]
-  },
-  {
-   "slug": "jakarta-bandung-pakai-mobil-listrik-rute-dan-pengisian",
-   "jenis": "artikel",
-   "kluster": "kota",
-   "kata_kunci": "jakarta bandung mobil listrik",
-   "maksud": "info",
-   "judul": "Jakarta-Bandung Pakai Mobil Listrik: Rute dan Rencana Pengisian",
-   "pilar": "mobil-listrik-jakarta",
-   "catatan": "Cek jarak dan lokasi SPKLU terbaru sebelum menulis.",
-   "garis_besar": [
-    "Jarak kira-kira dan kebutuhan baterai",
-    "Rencana pengisian dengan aplikasi SPKLU",
-    "Gaya berkendara di tol",
-    "Contoh jadwal perjalanan",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "mobil-listrik-dan-ganjil-genap-jakarta",
-   "jenis": "artikel",
-   "kluster": "kota",
-   "kata_kunci": "mobil listrik ganjil genap",
-   "maksud": "info",
-   "judul": "Mobil Listrik dan Ganjil Genap di Jakarta: Aturan Terbaru",
-   "pilar": "mobil-listrik-jakarta",
-   "catatan": "WAJIB cek aturan resmi terbaru (Pergub/Dishub) sebelum menulis.",
-   "garis_besar": [
-    "Aturan yang berlaku saat ini",
-    "Siapa yang dikecualikan",
-    "Syarat plat dan dokumen",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "hitung-biaya-mobil-listrik-untuk-driver-online",
-   "jenis": "artikel",
-   "kluster": "usaha",
-   "kata_kunci": "biaya mobil listrik untuk driver online",
-   "maksud": "info",
-   "judul": "Hitung Biaya Mobil Listrik untuk Driver Online per Bulan",
-   "pilar": "mobil-listrik-taksi-online",
-   "catatan": "Pakai rumus & contoh angka yang bisa diganti pembaca; jangan menjanjikan penghasilan.",
-   "garis_besar": [
-    "Variabel hitungan: km per hari, tarif listrik, perawatan",
-    "Contoh perhitungan dengan angka umum yang bisa diganti",
-    "Perbandingan dengan mobil bensin",
-    "Syarat armada aplikasi (cek aturan terbaru)",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "geely-ex5-untuk-perjalanan-jauh-dan-mudik",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "mudik geely ex5",
-   "maksud": "info",
-   "judul": "Geely EX5 untuk Perjalanan Jauh dan Mudik: Rencana Pengisian",
-   "pilar": "geely-ex5-jakarta-bsd",
-   "catatan": "Bergantung pada artikel NEDC vs WLTP dan pengisian daya EX5 (jangan diulang).",
-   "garis_besar": [
-    "Klaim NEDC 495/WLTP 430 sebagai patokan",
-    "Menghitung berhenti isi daya dengan DC 100 kW",
-    "Checklist sebelum berangkat",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "perawatan-geely-ex5-servis-berkala-dan-biaya",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "perawatan geely ex5",
-   "maksud": "info",
-   "judul": "Perawatan Geely EX5: Servis Berkala dan Hal yang Dicek",
-   "pilar": "geely-ex5-jakarta-bsd",
-   "catatan": "Butuh jadwal servis resmi dari Geely sebelum menulis angka.",
-   "garis_besar": [
-    "Apa yang beda dari mobil bensin",
-    "Jadwal servis (tanyakan sales)",
-    "Ban, rem, AC kabin",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "aplikasi-dan-konektivitas-geely-ex5-ota-navigasi-dan-flyme",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "konektivitas geely ex5",
-   "maksud": "info",
-   "judul": "Konektivitas Geely EX5: OTA, Navigasi dan Flyme Auto",
-   "pilar": "geely-ex5-jakarta-bsd",
-   "catatan": "Data brosur ada; verifikasi fitur aplikasi ponsel sebelum menyebut.",
-   "garis_besar": [
-    "Layar 15,4 inci dan panel 10,2 inci",
-    "OTA dan Apps Store",
-    "Flyme Auto, CarbitLink, navigasi",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "perbandingan-geely-ex5-dengan-suv-listrik-lain",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "geely ex5 vs suv listrik lain",
-   "maksud": "banding",
-   "judul": "Geely EX5 vs SUV Listrik Lain di Kelasnya: Cara Membandingkan",
-   "pilar": "geely-ex5-jakarta-bsd",
-   "catatan": "Butuh brosur pesaing yang resmi; jangan memakai angka dari ingatan.",
-   "garis_besar": [
-    "Kerangka perbandingan yang adil",
-    "Tabel EX5 dari brosur resmi",
-    "Kolom pesaing diisi dari brosur resmi masing-masing",
-    "FAQ"
-   ]
-  },
-  {
-   "slug": "harga-jual-kembali-dan-garansi-geely-ex5",
-   "jenis": "artikel",
-   "kluster": "ex5",
-   "kata_kunci": "garansi geely ex5",
-   "maksud": "info",
-   "judul": "Garansi Geely EX5: Apa yang Ditanggung dan Cara Klaim",
-   "pilar": "geely-ex5-jakarta-bsd",
-   "catatan": "BUTUH syarat garansi resmi; jangan menulis angka tahun/km tanpa dokumen.",
-   "garis_besar": [
-    "Garansi kendaraan dan baterai (butuh data resmi)",
-    "Cara klaim",
-    "FAQ"
-   ]
-  }
- ]
+  "versi": 1,
+  "aturan": [
+    "Satu kata kunci utama = satu halaman. Kalau sudah ada yang memiliki, pilih sudut lain atau perbarui halaman yang lama.",
+    "Landing page (LP) untuk kata kunci orang yang siap beli atau ke dealer. Artikel untuk pertanyaan dan informasi.",
+    "Jangan buat artikel/LP untuk kata kunci yang sudah dimiliki halaman sistem (Promo, Model, Lokasi, Kontak).",
+    "Tiap artikel menaut ke LP pilar-nya. LP menaut ke artikel penunjangnya. Antar LP saling menaut.",
+    "Dua halaman dengan maksud pencarian sama digabung, jangan dibuat dua.",
+    "Jangan menyalin kalimat yang sama antar halaman. Cek dengan node scripts-duplikat.mjs.",
+    "Jangan menulis harga atau angka promo. Arahkan ke sales/WhatsApp."
+  ],
+  "maksud": {
+    "transaksi": "Siap beli / cari dealer",
+    "banding": "Membandingkan pilihan",
+    "info": "Mencari informasi",
+    "lokal": "Mencari di area tertentu"
+  },
+  "kluster": [
+    {
+      "id": "ex2",
+      "nama": "Geely EX2 (mobil listrik kompak)",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "id": "ex5",
+      "nama": "Geely EX5 (SUV listrik keluarga)",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "id": "starray",
+      "nama": "Geely Starray EM-i (SUV plug-in hybrid)",
+      "pilar": "geely-starray-em-i-jakarta"
+    },
+    {
+      "id": "edukasi",
+      "nama": "Dasar-dasar mobil listrik",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "id": "pembelian",
+      "nama": "Proses membeli, kredit, tukar tambah",
+      "pilar": "tukar-tambah-ke-mobil-listrik"
+    },
+    {
+      "id": "kota",
+      "nama": "Mobil listrik untuk Jakarta dan BSD",
+      "pilar": "mobil-listrik-jakarta"
+    },
+    {
+      "id": "usaha",
+      "nama": "Mobil listrik untuk usaha",
+      "pilar": "mobil-listrik-taksi-online"
+    },
+    {
+      "id": "keluarga",
+      "nama": "Mobil listrik untuk keluarga",
+      "pilar": "mobil-listrik-keluarga"
+    },
+    {
+      "id": "keputusan",
+      "nama": "Memilih jenis mobil",
+      "pilar": "mobil-listrik-atau-hybrid"
+    }
+  ],
+  "halaman_sistem": [
+    {
+      "url": "/",
+      "kata_kunci": "sales geely jakarta bsd",
+      "catatan": "Beranda: milik semua istilah merek + sales + area."
+    },
+    {
+      "url": "/model/",
+      "kata_kunci": "model mobil geely",
+      "catatan": ""
+    },
+    {
+      "url": "/model/geely-ex2/",
+      "kata_kunci": "geely ex2",
+      "catatan": ""
+    },
+    {
+      "url": "/model/geely-ex5/",
+      "kata_kunci": "geely ex5",
+      "catatan": ""
+    },
+    {
+      "url": "/model/geely-starray/",
+      "kata_kunci": "geely starray",
+      "catatan": ""
+    },
+    {
+      "url": "/model/geely-starray-em-i/",
+      "kata_kunci": "geely starray em-i",
+      "catatan": ""
+    },
+    {
+      "url": "/promo/",
+      "kata_kunci": "promo geely",
+      "catatan": "Jangan buat artikel/LP untuk kata kunci promo; halaman Promo dikelola dari admin."
+    },
+    {
+      "url": "/kontak/",
+      "kata_kunci": "kontak sales geely",
+      "catatan": ""
+    },
+    {
+      "url": "/lokasi/geely-bsd-city/",
+      "kata_kunci": "dealer geely bsd city",
+      "catatan": ""
+    },
+    {
+      "url": "/lokasi/geely-tanah-abang/",
+      "kata_kunci": "dealer geely tanah abang",
+      "catatan": ""
+    },
+    {
+      "url": "/delivery/",
+      "kata_kunci": "delivery geely",
+      "catatan": ""
+    },
+    {
+      "url": "/testimoni/",
+      "kata_kunci": "testimoni geely",
+      "catatan": ""
+    },
+    {
+      "url": "/artikel/",
+      "kata_kunci": "artikel mobil listrik geely",
+      "catatan": ""
+    },
+    {
+      "url": "/lp/",
+      "kata_kunci": "panduan membeli mobil geely",
+      "catatan": ""
+    }
+  ],
+  "topik": [
+    {
+      "slug": "geely-ex2-jakarta",
+      "jenis": "lp",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 jakarta",
+      "maksud": "transaksi",
+      "judul": "Geely EX2 Jakarta: Mobil Listrik Kompak, Test Drive di BSD"
+    },
+    {
+      "slug": "geely-ex5-jakarta-bsd",
+      "jenis": "lp",
+      "kluster": "ex5",
+      "kata_kunci": "geely ex5 jakarta",
+      "maksud": "transaksi",
+      "judul": "Geely EX5 Jakarta: SUV Listrik Keluarga, Test Drive BSD",
+      "catatan": "Sudah diperbarui dengan data resmi brosur EX5."
+    },
+    {
+      "slug": "mobil-listrik-pertama",
+      "jenis": "lp",
+      "kluster": "edukasi",
+      "kata_kunci": "mobil listrik pertama",
+      "maksud": "transaksi",
+      "judul": "Mobil Listrik Pertama: Panduan Tenang Sebelum Beli di Jakarta",
+      "catatan": "WASPADA: dekat dengan artikel tips-memilih-mobil-listrik-pertama. Pembeda: LP = keputusan beli di dealer & langkah pertama; artikel = tips umum memilih. Jangan menambah tips umum ke LP."
+    },
+    {
+      "slug": "mobil-listrik-keluarga",
+      "jenis": "lp",
+      "kluster": "keluarga",
+      "kata_kunci": "mobil listrik keluarga",
+      "maksud": "transaksi",
+      "judul": "Mobil Listrik Keluarga: Panduan Memilih EX2 atau EX5"
+    },
+    {
+      "slug": "geely-starray-em-i-jakarta",
+      "jenis": "lp",
+      "kluster": "starray",
+      "kata_kunci": "geely starray em-i jakarta",
+      "maksud": "transaksi",
+      "judul": "Geely Starray EM-i Jakarta: SUV Plug-in Hybrid, Test Drive BSD"
+    },
+    {
+      "slug": "mobil-listrik-atau-hybrid",
+      "jenis": "lp",
+      "kluster": "keputusan",
+      "kata_kunci": "mobil listrik atau hybrid",
+      "maksud": "banding",
+      "judul": "Mobil Listrik atau Hybrid? Panduan Memilih Sesuai Pemakaian"
+    },
+    {
+      "slug": "tukar-tambah-ke-mobil-listrik",
+      "jenis": "lp",
+      "kluster": "pembelian",
+      "kata_kunci": "tukar tambah mobil listrik",
+      "maksud": "transaksi",
+      "judul": "Tukar Tambah Mobil Lama ke Mobil Listrik Geely: Alur Lengkap"
+    },
+    {
+      "slug": "mobil-listrik-jakarta",
+      "jenis": "lp",
+      "kluster": "kota",
+      "kata_kunci": "mobil listrik jakarta",
+      "maksud": "transaksi",
+      "judul": "Mobil Listrik Jakarta: Panduan Memilih untuk Macet dan Parkir"
+    },
+    {
+      "slug": "mobil-listrik-bsd",
+      "jenis": "lp",
+      "kluster": "kota",
+      "kata_kunci": "mobil listrik bsd",
+      "maksud": "lokal",
+      "judul": "Mobil Listrik BSD City dan Tangsel: Charger Rumah dan Test Drive"
+    },
+    {
+      "slug": "mobil-listrik-taksi-online",
+      "jenis": "lp",
+      "kluster": "usaha",
+      "kata_kunci": "mobil listrik untuk taksi online",
+      "maksud": "transaksi",
+      "judul": "Mobil Listrik untuk Taksi Online: Hitungan Biaya dan Pertimbangan"
+    },
+    {
+      "slug": "mobil-listrik-perusahaan",
+      "jenis": "lp",
+      "kluster": "usaha",
+      "kata_kunci": "mobil listrik untuk perusahaan",
+      "maksud": "transaksi",
+      "judul": "Mobil Listrik untuk Perusahaan dan Armada: Panduan Beli Geely"
+    },
+    {
+      "slug": "alur-membeli-mobil-geely-dari-booking-sampai-serah-terima",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "alur membeli mobil geely",
+      "maksud": "info",
+      "judul": "Alur Membeli Mobil Geely dari Booking sampai Serah Terima",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "ambient light geely ex2",
+      "maksud": "info",
+      "judul": "Ambient Light 256 Warna dan Layar 14,6 Inci Geely EX2 Max",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "bagasi-375-liter-dan-frunk-70-liter-geely-ex2-muat-apa-saja",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "bagasi geely ex2",
+      "maksud": "info",
+      "judul": "Bagasi 375 Liter dan Frunk 70 Liter Geely EX2 Muat Apa Saja?",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "baterai-lfp-40-8-kwh-geely-ex2-max-aman-dan-tahan-lama",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "baterai lfp geely ex2",
+      "maksud": "info",
+      "judul": "Baterai LFP 40,8 kWh Geely EX2 Max: Aman dan Tahan Lama?",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "biaya-per-km-geely-ex2-max-vs-mobil-bensin",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "biaya per km geely ex2",
+      "maksud": "info",
+      "judul": "Biaya per Km Geely EX2 Max vs Mobil Bensin: Hitungan Asumsi",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "cara-membandingkan-geely-ex2-max-dengan-mobil-listrik-kompak-lain",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "cara membandingkan mobil listrik kompak",
+      "maksud": "banding",
+      "judul": "Cara Membandingkan Geely EX2 Max dengan Mobil Listrik Lain",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "biaya operasional mobil listrik",
+      "maksud": "info",
+      "judul": "Cara Menghitung Biaya Operasional Mobil Listrik vs Bensin",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "cara-mengisi-daya-geely-ex2-max-di-rumah",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "mengisi daya geely ex2 di rumah",
+      "maksud": "info",
+      "judul": "Cara Mengisi Daya Geely EX2 Max di Rumah: Panduan Praktis",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "cara-mengisi-daya-mobil-listrik-di-rumah-dan-spklu",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "cara mengisi daya mobil listrik",
+      "maksud": "info",
+      "judul": "Cara Mengisi Daya Mobil Listrik di Rumah dan SPKLU untuk Pemula",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "cara-test-drive-geely",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "cara test drive geely",
+      "maksud": "info",
+      "judul": "Cara Test Drive Geely di Jakarta dan BSD City: Langkah Mudah",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Sudah terbit. Pemilik kata kunci 'test drive geely'. Jangan buat LP test drive terpisah."
+    },
+    {
+      "slug": "faq-geely-ex2-max-pertanyaan-yang-sering-ditanyakan",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "faq geely ex2 max",
+      "maksud": "info",
+      "judul": "FAQ Geely EX2 Max: Pertanyaan yang Sering Ditanyakan",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "fitur-adas-geely-ex2-max-apa-saja-dan-cara-kerjanya",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "fitur adas geely ex2",
+      "maksud": "info",
+      "judul": "Fitur ADAS Geely EX2 Max: 12 Fungsi dan Cara Kerjanya",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "fitur-v2l-geely-ex2-max-listrik-untuk-camping-dan-darurat",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "v2l geely ex2",
+      "maksud": "info",
+      "judul": "Fitur V2L Geely EX2 Max: Listrik untuk Camping dan Darurat",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "garansi-baterai-dan-mobil-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "garansi baterai geely ex2",
+      "maksud": "info",
+      "judul": "Garansi Baterai dan Mobil Geely EX2 Max: 8 Tahun 150.000 Km",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "geely-ex2-max-di-macet-jakarta-dan-bsd",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 macet jakarta",
+      "maksud": "info",
+      "judul": "Geely EX2 Max di Macet Jakarta dan BSD: Nyaman dan Efisien",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "geely-ex2-max-mudah-dikendarai-untuk-pemula-dan-wanita",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 untuk pemula dan wanita",
+      "maksud": "info",
+      "judul": "Geely EX2 Max Mudah Dikendarai untuk Pemula dan Wanita",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "geely-ex2-max-review-lengkap-fitur-dan-kelebihan",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "review geely ex2 max",
+      "maksud": "info",
+      "judul": "Review Geely EX2 Max: Fitur, Kelebihan, dan Kekurangan",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "geely-ex2-max-untuk-keluarga-muda",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 max untuk keluarga muda",
+      "maksud": "info",
+      "judul": "Geely EX2 Max untuk Keluarga Muda: Muat, Aman, Hemat",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "geely-ex2-mobil-listrik-kompak-apa-saja-yang-perlu-diketahui",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 mobil listrik kompak",
+      "maksud": "info",
+      "judul": "Geely EX2: Mobil Listrik Kompak untuk Harian dan Kota",
+      "pilar": "geely-ex2-jakarta",
+      "catatan": "Dekat dengan LP geely-ex2-jakarta dan review-lengkap. Pertahankan sudut 'pengenalan umum'."
+    },
+    {
+      "slug": "geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "geely ex5 suv listrik keluarga",
+      "maksud": "info",
+      "judul": "Geely EX5: SUV Listrik Keluarga, Kelebihan dan Pertimbangan",
+      "pilar": "geely-ex5-jakarta-bsd",
+      "catatan": "Sudah diperbarui dengan data resmi brosur."
+    },
+    {
+      "slug": "geely-starray-em-i-suv-hybrid-yang-perlu-anda-ketahui",
+      "jenis": "artikel",
+      "kluster": "starray",
+      "kata_kunci": "geely starray em-i suv hybrid",
+      "maksud": "info",
+      "judul": "Geely Starray EM-i: Kenali SUV Hybrid dari Geely Lebih Dekat",
+      "pilar": "geely-starray-em-i-jakarta",
+      "catatan": "Sudah diperbarui dengan data resmi brosur."
+    },
+    {
+      "slug": "jarak-tempuh-geely-ex2-max-klaim-vs-pemakaian-harian",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "jarak tempuh geely ex2",
+      "maksud": "info",
+      "judul": "Jarak Tempuh Geely EX2 Max: Klaim 395 km vs Pemakaian Harian",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "jok-elektrik-6-arah-dan-interior-ivory-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "jok elektrik geely ex2",
+      "maksud": "info",
+      "judul": "Jok Elektrik 6 Arah dan Interior Ivory Geely EX2 Max",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "kamera-540-derajat-geely-ex2-max-membantu-parkir",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "kamera 540 derajat geely ex2",
+      "maksud": "info",
+      "judul": "Kamera 540 Derajat Geely EX2 Max Membantu Parkir di Kota",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "keamanan-geely-ex2-max-6-airbag-dan-fitur-pelindung",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "keamanan geely ex2",
+      "maksud": "info",
+      "judul": "Keamanan Geely EX2 Max: 6 Airbag dan Fitur Pelindung Lainnya",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "kontrol-mobil-lewat-aplikasi-di-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "aplikasi geely ex2",
+      "maksud": "info",
+      "judul": "Kontrol Mobil Lewat Aplikasi di Geely EX2 Max: Ini Manfaatnya",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "mudik-dan-perjalanan-jauh-dengan-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "mudik geely ex2",
+      "maksud": "info",
+      "judul": "Mudik dan Perjalanan Jauh dengan Geely EX2 Max: Panduan",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "pajak mobil listrik geely ex2",
+      "maksud": "info",
+      "judul": "Pajak dan Insentif Mobil Listrik untuk Geely EX2 Max: Panduan",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "pengisian-cepat-dc-geely-ex2-max-30-80-persen-25-menit",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "pengisian cepat dc geely ex2",
+      "maksud": "info",
+      "judul": "Pengisian Cepat DC Geely EX2 Max 30-80% dalam 25 Menit",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "perawatan-geely-ex2-max-servis-berkala-dan-biaya",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "perawatan geely ex2",
+      "maksud": "info",
+      "judul": "Perawatan Geely EX2 Max: Servis Berkala dan Biaya Rutin",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "perawatan mobil listrik",
+      "maksud": "info",
+      "judul": "Perawatan Mobil Listrik: Apa yang Berbeda dari Mobil Bensin?",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "perbandingan-geely-ex2-vs-ex5-pilih-yang-mana",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 vs ex5",
+      "maksud": "banding",
+      "judul": "Perbandingan Geely EX2 vs EX5: Pilih yang Mana?",
+      "pilar": "geely-ex2-jakarta",
+      "catatan": "Pemilik 'geely ex2 vs ex5'. Artikel duplikat geely-ex2-max-vs-geely-ex5-pilih-yang-mana sudah dibuang."
+    },
+    {
+      "slug": "perbedaan-geely-ex2-pro-vs-ex2-max-mana-yang-worth-it",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "geely ex2 pro vs max",
+      "maksud": "banding",
+      "judul": "Perbedaan Geely EX2 Pro vs EX2 Max, Mana yang Worth It?",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "simulasi-cicilan-geely-ex2-max-dp-dan-tenor",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "cicilan geely ex2",
+      "maksud": "info",
+      "judul": "Simulasi Cicilan Geely EX2 Max: Cara Hitung DP dan Tenor",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "simulasi kredit mobil listrik",
+      "maksud": "info",
+      "judul": "Simulasi Kredit Mobil Listrik: Hitung DP, Tenor, dan Cicilan",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "spesifikasi-lengkap-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "spesifikasi geely ex2 max",
+      "maksud": "info",
+      "judul": "Spesifikasi Lengkap Geely EX2 Max dan Arti Tiap Angkanya",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "test-drive-geely-ex2-max-checklist-yang-perlu-dicek",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "checklist test drive geely ex2",
+      "maksud": "info",
+      "judul": "Test Drive Geely EX2 Max: Checklist yang Perlu Anda Cek",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "tips-booking-dan-negosiasi-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "tips booking dan nego geely ex2",
+      "maksud": "info",
+      "judul": "Tips Booking dan Negosiasi Geely EX2 Max dengan Tenang",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "tips-memilih-mobil-listrik-pertama",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "tips memilih mobil listrik pertama",
+      "maksud": "info",
+      "judul": "Tips Memilih Mobil Listrik Pertama untuk Keluarga",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Sudah terbit. Dekat dengan LP mobil-listrik-pertama: pertahankan sebagai artikel tips umum."
+    },
+    {
+      "slug": "velg-16-inci-dan-kenyamanan-berkendara-geely-ex2-max",
+      "jenis": "artikel",
+      "kluster": "ex2",
+      "kata_kunci": "velg 16 inci geely ex2",
+      "maksud": "info",
+      "judul": "Velg 16 Inci dan Kenyamanan Berkendara Geely EX2 Max",
+      "pilar": "geely-ex2-jakarta"
+    },
+    {
+      "slug": "spesifikasi-lengkap-geely-ex5-pro-dan-max",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "spesifikasi geely ex5",
+      "maksud": "info",
+      "judul": "Spesifikasi Lengkap Geely EX5 Pro dan Max, Arti Tiap Angka",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "perbedaan-geely-ex5-pro-vs-max-mana-yang-worth-it",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "geely ex5 pro vs max",
+      "maksud": "banding",
+      "judul": "Geely EX5 Pro vs Max: Selisih Fitur dan Mana yang Worth It",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "jarak-tempuh-geely-ex5-nedc-495-km-dan-wltp-430-km",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "jarak tempuh geely ex5",
+      "maksud": "info",
+      "judul": "Jarak Tempuh Geely EX5: NEDC 495 km dan WLTP 430 km",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "pengisian-daya-geely-ex5-ac-11-kw-dan-dc-100-kw",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "pengisian daya geely ex5",
+      "maksud": "info",
+      "judul": "Pengisian Daya Geely EX5: AC 11 kW dan DC 100 kW Dijelaskan",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "fitur-adas-geely-ex5-max-bantuan-berkendara",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "fitur adas geely ex5",
+      "maksud": "info",
+      "judul": "Fitur ADAS Geely EX5 Max: Bantuan Berkendara di Tol dan Kota",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "kabin-dan-bagasi-geely-ex5-461-liter",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "bagasi geely ex5",
+      "maksud": "info",
+      "judul": "Kabin dan Bagasi Geely EX5: 461 Liter hingga 1.877 Liter",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "fitur-kenyamanan-geely-ex5-jok-ventilasi-massage-dan-hud",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "kenyamanan geely ex5",
+      "maksud": "info",
+      "judul": "Fitur Kenyamanan Geely EX5: Jok Ventilasi, Massage dan HUD",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "v2l-dan-v2v-geely-ex5-listrik-mobil-untuk-perangkat-lain",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "v2l v2v geely ex5",
+      "maksud": "info",
+      "judul": "V2L dan V2V Geely EX5: Listrik Mobil untuk Perangkat Lain",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "warna-geely-ex5-pilihan-warna-pro-dan-max",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "warna geely ex5",
+      "maksud": "info",
+      "judul": "Warna Geely EX5: Pilihan Warna untuk Varian Pro dan Max",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "keamanan-geely-ex5-airbag-isofix-dan-kontrol-stabilitas",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "keamanan geely ex5",
+      "maksud": "info",
+      "judul": "Keamanan Geely EX5: Airbag, ISOFIX dan Kontrol Stabilitas",
+      "pilar": "geely-ex5-jakarta-bsd"
+    },
+    {
+      "slug": "spesifikasi-geely-starray-em-i-plug-in-hybrid",
+      "jenis": "artikel",
+      "kluster": "starray",
+      "kata_kunci": "spesifikasi geely starray em-i",
+      "maksud": "info",
+      "judul": "Spesifikasi Geely Starray EM-i Plug-in Hybrid dan Artinya",
+      "pilar": "geely-starray-em-i-jakarta"
+    },
+    {
+      "slug": "konsumsi-bbm-geely-starray-em-i-dan-jarak-tempuh-1000-km",
+      "jenis": "artikel",
+      "kluster": "starray",
+      "kata_kunci": "konsumsi bbm geely starray em-i",
+      "maksud": "info",
+      "judul": "Konsumsi BBM Geely Starray EM-i dan Klaim Jarak 1.000 km",
+      "pilar": "geely-starray-em-i-jakarta"
+    },
+    {
+      "slug": "cara-kerja-plug-in-hybrid-geely-em-i-dan-cara-mengisi-daya",
+      "jenis": "artikel",
+      "kluster": "starray",
+      "kata_kunci": "cara kerja plug-in hybrid",
+      "maksud": "info",
+      "judul": "Cara Kerja Plug-in Hybrid Geely EM-i dan Cara Mengisi Daya",
+      "pilar": "geely-starray-em-i-jakarta"
+    },
+    {
+      "slug": "geely-ex5-vs-starray-em-i-listrik-murni-atau-plug-in-hybrid",
+      "jenis": "artikel",
+      "kluster": "starray",
+      "kata_kunci": "geely ex5 vs starray em-i",
+      "maksud": "banding",
+      "judul": "Geely EX5 vs Starray EM-i: Listrik Murni atau Plug-in Hybrid?",
+      "pilar": "geely-starray-em-i-jakarta"
+    },
+    {
+      "slug": "nedc-vs-wltp-arti-jarak-tempuh-mobil-listrik",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "nedc vs wltp",
+      "maksud": "info",
+      "judul": "NEDC vs WLTP: Arti Klaim Jarak Tempuh Mobil Listrik",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "istilah-mobil-listrik-kwh-ac-dc-v2l-dan-regen",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "istilah mobil listrik",
+      "maksud": "info",
+      "judul": "Istilah Mobil Listrik: kWh, AC, DC, V2L, Regen dan Lainnya",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "mitos-mobil-listrik-yang-sering-dipercaya-dan-faktanya",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "mitos mobil listrik",
+      "maksud": "info",
+      "judul": "Mitos Mobil Listrik yang Sering Dipercaya dan Faktanya",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "umur-baterai-mobil-listrik-lfp-dan-cara-merawatnya",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "umur baterai mobil listrik",
+      "maksud": "info",
+      "judul": "Umur Baterai Mobil Listrik LFP dan Cara Merawatnya",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Dekat dengan artikel baterai LFP & garansi EX2. Pertahankan sudut umum (bukan satu model)."
+    },
+    {
+      "slug": "pasang-charger-mobil-listrik-di-rumah-daya-pln-dan-instalasi",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "pasang charger mobil listrik di rumah",
+      "maksud": "info",
+      "judul": "Pasang Charger Mobil Listrik di Rumah: Daya PLN dan Instalasi",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Dekat dengan cara-mengisi-daya-mobil-listrik-di-rumah-dan-spklu. Pembeda: hanya soal INSTALASI (daya PLN, MCB, teknisi), bukan cara mengisi."
+    },
+    {
+      "slug": "cek-mobil-baru-saat-serah-terima-checklist-pdi",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "pengecekan mobil baru saat serah terima",
+      "maksud": "info",
+      "judul": "Cek Mobil Baru Saat Serah Terima: Checklist Sebelum Pulang",
+      "pilar": "mobil-listrik-pertama"
+    },
+    {
+      "slug": "faq-geely-pertanyaan-calon-pembeli-sebelum-beli",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "faq geely",
+      "maksud": "info",
+      "judul": "FAQ Geely: Pertanyaan Calon Pembeli Sebelum Membeli",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Jangan mengulang FAQ spesifik EX2. Fokus proses beli, test drive, kredit, perawatan, garansi secara umum."
+    },
+    {
+      "slug": "mobil-listrik-saat-banjir-aman-atau-tidak",
+      "jenis": "artikel",
+      "kluster": "edukasi",
+      "kata_kunci": "mobil listrik banjir",
+      "maksud": "info",
+      "judul": "Mobil Listrik Saat Banjir: Aman atau Tidak untuk Jakarta?",
+      "pilar": "mobil-listrik-jakarta",
+      "catatan": "Butuh data resmi tingkat perlindungan baterai dari Geely sebelum menulis klaim apa pun.",
+      "garis_besar": [
+        "Kekhawatiran umum soal banjir",
+        "Cara baterai dan sistem listrik dilindungi (tanyakan data resmi ke sales)",
+        "Yang harus dilakukan saat jalan tergenang",
+        "Setelah terendam: jangan nyalakan, hubungi bengkel resmi",
+        "Cek perlindungan asuransi",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "asuransi-mobil-listrik-yang-perlu-dicek-sebelum-memilih",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "asuransi mobil listrik",
+      "maksud": "info",
+      "judul": "Asuransi Mobil Listrik: Hal yang Perlu Dicek Sebelum Memilih",
+      "pilar": "mobil-listrik-pertama",
+      "garis_besar": [
+        "All risk vs TLO untuk mobil listrik",
+        "Cakupan baterai dan charger",
+        "Bengkel rekanan dan suku cadang",
+        "Pertanyaan ke agen asuransi",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "nilai-jual-kembali-mobil-listrik-mitos-dan-faktanya",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "nilai jual kembali mobil listrik",
+      "maksud": "info",
+      "judul": "Nilai Jual Kembali Mobil Listrik: Mitos dan Faktanya",
+      "pilar": "tukar-tambah-ke-mobil-listrik",
+      "catatan": "Butuh data pasar terbaru; jangan menjanjikan persentase.",
+      "garis_besar": [
+        "Apa yang memengaruhi harga jual kembali",
+        "Peran baterai dan garansi",
+        "Kondisi pasar bekas mobil listrik saat ini (cek data terbaru)",
+        "Tips menjaga nilai",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "syarat-dan-dokumen-kredit-mobil-listrik",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "syarat kredit mobil listrik",
+      "maksud": "info",
+      "judul": "Syarat dan Dokumen Kredit Mobil Listrik Agar Cepat Disetujui",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Jangan mengulang simulasi cicilan di artikel simulasi-kredit.",
+      "garis_besar": [
+        "Dokumen karyawan, wiraswasta, profesional",
+        "Proses survei dan analisa leasing",
+        "Penyebab pengajuan ditolak",
+        "Tips menyiapkan DP",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "aksesori-mobil-listrik-yang-perlu-disiapkan",
+      "jenis": "artikel",
+      "kluster": "pembelian",
+      "kata_kunci": "aksesori mobil listrik",
+      "maksud": "info",
+      "judul": "Aksesori Mobil Listrik yang Perlu Disiapkan Sebelum Pengiriman",
+      "pilar": "mobil-listrik-pertama",
+      "catatan": "Tautkan ke LapakMu.store (situs lain milik Wins).",
+      "garis_besar": [
+        "Kabel dan adaptor pengisian",
+        "Pelindung kabin dan karpet",
+        "Dashcam dan kaca film",
+        "Tautkan ke LapakMu.store"
+      ]
+    },
+    {
+      "slug": "jakarta-bandung-pakai-mobil-listrik-rute-dan-pengisian",
+      "jenis": "artikel",
+      "kluster": "kota",
+      "kata_kunci": "jakarta bandung mobil listrik",
+      "maksud": "info",
+      "judul": "Jakarta-Bandung Pakai Mobil Listrik: Rute dan Rencana Pengisian",
+      "pilar": "mobil-listrik-jakarta",
+      "catatan": "Cek jarak dan lokasi SPKLU terbaru sebelum menulis.",
+      "garis_besar": [
+        "Jarak kira-kira dan kebutuhan baterai",
+        "Rencana pengisian dengan aplikasi SPKLU",
+        "Gaya berkendara di tol",
+        "Contoh jadwal perjalanan",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "mobil-listrik-dan-ganjil-genap-jakarta",
+      "jenis": "artikel",
+      "kluster": "kota",
+      "kata_kunci": "mobil listrik ganjil genap",
+      "maksud": "info",
+      "judul": "Mobil Listrik dan Ganjil Genap di Jakarta: Aturan Terbaru",
+      "pilar": "mobil-listrik-jakarta",
+      "catatan": "WAJIB cek aturan resmi terbaru (Pergub/Dishub) sebelum menulis.",
+      "garis_besar": [
+        "Aturan yang berlaku saat ini",
+        "Siapa yang dikecualikan",
+        "Syarat plat dan dokumen",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "hitung-biaya-mobil-listrik-untuk-driver-online",
+      "jenis": "artikel",
+      "kluster": "usaha",
+      "kata_kunci": "biaya mobil listrik untuk driver online",
+      "maksud": "info",
+      "judul": "Hitung Biaya Mobil Listrik untuk Driver Online per Bulan",
+      "pilar": "mobil-listrik-taksi-online",
+      "catatan": "Pakai rumus & contoh angka yang bisa diganti pembaca; jangan menjanjikan penghasilan.",
+      "garis_besar": [
+        "Variabel hitungan: km per hari, tarif listrik, perawatan",
+        "Contoh perhitungan dengan angka umum yang bisa diganti",
+        "Perbandingan dengan mobil bensin",
+        "Syarat armada aplikasi (cek aturan terbaru)",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "geely-ex5-untuk-perjalanan-jauh-dan-mudik",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "mudik geely ex5",
+      "maksud": "info",
+      "judul": "Geely EX5 untuk Perjalanan Jauh dan Mudik: Rencana Pengisian",
+      "pilar": "geely-ex5-jakarta-bsd",
+      "catatan": "Bergantung pada artikel NEDC vs WLTP dan pengisian daya EX5 (jangan diulang).",
+      "garis_besar": [
+        "Klaim NEDC 495/WLTP 430 sebagai patokan",
+        "Menghitung berhenti isi daya dengan DC 100 kW",
+        "Checklist sebelum berangkat",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "perawatan-geely-ex5-servis-berkala-dan-biaya",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "perawatan geely ex5",
+      "maksud": "info",
+      "judul": "Perawatan Geely EX5: Servis Berkala dan Hal yang Dicek",
+      "pilar": "geely-ex5-jakarta-bsd",
+      "catatan": "Butuh jadwal servis resmi dari Geely sebelum menulis angka.",
+      "garis_besar": [
+        "Apa yang beda dari mobil bensin",
+        "Jadwal servis (tanyakan sales)",
+        "Ban, rem, AC kabin",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "aplikasi-dan-konektivitas-geely-ex5-ota-navigasi-dan-flyme",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "konektivitas geely ex5",
+      "maksud": "info",
+      "judul": "Konektivitas Geely EX5: OTA, Navigasi dan Flyme Auto",
+      "pilar": "geely-ex5-jakarta-bsd",
+      "catatan": "Data brosur ada; verifikasi fitur aplikasi ponsel sebelum menyebut.",
+      "garis_besar": [
+        "Layar 15,4 inci dan panel 10,2 inci",
+        "OTA dan Apps Store",
+        "Flyme Auto, CarbitLink, navigasi",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "perbandingan-geely-ex5-dengan-suv-listrik-lain",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "geely ex5 vs suv listrik lain",
+      "maksud": "banding",
+      "judul": "Geely EX5 vs SUV Listrik Lain di Kelasnya: Cara Membandingkan",
+      "pilar": "geely-ex5-jakarta-bsd",
+      "catatan": "Butuh brosur pesaing yang resmi; jangan memakai angka dari ingatan.",
+      "garis_besar": [
+        "Kerangka perbandingan yang adil",
+        "Tabel EX5 dari brosur resmi",
+        "Kolom pesaing diisi dari brosur resmi masing-masing",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "harga-jual-kembali-dan-garansi-geely-ex5",
+      "jenis": "artikel",
+      "kluster": "ex5",
+      "kata_kunci": "garansi geely ex5",
+      "maksud": "info",
+      "judul": "Garansi Geely EX5: Apa yang Ditanggung dan Cara Klaim",
+      "pilar": "geely-ex5-jakarta-bsd",
+      "catatan": "BUTUH syarat garansi resmi; jangan menulis angka tahun/km tanpa dokumen.",
+      "garis_besar": [
+        "Garansi kendaraan dan baterai (butuh data resmi)",
+        "Cara klaim",
+        "FAQ"
+      ]
+    },
+    {
+      "slug": "geely-ex2-max-vs-geely-ex5-pilih-yang-mana",
+      "jenis": "artikel",
+      "kluster": "",
+      "kata_kunci": "geely ex2",
+      "maksud": "info",
+      "judul": "Geely EX2 Max vs Geely EX5: Pilih yang Mana untuk Anda?"
+    }
+  ]
 }

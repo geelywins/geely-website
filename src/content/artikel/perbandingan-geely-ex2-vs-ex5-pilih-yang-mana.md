@@ -43,3 +43,5 @@ Dua mobil listrik Geely di Indonesia ini punya karakter berbeda. Berikut perband
 Baca juga: [Geely EX2](/artikel/geely-ex2-mobil-listrik-kompak-apa-saja-yang-perlu-diketahui/) dan [Geely EX5](/artikel/geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan/).
 
 Bingung memilih? Ceritakan kebutuhan Anda lewat WhatsApp, saya bantu rekomendasikan dan hitungkan cicilannya.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).

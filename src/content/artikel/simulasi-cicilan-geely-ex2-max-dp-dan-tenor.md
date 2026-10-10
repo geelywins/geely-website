@@ -122,6 +122,8 @@ DP besar menurunkan cicilan dan total bunga, tetapi memakai dana awal lebih bany
 
 Tidak selalu. Tenor panjang meringankan cicilan bulanan, tetapi total bunga cenderung lebih besar.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Simulasi cicilan Geely EX2 Max sebaiknya memakai data resmi dari sales dan leasing, bukan perkiraan. Pahami DP, tenor, dan biaya lain agar keputusan Anda aman.

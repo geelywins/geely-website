@@ -113,6 +113,8 @@ Selisihnya sekitar puluhan juta rupiah, dan angkanya berbeda antar sumber. Hubun
 
 Tidak. ADAS Level 2 dengan 12 fungsi hanya tersedia pada varian Max.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Pro dan Max sama-sama menawarkan fondasi mobil listrik kompak yang solid. Max menambahkan kenyamanan, keselamatan aktif, dan teknologi, sedangkan Pro unggul dari sisi anggaran. Pilih sesuai kebutuhan Anda. Jika ingin membandingkan langsung, cek [promo](/promo/) terbaru atau hubungi saya lewat WhatsApp untuk jadwal test drive di Jakarta atau BSD.

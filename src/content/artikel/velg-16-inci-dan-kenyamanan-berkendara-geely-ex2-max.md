@@ -98,6 +98,8 @@ Pro memakai velg baja 15 inci, sedangkan Max memakai velg alloy dual-tone 16 inc
 
 MacPherson di depan dan multi-link di belakang.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Velg 16 inci menambah daya tarik tampilan Geely EX2 Max, sedangkan kenyamanan sejati lahir dari kombinasi ban, suspensi, dan kabin. Cara terbaik menilainya adalah mencoba langsung. Lihat halaman [Geely EX2](/model/geely-ex2/) lalu hubungi saya lewat [kontak](/kontak/) untuk mengatur test drive di Jakarta atau BSD.

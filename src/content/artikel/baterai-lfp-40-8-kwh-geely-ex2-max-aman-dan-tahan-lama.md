@@ -108,6 +108,8 @@ Sesuai informasi saat peluncuran, garansinya 8 tahun atau 150.000 km. Mohon konf
 
 Secara umum LFP dikenal stabil terhadap panas. Namun tidak ada teknologi yang bebas risiko sepenuhnya, jadi gunakan pengisian yang sesuai standar dan ikuti petunjuk pabrikan.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Baterai LFP 40,8 kWh pada Geely EX2 Max memiliki karakter stabil yang cocok untuk pemakaian harian. Umur pakainya sangat dipengaruhi kebiasaan Anda, jadi rawat dengan bijak dan manfaatkan garansi resmi.

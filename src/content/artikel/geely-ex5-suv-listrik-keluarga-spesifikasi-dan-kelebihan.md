@@ -3,7 +3,7 @@ title: "Geely EX5: SUV Listrik Keluarga, Spesifikasi dan Kelebihannya"
 description: "Geely EX5 punya baterai LFP 60,22 kWh, klaim jarak tempuh sekitar 490 km (NEDC), dan fitur lengkap. Simak spesifikasi, perbedaan varian Pro dan Max, dan siapa yang cocok."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex5", "suv listrik", "mobil listrik keluarga", "bsd city"]
+tags: ["geely ex5","suv listrik","mobil listrik keluarga","bsd city"]
 draft: true
 ---
 
@@ -47,3 +47,5 @@ Jika Anda lebih sering menyetir sendiri di dalam kota dan ingin menghemat, Pro s
 Keluarga dengan 4-5 anggota, pengguna yang sering ke luar kota (Jakarta-Bandung, misalnya), dan Anda yang ingin beralih dari SUV bensin tanpa kehilangan ruang kabin.
 
 Untuk harga terbaru, promo bulan ini dan simulasi kredit EX5, hubungi saya lewat WhatsApp.
+
+Panduan terkait yang bisa Anda baca: [Geely EX5 Jakarta](/lp/geely-ex5-jakarta-bsd/).

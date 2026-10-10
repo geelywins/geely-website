@@ -39,3 +39,5 @@ Spesifikasi lengkap (kapasitas baterai, jarak tempuh listrik, konsumsi BBM, tena
 5. Perlu atau tidak memasang **charger di rumah**.
 
 Ingin mencoba langsung? Jadwalkan test drive Starray EM-i lewat WhatsApp, saya bantu aturkan.
+
+Panduan terkait yang bisa Anda baca: [Geely Starray EM-i Jakarta](/lp/geely-starray-em-i-jakarta/).

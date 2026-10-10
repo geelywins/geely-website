@@ -3,9 +3,10 @@ title: "Kontrol Mobil Lewat Aplikasi di Geely EX2 Max: Ini Manfaatnya"
 description: "Kontrol mobil lewat aplikasi di Geely EX2 Max memudahkan keseharian Anda. Pahami manfaat dan batasnya, lalu tanyakan fungsi lengkapnya ke sales kami."
 date: 2026-10-07
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "kontrol jarak jauh", "aplikasi mobil", "mobil listrik jakarta", "mobil listrik kompak"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","kontrol jarak jauh","aplikasi mobil","mobil listrik jakarta","mobil listrik kompak"]
 draft: true
 ---
+
 Kontrol mobil lewat aplikasi adalah salah satu fitur yang membedakan Geely EX2 Max dari versi Pro. Fitur ini memungkinkan Anda berinteraksi dengan mobil dari jarak jauh melalui ponsel. Di artikel ini, saya jelaskan manfaatnya secara umum, siapa yang paling terbantu, dan apa yang sebaiknya Anda tanyakan sebelum membeli.
 
 Saya Wins, Sales Consultant Geely di PT Dwi Putra Motor, area Jakarta dan BSD. Saya akan menjelaskan dengan bahasa sederhana dan jujur tentang batasnya.
@@ -104,6 +105,8 @@ Yang pasti, EX2 Max mendukung kontrol mobil jarak jauh lewat aplikasi. Untuk daf
 ### Apakah fitur ini membutuhkan koneksi internet?
 
 Umumnya fitur jarak jauh memerlukan koneksi agar perintah sampai. Detail persyaratannya sebaiknya Anda tanyakan ke sales saat demonstrasi.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

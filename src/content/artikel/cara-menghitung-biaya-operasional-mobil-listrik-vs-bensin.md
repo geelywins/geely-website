@@ -3,7 +3,7 @@ title: "Cara Menghitung Biaya per Km Mobil Listrik vs Mobil Bensin"
 description: "Rumus sederhana menghitung biaya energi per km mobil listrik dan mobil bensin, lengkap contoh hitungan, supaya Anda bisa membandingkan dengan angka sendiri."
 date: 2026-10-07
 category: "Tips Membeli"
-tags: ["biaya operasional", "mobil listrik", "hemat bbm", "tarif listrik"]
+tags: ["biaya operasional","mobil listrik","hemat bbm","tarif listrik"]
 draft: true
 ---
 
@@ -41,3 +41,5 @@ Untuk 1.500 km per bulan, selisihnya sekitar Rp 1,3 juta per bulan pada contoh i
 3. Hitung dengan rumus di atas untuk mobil listrik dan mobil yang sekarang.
 
 Kirim jarak harian Anda lewat WhatsApp, nanti saya bantu hitungkan perkiraan biaya energi dan cicilannya.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

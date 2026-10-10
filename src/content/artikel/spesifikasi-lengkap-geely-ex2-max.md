@@ -102,6 +102,8 @@ NEDC adalah siklus pengujian yang dilakukan dalam kondisi terkontrol. Pemakaian 
 
 Hubungi sales Geely untuk data terbaru. Informasi bisa diperbarui seiring waktu.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Spesifikasi Geely EX2 Max menggambarkan mobil listrik kompak yang seimbang untuk pemakaian kota. Memahami arti angkanya membuat Anda lebih percaya diri saat memilih. Untuk konfirmasi data dan penawaran, lihat halaman [promo](/promo/) atau hubungi saya lewat WhatsApp. Kami siap mengatur test drive di Jakarta dan BSD.

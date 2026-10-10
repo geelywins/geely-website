@@ -99,6 +99,8 @@ Layar tengah 14,6 inci dan panel instrumen 8,8 inci.
 
 Kamera panorama 540 derajat ada pada Max dan umumnya tampil di layar. Mintalah demo langsung untuk melihat tampilannya.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Ambient light 256 warna dan layar 14,6 inci membuat kabin Geely EX2 Max terasa modern, nyaman, dan mudah dikendalikan. Gunakan teknologi ini dengan bijak agar tetap aman. Untuk melihatnya langsung, cek [promo](/promo/) terbaru atau hubungi saya lewat WhatsApp untuk jadwal test drive.

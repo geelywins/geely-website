@@ -97,6 +97,8 @@ Klaim pabrikan adalah 395 km pada siklus NEDC. Pemakaian nyata biasanya lebih re
 
 Harga dan promo bisa berubah dari waktu ke waktu. Silakan hubungi sales untuk informasi harga dan promo terbaru.
 
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+
 ## Kesimpulan
 
 Geely EX2 Max menawarkan paket yang lengkap untuk mobil listrik kompak: fitur keselamatan, kabin nyaman, dan teknologi modern. Kekurangannya ada pada harga yang lebih tinggi dan kebutuhan perencanaan pengisian. Cara terbaik menilainya adalah mencoba langsung. Lihat [promo](/promo/) terbaru atau hubungi saya lewat WhatsApp untuk mengatur jadwal test drive di Jakarta atau BSD.

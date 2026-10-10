@@ -43,3 +43,5 @@ Ini hanya perkiraan. Angka resmi selalu mengikuti simulasi dari pihak pembiayaan
 KTP, kartu keluarga, NPWP, slip gaji atau bukti penghasilan, dan rekening koran. Kebutuhan pastinya tergantung perusahaan pembiayaan dan status pekerjaan.
 
 Kirim model yang diminati, DP yang diinginkan dan tenor lewat WhatsApp, saya kirimkan simulasi cicilannya secara gratis.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

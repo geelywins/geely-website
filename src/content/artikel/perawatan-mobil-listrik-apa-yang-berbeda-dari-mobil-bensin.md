@@ -39,3 +39,5 @@ Garansi baterai dan motor listrik adalah faktor penting. Pada peluncuran Geely E
 Interval servis mengikuti buku panduan masing-masing model. Tanyakan jadwal dan perkiraan biaya servis berkala ke dealer sebelum membeli.
 
 Ada pertanyaan soal perawatan Geely? Kirim lewat WhatsApp dan saya bantu jawab atau hubungkan ke bagian servis.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

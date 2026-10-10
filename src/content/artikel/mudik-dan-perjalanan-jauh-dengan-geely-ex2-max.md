@@ -3,7 +3,7 @@ title: "Mudik dan Perjalanan Jauh dengan Geely EX2 Max: Panduan"
 description: "Mudik dengan Geely EX2 Max butuh perencanaan rute dan pengisian. Pelajari cara menyusun perjalanan jauh dan batasnya. Tanya sales untuk saran rute Anda."
 date: 2026-10-07
 category: "Mobil Listrik"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "mobil listrik kompak", "mudik mobil listrik", "spklu", "pengisian cepat dc", "ev indonesia"]
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","mobil listrik kompak","mudik mobil listrik","spklu","pengisian cepat dc","ev indonesia"]
 draft: true
 ---
 
@@ -94,6 +94,8 @@ Pengisian DC 30 hingga 80% sekitar 25 menit, sesuai klaim. Waktu nyata dapat ber
 
 ### Apakah harus membawa kabel khusus?
 Tanyakan ke sales kelengkapan kabel pengisian yang disertakan. Simpan di frunk agar mudah dijangkau.
+
+Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 
 ## Kesimpulan
 

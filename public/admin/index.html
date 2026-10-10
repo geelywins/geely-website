@@ -772,7 +772,8 @@
   function dupAnalyze(c) {
     var items = [], T = TOPIK || { topik: [], halaman_sistem: [] };
     function add(lvl, label, tip) { items.push({ lvl: lvl, label: label, tip: tip || '' }); }
-    var kwRaw = (c.tags || [])[0] || '', kw = normS(kwRaw), others = [];
+    var tp0 = topikOf(c.slug, c.kind === 'lp' ? 'lp' : 'artikel');
+    var kwRaw = (tp0 && tp0.kata_kunci) || (c.tags || [])[0] || '', kw = normS(kwRaw), others = [];
     ['artikel', 'lp'].forEach(function (k) { ((ALL && ALL[k]) || []).forEach(function (m) {
       var sl = m.f.name.replace(/\.md$/, '');
       if (k === c.kind && sl === c.slug) return;

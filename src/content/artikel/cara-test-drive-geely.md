@@ -33,3 +33,5 @@ Bawa SIM A yang masih berlaku. Anda juga boleh mengajak keluarga agar bisa menil
 ## Siap mencoba?
 
 Hubungi saya lewat tombol WhatsApp di bawah, dan kita atur jadwalnya.
+
+Panduan terkait yang bisa Anda baca: [Mobil Listrik Pertama](/lp/mobil-listrik-pertama/).

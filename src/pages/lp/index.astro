@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { getLiveLandingPages } from '../../lib/articles';
+import { href, asset } from '../../lib/url';
+
+const fmt = (d: Date) => d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+const lps = (await getLiveLandingPages()).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Panduan Lengkap Membeli Mobil Geely" description="Jelajahi panduan lengkap tentang mobil listrik Geely, fitur, spesifikasi, dan tips membeli dengan konsultasi gratis dari sales profesional.">
+  <PageHead title="Panduan Membeli Geely" text="Temukan semua informasi yang Anda butuhkan tentang mobil listrik Geely termasuk model EX5 dan EX2 dengan panduan lengkap dari sales berpengalaman." crumbs={[{ label: 'Panduan' }]} />
+  <section><div class="container">
+    {lps.length === 0 && <p class="text-muted">Belum ada panduan.</p>}
+    <div class="grid-x">
+      {lps.map((l, i) => (
+        <a class="card-x reveal" style={`--d:${(i % 3) * 0.07}s`} href={href(`/lp/${l.id}/`)}>
+          <div class="card-media wide"><img src={asset(l.data.image || `/img/lp/${l.id}/sampul.png`)} alt={l.data.title} loading="lazy" decoding="async" width="640" height="400" /></div>
+          <div class="card-body-x">
+            {l.data.model && <span class="tag">{l.data.model}</span>}
+            <h2 class="card-title-x">{l.data.title}</h2>
+            <p>{l.data.description}</p>
+            <span class="meta">{fmt(l.data.date)}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div></section>
+</Base>

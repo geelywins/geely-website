@@ -8,3 +8,8 @@ export async function getLiveArticles() {
   const t = todayWIB();
   return (await getCollection('artikel')).filter((a) => !a.data.draft && a.data.date.toISOString().slice(0, 10) <= t);
 }
+
+export async function getLiveLandingPages() {
+  const t = todayWIB();
+  return (await getCollection('lp')).filter((a) => !a.data.draft && a.data.date.toISOString().slice(0, 10) <= t);
+}

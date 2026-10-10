@@ -16,4 +16,21 @@ const artikel = defineCollection({
   }),
 });
 
-export const collections = { artikel };
+// Landing page (alamat /lp/nama/): isi Markdown, dikelola lewat Admin > Landing Page
+const lp = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/lp' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().max(200),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
+    model: z.string().optional(),
+    image: z.string().optional(),
+    artikel: z.array(z.string()).default([]),
+    pesanWa: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { artikel, lp };

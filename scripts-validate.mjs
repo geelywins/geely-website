@@ -1,7 +1,7 @@
 // Validasi standar SEO artikel. Jalankan: node scripts-validate.mjs [awalan-slug-opsional]
 import fs from 'node:fs'; import path from 'node:path';
-const dir = 'src/content/artikel'; const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
-const slugs = new Set(files.map(f => f.replace(/\.md$/, '')));
+const dir = process.env.DIR || 'src/content/artikel'; const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+const slugs = new Set(fs.readdirSync('src/content/artikel').filter(f => f.endsWith('.md')).map(f => f.replace(/\.md$/, '')));
 const only = process.argv[2]; let bad = 0, n = 0;
 const EV = ['mobil listrik geely','geely ev','geely indonesia','geely ex5','geely starray em-i','ev geely jakarta','mobil listrik murah','mobil listrik kompak','harga mobil listrik geely'];
 for (const f of files) {

@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import { render } from 'astro:content';
+import { getLiveLandingPages, getLiveArticles } from '../../lib/articles';
+import { SITE, waLink } from '../../config';
+import { MODELS } from '../../lib/data';
+import { href, asset } from '../../lib/url';
+import VideoEmbed from '../../components/VideoEmbed.astro';
+import { youtubeId } from '../../lib/video';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+
+export async function getStaticPaths() {
+  const all = await getLiveLandingPages();
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const allLps = await getLiveLandingPages();
+const allArticles = await getLiveArticles();
+const body = entry.body ?? '';
+
+// Artikel terkait dari LP's artikel array
+const linkedArticleIds = entry.data.artikel || [];
+const linkedArticles = allArticles.filter((a) => linkedArticleIds.includes(a.id));
+
+// Landing pages terkait (link ke LP dari body)
+const relatedLps = allLps
+  .filter((l) => l.id !== entry.id && body.includes(`/lp/${l.id}/`))
+  .slice(0, 3);
+
+// Model yang dibahas
+const hay = (entry.data.title + ' ' + (entry.data.tags || []).join(' ')).toLowerCase();
+const relModels = MODELS.filter((m) => hay.includes(m.nama.toLowerCase()) || hay.includes(m.nama.toLowerCase().replace('geely ', '')));
+
+const { Content } = await render(entry);
+const d = entry.data;
+
+const url = new URL(href(`/lp/${entry.id}/`), Astro.site).href;
+const fmt = (x: Date) => x.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+const cover = d.image || `/img/lp/${entry.id}/sampul.png`;
+const imageAbs = new URL(asset(cover), Astro.site).href;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: d.title,
+    description: d.description,
+    datePublished: d.date.toISOString(),
+    dateModified: (d.updated ?? d.date).toISOString(),
+    inLanguage: 'id-ID',
+    mainEntityOfPage: url,
+    image: imageAbs ? [imageAbs] : undefined,
+    author: { '@type': 'Person', name: SITE.person, alternateName: SITE.nickname, jobTitle: SITE.job },
+    publisher: { '@type': 'Organization', name: SITE.name },
+    keywords: (d.tags || []).join(', '),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Beranda', item: new URL(href('/'), Astro.site).href },
+      { '@type': 'ListItem', position: 2, name: d.title, item: url },
+    ],
+  },
+];
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  image={cover}
+  type="article"
+  published={d.date}
+  modified={d.updated ?? d.date}
+  jsonLd={jsonLd}
+>
+  <PageHead title={d.title} text={d.description} crumbs={[{ label: 'Panduan', url: href('/lp/') }, { label: d.title }]}>
+    <p class="meta mt-2">Ditulis oleh {SITE.nickname} &middot; <time datetime={d.date.toISOString()}>{fmt(d.date)}</time>{d.updated && <> &middot; Diperbarui {fmt(d.updated)}</>}</p>
+  </PageHead>
+
+  <section>
+    <div class="container">
+      <article class="prose article-body">
+        {cover && <img src={asset(cover)} alt={d.title} loading="eager" width="1200" height="630" />}
+        <Content />
+        {relModels.length > 0 && (
+          <p class="mt-4"><b>Model terkait:</b> {relModels.map((m, i) => <>{i > 0 && ' | '}<a href={href(`/model/${m.slug}/`)}>{m.nama}</a></>)}</p>
+        )}
+        <div class="cta-box">
+          <h3>Ada pertanyaan soal Geely?</h3>
+          <p>Konsultasi gratis seputar harga, promo, simulasi kredit dan test drive.</p>
+          <a class="btn btn-wa btn-lg" href={waLink(`Halo Kak Wins, saya baca halaman "${d.title}" dan ingin bertanya.`)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Tanya via WhatsApp</a>
+        </div>
+      </article>
+      <nav class="prose mt-5" aria-label="Tautan terkait">
+        {linkedArticles.length > 0 && (
+          <>
+            <h2>Artikel relevan</h2>
+            <ul class="rel-list">{linkedArticles.map((a) => <li><a href={href(`/artikel/${a.id}/`)}>{a.data.title}</a></li>)}</ul>
+          </>
+        )}
+        {relatedLps.length > 0 && (
+          <>
+            <h2>Halaman serupa</h2>
+            <ul class="rel-list">{relatedLps.map((l) => <li><a href={href(`/lp/${l.id}/`)}>{l.data.title}</a></li>)}</ul>
+          </>
+        )}
+        <p class="rel-links"><a href={href('/')}>Beranda</a> &middot; <a href={href('/model/')}>Semua model Geely</a> &middot; <a href={href('/promo/')}>Promo terbaru</a> &middot; <a href={href('/artikel/')}>Semua artikel</a> &middot; <a href={href('/kontak/')}>Kontak sales</a></p>
+      </nav>
+    </div>
+  </section>
+</Base>

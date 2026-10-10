@@ -341,7 +341,7 @@
       var dp = dupPanel(function () {
         var g = function (k) { return refs && refs[k] ? refs[k].value : ''; };
         return { kind: EDIT.kind, slug: g('slug') || slugify(g('title')), title: g('title'), tags: g('tags').split(',').map(function (s) { return s.trim(); }).filter(Boolean), body: g('body') };
-      });
+      }, { kw: function (s) { var tg = refs.tags.value.split(',').map(function (x) { return x.trim(); }).filter(Boolean); if (tg.length && (!TOPIK || true)) tg[0] = s; else tg = [s]; refs.tags.value = tg.join(', '); } });
       return { el: dp, get: function () { return undefined; }, check: function () { return ''; } };
     }
     if (t === 'text' || t === 'date' || t === 'tags' || t === 'slug') {
@@ -769,9 +769,20 @@
     return { s: s, n: n };
   }
   function jacSh(a, b) { var i = 0, k; for (k in a.s) if (b.s[k]) i++; var u = a.n + b.n - i; return u ? i / u : 0; }
+  function kwTaken(kw, selfSlug, kind) {
+    var T = TOPIK || { topik: [], halaman_sistem: [] }, k = normS(kw);
+    if ((T.halaman_sistem || []).some(function (x) { return normS(x.kata_kunci) === k; })) return true;
+    if ((T.topik || []).some(function (t) { return normS(t.kata_kunci) === k && !(t.slug === selfSlug && t.jenis === kind); })) return true;
+    return ['artikel', 'lp'].some(function (kk) { return ((ALL && ALL[kk]) || []).some(function (m) { var sl = m.f.name.replace(/\.md$/, ''); return !(kk === kind && sl === selfSlug) && !topikOf(sl, kk) && normS((m.fm.tags || [])[0]) === k; }); });
+  }
+  function suggestKw(slug, title, kind) {
+    var w = String(slug || slugify(title)).split('-').filter(function (x) { return x && !STOPW[x]; });
+    for (var n = Math.min(3, w.length); n <= w.length; n++) { var c = w.slice(0, n).join(' '); if (n >= 2 && !kwTaken(c, slug, kind)) return c; }
+    return '';
+  }
   function dupAnalyze(c) {
     var items = [], T = TOPIK || { topik: [], halaman_sistem: [] };
-    function add(lvl, label, tip) { items.push({ lvl: lvl, label: label, tip: tip || '' }); }
+    function add(lvl, label, tip, fix) { items.push({ lvl: lvl, label: label, tip: tip || '', fix: fix || '' }); }
     var tp0 = topikOf(c.slug, c.kind === 'lp' ? 'lp' : 'artikel');
     var kwRaw = (tp0 && tp0.kata_kunci) || (c.tags || [])[0] || '', kw = normS(kwRaw), others = [];
     ['artikel', 'lp'].forEach(function (k) { ((ALL && ALL[k]) || []).forEach(function (m) {
@@ -791,8 +802,8 @@
         var un = others.filter(function (o) { return !topikOf(o.slug, o.kind === 'lp' ? 'lp' : 'artikel') && normS(((o.m.fm.tags || [])[0])) === kw; })[0];
         if (un) own = { jenis: un.kind, judul: un.m.fm.title || un.slug };
       }
-      if (sys) add('berat', 'Kata kunci "' + kwRaw + '" milik halaman ' + sys.url, 'Halaman itu dikelola dari admin. Pilih kata kunci lain agar tidak bersaing.');
-      else if (own) add('berat', 'Kata kunci "' + kwRaw + '" sudah dimiliki: ' + own.judul, 'Gabungkan ke halaman itu, atau pilih kata kunci / sudut lain. Dua halaman dengan maksud sama saling bersaing di Google.');
+      if (sys) add('berat', 'Kata kunci "' + kwRaw + '" milik halaman ' + sys.url, 'Halaman itu dikelola dari admin. Pilih kata kunci lain agar tidak bersaing.', 'kw');
+      else if (own) add('berat', 'Kata kunci "' + kwRaw + '" sudah dimiliki: ' + own.judul, 'Gabungkan ke halaman itu, atau pilih kata kunci / sudut lain. Dua halaman dengan maksud sama saling bersaing di Google.', 'kw');
       else add('ok', 'Kata kunci utama "' + kwRaw + '" unik');
     }
     // 3. judul mirip
@@ -818,7 +829,7 @@
     items.sort(function (a, b) { return ord[a.lvl] - ord[b.lvl]; });
     return items;
   }
-  function dupPanel(getVals) {
+  function dupPanel(getVals, fixers) {
     var wrap = el('div', { class: 'seo' }), head = el('div', { class: 'seo-h' }), list = el('div', { class: 'seo-l' });
     wrap.append(el('label', { text: 'Cek halaman ganda (otomatis, terhadap semua artikel dan landing page)' }), head, list);
     var last = '', ready = false;
@@ -833,7 +844,7 @@
       head.append(el('span', { class: 'seo-s ' + (nb ? 'kurang' : (nw ? 'cukup' : 'bagus')), text: nb ? nb + ' masalah' : (nw ? nw + ' catatan' : 'Aman') }),
         el('span', { text: ' ' + (nb ? 'Jangan diterbitkan sebelum diperbaiki.' : (nw ? 'Boleh terbit, tapi baca catatannya.' : 'Tidak ada halaman yang bersaing.')) }));
       list.innerHTML = '';
-      items.forEach(function (i) { list.append(el('div', { class: 'seo-i ' + (i.lvl === 'ok' ? 'ok' : (i.lvl === 'waspada' ? 'wr' : 'no')) }, el('b', { text: (i.lvl === 'ok' ? '✔ ' : (i.lvl === 'waspada' ? '! ' : '✖ ')) + i.label }), i.tip ? el('small', { text: i.tip }) : null)); });
+      items.forEach(function (i) { list.append(el('div', { class: 'seo-i ' + (i.lvl === 'ok' ? 'ok' : (i.lvl === 'waspada' ? 'wr' : 'no')) }, el('b', { text: (i.lvl === 'ok' ? '✔ ' : (i.lvl === 'waspada' ? '! ' : '✖ ')) + i.label }), i.tip ? el('small', { text: i.tip }) : null, (i.fix === 'kw' && fixers) ? btn('Perbaiki otomatis', 'sm', function () { var v2 = getVals(), s = suggestKw(v2.slug, v2.title, v2.kind); if (!s) return show('Tidak menemukan kata kunci bebas. Ketik manual di Tag pertama.', 'err'); fixers.kw(s); last = ''; show('Tag pertama diganti menjadi "' + s + '". Cek lagi kotak ini, lalu Simpan.'); }) : null)); });
     }
     var tm = setInterval(render, 1500);
     Promise.all([loadTopik().catch(function () {}), loadAll()]).then(function () { ready = true; render(); }, function (e) { head.textContent = 'Gagal memeriksa: ' + e.message; });
@@ -1041,9 +1052,21 @@
     // ---- peringatan ----
     var alerts = [];
     var kwMap = {}; TOPIK.topik.forEach(function (t) { var k = normS(t.kata_kunci); (kwMap[k] = kwMap[k] || []).push(t); });
-    Object.keys(kwMap).forEach(function (k) { if (kwMap[k].length > 1) alerts.push({ txt: 'Kata kunci ganda "' + k + '": ' + kwMap[k].map(function (t) { return t.slug; }).join(', ') + '. Ubah salah satunya agar tidak bersaing.' }); });
+    Object.keys(kwMap).forEach(function (k) { if (kwMap[k].length > 1) alerts.push({ txt: 'Kata kunci ganda "' + k + '": ' + kwMap[k].map(function (t) { return t.slug; }).join(', ') + '. Ubah salah satunya agar tidak bersaing.', act: 'Perbaiki otomatis', fn: function () { return fixTopik(kwMap[k][kwMap[k].length - 1]); } }); });
     var sysKw = {}; TOPIK.halaman_sistem.forEach(function (h) { sysKw[normS(h.kata_kunci)] = h.url; });
-    TOPIK.topik.forEach(function (t) { if (sysKw[normS(t.kata_kunci)]) alerts.push({ txt: 'Topik "' + t.slug + '" memakai kata kunci milik halaman sistem ' + sysKw[normS(t.kata_kunci)] + '.' }); });
+    async function fixTopik(t) {
+      var pg = pages[t.jenis + '/' + t.slug], tt = tokSet(t.judul || (pg && pg.title) || ''), twin = null, bj = 0;
+      Object.keys(pages).forEach(function (k) { var o = pages[k]; if (o === pg) return; var j = jacArr(tt, tokSet(o.title)); if (j > bj) { bj = j; twin = o; } });
+      if (pg && twin && bj >= 0.55 && confirm('Halaman ini mirip (' + Math.round(bj * 100) + '%) dengan:\n"' + twin.title + '"\n\nHapus halaman ini karena duplikat?\n(OK = hapus, Batal = ganti kata kunci saja)')) {
+        await gh('contents/' + pg.m.f.path, { method: 'DELETE', body: JSON.stringify({ message: 'Hapus halaman duplikat: ' + t.slug, sha: pg.m.sha, branch: cfg().branch }) });
+        TOPIK.topik = TOPIK.topik.filter(function (x) { return x !== t; }); await saveTopik('Hapus topik duplikat: ' + t.slug); return;
+      }
+      var s = suggestKw(t.slug, t.judul, t.jenis); if (!s) throw new Error('Tidak menemukan kata kunci bebas untuk ' + t.slug + '. Pakai tombol Ubah.');
+      t.kata_kunci = s;
+      if (pg && pg.m.text) { var pm = parseMd(pg.m.text), tg = Array.isArray(pm.fm.tags) ? pm.fm.tags.slice() : []; tg[0] = s; var a = Object.assign({}, pm.fm, { body: pm.body, tags: tg }); await putFile(pg.m.f.path, enc(buildMd(a, t.jenis)), 'Ganti kata kunci utama: ' + t.slug, pg.m.sha); }
+      await saveTopik('Ganti kata kunci topik: ' + t.slug);
+    }
+    TOPIK.topik.forEach(function (t) { if (sysKw[normS(t.kata_kunci)]) alerts.push({ txt: 'Topik "' + t.slug + '" memakai kata kunci milik halaman sistem ' + sysKw[normS(t.kata_kunci)] + '.', act: 'Perbaiki otomatis', fn: function () { return fixTopik(t); } }); });
     var unreg = Object.keys(pages).filter(function (k) { return !topikOf(pages[k].slug, pages[k].kind); });
     if (unreg.length) alerts.push({ txt: unreg.length + ' halaman belum terdaftar di peta topik (dibuat di luar rencana): ' + unreg.map(function (k) { return k; }).join(', '), act: 'Daftarkan semuanya', fn: async function () {
       unreg.forEach(function (k) { var p = pages[k]; TOPIK.topik.push({ slug: p.slug, jenis: p.kind, kluster: '', kata_kunci: ((p.m.fm.tags || [])[0]) || '', maksud: 'info', judul: p.title }); });

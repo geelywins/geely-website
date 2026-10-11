@@ -77,9 +77,11 @@ const lds = [baseLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : 
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0e16" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" href={href('/favicon.ico')} sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href={href('/favicon-32.png')} />
-    <link rel="apple-touch-icon" href={href('/apple-touch-icon.png')} />
+    <link rel="icon" href={href('/favicon.ico?v=2')} sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href={href('/favicon-16.png?v=2')} />
+    <link rel="icon" type="image/png" sizes="32x32" href={href('/favicon-32.png?v=2')} />
+    <link rel="icon" type="image/png" sizes="48x48" href={href('/favicon-48.png?v=2')} />
+    <link rel="apple-touch-icon" href={href('/apple-touch-icon.png?v=2')} />
     <link rel="manifest" href={href('/manifest.webmanifest')} />
     <link rel="sitemap" href={href('/sitemap-index.xml')} />
 

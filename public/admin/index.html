@@ -68,6 +68,8 @@
   .item small.kl { color:#e8b64a; }
   .seo-i.wr b { color:#d68910; font-weight:600; }
   .seo-s.kurang { background:#c0392b; }
+  .sk { display:inline-block; min-width:38px; text-align:center; font-weight:800; padding:2px 8px; border-radius:8px; color:#fff; margin-left:4px; }
+  .sk.g { background:#1e8e4e; } .sk.y { background:#d68910; } .sk.r { background:#c0392b; }
   .row input[type=text] { flex:1; min-width:160px; } .row select { width:auto; }
 </style>
 </head>
@@ -94,6 +96,7 @@
     <button class="sec" data-tab="artikel">Artikel</button>
     <button class="sec" data-tab="lp">Landing Page</button>
     <button class="sec" data-tab="topik">Rencana Topik</button>
+    <button class="sec" data-tab="laporan">Laporan</button>
     <button class="sec" data-tab="model">Model Mobil</button>
     <button class="sec" data-tab="slider">Slider</button>
     <button class="sec" data-tab="promo">Promo</button>
@@ -1355,25 +1358,136 @@
       el('label', { text: 'File ZIP' }), inp, info, el('div', { class: 'row' }, go1),
       el('p', { class: 'hint', text: 'Catatan: file proses (folder .github) tidak ikut diterapkan lewat ZIP. Perbarui lewat tombol di bawah.' }));
     var wfInfo = el('div', { class: 'hint', text: '' });
-    var wfBtn = btn('Perbarui file proses (deploy.yml)', 'sec', async function () {
-      if (!confirm('Perbarui file proses website (deploy.yml) ke versi terbaru?')) return;
+    var wfBtn = btn('Perbarui file proses (semua)', 'sec', async function () {
+      if (!confirm('Perbarui file proses website ke versi terbaru?\n\nIni memasang: deploy.yml, laporan mingguan, dan posting harian.')) return;
       wfBtn.disabled = true; wfInfo.textContent = 'Memproses...';
+      var daftar = [['deploy.yml.txt', '.github/workflows/deploy.yml'], ['mingguan.yml.txt', '.github/workflows/otomasi-mingguan.yml'], ['harian.yml.txt', '.github/workflows/otomasi-harian.yml']];
       try {
-        var r0 = await fetch('./deploy.yml.txt', { cache: 'no-cache' });
-        if (!r0.ok) throw new Error('File deploy.yml.txt belum ada di website. Unggah ZIP terbaru dulu.');
-        var txt = await r0.text(), path = '.github/workflows/deploy.yml', sha = null;
-        try { sha = (await readFile(path)).sha; } catch (e) { if (String(e.message).indexOf('GitHub 404') !== 0) throw e; }
-        await putFile(path, enc(txt), 'Perbarui file proses website (deploy.yml)', sha);
-        wfInfo.textContent = ''; show('deploy.yml berhasil diperbarui.');
+        for (var i = 0; i < daftar.length; i++) {
+          var r0 = await fetch('./' + daftar[i][0], { cache: 'no-cache' });
+          if (!r0.ok) throw new Error('File ' + daftar[i][0] + ' belum ada di website. Unggah ZIP terbaru dulu.');
+          var txt = await r0.text(), path = daftar[i][1], sha = null;
+          try { sha = (await readFile(path)).sha; } catch (e) { if (String(e.message).indexOf('GitHub 404') !== 0) throw e; }
+          wfInfo.textContent = 'Memproses ' + (i + 1) + '/' + daftar.length + '...';
+          await putFile(path, enc(txt), 'Perbarui file proses website (' + path.split('/').pop() + ')', sha);
+        }
+        wfInfo.textContent = ''; show('Semua file proses berhasil diperbarui (deploy, laporan mingguan, posting harian).');
       } catch (e) {
         wfInfo.textContent = '';
-        var m = /403|404|workflow/i.test(e.message) && !/deploy.yml.txt/.test(e.message) ? e.message + ' | Kemungkinan token belum punya izin "Workflows: Read and write". Buka GitHub, Settings, Developer settings, Fine-grained tokens, edit token, tambahkan izin Workflows = Read and write, lalu simpan.' : e.message;
+        var m = /403|404|workflow/i.test(e.message) && !/\.yml\.txt/.test(e.message) ? e.message + ' | Kemungkinan token belum punya izin "Workflows: Read and write". Buka GitHub, Settings, Developer settings, Fine-grained tokens, edit token, tambahkan izin Workflows = Read and write, lalu simpan.' : e.message;
         show(m, 'err');
       }
       wfBtn.disabled = false;
     });
-    card.append(el('h3', { text: 'File proses website' }), el('p', { class: 'hint', text: 'Dipakai kalau Claude memberi tahu deploy.yml berubah. Token harus punya izin Workflows: Read and write.' }), el('div', { class: 'row' }, wfBtn), wfInfo);
+    card.append(el('h3', { text: 'File proses website' }), el('p', { class: 'hint', text: 'Dipakai kalau Claude memberi tahu file proses berubah (deploy, laporan mingguan, posting harian). Token harus punya izin Workflows: Read and write. Untuk tombol "Jalankan sekarang" di menu Laporan, tambahkan juga izin Actions: Read and write.' }), el('div', { class: 'row' }, wfBtn), wfInfo);
     view.innerHTML = ''; view.append(card);
+  }
+
+  // =============== laporan otomatis ===============
+  async function tabLaporan() {
+    var my = navId;
+    view.innerHTML = '<div class="card">Memuat laporan...</div>';
+    var L = null, P = null;
+    try { L = (await readJson('src/data/laporan.json')).data; } catch (e) { if (String(e.message).indexOf('GitHub 404') !== 0) { if (my !== navId) return; return show(e.message, 'err'); } }
+    try { P = (await readJson('src/data/dipost.json')).data; } catch (e) {}
+    if (my !== navId) return;
+    var c = cfg();
+    function jalankan(file, nama) {
+      return btn('Jalankan ' + nama + ' sekarang', 'sm sec', async function () {
+        if (!confirm('Jalankan ' + nama + ' sekarang? Hasilnya muncul di menu ini setelah ±3-10 menit.')) return;
+        try { await gh('actions/workflows/' + file + '/dispatches', { method: 'POST', body: JSON.stringify({ ref: cfg().branch }) }); show('Sudah dijalankan. Tunggu ±3-10 menit, lalu buka menu Laporan lagi.'); }
+        catch (e) { show(e.message + ' | Kemungkinan: file proses belum dipasang (tab Upload ZIP, tombol "Perbarui file proses") atau token belum punya izin "Actions: Read and write".', 'err'); }
+      });
+    }
+    function sk(n) { return el('span', { class: 'sk ' + (n >= 90 ? 'g' : n >= 50 ? 'y' : 'r'), text: String(n) }); }
+    function sec(judul, anak, buka) { var d = el('details', { class: 'det' }, el('summary', { text: judul })); if (buka) d.open = true; (Array.isArray(anak) ? anak : [anak]).forEach(function (x) { if (x) d.append(x); }); return d; }
+    function baris(utama, kecil) { return el('div', { class: 'item' }, el('div', null, el('b', { text: utama }), kecil ? el('small', { text: kecil }) : null)); }
+    function kosong(t) { return el('p', { class: 'hint', text: t }); }
+    function selisih(a, b, balik) { var d = Math.round((a - b) * 10) / 10; if (!d) return ' (sama)'; var baik = balik ? d < 0 : d > 0; return ' (' + (d > 0 ? '+' : '') + d + (baik ? ', membaik' : ', menurun') + ')'; }
+    function merah(x) { return el('div', { class: 'alert' }, el('div', null, el('b', { text: x.url }), el('small', { text: 'Status ' + x.status + '. Muncul di: ' + x.dari.join(', ') }))); }
+
+    var head = el('div', { class: 'card' }, el('h2', { text: 'Laporan Otomatis' }),
+      el('p', { class: 'hint', text: L ? 'Dibuat otomatis tiap Senin pagi. Terakhir: ' + new Date(L.dibuat).toLocaleString('id-ID') + '.' : 'Belum ada laporan.' }),
+      el('div', { class: 'row' }, jalankan('otomasi-mingguan.yml', 'laporan'), el('a', { href: 'https://github.com/' + c.owner + '/' + c.repo + '/actions', target: '_blank', rel: 'noopener', text: 'Lihat progres di GitHub Actions' })));
+    view.innerHTML = ''; view.append(head);
+    if (!L) {
+      head.append(el('p', { class: 'alert', text: 'Laporan pertama belum ada. Langkah: (1) tab Upload ZIP, unggah ZIP terbaru; (2) di tab yang sama tekan "Perbarui file proses"; (3) kembali ke sini, tekan "Jalankan laporan sekarang"; (4) tunggu ±10 menit lalu buka menu ini lagi.' }));
+    } else {
+      var k = L.konten || {};
+      head.append(el('div', { class: 'row' }, el('span', { class: 'bdg tayang', text: (k.tayang || 0) + ' tayang' }), el('span', { class: 'bdg terjadwal', text: (k.terjadwal || 0) + ' terjadwal' }), el('span', { class: 'bdg draft', text: (k.draft || 0) + ' draft' })));
+      if (k.draft > 0) head.append(el('p', { class: 'note', text: 'Ada ' + k.draft + ' halaman berstatus draft. Draft belum tayang, jadi belum dilihat Google. Jadwalkan atau terbitkan lewat menu Rencana Topik.' }));
+
+      // ---- Search Console ----
+      var g = L.gsc || {}, gk = [];
+      if (g.status === 'ok') {
+        var a = g.sekarang, b = g.sebelumnya;
+        gk.push(kosong('Periode ' + g.periode.startDate + ' s/d ' + g.periode.endDate + ', dibanding 28 hari sebelumnya. Data Google tertunda ±3 hari.'));
+        gk.push(baris('Klik dari Google: ' + a.klik + selisih(a.klik, b.klik), null));
+        gk.push(baris('Tayang di hasil pencarian: ' + a.tayang + selisih(a.tayang, b.tayang), null));
+        gk.push(baris('Posisi rata-rata: ' + a.posisi + selisih(a.posisi, b.posisi, true), 'Makin kecil makin bagus (1 = paling atas).'));
+        gk.push(el('h3', { text: 'Hampir halaman 1: perkuat halaman ini' }));
+        if (!g.dekat.length) gk.push(kosong('Belum ada. Biasanya muncul setelah situs lebih lama dikenal Google.'));
+        (g.dekat || []).forEach(function (x) { gk.push(baris('"' + x.query + '" - posisi ' + x.posisi, x.halaman + ' (tayang ' + x.tayang + ', klik ' + x.klik + '). Saran: tambah bagian yang menjawab kata ini dan tambah link dari artikel lain.')); });
+        gk.push(el('h3', { text: 'Sering muncul tapi jarang diklik: perbaiki judul dan deskripsi' }));
+        if (!g.ctrRendah.length) gk.push(kosong('Belum ada.'));
+        (g.ctrRendah || []).forEach(function (x) { gk.push(baris('"' + x.query + '" - posisi ' + x.posisi + ', klik ' + x.ctr + '%', x.halaman + ' (tayang ' + x.tayang + ')')); });
+        gk.push(el('h3', { text: 'Dua halaman bersaing untuk kata yang sama' }));
+        if (!g.bersaing.length) gk.push(kosong('Tidak ada. Bagus.'));
+        (g.bersaing || []).forEach(function (x) { gk.push(el('div', { class: 'alert' }, el('div', null, el('b', { text: '"' + x.query + '"' }), el('small', { text: x.halaman.map(function (h) { return h.halaman + ' (posisi ' + h.posisi + ')'; }).join('  |  ') + '. Pilih satu halaman utama, ubah kata kunci halaman lain di Rencana Topik.' })))); });
+        gk.push(el('h3', { text: 'Halaman teratas (klik)' }));
+        (g.halaman_teratas || []).forEach(function (x) { gk.push(baris(x.halaman, 'klik ' + x.klik + ', tayang ' + x.tayang + ', posisi ' + x.posisi)); });
+      } else if (g.status === 'belum_disambungkan') {
+        gk.push(el('p', { class: 'alert', text: 'Search Console belum disambungkan. Bagian lain tetap jalan. Minta Claude "panduan sambungkan Search Console" untuk langkahnya.' }));
+      } else gk.push(el('p', { class: 'alert', text: g.pesan || 'Terjadi masalah.' }));
+      view.append(sec('Google Search Console', gk, true));
+
+      // ---- link rusak & SEO ----
+      var ln = L.link || {}, lk = [];
+      if (ln.status === 'ok') {
+        var dlm = (ln.rusak || []).filter(function (x) { return !x.luar; }), lr = (ln.rusak || []).filter(function (x) { return x.luar && !x.ragu; }), rg = (ln.rusak || []).filter(function (x) { return x.ragu; });
+        lk.push(kosong(ln.halaman_dicek + ' halaman dan ' + ln.link_dicek + ' link dicek.'));
+        lk.push(el('h3', { text: 'Link rusak di dalam website (' + dlm.length + ')' }));
+        if (!dlm.length) lk.push(kosong('Tidak ada. Bagus.'));
+        dlm.forEach(function (x) { lk.push(merah(x)); });
+        lk.push(el('h3', { text: 'Link rusak ke website lain (' + lr.length + ')' }));
+        if (!lr.length) lk.push(kosong('Tidak ada.'));
+        lr.forEach(function (x) { lk.push(merah(x)); });
+        if (rg.length) { lk.push(el('h3', { text: 'Tidak bisa dihubungi, cek manual (' + rg.length + ')' })); lk.push(kosong('Bisa jadi situsnya menolak robot, bukan rusak. Buka sendiri dari HP untuk memastikan.')); rg.forEach(function (x) { lk.push(baris(x.url, 'Muncul di: ' + x.dari.join(', '))); }); }
+        lk.push(el('h3', { text: 'Catatan SEO per halaman (' + (ln.seo || []).length + ')' }));
+        if (!(ln.seo || []).length) lk.push(kosong('Semua halaman lolos pengecekan dasar.'));
+        (ln.seo || []).forEach(function (x) { lk.push(baris(x.url, x.masalah.join('; '))); });
+      } else lk.push(el('p', { class: 'alert', text: ln.pesan || 'Terjadi masalah.' }));
+      view.append(sec('Link rusak dan cek SEO halaman', lk, false));
+
+      // ---- Lighthouse ----
+      var lh = (L.lighthouse && L.lighthouse.hasil) || [], lhk = [kosong('Skor 0-100 untuk tampilan HP. Hijau 90+ bagus, kuning 50-89, merah di bawah 50. Skor bisa naik turun sedikit tiap pengujian. Urutan angka: Kecepatan, Aksesibilitas, Praktik terbaik, SEO.')];
+      if (!lh.length) lhk.push(kosong('Belum ada data.'));
+      lh.forEach(function (x) {
+        if (x.error) { lhk.push(baris(x.url, 'Gagal diukur: ' + x.error)); return; }
+        lhk.push(el('div', { class: 'item' }, el('div', null, el('b', { text: x.url }), el('small', { text: 'Muat gambar utama ' + x.lcp + ' | Pergeseran tampilan ' + x.cls + ' | Waktu tunggu ' + x.tbt })),
+          el('div', { class: 'btns' }, [sk(x.skor.performa), sk(x.skor.aksesibilitas), sk(x.skor.praktik), sk(x.skor.seo)])));
+      });
+      view.append(sec('Kecepatan (Lighthouse)', lhk, false));
+
+      // ---- usang ----
+      var us = L.usang || [];
+      view.append(sec('Artikel yang perlu diperbarui (' + us.length + ')', us.length ? us.map(function (x) { return baris(x.title, x.jenis + '/' + x.slug + ' - umur ' + x.umur_hari + ' hari. Perbarui isinya lalu isi tanggal "diperbarui".'); }) : kosong('Belum ada. Halaman ditandai kalau sudah lebih dari 180 hari tanpa pembaruan.'), false));
+    }
+
+    // ---- posting sosmed ----
+    var pk = [];
+    if (!P) pk.push(kosong('Belum aktif. Pasang file proses lalu jalankan sekali; catatan awal dibuat otomatis dan artikel lama TIDAK diposting ulang.'));
+    else {
+      var cnt = { terkirim: 0, awal: 0, dilewati: 0 }, trk = [];
+      Object.keys(P.diposting || {}).forEach(function (s) { var v = P.diposting[s]; cnt[v.status] = (cnt[v.status] || 0) + 1; if (v.status === 'terkirim') trk.push({ s: s, t: v.tanggal }); });
+      trk.sort(function (a, b) { return b.t.localeCompare(a.t); });
+      pk.push(el('div', { class: 'row' }, el('span', { class: 'bdg tayang', text: cnt.terkirim + ' terkirim' }), el('span', { class: 'bdg', text: cnt.awal + ' artikel lama (tidak dikirim)' }), el('span', { class: 'bdg draft', text: cnt.dilewati + ' dilewati' })));
+      trk.slice(0, 8).forEach(function (x) { pk.push(baris(x.s, 'terkirim ' + x.t)); });
+      if (!trk.length) pk.push(kosong('Belum ada artikel yang dikirim.'));
+    }
+    pk.push(el('div', { class: 'row' }, jalankan('otomasi-harian.yml', 'posting')));
+    pk.push(kosong('Jalan otomatis tiap hari pukul 07:00 WIB. Maksimal 2 artikel per hari. Perlu secret TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (ke Telegram) dan/atau N8N_WEBHOOK_URL di GitHub; tanpa itu, artikel baru hanya dicatat dan tidak dikirim.'));
+    view.append(sec('Posting artikel baru ke media sosial', pk, !L));
   }
 
   // =============== menu & awal ===============
@@ -1384,6 +1498,7 @@
     if (name === 'artikel') return tabArtikel();
     if (name === 'lp') return tabLp();
     if (name === 'topik') return tabTopik();
+    if (name === 'laporan') return tabLaporan();
     if (name === 'model') return openCollection(COL.model);
     if (name === 'promo') return openCollection(COL.promo);
     if (name === 'slider') return openCollection(COL.slider);

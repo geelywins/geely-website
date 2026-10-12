@@ -1,10 +1,9 @@
 ---
 title: "Spesifikasi Lengkap Geely EX5 Pro dan Max, Arti Tiap Angka"
 description: "Spesifikasi geely ex5 Pro dan Max dari brosur resmi dalam satu tabel, lengkap dengan arti kWh, kW, Nm, NEDC, WLTP, dan dimensi. Baca dan tanya sales."
-date: 2026-10-10
+date: 2026-10-15
 category: "Model Geely"
-tags: ["spesifikasi geely ex5", "geely ex5", "geely ex5 pro", "geely ex5 max", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta"]
-draft: true
+tags: ["spesifikasi geely ex5","geely ex5","geely ex5 pro","geely ex5 max","mobil listrik geely","geely ev","geely indonesia","ev geely jakarta"]
 ---
 
 Spesifikasi Geely EX5 menurut brosur resmi: baterai LFP 60,22 kWh, motor 160 kW dengan torsi 320 Nm, penggerak roda depan, klaim jarak NEDC 495 km (Pro) dan 490 km (Max). Di bawah ini ada tabel lengkap Pro dan Max, lalu penjelasan arti tiap angkanya dengan bahasa sehari-hari.

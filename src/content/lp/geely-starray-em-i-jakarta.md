@@ -1,6 +1,6 @@
 ---
 title: "Geely Starray EM-i Jakarta: SUV Plug-in Hybrid, Test Drive BSD"
-description: "Cari Geely Starray EM-i Jakarta? Kenali SUV plug-in hybrid ini, data terverifikasinya, cocok untuk siapa, dan cara test drive di BSD City atau Tanah Abang."
+description: "Cari Geely Starray EM-i Jakarta? Kenali SUV plug-in hybrid ini, data terverifikasinya, cocok untuk siapa, dan cara test drive di BSD City."
 date: 2026-10-10
 tags: ["geely starray em-i jakarta", "geely starray em-i", "geely starray", "plug-in hybrid", "suv hybrid", "geely indonesia", "geely ev", "ev geely jakarta", "test drive geely", "mobil listrik geely"]
 model: "geely-starray-em-i"
@@ -8,7 +8,7 @@ artikel: ["spesifikasi-geely-starray-em-i-plug-in-hybrid", "konsumsi-bbm-geely-s
 draft: true
 ---
 
-Mencari Geely Starray EM-i Jakarta? Mobil ini adalah SUV plug-in hybrid: baterainya bisa dicolok untuk pemakaian listrik harian, sementara mesin bensin menjaga perjalanan jauh tetap tenang. Halaman ini merangkum data terverifikasi, cocok untuk siapa, dan cara test drive di BSD City atau Tanah Abang.
+Mencari Geely Starray EM-i Jakarta? Mobil ini adalah SUV plug-in hybrid: baterainya bisa dicolok untuk pemakaian listrik harian, sementara mesin bensin menjaga perjalanan jauh tetap tenang. Halaman ini merangkum data terverifikasi, cocok untuk siapa, dan cara test drive di BSD City.
 
 ## Kenapa melirik Geely Starray EM-i
 
@@ -64,7 +64,7 @@ Cara terbaik menilai plug-in hybrid adalah merasakan sendiri perpindahan antara 
 
 1. Chat WhatsApp sales lewat halaman [kontak](/kontak/) dan sebutkan Starray EM-i.
 2. Tanyakan status pemesanan dan ketersediaan unit untuk test drive.
-3. Pilih lokasi: [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/).
+3. Lokasi: [Geely BSD City](/lokasi/geely-bsd-city/).
 4. Datang di hari yang disepakati, lalu coba tiga mode berkendara.
 5. Diskusikan kebutuhan Anda dengan tenang, termasuk pilihan pembayaran.
 
@@ -94,7 +94,7 @@ Flyer pernah menulis PRE-BOOK NOW, tetapi statusnya bisa sudah berubah. Tanyakan
 
 ### Di mana test drive Starray EM-i di Jakarta?
 
-Anda bisa datang ke dealer kami di BSD City atau Tanah Abang, Jakarta Pusat. Buat janji dulu agar unit siap saat Anda datang.
+Anda bisa datang ke dealer kami di BSD City. Buat janji dulu agar unit siap saat Anda datang.
 
 ### Apakah jarak 1.000 km pasti tercapai?
 
@@ -104,4 +104,4 @@ Tidak ada jaminan. Angka itu klaim pabrikan menurut siklus NEDC, dan hasil di ja
 
 Geely Starray EM-i Jakarta layak dipertimbangkan jika Anda mencari SUV yang bisa memakai listrik untuk harian tetapi tetap leluasa untuk perjalanan jauh. Datanya jelas: mesin 1,5 liter, motor 160 kW, baterai 18,4 kWh, dan bagasi 528 liter. Semua angka jarak dan konsumsi tetap klaim pabrikan.
 
-Untuk bertanya soal status pemesanan atau mencoba langsung, hubungi kami lewat halaman [kontak](/kontak/) atau datang ke [BSD City](/lokasi/geely-bsd-city/) dan [Tanah Abang](/lokasi/geely-tanah-abang/). Kami siap menjelaskan dengan jujur dan membantu Anda memilih yang paling pas.
+Untuk bertanya soal status pemesanan atau mencoba langsung, hubungi kami lewat halaman [kontak](/kontak/) atau datang ke [BSD City](/lokasi/geely-bsd-city/). Kami siap menjelaskan dengan jujur dan membantu Anda memilih yang paling pas.

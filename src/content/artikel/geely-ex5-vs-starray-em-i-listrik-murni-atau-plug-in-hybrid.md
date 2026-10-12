@@ -97,4 +97,4 @@ Bisa. EX5 menerima AC hingga 11 kW dan Starray EM-i hingga 6,6 kW. Kesiapan inst
 
 Geely EX5 vs Starray EM-i bukan soal mana yang lebih baik, melainkan mana yang lebih cocok dengan kebiasaan Anda. EX5 unggul sebagai mobil listrik murni yang kuat dan cepat. Starray EM-i unggul pada fleksibilitas, bagasi lebih luas, dan ketenangan saat bepergian jauh.
 
-Cara terbaik memutuskan adalah mencoba keduanya. Hubungi kami lewat halaman [kontak](/kontak/) atau lihat [promo](/promo/) terbaru, lalu jadwalkan test drive di BSD City atau Tanah Abang.
+Cara terbaik memutuskan adalah mencoba keduanya. Hubungi kami lewat halaman [kontak](/kontak/) atau lihat [promo](/promo/) terbaru, lalu jadwalkan test drive di BSD City.

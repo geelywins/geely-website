@@ -82,4 +82,4 @@ Mode Power mengutamakan respons tenaga. Cocok untuk menyalip atau tanjakan, teta
 
 Cara kerja plug-in hybrid Geely EM-i mudah dipahami: isi baterai dari colokan untuk pemakaian harian dengan listrik, dan biarkan mesin bensin menjaga perjalanan jauh. Pilih mode Pure, Hybrid, atau Power sesuai situasi, dan manfaatkan pengisian AC 6,6 kW atau DC 30 kW bila perlu.
 
-Cara terbaik memahaminya adalah merasakannya sendiri. Hubungi kami lewat halaman [kontak](/kontak/) untuk menjadwalkan test drive di BSD City atau Tanah Abang.
+Cara terbaik memahaminya adalah merasakannya sendiri. Hubungi kami lewat halaman [kontak](/kontak/) untuk menjadwalkan test drive di BSD City.

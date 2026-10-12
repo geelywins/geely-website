@@ -100,7 +100,7 @@ Untuk gambaran perbedaannya, baca [perawatan mobil listrik yang berbeda dari mob
 
 Tuliskan rute harian dan perjalanan jauh Anda dalam satu minggu. Cek apakah ada tempat mengisi daya di rumah atau kantor. Lalu coba langsung mobilnya. Pengalaman berkendara sering mengubah pilihan yang tadinya terasa pasti.
 
-Anda bisa mencoba di [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/). Lihat semua pilihan di halaman [model Geely](/model/), dan cek [promo](/promo/) untuk penawaran terbaru.
+Anda bisa mencoba di [Geely BSD City](/lokasi/geely-bsd-city/). Lihat semua pilihan di halaman [model Geely](/model/), dan cek [promo](/promo/) untuk penawaran terbaru.
 
 ## Pertanyaan yang sering diajukan
 

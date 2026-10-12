@@ -2,13 +2,12 @@
 title: "Spesifikasi Lengkap Geely EX2 Max dan Arti Tiap Angkanya"
 description: "Spesifikasi lengkap Geely EX2 Max dalam tabel, plus arti tiap angka dengan bahasa mudah. Hubungi sales Geely untuk konfirmasi data terbaru."
 date: 2026-10-13
-updated: 2026-10-10
 category: "Model Geely"
-tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","spesifikasi mobil listrik","baterai lfp","mobil listrik kompak","ev indonesia"]
-image: "/images/artikel/209074-mv279cba.jpg"
+tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "spesifikasi mobil listrik", "baterai lfp", "mobil listrik kompak", "ev indonesia"]
+draft: true
 ---
 
-Spesifikasi lengkap Geely EX2 Max sering terlihat seperti deretan angka yang sulit dipahami. Padahal setiap angka punya arti praktis untuk pemakaian sehari-hari. Di artikel ini saya merangkum datanya dalam tabel, lalu menjelaskan maknanya dengan bahasa yang mudah dipahami yang akan di jadikan bahan referensi untuk pilihan mobil anda.
+Spesifikasi lengkap Geely EX2 Max mencakup baterai LFP 40,8 kWh, motor 85 kW, torsi 150 Nm, dan klaim jarak tempuh 395 km menurut siklus NEDC. Artikel ini merangkum datanya dalam tabel, lalu menjelaskan arti tiap angka dengan bahasa yang mudah diikuti.
 
 ## Tabel spesifikasi Geely EX2 Max
 
@@ -44,7 +43,7 @@ LFP adalah singkatan dari lithium iron phosphate. Jenis baterai ini dikenal stab
 
 Daya 85 kW menunjukkan kemampuan motor menghasilkan tenaga. Torsi 150 Nm adalah tenaga putar yang terasa saat Anda menginjak pedal. Pada mobil listrik, torsi tersedia sejak awal pedal diinjak. Itu sebabnya mobil terasa responsif saat berakselerasi di kota.
 
-Saya sengaja tidak menyebut angka akselerasi 0-100 km/jam. Data itu belum kami verifikasi, jadi lebih baik Anda rasakan sendiri saat test drive.
+Akselerasi 0-100 km/jam EX2 disebut sekitar 11,5 detik di data spesifikasi yang beredar. Angka ini perkiraan, jadi lebih baik Anda rasakan sendiri respons mobilnya saat test drive.
 
 ## Arti klaim jarak 395 km
 
@@ -102,7 +101,9 @@ NEDC adalah siklus pengujian yang dilakukan dalam kondisi terkontrol. Pemakaian 
 
 Hubungi sales Geely untuk data terbaru. Informasi bisa diperbarui seiring waktu.
 
-Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
+## Siap untuk membeli Geely EX2 di Jakarta?
+
+Jika spesifikasi EX2 Max sudah menjawab sebagian pertanyaan Anda, langkah berikutnya adalah melihat gambaran lengkap mobil ini dalam pemakaian sehari-hari. Kunjungi halaman [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/) untuk ringkasan lengkap yang mencakup kelebihan, pertimbangan penting, dan cara memulai test drive. Halaman itu dirancang bagi mereka yang mencari penjelasan praktis sebelum membuat keputusan.
 
 ## Kesimpulan
 

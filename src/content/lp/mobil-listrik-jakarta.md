@@ -1,14 +1,14 @@
 ---
 title: "Mobil Listrik Jakarta: Panduan Memilih untuk Macet dan Parkir"
-description: "Mencari mobil listrik Jakarta untuk macet, parkir mal, dan kantor? Lihat cara memilih Geely EX2 atau EX5 sesuai rute harian, lalu test drive di Tanah Abang."
+description: "Mencari mobil listrik Jakarta untuk macet, parkir mal, dan kantor? Lihat cara memilih Geely EX2 atau EX5 sesuai rute harian, lalu test drive di BSD City."
 date: 2026-10-10
-tags: ["mobil listrik jakarta", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "geely ex2", "geely ex5", "mobil listrik kompak", "test drive geely tanah abang"]
+tags: ["mobil listrik jakarta", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "geely ex2", "geely ex5", "mobil listrik kompak", "test drive geely bsd city"]
 model: "geely-ex2"
 artikel: ["geely-ex2-max-di-macet-jakarta-dan-bsd", "kamera-540-derajat-geely-ex2-max-membantu-parkir", "jarak-tempuh-geely-ex2-max-klaim-vs-pemakaian-harian", "cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin", "perbandingan-geely-ex2-vs-ex5-pilih-yang-mana"]
 draft: true
 ---
 
-Memilih mobil listrik Jakarta berarti menimbang tiga hal: seberapa sering Anda terjebak macet, di mana mobil diparkir, dan di mana ia diisi dayanya. Halaman ini membantu Anda mencocokkan kebiasaan di kota dengan pilihan Geely EX2 atau EX5, lalu mencobanya langsung di Tanah Abang.
+Memilih mobil listrik Jakarta berarti menimbang tiga hal: seberapa sering Anda terjebak macet, di mana mobil diparkir, dan di mana ia diisi dayanya. Halaman ini membantu Anda mencocokkan kebiasaan di kota dengan pilihan Geely EX2 atau EX5, lalu mencobanya langsung di BSD City.
 
 ## Mengapa kota besar cocok untuk mobil listrik
 
@@ -69,9 +69,9 @@ Cara terbaik adalah menghitung dengan angka Anda sendiri. Panduannya ada di [car
 
 Jika Anda masih ragu antara listrik penuh dan plug-in hybrid, baca [mobil listrik atau hybrid](/lp/mobil-listrik-atau-hybrid/). Jika Anda tinggal di sisi barat, lihat juga halaman [mobil listrik BSD](/lp/mobil-listrik-bsd/).
 
-## Test drive di Tanah Abang
+## Test drive di BSD City
 
-Lokasi [Geely Tanah Abang](/lokasi/geely-tanah-abang/) berada di Jakarta Pusat, jadi cocok untuk mencoba mobil dalam kondisi lalu lintas kota. Alamat jalan dan jam buka tidak kami tulis di sini. Hubungi sales lebih dulu untuk memastikan unit tersedia.
+Lokasi [Geely BSD City](/lokasi/geely-bsd-city/) ada di BSD City, Tangerang Selatan, dan mudah dijangkau dari Jakarta lewat tol. Coba mobil di jalan yang biasa Anda lewati agar penilaiannya nyata. Alamat jalan dan jam buka tidak kami tulis di sini. Hubungi sales lebih dulu untuk memastikan unit tersedia.
 
 Beberapa hal yang bisa Anda coba saat di sana:
 

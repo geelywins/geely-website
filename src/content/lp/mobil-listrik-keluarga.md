@@ -2,9 +2,10 @@
 title: "Mobil Listrik Keluarga: Panduan Memilih EX2 atau EX5"
 description: "Cari mobil listrik keluarga yang lega, aman, dan nyaman? Bandingkan Geely EX2 dan EX5 untuk kebutuhan harian Anda, lalu chat sales atau jadwalkan test drive."
 date: 2026-10-10
+updated: 2026-10-10
 tags: ["mobil listrik keluarga", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "ev geely jakarta", "suv listrik keluarga", "mobil listrik kompak", "geely ex2"]
 model: "geely-ex5"
-artikel: ["geely-ex2-max-untuk-keluarga-muda","geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan","keamanan-geely-ex2-max-6-airbag-dan-fitur-pelindung","geely-ex2-max-vs-geely-ex5-pilih-yang-mana"]
+artikel: ["geely-ex2-max-untuk-keluarga-muda","geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan","keamanan-geely-ex2-max-6-airbag-dan-fitur-pelindung","perbandingan-geely-ex2-vs-ex5-pilih-yang-mana"]
 draft: false
 ---
 
@@ -30,7 +31,7 @@ Kenyamanan mobil keluarga terasa pada perjalanan yang panjang di tengah kemaceta
 
 [Geely EX2](/model/geely-ex2/) adalah mobil listrik kompak dengan kapasitas 5 penumpang. Ukurannya ringkas, jadi mudah dibawa di jalan padat dan parkir mal. Layar tengah 14,6 inci memudahkan pengaturan navigasi dan hiburan.
 
-[Geely EX5](/model/geely-ex5/) hadir sebagai SUV listrik dengan kabin yang lebih lega untuk keluarga. Untuk ukuran, jumlah kursi, dan fitur detailnya, silakan tanyakan ke sales karena kami hanya menyebut data yang sudah terverifikasi. Gambaran umumnya ada di [EX5 SUV listrik keluarga](/artikel/geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan/).
+[Geely EX5](/model/geely-ex5/) hadir sebagai SUV listrik dengan kabin yang lebih lega untuk keluarga. Kapasitasnya 5 penumpang, dan jok belakangnya dilengkapi ISOFIX untuk kursi anak. Fitur lain per varian bisa Anda tanyakan ke sales. Gambaran umumnya ada di [EX5 SUV listrik keluarga](/artikel/geely-ex5-suv-listrik-keluarga-spesifikasi-dan-kelebihan/).
 
 Cara paling jujur menilai ruang adalah duduk langsung bersama seluruh keluarga. Ajak anak dan orang tua Anda saat test drive.
 
@@ -40,7 +41,7 @@ Keluarga biasanya membawa lebih banyak barang. Di Geely EX2, bagasi belakang ber
 
 Contoh pemakaiannya adalah belanja bulanan, tas olahraga, dan perlengkapan piknik. Bila Anda membawa kereta bayi atau koper besar, bawa barang itu sendiri saat test drive. Cara itu lebih akurat daripada sekadar melihat angka liter. Baca juga [bagasi 375 liter dan frunk 70 liter Geely EX2](/artikel/bagasi-375-liter-dan-frunk-70-liter-geely-ex2-muat-apa-saja/).
 
-Untuk bagasi EX5, tanyakan ke sales agar Anda mendapat angka resmi, bukan perkiraan.
+Bagasi EX5 berkapasitas 461 liter dengan kursi tegak, dan bisa mencapai 1.877 liter saat kursi dilipat.
 
 ## Keselamatan: tenang untuk anak dan orang tua
 
@@ -48,21 +49,21 @@ Keselamatan adalah alasan utama banyak keluarga berhati-hati. Geely EX2 dibekali
 
 Namun perlu diingat, ADAS adalah alat bantu. Pengemudi tetap bertanggung jawab penuh, dan sabuk pengaman wajib dipakai semua penumpang. Kami juga tidak mengutip hasil uji tabrak karena datanya belum tersedia di informasi yang kami pegang.
 
-Penjelasan lengkapnya ada di [keamanan Geely EX2 Max: 6 airbag dan fitur pelindung](/artikel/keamanan-geely-ex2-max-6-airbag-dan-fitur-pelindung/). Untuk fitur keselamatan EX5, silakan tanyakan ke sales.
+Penjelasan lengkapnya ada di [keamanan Geely EX2 Max: 6 airbag dan fitur pelindung](/artikel/keamanan-geely-ex2-max-6-airbag-dan-fitur-pelindung/). EX5 juga memiliki ISOFIX di jok belakang, kontrol stabilitas, dan kamera 360 derajat. Jumlah airbag total tanyakan ke sales.
 
 ## Perbandingan ringkas EX2 dan EX5 untuk keluarga
 
-Tabel berikut adalah garis besar. Angka yang belum terverifikasi sengaja tidak ditulis.
+Tabel berikut adalah garis besar. Angka diambil dari data resmi.
 
 | Aspek | Geely EX2 | Geely EX5 |
 |---|---|---|
 | Tipe | Mobil listrik kompak | SUV listrik |
 | Cocok untuk | Keluarga kecil, dalam kota | Keluarga yang butuh kabin lebih lega |
-| Penumpang | 5 orang | Tanyakan ke sales |
-| Bagasi | 375 liter (hingga 1.320 liter) | Tanyakan ke sales |
+| Penumpang | 5 orang | 5 orang |
+| Bagasi | 375 liter (hingga 1.320 liter) | 461 liter (hingga 1.877 liter) |
 | Parkir dan manuver | Sangat mudah | Tanyakan saat test drive |
 
-Tidak ada pilihan yang paling benar untuk semua orang. Kalau anak Anda masih kecil dan rute harian dalam kota, EX2 bisa sangat cukup. Kalau anggota keluarga banyak atau Anda sering membawa banyak barang, EX5 layak dipertimbangkan. Bahasan lanjutan ada di [EX2 Max vs EX5: pilih yang mana](/artikel/geely-ex2-max-vs-geely-ex5-pilih-yang-mana/).
+Tidak ada pilihan yang paling benar untuk semua orang. Kalau anak Anda masih kecil dan rute harian dalam kota, EX2 bisa sangat cukup. Kalau anggota keluarga banyak atau Anda sering membawa banyak barang, EX5 layak dipertimbangkan. Bahasan lanjutan ada di [perbandingan Geely EX2 vs EX5](/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/).
 
 ## Mengisi daya dan kebutuhan harian keluarga
 
@@ -74,7 +75,7 @@ Pastikan instalasi listrik rumah dicek oleh teknisi dan PLN. Jika Anda baru bera
 
 ## Cara mencoba sebelum memutuskan
 
-Keputusan keluarga sebaiknya diambil bersama. Datanglah dengan pasangan, anak, dan kalau perlu orang tua. Kami menerima kunjungan di [Geely BSD City](/lokasi/geely-bsd-city/) dan [Geely Tanah Abang](/lokasi/geely-tanah-abang/).
+Keputusan keluarga sebaiknya diambil bersama. Datanglah dengan pasangan, anak, dan kalau perlu orang tua. Kami menerima kunjungan di [Geely BSD City](/lokasi/geely-bsd-city/).
 
 Saat test drive, coba hal berikut.
 
@@ -102,7 +103,7 @@ Bagasinya 375 liter dan bisa hingga 1.320 liter dengan jok dilipat, ditambah fru
 
 ### Bagaimana dengan spesifikasi EX5?
 
-Kami belum menampilkan angka spesifikasi EX5 karena belum terverifikasi. Silakan tanya sales untuk data resmi terbaru.
+Baterai LFP 60,22 kWh, motor 160 kW, dan klaim jarak NEDC hingga 495 km, dengan bagasi 461 liter. Tanyakan ke sales untuk data terbaru per varian.
 
 ### Apakah saya bisa test drive bersama keluarga?
 

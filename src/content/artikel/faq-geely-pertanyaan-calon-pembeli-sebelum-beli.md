@@ -40,7 +40,7 @@ Ketentuan pembatalan tergantung kesepakatan saat pemesanan. Tanyakan ke sales da
 Bisa. Atur jadwal lewat WhatsApp, lalu datang ke dealer. Langkah-langkahnya ada di [cara test drive Geely](/artikel/cara-test-drive-geely/).
 
 ### Dealer Geely ada di mana saja?
-Ada dua lokasi: [Geely BSD City](/lokasi/geely-bsd-city/) dan [Geely Tanah Abang](/lokasi/geely-tanah-abang/). Alamat lengkap dan jam buka, tanyakan ke sales.
+Ada dua lokasi: [Geely BSD City](/lokasi/geely-bsd-city/). Alamat lengkap dan jam buka, tanyakan ke sales.
 
 ### Model apa yang cocok untuk saya?
 Geely EX2 cocok untuk pemakaian kota yang ringkas. Geely EX5 lebih lapang sebagai SUV listrik, sedangkan Starray EM-i adalah plug-in hybrid. Jika masih ragu, lihat halaman [mobil listrik atau hybrid](/lp/mobil-listrik-atau-hybrid/).

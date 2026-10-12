@@ -1,6 +1,6 @@
 ---
 title: "Geely EX2 Jakarta: Mobil Listrik Kompak, Test Drive di BSD"
-description: "Cari Geely EX2 Jakarta? Kenali mobil listrik kompak ini, cocok untuk siapa, lalu chat sales atau jadwalkan test drive di BSD City dan Tanah Abang."
+description: "Cari Geely EX2 Jakarta? Kenali mobil listrik kompak ini, cocok untuk siapa, lalu chat sales atau jadwalkan test drive di BSD City."
 date: 2026-10-10
 tags: ["geely ex2 jakarta", "geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik kompak", "ev geely jakarta", "test drive geely ex2"]
 model: "geely-ex2"
@@ -66,7 +66,7 @@ Sebaliknya, jika Anda sering menempuh perjalanan sangat jauh tanpa rencana pengi
 Cara terbaik menilai mobil adalah mencobanya sendiri. Prosesnya sederhana dan tidak mengikat. Anda cukup menghubungi kami, lalu memilih lokasi yang paling dekat.
 
 1. Chat WhatsApp sales melalui halaman [kontak](/kontak/) dan sebutkan model yang diminati.
-2. Pilih lokasi: [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/).
+2. Lokasi: [Geely BSD City](/lokasi/geely-bsd-city/).
 3. Tentukan hari dan jam yang cocok, lalu datang untuk mencoba mobilnya.
 4. Setelah itu, diskusikan kebutuhan dan pilihan pembayaran tanpa terburu-buru.
 
@@ -88,7 +88,7 @@ Tidak selalu wajib, tetapi pengisian di rumah atau kantor biasanya paling prakti
 
 ### Di mana saya bisa test drive Geely EX2 di Jakarta?
 
-Anda bisa mengunjungi dealer kami di BSD City atau Tanah Abang, Jakarta Pusat. Sebaiknya buat janji dulu lewat WhatsApp agar unit siap saat Anda datang.
+Anda bisa mengunjungi dealer kami di BSD City. Sebaiknya buat janji dulu lewat WhatsApp agar unit siap saat Anda datang.
 
 ### Apakah jarak tempuh 395 km pasti tercapai?
 
@@ -98,4 +98,4 @@ Angka itu adalah klaim pabrikan pada siklus NEDC untuk varian EX2 Max. Di jalan 
 
 Geely EX2 Jakarta layak dipertimbangkan jika Anda mencari mobil listrik kompak untuk pemakaian harian di kota. Ukurannya ringkas, tenaganya halus, dan datanya cukup jelas untuk varian EX2 Max. Meski begitu, keputusan terbaik tetap datang dari pencocokan dengan kebutuhan dan rute Anda sendiri.
 
-Kalau ingin bertanya atau mencoba langsung, chat WhatsApp kami lewat halaman [kontak](/kontak/) atau datang ke [BSD City](/lokasi/geely-bsd-city/) dan [Tanah Abang](/lokasi/geely-tanah-abang/). Kami siap menjelaskan dengan jujur, tanpa paksaan, dan membantu Anda memilih yang paling pas.
+Kalau ingin bertanya atau mencoba langsung, chat WhatsApp kami lewat halaman [kontak](/kontak/) atau datang ke [BSD City](/lokasi/geely-bsd-city/). Kami siap menjelaskan dengan jujur, tanpa paksaan, dan membantu Anda memilih yang paling pas.

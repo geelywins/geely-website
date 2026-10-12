@@ -2,11 +2,10 @@
 title: "Tukar Tambah Mobil Lama ke Mobil Listrik Geely: Alur Lengkap"
 description: "Tukar tambah mobil listrik Geely: persiapan dokumen, faktor penilaian mobil lama, langkah bersama sales, dan perbandingan dengan jual sendiri."
 date: 2026-10-10
-updated: 2026-10-11
-tags: ["tukar tambah mobil listrik","tukar tambah mobil geely","trade in mobil listrik","mobil listrik geely","geely ev","geely indonesia","ev geely jakarta","geely ex5"]
+tags: ["tukar tambah mobil listrik", "tukar tambah mobil geely", "trade in mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "geely ex5"]
 model: "geely-ex2"
-image: "/images/lp/209395-mv34iwiz.jpg"
-artikel: ["cek-mobil-baru-saat-serah-terima-checklist-pdi","alur-membeli-mobil-geely-dari-booking-sampai-serah-terima","simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan","cara-test-drive-geely","tips-booking-dan-negosiasi-geely-ex2-max","faq-geely-pertanyaan-calon-pembeli-sebelum-beli"]
+artikel: ["cek-mobil-baru-saat-serah-terima-checklist-pdi", "alur-membeli-mobil-geely-dari-booking-sampai-serah-terima", "simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan", "cara-test-drive-geely", "tips-booking-dan-negosiasi-geely-ex2-max", "faq-geely-pertanyaan-calon-pembeli-sebelum-beli"]
+draft: true
 ---
 
 Tukar tambah mobil listrik berarti mobil lama Anda dinilai, lalu nilainya dipakai sebagai bagian pembayaran mobil Geely baru. Siapkan dokumen, biarkan mobil dinilai, bandingkan hasilnya dengan menjual sendiri, lalu lanjut ke test drive dan pemesanan. Halaman ini menuntun Anda langkah demi langkah, tanpa angka yang menyesatkan.
@@ -94,7 +93,7 @@ Catat jawabannya, terutama yang menyangkut biaya dan jadwal. Strategi bicara yan
 
 ## Pilih model dan lokasi
 
-Setelah gambaran tukar tambah jelas, tentukan model. Untuk pemakaian kota, [Geely EX2](/model/geely-ex2/) layak dilirik. Untuk melihat semua pilihan, buka [daftar model Geely](/model/). Jika masih bingung memilih, kunjungi dealer kami di [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/) untuk berdiskusi langsung.
+Setelah gambaran tukar tambah jelas, tentukan model. Untuk pemakaian kota, [Geely EX2](/model/geely-ex2/) layak dilirik. Untuk melihat semua pilihan, buka [daftar model Geely](/model/). Jika masih bingung memilih, kunjungi dealer kami di [Geely BSD City](/lokasi/geely-bsd-city/) untuk berdiskusi langsung.
 
 ## Pertanyaan yang sering diajukan
 

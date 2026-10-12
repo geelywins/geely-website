@@ -3,10 +3,11 @@ title: "Geely EX2 Max untuk Keluarga Muda: Muat, Aman, Hemat"
 description: "Geely EX2 Max untuk keluarga muda: 5 penumpang, bagasi luas, 6 airbag, dan biaya harian ramah. Cek apakah cocok dan hubungi sales untuk test drive."
 date: 2026-10-11
 category: "Model Geely"
-tags: ["geely ex2","geely ex2 max","mobil listrik kompak","mobil listrik geely","geely ev","mobil keluarga listrik","mobil listrik murah","keluarga muda","mobil listrik jakarta"]
+tags: ["geely ex2", "geely ex2 max", "mobil listrik kompak", "mobil listrik geely", "geely ev", "mobil keluarga listrik", "mobil listrik murah", "keluarga muda", "mobil listrik jakarta"]
+draft: true
 ---
 
-Geely EX2 Max untuk keluarga muda adalah pilihan yang menarik bila Anda butuh mobil kompak, aman, dan hemat biaya harian. Banyak pasangan baru atau keluarga dengan satu hingga dua anak mencari mobil yang tidak terlalu besar, tetapi tetap nyaman. Saya, Wins, sales consultant Geely di Jakarta dan BSD, sering menemui kebutuhan ini. Artikel ini membantu Anda menilai apakah mobil listrik Geely ini cocok untuk keluarga Anda.
+Geely EX2 Max untuk keluarga muda cocok dipertimbangkan bila Anda butuh mobil kompak, aman, dan hemat biaya harian. Mobil ini berkapasitas 5 penumpang, dengan bagasi 375 liter dan frunk 70 liter. Artikel ini membantu Anda menilai apakah mobil listrik ini sesuai kebutuhan keluarga Anda.
 
 ## Kapasitas penumpang dan kenyamanan kabin
 
@@ -80,6 +81,12 @@ Mobil ini punya 6 airbag dan, di versi Max, ADAS Level 2. Gunakan selalu kursi a
 
 ### Apakah bisa dipakai sebagai satu-satunya mobil keluarga?
 Bisa, selama kebutuhan harian Anda masih dalam jangkauan pengisian dan Anda jarang membawa lebih dari 5 orang. Diskusikan pola pakai Anda dengan sales.
+
+Ajak seluruh anggota keluarga saat test drive agar semua ikut menilai. Coba duduk di baris kedua, pasang kursi anak jika ada, lalu masukkan barang bawaan yang biasa dibawa ke bagasi. Cara sederhana ini menghindarkan salah pilih setelah mobil sampai di rumah.
+
+## Panduan lengkap untuk keluarga yang mencari mobil listrik
+
+Jika artikel ini membantu Anda memahami EX2 untuk keluarga, langkah berikutnya adalah melihat panduan lebih lengkap tentang pilihan mobil listrik keluarga. Kunjungi halaman [Mobil Listrik Keluarga](/lp/mobil-listrik-keluarga/) untuk perbandingan antara EX2 dan EX5, plus pertimbangan praktis lainnya untuk rutinitas keluarga Anda.
 
 Panduan terkait yang bisa Anda baca: [Geely EX2 Jakarta](/lp/geely-ex2-jakarta/).
 

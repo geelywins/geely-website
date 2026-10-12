@@ -84,7 +84,7 @@ Bila Anda membutuhkan beberapa unit sekaligus, sampaikan jumlah, model, varian, 
 
 Keputusan armada lebih baik bila diambil bersama pengguna sebenarnya. Ajak supir, staf lapangan, dan bagian umum untuk mencoba. Setiap orang melihat hal berbeda: supir menilai kenyamanan, bagian keuangan menilai biaya, bagian umum menilai kemudahan perawatan.
 
-Atur jadwal lewat halaman [kontak](/kontak/), lalu pilih lokasi [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/). Sebutkan jumlah peserta agar unit dan waktu disiapkan. Seluruh pilihan unit ada di halaman [model Geely](/model/).
+Atur jadwal lewat halaman [kontak](/kontak/), lalu pilih lokasi [Geely BSD City](/lokasi/geely-bsd-city/). Sebutkan jumlah peserta agar unit dan waktu disiapkan. Seluruh pilihan unit ada di halaman [model Geely](/model/).
 
 ## Pertanyaan yang sering diajukan
 

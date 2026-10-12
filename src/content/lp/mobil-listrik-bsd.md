@@ -59,7 +59,7 @@ EX5 punya ISOFIX dan child anchor di jok belakang, yang berguna bila Anda membaw
 
 Salah satu alasan praktis memilih BSD adalah dealernya dekat. [Geely BSD City](/lokasi/geely-bsd-city/) berada di BSD City, Tangerang Selatan. Anda bisa datang dengan keluarga, melihat unit, dan mencoba berkendara tanpa perlu menyeberang kota.
 
-Alamat jalan dan jam buka tidak kami cantumkan di halaman ini. Hubungi sales lebih dulu agar unit yang Anda inginkan siap saat kunjungan. Bila Anda lebih sering berada di Jakarta Pusat, tersedia juga [Geely Tanah Abang](/lokasi/geely-tanah-abang/).
+Alamat jalan dan jam buka tidak kami cantumkan di halaman ini. Hubungi sales lebih dulu agar unit yang Anda inginkan siap saat kunjungan.
 
 ## Persiapan test drive di BSD City
 

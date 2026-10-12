@@ -95,7 +95,7 @@ Saat test drive, coba hal-hal berikut.
 4. Naik turun dengan keluarga untuk menguji kenyamanan kabin.
 5. Bawa koper atau kursi bayi untuk mengecek bagasi.
 
-Panduan lengkapnya ada di [cara test drive Geely](/artikel/cara-test-drive-geely/). Anda bisa datang ke [Geely BSD City](/lokasi/geely-bsd-city/) atau [Geely Tanah Abang](/lokasi/geely-tanah-abang/) sesuai lokasi yang paling dekat. Bila ingin membandingkan dengan SUV keluarga, lihat juga [mobil listrik keluarga](/lp/mobil-listrik-keluarga/).
+Panduan lengkapnya ada di [cara test drive Geely](/artikel/cara-test-drive-geely/). Anda bisa datang ke [Geely BSD City](/lokasi/geely-bsd-city/) sesuai lokasi yang paling dekat. Bila ingin membandingkan dengan SUV keluarga, lihat juga [mobil listrik keluarga](/lp/mobil-listrik-keluarga/).
 
 ## Pertanyaan yang sering diajukan
 
@@ -123,4 +123,4 @@ Sebaiknya buat janji agar unit siap dan sales bisa mendampingi Anda. Cukup kirim
 
 Mobil listrik pertama tidak perlu menakutkan bila Anda paham dasarnya: pengisian di rumah, jarak tempuh realistis, perawatan yang lebih sederhana, dan biaya yang dihitung utuh. Cara terbaik memastikannya adalah mencoba sendiri.
 
-Silakan chat WhatsApp lewat [halaman kontak](/kontak/) untuk bertanya apa saja atau menjadwalkan test drive. Cek juga [promo terbaru](/promo/) dan kunjungi kami di BSD City atau Tanah Abang. Saya siap membantu dengan jujur dan tanpa tekanan.
+Silakan chat WhatsApp lewat [halaman kontak](/kontak/) untuk bertanya apa saja atau menjadwalkan test drive. Cek juga [promo terbaru](/promo/) dan kunjungi kami di BSD City. Saya siap membantu dengan jujur dan tanpa tekanan.

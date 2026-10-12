@@ -108,4 +108,4 @@ Pintu bagasi elektrik satu sentuhan tersedia di varian Max. Untuk ketersediaan l
 
 Geely EX5 menawarkan bagasi 461 liter hingga 1.877 liter, wheelbase 2.750 mm, dan jok belakang lipat 60/40 yang fleksibel. Itu cukup menjawab kebutuhan keluarga yang membawa koper, stroller, atau peralatan olahraga. Cara terbaik memastikannya adalah mencoba memuat barang Anda sendiri.
 
-Kalau ingin melihat kabinnya langsung, hubungi saya (Wins) lewat halaman [kontak](/kontak/) untuk mengatur test drive di BSD City atau Tanah Abang. Cek juga halaman [promo](/promo/) untuk informasi terbaru.
+Kalau ingin melihat kabinnya langsung, hubungi saya (Wins) lewat halaman [kontak](/kontak/) untuk mengatur test drive di BSD City. Cek juga halaman [promo](/promo/) untuk informasi terbaru.

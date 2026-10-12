@@ -1,10 +1,9 @@
 ---
 title: "Geely EX5 Pro vs Max: Selisih Fitur dan Mana yang Worth It"
 description: "Geely EX5 Pro vs Max: tabel selisih fitur, bobot, akselerasi, dan jarak klaim, plus panduan siapa cocok memilih yang mana. Baca sebelum test drive."
-date: 2026-10-10
+date: 2026-10-14
 category: "Perbandingan"
-tags: ["geely ex5 pro vs max", "geely ex5", "geely ex5 pro", "geely ex5 max", "perbedaan varian ex5", "mobil listrik geely", "geely ev", "ev geely jakarta", "geely indonesia"]
-draft: true
+tags: ["geely ex5 pro vs max","geely ex5","geely ex5 pro","geely ex5 max","perbedaan varian ex5","mobil listrik geely","geely ev","ev geely jakarta","geely indonesia"]
 ---
 
 Geely EX5 Pro vs Max memakai baterai 60,22 kWh dan motor 160 kW yang sama. Selisihnya ada pada perlengkapan: Max menambah sunroof, jok massage, head-up display, audio 14 speaker, dan seluruh fitur bantuan pengemudi. Artikel ini merangkum selisihnya dan membantu Anda memilih sesuai kebutuhan.

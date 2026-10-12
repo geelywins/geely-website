@@ -4,9 +4,10 @@ description: "Biaya per km Geely EX2 Max vs mobil bensin dihitung dengan contoh 
 date: 2026-10-13
 category: "Kredit & Biaya"
 tags: ["geely ex2","geely ex2 max","biaya per km","biaya operasional","mobil listrik geely","geely ev","mobil listrik murah","mobil listrik kompak","ev indonesia"]
+image: "/images/artikel/211158-mv5leq4m.jpg"
 ---
 
-Biaya per km Geely EX2 Max vs mobil bensin adalah salah satu pertanyaan yang paling sering saya terima. Banyak orang ingin tahu apakah mobil listrik benar-benar lebih hemat untuk dipakai sehari-hari. Jawabannya bisa Anda hitung sendiri dengan rumus sederhana.
+Biaya per km Geely EX2 Max vs mobil bensin adalah salah satu pertanyaan yang paling sering saya terima. Banyak orang ingin tahu apakah mobil listrik benar-benar lebih hemat untuk dipakai sehari-hari. Jawabannya simple bisa Anda hitung sendiri dengan rumus sederhana.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Semua angka dalam artikel ini adalah asumsi ilustrasi, bukan tarif resmi, jadi silakan ganti dengan angka Anda sendiri.
 

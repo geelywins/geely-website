@@ -1,10 +1,9 @@
 ---
 title: "Spesifikasi Geely Starray EM-i Plug-in Hybrid dan Artinya"
 description: "Spesifikasi Geely Starray EM-i lengkap dalam tabel, plus arti tiap angka. Ini plug-in hybrid yang bisa dicolok. Tanyakan data terbaru ke sales."
-date: 2026-10-10
+date: 2026-10-15
 category: "Model Geely"
-tags: ["spesifikasi geely starray em-i", "geely starray em-i", "geely starray", "plug-in hybrid", "geely indonesia", "geely ev", "ev geely jakarta", "suv hybrid", "mobil listrik geely"]
-draft: true
+tags: ["spesifikasi geely starray em-i","geely starray em-i","geely starray","plug-in hybrid","geely indonesia","geely ev","ev geely jakarta","suv hybrid","mobil listrik geely"]
 ---
 
 Spesifikasi Geely Starray EM-i menunjukkan SUV plug-in hybrid dengan mesin bensin 1,5 liter, motor listrik 160 kW, baterai LFP 18,4 kWh, dan bagasi 528 liter. Artikel ini menyajikan semua angkanya dalam tabel, lalu menjelaskan arti tiap angka dengan bahasa sederhana agar Anda tidak perlu menebak-nebak.

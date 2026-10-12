@@ -1,10 +1,9 @@
 ---
 title: "Umur Baterai Mobil Listrik LFP dan Cara Merawatnya"
 description: "Umur baterai mobil listrik LFP dipengaruhi suhu, kebiasaan mengisi, dan cara pakai. Kenali faktornya, kebiasaan baik, dan hal yang perlu ditanya soal garansi."
-date: 2026-10-10
+date: 2026-10-14
 category: "Panduan EV"
-tags: ["umur baterai mobil listrik", "baterai lfp", "merawat baterai mobil listrik", "kesehatan baterai", "mobil listrik geely", "geely ev", "geely ex5", "geely indonesia"]
-draft: true
+tags: ["umur baterai mobil listrik","baterai lfp","merawat baterai mobil listrik","kesehatan baterai","mobil listrik geely","geely ev","geely ex5","geely indonesia"]
 ---
 
 Umur baterai mobil listrik tidak ditentukan satu angka pasti. Jenis baterai seperti LFP, suhu, kebiasaan mengisi daya, dan cara berkendara semuanya ikut berperan. Kabar baiknya, kebiasaan sederhana bisa membantu menjaga baterai tetap sehat, dan kepastian garansi bisa Anda tanyakan langsung ke dealer.

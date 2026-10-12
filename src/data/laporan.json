@@ -1,15 +1,156 @@
 {
-  "dibuat": "2026-10-12T15:40:50.568Z",
+  "dibuat": "2026-10-12T17:18:41.649Z",
   "domain": "geelywins.com",
   "konten": {
-    "tayang": 20,
-    "terjadwal": 8,
+    "tayang": 22,
+    "terjadwal": 6,
     "draft": 44
   },
   "usang": [],
   "gsc": {
-    "status": "belum_disambungkan",
-    "pesan": "Kunci Search Console (GSC_KEY) belum dipasang di GitHub Secrets."
+    "status": "ok",
+    "situs": "sc-domain:geelywins.com",
+    "periode": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-10-09"
+    },
+    "sekarang": {
+      "klik": 5,
+      "tayang": 61,
+      "ctr": 8.2,
+      "posisi": 5.5
+    },
+    "sebelumnya": {
+      "klik": 0,
+      "tayang": 0,
+      "ctr": 0,
+      "posisi": 0
+    },
+    "halaman_teratas": [
+      {
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/",
+        "klik": 3,
+        "tayang": 41,
+        "posisi": 3.7
+      },
+      {
+        "halaman": "/",
+        "klik": 2,
+        "tayang": 20,
+        "posisi": 1.4
+      },
+      {
+        "halaman": "/artikel/tips-memilih-mobil-listrik-pertama/",
+        "klik": 0,
+        "tayang": 15,
+        "posisi": 3.1
+      },
+      {
+        "halaman": "/artikel/cara-test-drive-geely/",
+        "klik": 0,
+        "tayang": 12,
+        "posisi": 6.3
+      },
+      {
+        "halaman": "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/",
+        "klik": 0,
+        "tayang": 11,
+        "posisi": 5.9
+      },
+      {
+        "halaman": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/",
+        "klik": 0,
+        "tayang": 10,
+        "posisi": 11.1
+      },
+      {
+        "halaman": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/",
+        "klik": 0,
+        "tayang": 10,
+        "posisi": 7.2
+      },
+      {
+        "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/",
+        "klik": 0,
+        "tayang": 7,
+        "posisi": 17.7
+      }
+    ],
+    "dekat": [],
+    "ctrRendah": [],
+    "bersaing": [],
+    "semua": [
+      {
+        "query": "geely ex2 vs ex5",
+        "posisi": 5,
+        "tayang": 5,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "test drive geely",
+        "posisi": 19.5,
+        "tayang": 2,
+        "klik": 0,
+        "halaman": "/artikel/cara-test-drive-geely/"
+      },
+      {
+        "query": "geely",
+        "posisi": 37,
+        "tayang": 2,
+        "klik": 0,
+        "halaman": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/"
+      },
+      {
+        "query": "perbedaan geely ex2 dan ex5",
+        "posisi": 3,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "beda geely ex2 dan ex5",
+        "posisi": 4,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "ex2 vs ex5",
+        "posisi": 4,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "geely ex5 vs ex2",
+        "posisi": 4,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "geely ex2 vs geely ex5",
+        "posisi": 5,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "\"mobil geely\"",
+        "posisi": 6,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/"
+      },
+      {
+        "query": "cara menghitung dp dan angsuran mobil",
+        "posisi": 84,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/"
+      }
+    ]
   },
   "link": {
     "status": "ok",
@@ -146,14 +287,14 @@
       {
         "url": "/",
         "skor": {
-          "performa": 94,
+          "performa": 91,
           "aksesibilitas": 94,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.9 s",
+        "lcp": "3.0 s",
         "cls": "0",
-        "tbt": "0 ms"
+        "tbt": "100 ms"
       },
       {
         "url": "/model/geely-ex5/",
@@ -175,7 +316,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.1 s",
+        "lcp": "2.2 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -205,5 +346,12 @@
       }
     ]
   },
-  "riwayat_gsc": []
+  "riwayat_gsc": [
+    {
+      "tanggal": "2026-10-13",
+      "klik": 5,
+      "tayang": 61,
+      "posisi": 5.5
+    }
+  ]
 }

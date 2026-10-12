@@ -44,6 +44,18 @@ jobs:
                 echo "package.json tidak ditemukan di dalam $Z"; exit 1
               fi
               rm -rf "$SRC/.github"
+              # Folder _timpa: file di dalamnya MENIMPA file lama (untuk perbaikan artikel/LP). _hapus.txt = daftar file yang dihapus (hanya src/content/)
+              if [ -d "$SRC/_timpa" ]; then
+                if [ -f "$SRC/_timpa/_hapus.txt" ]; then
+                  while IFS= read -r f; do
+                    f=$(echo "$f" | tr -d '\r')
+                    case "$f" in src/content/*.md) case "$f" in *..*) ;; *) rm -f "$f" ;; esac ;; esac
+                  done < "$SRC/_timpa/_hapus.txt"
+                  rm -f "$SRC/_timpa/_hapus.txt"
+                fi
+                cp -a "$SRC/_timpa/." .
+                rm -rf "$SRC/_timpa"
+              fi
               # Folder isi (data, artikel, foto): hanya tambah file yang belum ada, file yang sudah Anda ubah tidak ditimpa
               for d in src/data src/content public/images; do
                 if [ -d "$SRC/$d" ]; then

@@ -1434,6 +1434,21 @@
         gk.push(el('h3', { text: 'Dua halaman bersaing untuk kata yang sama' }));
         if (!g.bersaing.length) gk.push(kosong('Tidak ada. Bagus.'));
         (g.bersaing || []).forEach(function (x) { gk.push(el('div', { class: 'alert' }, el('div', null, el('b', { text: '"' + x.query + '"' }), el('small', { text: x.halaman.map(function (h) { return h.halaman + ' (posisi ' + h.posisi + ')'; }).join('  |  ') + '. Pilih satu halaman utama, ubah kata kunci halaman lain di Rencana Topik.' })))); });
+        gk.push(el('h3', { text: 'Semua kata kunci dan peringkatnya (' + (g.semua || []).length + ')' }));
+        gk.push(kosong('Posisi 1-10 hijau (halaman 1 Google), 11-20 kuning (halaman 2), di atas 20 merah. Diurutkan dari yang paling sering muncul di Google.'));
+        var cari = el('input', { type: 'text', placeholder: 'Cari kata kunci...', autocapitalize: 'none' }), daftarKw = el('div');
+        function isiKw() {
+          var q = cari.value.trim().toLowerCase(); daftarKw.innerHTML = '';
+          var n = 0;
+          (g.semua || []).forEach(function (x) {
+            if (q && x.query.toLowerCase().indexOf(q) < 0) return; n++;
+            var cls = x.posisi <= 10 ? 'g' : x.posisi <= 20 ? 'y' : 'r';
+            daftarKw.append(el('div', { class: 'item' }, el('div', null, el('b', { text: x.query }), el('small', { text: x.halaman + ' | tayang ' + x.tayang + ', klik ' + x.klik })), el('div', { class: 'btns' }, el('span', { class: 'sk ' + cls, text: String(x.posisi) }))));
+          });
+          if (!n) daftarKw.append(kosong((g.semua || []).length ? 'Tidak ada yang cocok.' : 'Belum ada data kata kunci. Situs baru biasanya butuh beberapa minggu sebelum Google memberi data.'));
+        }
+        cari.oninput = isiKw; isiKw();
+        gk.push(cari, daftarKw);
         gk.push(el('h3', { text: 'Halaman teratas (klik)' }));
         (g.halaman_teratas || []).forEach(function (x) { gk.push(baris(x.halaman, 'klik ' + x.klik + ', tayang ' + x.tayang + ', posisi ' + x.posisi)); });
       } else if (g.status === 'belum_disambungkan') {

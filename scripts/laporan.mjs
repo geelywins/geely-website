@@ -108,7 +108,18 @@ export function analisaGsc(rows) {
   const bersaing = [];
   for (const [query, pages] of porsiQ) if (new Set(pages.map((p) => p.halaman)).size >= 2) bersaing.push({ query, halaman: pages.sort((a, b) => a.posisi - b.posisi) });
   bersaing.sort((a, b) => b.halaman.length - a.halaman.length);
-  return { dekat: dekat.slice(0, 15), ctrRendah: ctrRendah.slice(0, 10), bersaing: bersaing.slice(0, 10) };
+  // Semua kata kunci: gabung per kata (posisi dirata-rata berbobot tayang), urut dari yang paling sering muncul
+  const per = new Map();
+  for (const r of rows) {
+    const [query, page] = r.keys;
+    if (!per.has(query)) per.set(query, { query, tayang: 0, klik: 0, bobot: 0, halaman: slugDari(page), maks: 0 });
+    const o = per.get(query);
+    o.tayang += r.impressions; o.klik += r.clicks; o.bobot += r.position * r.impressions;
+    if (r.impressions > o.maks) { o.maks = r.impressions; o.halaman = slugDari(page); }
+  }
+  const semua = [...per.values()].map((o) => ({ query: o.query, posisi: o.tayang ? +(o.bobot / o.tayang).toFixed(1) : 0, tayang: o.tayang, klik: o.klik, halaman: o.halaman }))
+    .sort((a, b) => b.tayang - a.tayang || a.posisi - b.posisi).slice(0, 200);
+  return { dekat: dekat.slice(0, 15), ctrRendah: ctrRendah.slice(0, 10), bersaing: bersaing.slice(0, 10), semua };
 }
 
 async function bagianGsc() {

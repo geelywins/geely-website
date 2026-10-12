@@ -1,0 +1,209 @@
+{
+  "dibuat": "2026-10-12T15:29:10.080Z",
+  "domain": "geelywins.com",
+  "konten": {
+    "tayang": 20,
+    "terjadwal": 8,
+    "draft": 44
+  },
+  "usang": [],
+  "gsc": {
+    "status": "belum_disambungkan",
+    "pesan": "Kunci Search Console (GSC_KEY) belum dipasang di GitHub Secrets."
+  },
+  "link": {
+    "status": "ok",
+    "halaman_dicek": 34,
+    "link_dicek": 13,
+    "rusak": [
+      {
+        "url": "https://www.facebook.com/search/top?q=Geely%20wins",
+        "status": 404,
+        "luar": true,
+        "ragu": false,
+        "dari": [
+          "/",
+          "/artikel/",
+          "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/"
+        ]
+      },
+      {
+        "url": "https://geelywins.com/lokasi/geely-tanah-abang/",
+        "status": 404,
+        "luar": false,
+        "ragu": false,
+        "dari": [
+          "/lp/geely-ex2-jakarta/",
+          "/lp/geely-ex5-jakarta-bsd/",
+          "/lp/mobil-listrik-keluarga/"
+        ]
+      }
+    ],
+    "seo": [
+      {
+        "url": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/",
+        "masalah": [
+          "Judul terlalu panjang (73 huruf, ideal maks 65)",
+          "Deskripsi terlalu panjang (167 huruf, ideal maks 160)"
+        ]
+      },
+      {
+        "url": "/lokasi/geely-bsd-city/",
+        "masalah": [
+          "Judul terlalu panjang (66 huruf, ideal maks 65)",
+          "Deskripsi terlalu panjang (273 huruf, ideal maks 160)"
+        ]
+      },
+      {
+        "url": "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/",
+        "masalah": [
+          "Judul terlalu panjang (70 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/baterai-lfp-40-8-kwh-geely-ex2-max-aman-dan-tahan-lama/",
+        "masalah": [
+          "Judul terlalu panjang (69 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/geely-ex2-max-review-lengkap-fitur-dan-kelebihan/",
+        "masalah": [
+          "Judul terlalu panjang (67 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max/",
+        "masalah": [
+          "Judul terlalu panjang (74 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/pengisian-cepat-dc-geely-ex2-max-30-80-persen-25-menit/",
+        "masalah": [
+          "Judul terlalu panjang (67 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/perawatan-geely-ex2-max-servis-berkala-dan-biaya/",
+        "masalah": [
+          "Judul terlalu panjang (68 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/perbedaan-geely-ex2-pro-vs-ex2-max-mana-yang-worth-it/",
+        "masalah": [
+          "Judul terlalu panjang (68 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/",
+        "masalah": [
+          "Judul terlalu panjang (69 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/",
+        "masalah": [
+          "Judul terlalu panjang (82 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/tips-booking-dan-negosiasi-geely-ex2-max/",
+        "masalah": [
+          "Judul terlalu panjang (67 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/lp/geely-ex2-jakarta/",
+        "masalah": [
+          "Judul terlalu panjang (71 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/lp/geely-ex5-jakarta-bsd/",
+        "masalah": [
+          "Judul terlalu panjang (68 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/lp/mobil-listrik-pertama/",
+        "masalah": [
+          "Judul terlalu panjang (74 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/lp/tukar-tambah-ke-mobil-listrik/",
+        "masalah": [
+          "Judul terlalu panjang (73 huruf, ideal maks 65)"
+        ]
+      }
+    ]
+  },
+  "lighthouse": {
+    "status": "ok",
+    "hasil": [
+      {
+        "url": "/",
+        "skor": {
+          "performa": 92,
+          "aksesibilitas": 94,
+          "praktik": 100,
+          "seo": 100
+        },
+        "lcp": "2.6 s",
+        "cls": "0",
+        "tbt": "160 ms"
+      },
+      {
+        "url": "/model/geely-ex5/",
+        "skor": {
+          "performa": 98,
+          "aksesibilitas": 100,
+          "praktik": 100,
+          "seo": 100
+        },
+        "lcp": "2.4 s",
+        "cls": "0",
+        "tbt": "0 ms"
+      },
+      {
+        "url": "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/",
+        "skor": {
+          "performa": 99,
+          "aksesibilitas": 98,
+          "praktik": 100,
+          "seo": 100
+        },
+        "lcp": "2.0 s",
+        "cls": "0",
+        "tbt": "0 ms"
+      },
+      {
+        "url": "/artikel/baterai-lfp-40-8-kwh-geely-ex2-max-aman-dan-tahan-lama/",
+        "skor": {
+          "performa": 100,
+          "aksesibilitas": 98,
+          "praktik": 100,
+          "seo": 100
+        },
+        "lcp": "1.5 s",
+        "cls": "0",
+        "tbt": "0 ms"
+      },
+      {
+        "url": "/lp/geely-ex2-jakarta/",
+        "skor": {
+          "performa": 100,
+          "aksesibilitas": 98,
+          "praktik": 100,
+          "seo": 100
+        },
+        "lcp": "1.5 s",
+        "cls": "0",
+        "tbt": "0 ms"
+      }
+    ]
+  },
+  "riwayat_gsc": []
+}

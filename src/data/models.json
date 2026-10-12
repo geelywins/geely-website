@@ -44,9 +44,12 @@
     "foto": "/images/model/195450-muwwf5cj.jpg",
     "galeri": [
       "/images/model/172089-muwwgwiz.jpg",
-      "/images/model/204205-muwwheru.jpg"
+      "/images/model/204205-muwwheru.jpg",
+      "/images/model/210746-mv55sxx8.jpg"
     ],
-    "warna": "#2f80ed"
+    "warna": "#2f80ed",
+    "model3d": "",
+    "link3d": ""
   },
   {
     "slug": "geely-ex5",

@@ -1,24 +1,24 @@
 {
-  "dibuat": "2026-10-12T17:57:43.503Z",
+  "dibuat": "2026-10-13T00:08:44.294Z",
   "domain": "geelywins.com",
   "konten": {
-    "tayang": 22,
+    "tayang": 18,
     "terjadwal": 6,
-    "draft": 44
+    "draft": 48
   },
   "usang": [],
   "gsc": {
     "status": "ok",
     "situs": "sc-domain:geelywins.com",
     "periode": {
-      "startDate": "2026-09-12",
-      "endDate": "2026-10-09"
+      "startDate": "2026-09-13",
+      "endDate": "2026-10-10"
     },
     "sekarang": {
-      "klik": 5,
-      "tayang": 61,
-      "ctr": 8.2,
-      "posisi": 5.5
+      "klik": 13,
+      "tayang": 98,
+      "ctr": 13.3,
+      "posisi": 6.6
     },
     "sebelumnya": {
       "klik": 0,
@@ -28,52 +28,64 @@
     },
     "halaman_teratas": [
       {
-        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/",
-        "klik": 3,
+        "halaman": "/",
+        "klik": 8,
         "tayang": 41,
-        "posisi": 3.7
+        "posisi": 1.3
       },
       {
-        "halaman": "/",
-        "klik": 2,
-        "tayang": 20,
-        "posisi": 1.4
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/",
+        "klik": 3,
+        "tayang": 71,
+        "posisi": 4.5
+      },
+      {
+        "halaman": "/artikel/cara-test-drive-geely/",
+        "klik": 1,
+        "tayang": 31,
+        "posisi": 4.3
+      },
+      {
+        "halaman": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/",
+        "klik": 1,
+        "tayang": 29,
+        "posisi": 7.8
+      },
+      {
+        "halaman": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/",
+        "klik": 1,
+        "tayang": 28,
+        "posisi": 9.1
       },
       {
         "halaman": "/artikel/tips-memilih-mobil-listrik-pertama/",
         "klik": 0,
-        "tayang": 15,
-        "posisi": 3.1
-      },
-      {
-        "halaman": "/artikel/cara-test-drive-geely/",
-        "klik": 0,
-        "tayang": 12,
-        "posisi": 6.3
+        "tayang": 36,
+        "posisi": 3.6
       },
       {
         "halaman": "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/",
         "klik": 0,
-        "tayang": 11,
-        "posisi": 5.9
-      },
-      {
-        "halaman": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/",
-        "klik": 0,
-        "tayang": 10,
-        "posisi": 11.1
-      },
-      {
-        "halaman": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/",
-        "klik": 0,
-        "tayang": 10,
-        "posisi": 7.2
+        "tayang": 31,
+        "posisi": 7.8
       },
       {
         "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/",
         "klik": 0,
-        "tayang": 7,
-        "posisi": 17.7
+        "tayang": 27,
+        "posisi": 14.8
+      },
+      {
+        "halaman": "/model/geely-starray-em-i/",
+        "klik": 0,
+        "tayang": 20,
+        "posisi": 3
+      },
+      {
+        "halaman": "/lp/mobil-listrik-pertama/",
+        "klik": 0,
+        "tayang": 1,
+        "posisi": 2
       }
     ],
     "dekat": [],
@@ -88,6 +100,13 @@
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
       },
       {
+        "query": "geely",
+        "posisi": 30.3,
+        "tayang": 3,
+        "klik": 0,
+        "halaman": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/"
+      },
+      {
         "query": "test drive geely",
         "posisi": 19.5,
         "tayang": 2,
@@ -95,11 +114,18 @@
         "halaman": "/artikel/cara-test-drive-geely/"
       },
       {
-        "query": "geely",
-        "posisi": 37,
+        "query": "cara menghitung dp dan angsuran mobil",
+        "posisi": 86,
         "tayang": 2,
         "klik": 0,
-        "halaman": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/"
+        "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/"
+      },
+      {
+        "query": "geely ex5 vs geely ex2",
+        "posisi": 2,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
       },
       {
         "query": "perbedaan geely ex2 dan ex5",
@@ -144,18 +170,25 @@
         "halaman": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/"
       },
       {
-        "query": "cara menghitung dp dan angsuran mobil",
-        "posisi": 84,
+        "query": "tenor cicilan mobil",
+        "posisi": 63,
         "tayang": 1,
         "klik": 0,
         "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/"
+      },
+      {
+        "query": "cicilan geely ex2 max",
+        "posisi": 66,
+        "tayang": 1,
+        "klik": 1,
+        "halaman": "/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/"
       }
     ]
   },
   "link": {
     "status": "ok",
-    "halaman_dicek": 34,
-    "link_dicek": 13,
+    "halaman_dicek": 32,
+    "link_dicek": 12,
     "rusak": [
       {
         "url": "https://www.facebook.com/search/top?q=Geely%20wins",
@@ -166,17 +199,6 @@
           "/",
           "/artikel/",
           "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/"
-        ]
-      },
-      {
-        "url": "https://geelywins.com/lokasi/geely-tanah-abang/",
-        "status": 404,
-        "luar": false,
-        "ragu": false,
-        "dari": [
-          "/lp/geely-ex2-jakarta/",
-          "/lp/geely-ex5-jakarta-bsd/",
-          "/lp/mobil-listrik-keluarga/"
         ]
       }
     ],
@@ -205,6 +227,18 @@
         "url": "/artikel/baterai-lfp-40-8-kwh-geely-ex2-max-aman-dan-tahan-lama/",
         "masalah": [
           "Judul terlalu panjang (69 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/biaya-per-km-geely-ex2-max-vs-mobil-bensin/",
+        "masalah": [
+          "Judul terlalu panjang (72 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/cara-test-drive-geely/",
+        "masalah": [
+          "Judul terlalu panjang (73 huruf, ideal maks 65)"
         ]
       },
       {
@@ -272,12 +306,6 @@
         "masalah": [
           "Judul terlalu panjang (74 huruf, ideal maks 65)"
         ]
-      },
-      {
-        "url": "/lp/tukar-tambah-ke-mobil-listrik/",
-        "masalah": [
-          "Judul terlalu panjang (73 huruf, ideal maks 65)"
-        ]
       }
     ]
   },
@@ -287,14 +315,14 @@
       {
         "url": "/",
         "skor": {
-          "performa": 92,
+          "performa": 95,
           "aksesibilitas": 94,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.6 s",
+        "lcp": "2.8 s",
         "cls": "0",
-        "tbt": "250 ms"
+        "tbt": "0 ms"
       },
       {
         "url": "/model/geely-ex5/",
@@ -316,8 +344,8 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.1 s",
-        "cls": "0",
+        "lcp": "2.3 s",
+        "cls": "0.002",
         "tbt": "0 ms"
       },
       {
@@ -358,6 +386,12 @@
       "klik": 5,
       "tayang": 61,
       "posisi": 5.5
+    },
+    {
+      "tanggal": "2026-10-13",
+      "klik": 13,
+      "tayang": 98,
+      "posisi": 6.6
     }
   ]
 }

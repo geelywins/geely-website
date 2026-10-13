@@ -1,10 +1,10 @@
 {
-  "dibuat": "2026-10-13T00:08:44.294Z",
+  "dibuat": "2026-10-13T05:55:04.496Z",
   "domain": "geelywins.com",
   "konten": {
     "tayang": 18,
-    "terjadwal": 6,
-    "draft": 48
+    "terjadwal": 9,
+    "draft": 46
   },
   "usang": [],
   "gsc": {
@@ -187,21 +187,9 @@
   },
   "link": {
     "status": "ok",
-    "halaman_dicek": 32,
+    "halaman_dicek": 33,
     "link_dicek": 12,
-    "rusak": [
-      {
-        "url": "https://www.facebook.com/search/top?q=Geely%20wins",
-        "status": 404,
-        "luar": true,
-        "ragu": false,
-        "dari": [
-          "/",
-          "/artikel/",
-          "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/"
-        ]
-      }
-    ],
+    "rusak": [],
     "seo": [
       {
         "url": "/artikel/perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin/",
@@ -215,6 +203,13 @@
         "masalah": [
           "Judul terlalu panjang (66 huruf, ideal maks 65)",
           "Deskripsi terlalu panjang (273 huruf, ideal maks 160)"
+        ]
+      },
+      {
+        "url": "/model/geely-coolray/",
+        "masalah": [
+          "Deskripsi terlalu panjang (176 huruf, ideal maks 160)",
+          "Judul sama dengan 1 halaman lain (bisa saling bersaing di Google)"
         ]
       },
       {
@@ -306,6 +301,12 @@
         "masalah": [
           "Judul terlalu panjang (74 huruf, ideal maks 65)"
         ]
+      },
+      {
+        "url": "/model/geely-starray/",
+        "masalah": [
+          "Judul sama dengan 1 halaman lain (bisa saling bersaing di Google)"
+        ]
       }
     ]
   },
@@ -315,24 +316,24 @@
       {
         "url": "/",
         "skor": {
-          "performa": 95,
+          "performa": 79,
           "aksesibilitas": 94,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.8 s",
+        "lcp": "5.5 s",
         "cls": "0",
         "tbt": "0 ms"
       },
       {
         "url": "/model/geely-ex5/",
         "skor": {
-          "performa": 98,
+          "performa": 97,
           "aksesibilitas": 100,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.4 s",
+        "lcp": "2.5 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -356,7 +357,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "1.5 s",
+        "lcp": "1.6 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -368,7 +369,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "1.5 s",
+        "lcp": "1.6 s",
         "cls": "0",
         "tbt": "0 ms"
       }
@@ -386,6 +387,12 @@
       "klik": 5,
       "tayang": 61,
       "posisi": 5.5
+    },
+    {
+      "tanggal": "2026-10-13",
+      "klik": 13,
+      "tayang": 98,
+      "posisi": 6.6
     },
     {
       "tanggal": "2026-10-13",

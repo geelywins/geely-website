@@ -141,5 +141,24 @@
     "foto": "/images/model/205032-muxaz7no.jpg",
     "galeri": [],
     "warna": "#7b61ff"
+  },
+  {
+    "slug": "geely-coolray",
+    "nama": "Geely Coolray",
+    "tipe": "SUV Kompak",
+    "ringkas": "SUV kompak bermesin bensin untuk pemakaian harian. Tanyakan spesifikasi lengkap dan promo ke sales.",
+    "deskripsi": "Geely Coolray adalah SUV kompak bermesin bensin. Spesifikasi resmi belum dicantumkan di halaman ini. Hubungi sales untuk data dan penawaran terbaru.",
+    "keunggulan": [],
+    "harga": "Hubungi sales untuk harga & promo terbaru",
+    "spesifikasi": [
+      {
+        "label": "Jenis",
+        "nilai": "SUV kompak, mesin bensin"
+      }
+    ],
+    "foto": "",
+    "galeri": [],
+    "warna": "#2f80ed",
+    "model3d": ""
   }
 ]

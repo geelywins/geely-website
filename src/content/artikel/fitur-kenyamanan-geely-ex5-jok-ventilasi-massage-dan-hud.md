@@ -2,12 +2,18 @@
 title: "Fitur Kenyamanan Geely EX5: Jok Ventilasi, Massage dan HUD"
 description: "Kenyamanan Geely EX5 dibahas lengkap: jok ventilasi, massage, HUD 13,8 inci, ambient 256 warna, AC belakang, dan audio. Lihat bedanya Pro dan Max."
 date: 2026-10-10
+updated: 2026-10-13
 category: "Model Geely"
-tags: ["kenyamanan geely ex5", "fitur geely ex5", "geely ex5", "geely ex5 max", "mobil listrik geely", "geely ev", "geely indonesia", "suv listrik keluarga"]
+tags: ["kenyamanan geely ex5","fitur geely ex5","geely ex5","geely ex5 max","mobil listrik geely","geely ev","geely indonesia","suv listrik keluarga"]
+image: "/images/artikel/211304-mv62mxas.jpg"
 draft: true
 ---
 
 Kenyamanan Geely EX5 mencakup jok depan berventilasi, jok elektrik, AC otomatis dengan lubang AC belakang, dan filter udara CN95. Varian Max menambah jok massage, head-up display 13,8 inci, ambient light 256 warna, serta sunroof panoramik. Artikel ini menjelaskan manfaat tiap fitur untuk pemakaian harian.
+
+
+<figure class="yt-wrap"><a class="yt-lite" href="https://www.youtube.com/watch?v=cM_a2Nx23sc" data-yt="cM_a2Nx23sc" target="_blank" rel="noopener" aria-label="Putar video"><img src="https://i.ytimg.com/vi/cM_a2Nx23sc/hqdefault.jpg" alt="Video: YouTube" loading="lazy" width="480" height="360"><span class="yt-play" aria-hidden="true"></span></a></figure>
+
 
 ## Jok depan: ventilasi, elektrik, dan memori
 

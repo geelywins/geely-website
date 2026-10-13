@@ -3,8 +3,8 @@ title: "Harga Geely EX2 Terbaru 2026: Mulai Rp 239,9 Juta, Pro dan Max"
 description: "Harga Geely EX2 OTR Jakarta: Pro Rp 239,9 juta, Max Rp 269,9 juta. Lihat selisih fitur, skema DP rendah, dan cara dapat penawaran resmi. Oktober 2026."
 date: 2026-10-13
 category: "Harga & Promo"
-tags: ["harga geely ex2", "harga geely ex2 max", "harga geely ex2 pro", "otr geely ex2", "geely ex2 jakarta", "harga mobil listrik geely", "mobil listrik murah", "geely ev", "geely indonesia"]
-draft: true
+tags: ["harga geely ex2","harga geely ex2 max","harga geely ex2 pro","otr geely ex2","geely ex2 jakarta","harga mobil listrik geely","mobil listrik murah","geely ev","geely indonesia"]
+image: "/images/artikel/211838-mv6pq68c.jpg"
 ---
 
 Harga Geely EX2 OTR Jakarta per Oktober 2026 adalah **Rp 239.900.000 untuk varian Pro** dan **Rp 269.900.000 untuk varian Max**. Selisihnya Rp 30 juta. Di bawah ini saya jelaskan apa yang Anda dapat dari selisih itu, dan cara membayarnya dengan lebih ringan.

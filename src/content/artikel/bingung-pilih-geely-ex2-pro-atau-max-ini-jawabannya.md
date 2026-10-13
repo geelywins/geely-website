@@ -1,12 +1,11 @@
 ---
 title: "Beda Geely Ex2 PRO dan MAX, Bingung Pilih Geely Ex2 Pro atau Max"
 description: "beda geely ex2 pro dan max.Bingung pilih Geely EX2 Pro atau Max? Bandingkan harga, fitur, ADAS, airbag, dan velg agar pilihanmu pas dengan kebutuhan dan budget."
-date: 2026-10-13
+date: 2026-10-17
 category: "Model Geely"
 tags: ["beda geely ex2 pro dan max","geely ex2","geely ex2 pro","geely ex2 max","perbedaan geely ex2","harga geely ex2","mobil listrik","mobil listrik murah","geely jakarta","review geely ex2"]
 image: "/images/artikel/211497-mv68sc88.jpg"
 video: "https://www.instagram.com/reel/DeYUPqroIRe/?obrf=MXVtbWJqenhsanZ5Yw=="
-draft: true
 ---
 
 Bingung memilih Geely EX2 Pro atau Max? Keduanya memakai baterai dan penggerak yang sama, jadi selisih sekitar Rp30 juta hanya membeli perbedaan fitur: velg, airbag, ADAS, kenyamanan kabin, dan aplikasi remote. Artikel ini membandingkan keduanya secara jujur supaya kamu bisa memilih sesuai kebutuhan dan budget.

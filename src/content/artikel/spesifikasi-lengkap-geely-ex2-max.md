@@ -1,10 +1,9 @@
 ---
 title: "Spesifikasi Lengkap Geely EX2 Max dan Arti Tiap Angkanya"
 description: "Spesifikasi lengkap Geely EX2 Max dalam tabel, plus arti tiap angka dengan bahasa mudah. Hubungi sales Geely untuk konfirmasi data terbaru."
-date: 2026-10-13
+date: 2026-10-17
 category: "Model Geely"
-tags: ["geely ex2", "geely ex2 max", "mobil listrik geely", "geely ev", "geely indonesia", "spesifikasi mobil listrik", "baterai lfp", "mobil listrik kompak", "ev indonesia"]
-draft: true
+tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","spesifikasi mobil listrik","baterai lfp","mobil listrik kompak","ev indonesia"]
 ---
 
 Spesifikasi lengkap Geely EX2 Max mencakup baterai LFP 40,8 kWh, motor 85 kW, torsi 150 Nm, dan klaim jarak tempuh 395 km menurut siklus NEDC. Artikel ini merangkum datanya dalam tabel, lalu menjelaskan arti tiap angka dengan bahasa yang mudah diikuti.

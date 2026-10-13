@@ -3,8 +3,8 @@ title: "Promo Geely EX5 Bulan Ini: DP Rendah dan Balloon Payment"
 description: "Promo Geely EX5 bulan ini: DP rendah kisaran Rp 40 jutaan, angsuran ringan, balloon payment 50:50 bunga 0%. Baca syarat dan cara hitungnya. Oktober 2026."
 date: 2026-10-13
 category: "Harga & Promo"
-tags: ["promo geely ex5", "diskon geely ex5", "disc geely ex5", "dp rendah geely ex5", "kredit geely ex5", "angsuran ringan suv listrik", "balloon payment", "geely ev", "geely indonesia"]
-draft: true
+tags: ["promo geely ex5","diskon geely ex5","disc geely ex5","dp rendah geely ex5","kredit geely ex5","angsuran ringan suv listrik","balloon payment","geely ev","geely indonesia"]
+image: "/images/artikel/211839-mv6pudle.jpg"
 ---
 
 Promo Geely EX5 bulan ini menawarkan **DP rendah (kisaran Rp 40 jutaan)**, **angsuran ringan**, serta skema **balloon payment dengan bunga 0% dan pembayaran 50:50**. Karena harga EX5 lebih tinggi dari EX2, memahami skema ini sebelum mengambilnya jadi penting. Berikut penjelasannya.

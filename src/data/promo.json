@@ -18,21 +18,21 @@
     "aktif": true
   },
   {
-    "id": "contoh-promo-test-drive",
-    "judul": "Test Drive & Konsultasi Gratis",
-    "deskripsi": "Jadwalkan test drive Geely dan dapatkan Geely E-Money, Yukk Test Drive !!!",
-    "periode": "Berlaku sampai ada pemberitahuan",
-    "foto": "/images/promo/208604-mv12goya.jpg",
-    "model": "geely-ex5",
-    "aktif": true
-  },
-  {
     "judul": "Free Facial untuk Pembelian Geely type apapun",
     "id": "free-facial-untuk-pembelian-geely-type-apapun",
     "deskripsi": "Beli Geely sama wins dan dapatkan Free Facial buat kamu",
     "periode": "31 November 2026",
     "foto": "/images/promo/211156-mv5l2y17.jpg",
     "model": "",
+    "aktif": true
+  },
+  {
+    "id": "contoh-promo-test-drive",
+    "judul": "Test Drive & Konsultasi Gratis",
+    "deskripsi": "Jadwalkan test drive Geely dan dapatkan Geely E-Money, Yukk Test Drive !!!",
+    "periode": "Berlaku sampai ada pemberitahuan",
+    "foto": "/images/promo/208604-mv12goya.jpg",
+    "model": "geely-ex5",
     "aktif": true
   }
 ]

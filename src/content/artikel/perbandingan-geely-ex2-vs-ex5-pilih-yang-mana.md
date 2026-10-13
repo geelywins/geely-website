@@ -1,11 +1,10 @@
 ---
 title: "Perbandingan Geely EX2 vs EX5: Pilih yang Mana?"
 description: "EX2 atau EX5? Pahami perbedaan ukuran, pemakaian, kenyamanan dan kebutuhan keluarga, lalu pilih yang paling cocok. Yuk baca panduan mudahnya."
-date: 2026-10-07
+date: 2026-10-13
 updated: 2026-10-10
 category: "Perbandingan"
-tags: ["geely ex2", "geely ex5", "perbandingan mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik kompak", "suv listrik keluarga"]
-draft: true
+tags: ["geely ex2","geely ex5","perbandingan mobil listrik","mobil listrik geely","geely ev","geely indonesia","mobil listrik kompak","suv listrik keluarga"]
 ---
 
 Perbandingan Geely EX2 vs EX5 pada dasarnya soal memilih antara mobil listrik kompak yang lincah di kota dan SUV listrik yang lebih lega untuk keluarga. Artikel ini membantu Anda menimbang kebutuhan harian, perjalanan jauh, tempat parkir, dan anggaran, tanpa angka rumit yang membingungkan.

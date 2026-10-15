@@ -1,10 +1,9 @@
 ---
 title: "Keamanan Geely EX5: Airbag, ISOFIX dan Kontrol Stabilitas"
 description: "Keamanan Geely EX5 dari brosur: airbag depan, samping, tirai, ABS, ESC, TCS, ISOFIX, kamera 360, dan immobiliser. Penjelasan mudah untuk keluarga."
-date: 2026-10-10
+date: 2026-10-20
 category: "Model Geely"
-tags: ["keamanan geely ex5", "fitur keselamatan ex5", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "isofix", "suv listrik keluarga"]
-draft: true
+tags: ["keamanan geely ex5","fitur keselamatan ex5","geely ex5","mobil listrik geely","geely ev","geely indonesia","isofix","suv listrik keluarga"]
 ---
 
 Keamanan Geely EX5 mencakup airbag depan, samping depan, dan tirai samping, sistem kontrol seperti ABS, ESC, dan TCS, serta ISOFIX untuk kursi anak. Semua fitur ini ada di Pro dan Max menurut brosur. Artikel ini menjelaskan arti tiap fitur dengan bahasa sederhana.

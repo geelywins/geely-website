@@ -2,11 +2,13 @@
 title: "Cara Mengisi Daya Geely EX2 Max di Rumah: Panduan Praktis"
 description: "Cara mengisi daya Geely EX2 Max di rumah: waktu AC sekitar 6,5 jam, persiapan instalasi, dan tips daya listrik. Konsultasikan dulu dengan kami."
 date: 2026-10-14
+updated: 2026-10-15
 category: "Mobil Listrik"
 tags: ["geely ex2","geely ex2 max","charging di rumah","mobil listrik geely","geely ev","mobil listrik jakarta","pengisian ac","ev indonesia","mobil listrik kompak"]
+image: "/images/artikel/213517-mv915ncw.jpg"
 ---
 
-Cara mengisi daya Geely EX2 Max di rumah sebenarnya cukup sederhana. Anda memarkir mobil, menyambungkan kabel, lalu membiarkannya terisi saat Anda beristirahat. Meski begitu, ada beberapa persiapan yang sebaiknya dilakukan lebih dulu.
+Cara mengisi daya Geely EX2 Max di rumah sebenarnya cukup sederhana. Anda memarkir mobil, menyambungkan kabel, lalu membiarkannya terisi saat Anda beristirahat. Meski begitu, ada beberapa persiapan yang sebaiknya dilakukan lebih dulu agar tidak salah untuk melakukan pengecasan di rumah
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Panduan ini bersifat umum, jadi untuk instalasi listrik, tetap konsultasikan ke teknisi dan PLN.
 

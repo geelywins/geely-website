@@ -1,10 +1,9 @@
 ---
 title: "Pasang Charger Mobil Listrik di Rumah: Daya PLN dan Instalasi"
 description: "Mau pasang charger mobil listrik di rumah? Cek daya PLN, MCB, jarak parkir, wallbox atau soket, izin lingkungan, dan teknisi bersertifikat sebelum mobil tiba."
-date: 2026-10-10
+date: 2026-10-19
 category: "Panduan EV"
-tags: ["pasang charger mobil listrik di rumah", "instalasi wallbox", "daya pln mobil listrik", "mcb dan fasa", "mobil listrik geely", "geely ev", "geely ex5", "geely indonesia"]
-draft: true
+tags: ["pasang charger mobil listrik di rumah","instalasi wallbox","daya pln mobil listrik","mcb dan fasa","mobil listrik geely","geely ev","geely ex5","geely indonesia"]
 ---
 
 Untuk pasang charger mobil listrik di rumah, mulailah dari hal-hal di sisi rumah: daya PLN dan MCB, jarak ke titik parkir, jenis alat (wallbox atau soket), serta izin lingkungan. Semua pekerjaan listriknya sebaiknya ditangani teknisi bersertifikat. Kecepatan mengisi nanti dibatasi oleh suplai listrik rumah Anda.

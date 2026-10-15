@@ -113,9 +113,13 @@
         "nilai": "SUV premium"
       }
     ],
-    "foto": "/images/model/114225-muxaxtct.jpg",
-    "galeri": [],
-    "warna": "#f2994a"
+    "foto": "/images/model/213092-mv8w56cs.jpg",
+    "galeri": [
+      "/images/model/114225-muxaxtct.jpg"
+    ],
+    "warna": "#f2994a",
+    "model3d": "",
+    "link3d": ""
   },
   {
     "slug": "geely-starray",

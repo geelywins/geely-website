@@ -1,10 +1,9 @@
 ---
 title: "Harga Geely Starray EM-i Terbaru, OTR Jakarta"
 description: "Harga Geely Starray EM-i OTR Jakarta Rp 499 juta. SUV plug-in hybrid jarak tempuh 1.000+ km (NEDC). Bandingkan dengan EX5 dan cek skema kredit."
-date: 2026-10-13
+date: 2026-10-18
 category: "Harga & Promo"
-tags: ["harga geely starray", "harga geely starray em-i", "otr geely starray", "geely starray jakarta", "suv plug-in hybrid", "harga suv hybrid", "geely indonesia", "geely ev"]
-draft: true
+tags: ["harga geely starray","harga geely starray em-i","otr geely starray","geely starray jakarta","suv plug-in hybrid","harga suv hybrid","geely indonesia","geely ev"]
 ---
 
 Harga Geely Starray EM-i OTR Jakarta per Oktober 2026 adalah **Rp 499.000.000**. Ini SUV plug-in hybrid dengan klaim jarak tempuh total lebih dari 1.000 km pada siklus NEDC. Berikut apa yang Anda dapat di harga itu, dan bagaimana posisinya dibanding EX5.

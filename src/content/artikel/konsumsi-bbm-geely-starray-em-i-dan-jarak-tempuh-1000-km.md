@@ -1,10 +1,9 @@
 ---
 title: "Konsumsi BBM Geely Starray EM-i dan Klaim Jarak 1.000 km"
 description: "Konsumsi BBM Geely Starray EM-i: arti 0,5, 1,2, dan 4,3 L/100 km, klaim 1.000+ km, dan cara menghitung biaya BBM sendiri. Baca sebelum test drive."
-date: 2026-10-10
+date: 2026-10-20
 category: "Model Geely"
-tags: ["konsumsi bbm geely starray em-i", "geely starray em-i", "jarak tempuh 1000 km", "hemat bbm", "plug-in hybrid", "geely indonesia", "geely ev", "ev geely jakarta", "suv hybrid"]
-draft: true
+tags: ["konsumsi bbm geely starray em-i","geely starray em-i","jarak tempuh 1000 km","hemat bbm","plug-in hybrid","geely indonesia","geely ev","ev geely jakarta","suv hybrid"]
 ---
 
 Konsumsi BBM Geely Starray EM-i diklaim pabrikan sebesar 0,5 L/100 km saat baterai penuh, 1,2 L/100 km rata-rata tertimbang, dan 4,3 L/100 km saat baterai rendah. Jarak gabungannya diklaim lebih dari 1.000 km. Artikel ini menjelaskan cara membaca angka itu dan menghitung biaya BBM Anda sendiri.

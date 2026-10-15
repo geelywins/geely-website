@@ -143,8 +143,12 @@
         "nilai": "Crossover Turbo"
       }
     ],
-    "foto": "/images/model/205032-muxaz7no.jpg",
-    "galeri": [],
-    "warna": "#7b61ff"
+    "foto": "/images/model/213094-mv8wd6tb.jpg",
+    "galeri": [
+      "/images/model/205032-muxaz7no.jpg"
+    ],
+    "warna": "#7b61ff",
+    "model3d": "",
+    "link3d": ""
   }
 ]

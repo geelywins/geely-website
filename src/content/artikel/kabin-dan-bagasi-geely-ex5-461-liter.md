@@ -1,10 +1,9 @@
 ---
 title: "Kabin dan Bagasi Geely EX5: 461 Liter hingga 1.877 Liter"
 description: "Bagasi Geely EX5 mulai 461 liter hingga 1.877 liter. Lihat dimensi, jok belakang 60/40, dan cara memuat koper, stroller, serta barang olahraga."
-date: 2026-10-10
+date: 2026-10-19
 category: "Model Geely"
-tags: ["bagasi geely ex5", "kabin geely ex5", "geely ex5", "suv listrik keluarga", "mobil listrik geely", "geely ev", "geely indonesia", "bagasi mobil listrik"]
-draft: true
+tags: ["bagasi geely ex5","kabin geely ex5","geely ex5","suv listrik keluarga","mobil listrik geely","geely ev","geely indonesia","bagasi mobil listrik"]
 ---
 
 Bagasi Geely EX5 berkapasitas 461 liter saat kursi tegak dan meluas sampai 1.877 liter ketika jok belakang dilipat. Dengan wheelbase 2.750 mm, kabinnya lega untuk lima penumpang. Artikel ini membahas ruang kabin dan bagasi, bukan fitur lain, agar Anda bisa membayangkan muatan harian keluarga.

@@ -1,10 +1,9 @@
 ---
 title: "Harga Geely EX5 Terbaru: SUV Listrik Keluarga Mulai Rp 465 Juta"
 description: "Harga Geely EX5 OTR Jakarta: Pro Rp 465 juta, Max Rp 505 juta. Cek selisih Rp 40 juta, fitur yang didapat, dan kredit DP rendah. Oktober 2026."
-date: 2026-10-13
+date: 2026-10-18
 category: "Harga & Promo"
-tags: ["harga geely ex5", "harga geely ex5 max", "harga geely ex5 pro", "otr geely ex5", "geely ex5 jakarta", "suv listrik keluarga", "harga suv listrik", "geely ev", "geely indonesia"]
-draft: true
+tags: ["harga geely ex5","harga geely ex5 max","harga geely ex5 pro","otr geely ex5","geely ex5 jakarta","suv listrik keluarga","harga suv listrik","geely ev","geely indonesia"]
 ---
 
 Harga Geely EX5 OTR Jakarta per Oktober 2026 adalah **Rp 465.000.000 untuk varian Pro** dan **Rp 505.000.000 untuk varian Max**. Selisihnya Rp 40 juta. Keduanya memakai baterai 60,22 kWh dengan klaim jarak tempuh hingga 495 km (NEDC). Berikut isi selisih itu dan siapa yang cocok memilih tiap varian.

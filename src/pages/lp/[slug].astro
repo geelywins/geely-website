@@ -9,6 +9,7 @@ import VideoEmbed from '../../components/VideoEmbed.astro';
 import { youtubeId } from '../../lib/video';
 import PageHead from '../../components/PageHead.astro';
 import Icon from '../../components/Icon.astro';
+import { faqLd } from '../../lib/faq';
 
 export async function getStaticPaths() {
   const all = await getLiveLandingPages();
@@ -42,6 +43,7 @@ const cover = d.image || `/img/lp/${entry.id}/sampul.png`;
 const imageAbs = new URL(asset(cover), Astro.site).href;
 
 const jsonLd = [
+  ...faqLd(body),
   {
     '@context': 'https://schema.org',
     '@type': 'Article',

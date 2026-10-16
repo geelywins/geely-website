@@ -9,6 +9,7 @@ import VideoEmbed from '../../components/VideoEmbed.astro';
 import { youtubeId } from '../../lib/video';
 import PageHead from '../../components/PageHead.astro';
 import Icon from '../../components/Icon.astro';
+import { faqLd } from '../../lib/faq';
 
 export async function getStaticPaths() {
   const all = await getLiveArticles();
@@ -48,6 +49,7 @@ const videoLd = vid ? [{
 
 const jsonLd = [
   ...videoLd,
+  ...faqLd(body),
   {
     '@context': 'https://schema.org',
     '@type': 'Article',

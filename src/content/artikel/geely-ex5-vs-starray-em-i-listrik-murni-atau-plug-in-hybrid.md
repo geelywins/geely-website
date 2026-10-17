@@ -1,10 +1,9 @@
 ---
 title: "Geely EX5 vs Starray EM-i: Listrik Murni atau Plug-in Hybrid?"
 description: "Geely EX5 vs Starray EM-i: bandingkan dimensi, tenaga, baterai, jarak, pengisian, dan bagasi dalam tabel, lalu cari tahu mana yang cocok untuk Anda."
-date: 2026-10-10
+date: 2026-10-23
 category: "Perbandingan"
-tags: ["geely ex5 vs starray em-i", "geely ex5", "geely starray em-i", "mobil listrik geely", "plug-in hybrid", "geely indonesia", "geely ev", "ev geely jakarta", "suv listrik"]
-draft: true
+tags: ["geely ex5 vs starray em-i","geely ex5","geely starray em-i","mobil listrik geely","plug-in hybrid","geely indonesia","geely ev","ev geely jakarta","suv listrik"]
 ---
 
 Geely EX5 vs Starray EM-i pada dasarnya adalah pilihan antara mobil listrik murni dan plug-in hybrid. EX5 punya baterai 60,22 kWh dan tenaga 160 kW. Starray EM-i punya baterai 18,4 kWh plus mesin bensin 1,5 liter. Berikut perbandingan datanya dan siapa yang cocok untuk masing-masing.

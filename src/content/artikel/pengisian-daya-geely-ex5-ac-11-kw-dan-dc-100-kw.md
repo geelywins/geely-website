@@ -1,10 +1,9 @@
 ---
 title: "Pengisian Daya Geely EX5: AC 11 kW dan DC 100 kW Dijelaskan"
 description: "Pengisian daya Geely EX5 lewat AC 11 kW dan DC 100 kW: kapan dipakai, cara kerja jadwal pengisian, dan tips agar baterai awet. Baca panduan lengkapnya."
-date: 2026-10-10
+date: 2026-10-22
 category: "Panduan EV"
-tags: ["pengisian daya geely ex5", "geely ex5", "charger ac 11 kw", "pengisian cepat dc", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "geely ex5 max"]
-draft: true
+tags: ["pengisian daya geely ex5","geely ex5","charger ac 11 kw","pengisian cepat dc","mobil listrik geely","geely ev","geely indonesia","ev geely jakarta","geely ex5 max"]
 ---
 
 Pengisian daya Geely EX5 mendukung dua cara: AC Type-2 hingga 11 kW untuk di rumah atau kantor, dan DC CCS2 hingga 100 kW untuk pengisian cepat di stasiun umum. Artikel ini menjelaskan kapan memakai yang mana, fungsi jadwal pengisian, dan tips praktisnya.

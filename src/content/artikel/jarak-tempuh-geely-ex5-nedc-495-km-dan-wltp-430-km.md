@@ -1,10 +1,9 @@
 ---
 title: "Jarak Tempuh Geely EX5: NEDC 495 km dan WLTP 430 km"
 description: "Jarak tempuh Geely EX5 menurut klaim NEDC 495 km dan WLTP 430 km. Pahami faktor di jalan nyata dan cara memperkirakan untuk rute Anda sendiri."
-date: 2026-10-10
+date: 2026-10-23
 category: "Model Geely"
-tags: ["jarak tempuh geely ex5", "geely ex5", "klaim jarak mobil listrik", "baterai 60,22 kwh", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "mobil listrik keluarga"]
-draft: true
+tags: ["jarak tempuh geely ex5","geely ex5","klaim jarak mobil listrik","baterai 60,22 kwh","mobil listrik geely","geely ev","geely indonesia","ev geely jakarta","mobil listrik keluarga"]
 ---
 
 Jarak tempuh Geely EX5 diklaim pabrikan sebesar 495 km (Pro) dan 490 km (Max) menurut NEDC, serta 430 km (Pro) dan 425 km (Max) menurut WLTP. Semuanya angka uji laboratorium. Di jalan nyata hasilnya bisa berbeda, dan artikel ini menunjukkan cara memperkirakannya untuk rute Anda.

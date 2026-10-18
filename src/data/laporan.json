@@ -1,5 +1,5 @@
 {
-  "dibuat": "2026-10-18T09:35:01.257Z",
+  "dibuat": "2026-10-18T16:11:51.899Z",
   "domain": "geelywins.com",
   "konten": {
     "tayang": 33,
@@ -517,14 +517,14 @@
       {
         "url": "/",
         "skor": {
-          "performa": 95,
+          "performa": 83,
           "aksesibilitas": 94,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.9 s",
+        "lcp": "3.0 s",
         "cls": "0",
-        "tbt": "0 ms"
+        "tbt": "450 ms"
       },
       {
         "url": "/model/geely-ex5/",
@@ -546,7 +546,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.1 s",
+        "lcp": "2.3 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -558,7 +558,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "1.5 s",
+        "lcp": "1.6 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -648,6 +648,12 @@
       "klik": 29,
       "tayang": 272,
       "posisi": 8.1
+    },
+    {
+      "tanggal": "2026-10-18",
+      "klik": 31,
+      "tayang": 325,
+      "posisi": 8.2
     },
     {
       "tanggal": "2026-10-18",

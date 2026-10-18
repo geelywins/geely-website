@@ -1,24 +1,24 @@
 {
-  "dibuat": "2026-10-17T02:48:40.238Z",
+  "dibuat": "2026-10-18T09:35:01.257Z",
   "domain": "geelywins.com",
   "konten": {
-    "tayang": 31,
-    "terjadwal": 6,
-    "draft": 41
+    "tayang": 33,
+    "terjadwal": 8,
+    "draft": 37
   },
   "usang": [],
   "gsc": {
     "status": "ok",
     "situs": "sc-domain:geelywins.com",
     "periode": {
-      "startDate": "2026-09-17",
-      "endDate": "2026-10-14"
+      "startDate": "2026-09-18",
+      "endDate": "2026-10-15"
     },
     "sekarang": {
-      "klik": 29,
-      "tayang": 272,
-      "ctr": 10.7,
-      "posisi": 8.1
+      "klik": 31,
+      "tayang": 325,
+      "ctr": 9.5,
+      "posisi": 8.2
     },
     "sebelumnya": {
       "klik": 0,
@@ -29,14 +29,14 @@
     "halaman_teratas": [
       {
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/",
-        "klik": 14,
-        "tayang": 129,
+        "klik": 15,
+        "tayang": 136,
         "posisi": 5.2
       },
       {
         "halaman": "/",
         "klik": 8,
-        "tayang": 60,
+        "tayang": 61,
         "posisi": 1.2
       },
       {
@@ -60,14 +60,14 @@
       {
         "halaman": "/lp/mobil-listrik-keluarga/",
         "klik": 1,
-        "tayang": 26,
-        "posisi": 5.2
+        "tayang": 28,
+        "posisi": 5
       },
       {
         "halaman": "/artikel/perawatan-geely-ex2-max-servis-berkala-dan-biaya/",
         "klik": 1,
-        "tayang": 16,
-        "posisi": 9.2
+        "tayang": 20,
+        "posisi": 8.6
       },
       {
         "halaman": "/model/",
@@ -76,15 +76,15 @@
         "posisi": 6
       },
       {
-        "halaman": "/artikel/tips-memilih-mobil-listrik-pertama/",
-        "klik": 0,
-        "tayang": 52,
-        "posisi": 5.5
+        "halaman": "/testimoni/",
+        "klik": 1,
+        "tayang": 4,
+        "posisi": 6.3
       },
       {
         "halaman": "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/",
         "klik": 0,
-        "tayang": 50,
+        "tayang": 52,
         "posisi": 9.6
       }
     ],
@@ -94,24 +94,31 @@
     "semua": [
       {
         "query": "geely ex2 vs ex5",
-        "posisi": 4.3,
-        "tayang": 10,
-        "klik": 3,
-        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
-      },
-      {
-        "query": "beda geely ex2 dan ex5",
-        "posisi": 4.2,
-        "tayang": 6,
-        "klik": 1,
+        "posisi": 4,
+        "tayang": 13,
+        "klik": 4,
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
       },
       {
         "query": "perbedaan geely ex2 dan ex5",
-        "posisi": 4.3,
-        "tayang": 6,
+        "posisi": 4.8,
+        "tayang": 8,
         "klik": 4,
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "beda geely ex2 dan ex5",
+        "posisi": 4.1,
+        "tayang": 7,
+        "klik": 1,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "cara menghitung dp dan angsuran mobil",
+        "posisi": 87.3,
+        "tayang": 6,
+        "klik": 0,
+        "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/"
       },
       {
         "query": "ex2 vs ex5",
@@ -128,18 +135,25 @@
         "halaman": "/artikel/"
       },
       {
-        "query": "cara menghitung dp dan angsuran mobil",
-        "posisi": 86.6,
-        "tayang": 5,
-        "klik": 0,
-        "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/"
-      },
-      {
         "query": "geely ex5 vs ex2",
         "posisi": 4,
         "tayang": 4,
         "klik": 0,
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
+        "query": "pajak mobil geely ex2",
+        "posisi": 9.8,
+        "tayang": 4,
+        "klik": 0,
+        "halaman": "/artikel/pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max/"
+      },
+      {
+        "query": "pajak geely ex2",
+        "posisi": 10.8,
+        "tayang": 4,
+        "klik": 0,
+        "halaman": "/artikel/pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max/"
       },
       {
         "query": "test drive geely",
@@ -156,20 +170,6 @@
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
       },
       {
-        "query": "pajak mobil geely ex2",
-        "posisi": 9.3,
-        "tayang": 3,
-        "klik": 0,
-        "halaman": "/artikel/pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max/"
-      },
-      {
-        "query": "pajak geely ex2",
-        "posisi": 10.7,
-        "tayang": 3,
-        "klik": 0,
-        "halaman": "/artikel/pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max/"
-      },
-      {
         "query": "tenor cicilan mobil",
         "posisi": 64.3,
         "tayang": 3,
@@ -177,11 +177,32 @@
         "halaman": "/artikel/simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan/"
       },
       {
+        "query": "ex5 vs ex2",
+        "posisi": 3.5,
+        "tayang": 2,
+        "klik": 0,
+        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
+      },
+      {
         "query": "\"mobil geely\"",
         "posisi": 6.5,
         "tayang": 2,
         "klik": 0,
         "halaman": "/artikel/"
+      },
+      {
+        "query": "diskon geely ex2",
+        "posisi": 7.5,
+        "tayang": 2,
+        "klik": 0,
+        "halaman": "/artikel/promo-dan-diskon-geely-ex2-bulan-ini/"
+      },
+      {
+        "query": "review geely ex2 max",
+        "posisi": 10,
+        "tayang": 2,
+        "klik": 0,
+        "halaman": "/artikel/geely-ex2-max-review-lengkap-fitur-dan-kelebihan/"
       },
       {
         "query": "tukar tambah mobil listrik",
@@ -198,13 +219,6 @@
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
       },
       {
-        "query": "ex5 vs ex2",
-        "posisi": 5,
-        "tayang": 1,
-        "klik": 0,
-        "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
-      },
-      {
         "query": "geely ex2 vs geely ex5",
         "posisi": 5,
         "tayang": 1,
@@ -212,18 +226,11 @@
         "halaman": "/artikel/perbandingan-geely-ex2-vs-ex5-pilih-yang-mana/"
       },
       {
-        "query": "review geely ex2 max",
-        "posisi": 5,
+        "query": "kekurangan geely ex2 max",
+        "posisi": 9,
         "tayang": 1,
         "klik": 0,
         "halaman": "/artikel/geely-ex2-max-review-lengkap-fitur-dan-kelebihan/"
-      },
-      {
-        "query": "diskon geely ex2",
-        "posisi": 8,
-        "tayang": 1,
-        "klik": 0,
-        "halaman": "/artikel/promo-dan-diskon-geely-ex2-bulan-ini/"
       },
       {
         "query": "kelebihan dan kekurangan geely ex2",
@@ -240,11 +247,32 @@
         "halaman": "/artikel/perawatan-geely-ex2-max-servis-berkala-dan-biaya/"
       },
       {
+        "query": "kekurangan geely ex2",
+        "posisi": 10,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/geely-ex2-max-review-lengkap-fitur-dan-kelebihan/"
+      },
+      {
         "query": "geely ex2 pajak",
         "posisi": 11,
         "tayang": 1,
         "klik": 0,
         "halaman": "/artikel/pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max/"
+      },
+      {
+        "query": "geely ex5 pro vs max",
+        "posisi": 11,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbedaan-geely-ex5-pro-vs-max-mana-yang-worth-it/"
+      },
+      {
+        "query": "perbedaan geely ex5 pro dan max",
+        "posisi": 11,
+        "tayang": 1,
+        "klik": 0,
+        "halaman": "/artikel/perbedaan-geely-ex5-pro-vs-max-mana-yang-worth-it/"
       },
       {
         "query": "cicilan geely ex2 max",
@@ -264,7 +292,7 @@
   },
   "link": {
     "status": "ok",
-    "halaman_dicek": 45,
+    "halaman_dicek": 47,
     "link_dicek": 17,
     "rusak": [
       {
@@ -371,6 +399,12 @@
         "url": "/artikel/harga-geely-ex2-terbaru-pro-dan-max-otr-jakarta/",
         "masalah": [
           "Judul terlalu panjang (75 huruf, ideal maks 65)"
+        ]
+      },
+      {
+        "url": "/artikel/harga-geely-ex5-terbaru-pro-dan-max-otr-jakarta/",
+        "masalah": [
+          "Judul terlalu panjang (76 huruf, ideal maks 65)"
         ]
       },
       {
@@ -483,14 +517,14 @@
       {
         "url": "/",
         "skor": {
-          "performa": 94,
+          "performa": 95,
           "aksesibilitas": 94,
           "praktik": 100,
           "seo": 100
         },
         "lcp": "2.9 s",
         "cls": "0",
-        "tbt": "50 ms"
+        "tbt": "0 ms"
       },
       {
         "url": "/model/geely-ex5/",
@@ -512,8 +546,8 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.2 s",
-        "cls": "0.002",
+        "lcp": "2.1 s",
+        "cls": "0",
         "tbt": "0 ms"
       },
       {
@@ -524,7 +558,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "1.6 s",
+        "lcp": "1.5 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -614,6 +648,12 @@
       "klik": 29,
       "tayang": 272,
       "posisi": 8.1
+    },
+    {
+      "tanggal": "2026-10-18",
+      "klik": 31,
+      "tayang": 325,
+      "posisi": 8.2
     }
   ]
 }

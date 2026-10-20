@@ -1,10 +1,9 @@
 ---
 title: "Kamera 540 Derajat Geely EX2 Max Membantu Parkir di Kota"
 description: "Kamera 540 derajat Geely EX2 Max memudahkan parkir sempit di Jakarta dan BSD. Pelajari manfaat dan tipsnya, lalu coba langsung lewat test drive."
-date: 2026-10-07
+date: 2026-10-26
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","kamera 540 derajat","parkir mobil listrik","mobil listrik jakarta","mobil listrik bsd"]
-draft: true
 ---
 
 Kamera 540 derajat Geely EX2 Max adalah fitur yang paling cepat terasa manfaatnya di kota besar. Parkir di area padat sering membuat pengemudi tegang, terutama pemula. Kamera panorama ini membantu Anda melihat sekeliling mobil lewat layar, sehingga manuver terasa lebih terkendali.

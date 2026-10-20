@@ -1,10 +1,9 @@
 ---
 title: "Geely EX2 Max di Macet Jakarta dan BSD: Nyaman dan Efisien"
 description: "Geely EX2 Max di macet Jakarta dan BSD: senyap, pengereman regeneratif, dan kamera 540 derajat memudahkan parkir. Coba test drive untuk merasakannya."
-date: 2026-10-07
+date: 2026-10-27
 category: "Mobil Listrik"
 tags: ["geely ex2","geely ex2 max","ev geely jakarta","mobil listrik kompak","mobil listrik geely","geely indonesia","mobil listrik jakarta","mobil listrik bsd","macet jakarta"]
-draft: true
 ---
 
 Geely EX2 Max di macet Jakarta dan BSD punya karakter yang cocok untuk lalu lintas stop-and-go. Mobil listrik tidak perlu idle seperti mesin bensin, kabinnya senyap, dan tenaganya tersedia sejak awal. Saya, Wins, sales consultant Geely yang bekerja di Jakarta dan BSD, sering ditanya apakah mobil listrik kompak ini nyaman untuk kemacetan harian. Berikut penjelasan jujur berdasarkan fitur yang terverifikasi.

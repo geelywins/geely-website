@@ -1,10 +1,9 @@
 ---
 title: "Cara Kerja Plug-in Hybrid Geely EM-i dan Cara Mengisi Daya"
 description: "Cara kerja plug-in hybrid Geely EM-i: mode Pure, Hybrid, Power, kapan mesin menyala, serta cara mengisi daya AC 6,6 kW dan DC 30 kW. Panduan praktis."
-date: 2026-10-10
+date: 2026-10-25
 category: "Panduan EV"
-tags: ["cara kerja plug-in hybrid", "geely em-i", "geely starray em-i", "mode pure hybrid power", "cara mengisi daya", "geely indonesia", "geely ev", "ev geely jakarta", "plug-in hybrid"]
-draft: true
+tags: ["cara kerja plug-in hybrid","geely em-i","geely starray em-i","mode pure hybrid power","cara mengisi daya","geely indonesia","geely ev","ev geely jakarta","plug-in hybrid"]
 ---
 
 Cara kerja plug-in hybrid Geely EM-i memadukan baterai yang bisa dicolok dengan mesin bensin 1,5 liter, dan Anda bisa memilih mode Pure, Hybrid, atau Power. Panduan ini menjelaskan peran tiap komponen, kapan mesin menyala, serta cara mengisi daya lewat AC 6,6 kW dan DC 30 kW.

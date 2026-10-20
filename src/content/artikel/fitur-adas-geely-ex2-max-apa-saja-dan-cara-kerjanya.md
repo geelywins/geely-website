@@ -1,10 +1,9 @@
 ---
 title: "Fitur ADAS Geely EX2 Max: 12 Fungsi dan Cara Kerjanya"
 description: "Fitur ADAS Geely EX2 Max Level 2 punya 12 fungsi pendukung pengemudi. Pahami cara kerja dan batasnya, lalu tanya sales untuk demo langsung."
-date: 2026-10-07
+date: 2026-10-28
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","adas","keselamatan berkendara","mobil listrik kompak","test drive mobil listrik"]
-draft: true
 ---
 
 Fitur ADAS Geely EX2 Max menjadi salah satu alasan utama orang memilih varian ini dibanding Pro. ADAS Level 2 pada EX2 Max memiliki 12 fungsi yang membantu pengemudi. Artikel ini menjelaskan apa itu ADAS, cara kerjanya secara umum, serta batas yang perlu Anda pahami.

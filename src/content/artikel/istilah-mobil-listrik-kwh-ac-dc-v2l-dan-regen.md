@@ -1,10 +1,9 @@
 ---
 title: "Istilah Mobil Listrik: kWh, AC, DC, V2L, Regen dan Lainnya"
 description: "Bingung dengan istilah mobil listrik di brosur? Kamus sederhana ini menjelaskan kWh, kW, Nm, AC/DC, CCS2, V2L, regen, SOC, OTA, dan LFP lengkap dengan contoh."
-date: 2026-10-10
+date: 2026-10-25
 category: "Panduan EV"
-tags: ["istilah mobil listrik", "kamus mobil listrik", "arti kwh", "v2l dan regen", "mobil listrik geely", "geely ev", "geely ex5", "geely indonesia"]
-draft: true
+tags: ["istilah mobil listrik","kamus mobil listrik","arti kwh","v2l dan regen","mobil listrik geely","geely ev","geely ex5","geely indonesia"]
 ---
 
 Istilah mobil listrik yang paling sering muncul di brosur adalah kWh (ukuran isi baterai), kW dan Nm (tenaga motor), AC dan DC (jenis pengisian), V2L (listrik mobil untuk perangkat), serta regen (rem yang mengisi baterai). Kamus ini menjelaskan masing-masing dengan bahasa sederhana dan contoh dari Geely.

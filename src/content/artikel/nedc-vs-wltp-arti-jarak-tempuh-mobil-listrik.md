@@ -1,10 +1,9 @@
 ---
 title: "NEDC vs WLTP: Arti Klaim Jarak Tempuh Mobil Listrik"
 description: "NEDC vs WLTP sering membingungkan saat membaca brosur. Pahami bedanya, mana yang lebih mendekati pemakaian nyata, dan cara membacanya dengan tenang."
-date: 2026-10-10
+date: 2026-10-24
 category: "Panduan EV"
-tags: ["nedc vs wltp", "siklus uji jarak tempuh", "klaim jarak mobil listrik", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta"]
-draft: true
+tags: ["nedc vs wltp","siklus uji jarak tempuh","klaim jarak mobil listrik","geely ex5","mobil listrik geely","geely ev","geely indonesia","ev geely jakarta"]
 ---
 
 NEDC vs WLTP adalah perbandingan dua cara pabrikan mengukur jarak tempuh mobil listrik di laboratorium. WLTP lebih baru dan dirancang lebih mendekati pemakaian sehari-hari, sehingga angkanya biasanya lebih kecil dari NEDC. Keduanya tetap klaim pabrikan, bukan hasil jalan nyata Anda.

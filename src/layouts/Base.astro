@@ -23,7 +23,8 @@ const { title, description, image, type = 'website', published, modified, jsonLd
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(asset(image || SITE.ogImage), Astro.site).href;
-const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+// Nama situs ditambahkan di belakang judul hanya kalau total panjangnya masih muat (maks 65 huruf)
+const fullTitle = title.includes(SITE.name) || `${title} | ${SITE.name}`.length > 65 ? title : `${title} | ${SITE.name}`;
 
 const path = Astro.url.pathname.replace(BASE_RE, '') || '/';
 const isActive = (p: string) => (p === '/' ? path === '/' : path.startsWith(p));

@@ -21,13 +21,13 @@ Di Indonesia, EX2 hanya hadir dalam dua varian, yaitu Pro dan Max. Kalau kamu in
 
 Harga resmi on the road Jakarta saat peluncuran adalah Rp255 juta untuk Pro dan Rp285 juta untuk Max. Artinya, selisihnya sekitar Rp30 juta. Saat peluncuran, Geely sempat memberi harga spesial Rp229,9 juta untuk Pro dan Rp259,9 juta untuk Max bagi konsumen yang memesan lebih awal, tetapi periode tersebut sudah berakhir.
 
-Harga dan program bisa berubah dari waktu ke waktu. Untuk angka terbaru, cek halaman [promo Geely](/promo/) atau baca ulasan kami tentang [harga Geely EX2 di Jakarta](/blog/harga-geely-ex2-jakarta/).
+Harga dan program bisa berubah dari waktu ke waktu. Untuk angka terbaru, cek halaman [promo Geely](/promo/) atau baca ulasan kami tentang [harga Geely EX2 di Jakarta](/artikel/harga-geely-ex2-terbaru-pro-dan-max-otr-jakarta/).
 
 ## Perbedaan eksterior: velg dan pilihan cat
 
 Dari luar, cara termudah membedakan keduanya adalah lewat velg. EX2 Pro memakai velg besi 15 inci, sedangkan EX2 Max sudah dibekali velg alloy 16 inci. Velg alloy membuat tampilan lebih sporty dan premium, terutama saat dilihat dari samping.
 
-Selain itu, varian Max menawarkan opsi cat two-tone yang tidak tersedia di Pro. Kalau tampilan mobil penting bagimu, ini salah satu alasan kuat untuk memilih Max. Pembahasan lebih detail ada di artikel kami tentang [velg 16 inci Geely EX2](/blog/velg-16-inci-geely-ex2/).
+Selain itu, varian Max menawarkan opsi cat two-tone yang tidak tersedia di Pro. Kalau tampilan mobil penting bagimu, ini salah satu alasan kuat untuk memilih Max. Pembahasan lebih detail ada di artikel kami tentang [velg 16 inci Geely EX2](/artikel/velg-16-inci-dan-kenyamanan-berkendara-geely-ex2-max/).
 
 ## Perbedaan kabin dan kenyamanan
 
@@ -51,7 +51,7 @@ Varian Pro tidak memiliki kedua fitur tersebut. Kamu tetap bisa mengisi daya sep
 
 Kabar baiknya, urusan mesin tidak dibedakan. Kedua varian memakai baterai Lithium Iron Phosphate berkapasitas 40,8 kWh dengan jarak tempuh hingga 395 km menurut standar NEDC. Angka di jalan nyata biasanya lebih rendah, tergantung gaya berkendara, beban, dan penggunaan AC.
 
-Motor listrik diletakkan di roda belakang sehingga EX2 berpenggerak RWD. Kedua varian juga sudah mendukung Vehicle to Load (V2L), yaitu fitur untuk mengisi daya perangkat elektronik langsung dari baterai mobil. Jadi performa, jarak tempuh, dan kapasitas baterai tidak menjadi pembeda. Jika kamu ingin tahu biaya pengisiannya, baca [biaya charging Geely EX2](/blog/biaya-charging-geely-ex2/).
+Motor listrik diletakkan di roda belakang sehingga EX2 berpenggerak RWD. Kedua varian juga sudah mendukung Vehicle to Load (V2L), yaitu fitur untuk mengisi daya perangkat elektronik langsung dari baterai mobil. Jadi performa, jarak tempuh, dan kapasitas baterai tidak menjadi pembeda. Jika kamu ingin tahu biaya pengisiannya, baca [biaya charging Geely EX2](/artikel/biaya-per-km-geely-ex2-max-vs-mobil-bensin/).
 
 ## Tabel perbandingan singkat Pro dan Max
 
@@ -72,7 +72,7 @@ Motor listrik diletakkan di roda belakang sehingga EX2 berpenggerak RWD. Kedua v
 
 Pilih EX2 Pro jika budget menjadi prioritas, pemakaian utama untuk dalam kota, dan kamu tidak terlalu butuh fitur tambahan. Dengan Pro, kamu sudah mendapat mobil listrik dengan baterai dan jarak tempuh yang sama seperti Max.
 
-Pilih EX2 Max jika kamu ingin keselamatan lebih lengkap lewat enam airbag dan ADAS, kabin yang lebih nyaman, serta tampilan lebih menarik dengan velg 16 inci. Selisih Rp30 juta terasa wajar jika kamu sering berkendara jauh atau membawa keluarga. Ingin tahu dampaknya ke angsuran? Lihat [simulasi cicilan Geely EX2](/blog/simulasi-cicilan-geely-ex2/) sebelum memutuskan.
+Pilih EX2 Max jika kamu ingin keselamatan lebih lengkap lewat enam airbag dan ADAS, kabin yang lebih nyaman, serta tampilan lebih menarik dengan velg 16 inci. Selisih Rp30 juta terasa wajar jika kamu sering berkendara jauh atau membawa keluarga. Ingin tahu dampaknya ke angsuran? Lihat [simulasi cicilan Geely EX2](/artikel/simulasi-cicilan-geely-ex2-max-dp-dan-tenor/) sebelum memutuskan.
 
 ## Pertanyaan yang sering diajukan
 

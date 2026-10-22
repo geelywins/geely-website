@@ -1,6 +1,6 @@
 ---
-title: "Geely EX2: Mobil Listrik Kompak untuk Harian, Ini yang Perlu Anda Tahu"
-description: "Ulasan singkat Geely EX2: baterai 40,8 kWh, klaim jarak tempuh hingga 395 km, dimensi ringkas dan fitur kabin. Cocok untuk siapa dan apa yang perlu dicek sebelum beli."
+title: "Geely EX2: Mobil Listrik Kompak untuk Harian, Apa Saja Isinya?"
+description: "Ulasan Geely EX2: baterai 40,8 kWh, klaim jarak tempuh hingga 395 km, dimensi ringkas dan fitur kabin. Cocok untuk siapa dan apa yang dicek sebelum beli."
 date: 2026-10-07
 category: "Model Geely"
 tags: ["geely ex2","mobil listrik","mobil listrik kompak","jakarta"]

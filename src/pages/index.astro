@@ -45,8 +45,12 @@ const bg = () => ((alt = !alt) ? 'sec-alt' : '');
             <div class="slide-bg">
               {s.foto && (
                 <picture>
-                  {s.fotoHp && <source media="(max-width: 575.98px)" srcset={asset(s.fotoHp)} />}
-                  <img src={asset(s.foto)} alt="" width="1920" height="1080" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} decoding="async" />
+                  {s.fotoHp && (i === 0
+                    ? <source media="(max-width: 575.98px)" srcset={asset(s.fotoHp)} />
+                    : <source media="(max-width: 575.98px)" data-srcset={asset(s.fotoHp)} />)}
+                  {i === 0
+                    ? <img src={asset(s.foto)} alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" />
+                    : <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src={asset(s.foto)} alt="" width="1920" height="1080" decoding="async" />}
                 </picture>
               )}
             </div>

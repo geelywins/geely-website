@@ -9,6 +9,17 @@ if (root) {
   let cur = 0;
   let timer: number | undefined;
 
+  // Foto slide ke-2 dan seterusnya baru diunduh setelah halaman selesai dimuat, supaya foto pertama (yang terlihat) tidak berebut kecepatan internet.
+  const loadRest = () => {
+    root.querySelectorAll<HTMLImageElement>('img[data-src]').forEach((img) => {
+      img.closest('picture')?.querySelectorAll<HTMLSourceElement>('source[data-srcset]').forEach((s) => { s.srcset = s.dataset.srcset || ''; s.removeAttribute('data-srcset'); });
+      img.src = img.dataset.src || ''; img.removeAttribute('data-src');
+    });
+  };
+  if (document.readyState === 'complete') setTimeout(loadRest, 300);
+  else window.addEventListener('load', () => setTimeout(loadRest, 300), { once: true });
+  root.addEventListener('pointerdown', loadRest, { once: true });
+
   const show = (n: number) => {
     cur = (n + slides.length) % slides.length;
     slides.forEach((s, i) => {

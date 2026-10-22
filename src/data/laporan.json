@@ -1,9 +1,9 @@
 {
-  "dibuat": "2026-10-22T11:18:08.591Z",
+  "dibuat": "2026-10-22T18:33:42.620Z",
   "domain": "geelywins.com",
   "konten": {
-    "tayang": 39,
-    "terjadwal": 12,
+    "tayang": 41,
+    "terjadwal": 10,
     "draft": 27
   },
   "usang": [],
@@ -471,37 +471,29 @@
     "hasil": [
       {
         "url": "/",
-        "skor": {
-          "performa": 56,
-          "aksesibilitas": 94,
-          "praktik": 100,
-          "seo": 100
-        },
-        "lcp": "5.3 s",
-        "cls": "0",
-        "tbt": "1,200 ms"
+        "error": "Command failed: npx --yes lighthouse@12 https://geelywins.com/ --output=json --output-path=/tmp/lh-1792693907890.json --quiet --only-categories=performance,accessibility,best-practices,seo --chrome-flags=--headless=new --no-sandbox --disable-gpu\nnpm warn deprecated @opentelemetry/sdk-trace-base@1.30"
       },
       {
         "url": "/model/geely-ex5/",
         "skor": {
-          "performa": 98,
+          "performa": 67,
           "aksesibilitas": 100,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.4 s",
+        "lcp": "2.7 s",
         "cls": "0",
-        "tbt": "0 ms"
+        "tbt": "1,290 ms"
       },
       {
         "url": "/artikel/ambient-light-256-warna-dan-layar-14-6-inci-geely-ex2-max/",
         "skor": {
-          "performa": 99,
+          "performa": 97,
           "aksesibilitas": 98,
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "2.1 s",
+        "lcp": "2.0 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -513,7 +505,7 @@
           "praktik": 100,
           "seo": 100
         },
-        "lcp": "1.5 s",
+        "lcp": "1.4 s",
         "cls": "0",
         "tbt": "0 ms"
       },
@@ -660,6 +652,12 @@
     },
     {
       "tanggal": "2026-10-22",
+      "klik": 38,
+      "tayang": 696,
+      "posisi": 9.6
+    },
+    {
+      "tanggal": "2026-10-23",
       "klik": 38,
       "tayang": 696,
       "posisi": 9.6

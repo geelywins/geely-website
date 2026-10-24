@@ -1,11 +1,10 @@
 ---
 title: "Mobil Listrik untuk Taksi Online: Hitungan Biaya dan Pertimbangan"
 description: "Pertimbangkan mobil listrik untuk taksi online? Pakai rumus biaya per km, cek perawatan, waktu pengisian, dan syarat aplikasi, lalu konsultasi gratis."
-date: 2026-10-10
-tags: ["mobil listrik untuk taksi online", "mobil listrik driver online", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex2", "mobil listrik kompak", "biaya per km mobil listrik", "ev geely jakarta"]
+date: 2026-10-29
+tags: ["mobil listrik untuk taksi online","mobil listrik driver online","mobil listrik geely","geely ev","geely indonesia","geely ex2","mobil listrik kompak","biaya per km mobil listrik","ev geely jakarta"]
 model: "geely-ex2"
-artikel: ["biaya-per-km-geely-ex2-max-vs-mobil-bensin", "cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin", "perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin", "pengisian-cepat-dc-geely-ex2-max-30-80-persen-25-menit", "simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan"]
-draft: true
+artikel: ["biaya-per-km-geely-ex2-max-vs-mobil-bensin","cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin","perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin","pengisian-cepat-dc-geely-ex2-max-30-80-persen-25-menit","simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan"]
 ---
 
 Bagi pengemudi online, mobil adalah alat kerja, jadi keputusan membeli harus lewat hitungan, bukan sekadar tertarik. Halaman ini memberi kerangka menghitung biaya per km, mempertimbangkan perawatan dan waktu pengisian, serta mengecek syarat aplikasi. Kami tidak menjanjikan penghasilan, hanya cara berhitung yang bisa Anda ganti angkanya.

@@ -1,11 +1,10 @@
 ---
 title: "Geely Starray EM-i Jakarta: SUV Plug-in Hybrid, Test Drive BSD"
 description: "Cari Geely Starray EM-i Jakarta? Kenali SUV plug-in hybrid ini, data terverifikasinya, cocok untuk siapa, dan cara test drive di BSD City."
-date: 2026-10-10
-tags: ["geely starray em-i jakarta", "geely starray em-i", "geely starray", "plug-in hybrid", "suv hybrid", "geely indonesia", "geely ev", "ev geely jakarta", "test drive geely", "mobil listrik geely"]
+date: 2026-10-28
+tags: ["geely starray em-i jakarta","geely starray em-i","geely starray","plug-in hybrid","suv hybrid","geely indonesia","geely ev","ev geely jakarta","test drive geely","mobil listrik geely"]
 model: "geely-starray-em-i"
-artikel: ["spesifikasi-geely-starray-em-i-plug-in-hybrid", "konsumsi-bbm-geely-starray-em-i-dan-jarak-tempuh-1000-km", "cara-kerja-plug-in-hybrid-geely-em-i-dan-cara-mengisi-daya", "geely-ex5-vs-starray-em-i-listrik-murni-atau-plug-in-hybrid", "geely-starray-em-i-suv-hybrid-yang-perlu-anda-ketahui"]
-draft: true
+artikel: ["spesifikasi-geely-starray-em-i-plug-in-hybrid","konsumsi-bbm-geely-starray-em-i-dan-jarak-tempuh-1000-km","cara-kerja-plug-in-hybrid-geely-em-i-dan-cara-mengisi-daya","geely-ex5-vs-starray-em-i-listrik-murni-atau-plug-in-hybrid","geely-starray-em-i-suv-hybrid-yang-perlu-anda-ketahui"]
 ---
 
 Mencari Geely Starray EM-i Jakarta? Mobil ini adalah SUV plug-in hybrid: baterainya bisa dicolok untuk pemakaian listrik harian, sementara mesin bensin menjaga perjalanan jauh tetap tenang. Halaman ini merangkum data terverifikasi, cocok untuk siapa, dan cara test drive di BSD City.

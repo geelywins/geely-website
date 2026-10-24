@@ -1,10 +1,9 @@
 ---
 title: "Memilih Mobil Listrik Premium: Hal yang Perlu Dicek Sebelum Beli"
 description: "Memilih mobil listrik premium butuh lebih dari sekadar harga: cek baterai, bantuan berkendara, kabin, layanan purna jual, dan pengalaman test drive."
-date: 2026-11-13
+date: 2026-10-29
 category: "Tips Membeli"
-tags: ["memilih mobil listrik premium", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "ev geely jakarta", "tips membeli mobil listrik", "mobil listrik keluarga", "harga mobil listrik geely"]
-draft: true
+tags: ["memilih mobil listrik premium","mobil listrik geely","geely ev","geely indonesia","geely ex5","ev geely jakarta","tips membeli mobil listrik","mobil listrik keluarga","harga mobil listrik geely"]
 ---
 
 Memilih mobil listrik premium berarti menilai pengalaman secara menyeluruh, bukan hanya tampilan atau harga. Anda perlu mengecek kualitas baterai, bantuan berkendara, kenyamanan kabin, layanan purna jual, dan kecocokan dengan kebiasaan Anda. Artikel ini menyusun daftar periksa praktis dari sudut pandang sales yang setiap hari melayani calon pembeli.

@@ -1,11 +1,10 @@
 ---
 title: "Tukar Tambah Mobil Lama ke Mobil Listrik Geely: Alur Lengkap"
 description: "Tukar tambah mobil listrik Geely: persiapan dokumen, faktor penilaian mobil lama, langkah bersama sales, dan perbandingan dengan jual sendiri."
-date: 2026-10-10
-tags: ["tukar tambah mobil listrik", "tukar tambah mobil geely", "trade in mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "geely ex5"]
+date: 2026-10-26
+tags: ["tukar tambah mobil listrik","tukar tambah mobil geely","trade in mobil listrik","mobil listrik geely","geely ev","geely indonesia","ev geely jakarta","geely ex5"]
 model: "geely-ex2"
-artikel: ["cek-mobil-baru-saat-serah-terima-checklist-pdi", "alur-membeli-mobil-geely-dari-booking-sampai-serah-terima", "simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan", "cara-test-drive-geely", "tips-booking-dan-negosiasi-geely-ex2-max", "faq-geely-pertanyaan-calon-pembeli-sebelum-beli"]
-draft: true
+artikel: ["cek-mobil-baru-saat-serah-terima-checklist-pdi","alur-membeli-mobil-geely-dari-booking-sampai-serah-terima","simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan","cara-test-drive-geely","tips-booking-dan-negosiasi-geely-ex2-max","faq-geely-pertanyaan-calon-pembeli-sebelum-beli"]
 ---
 
 Tukar tambah mobil listrik berarti mobil lama Anda dinilai, lalu nilainya dipakai sebagai bagian pembayaran mobil Geely baru. Siapkan dokumen, biarkan mobil dinilai, bandingkan hasilnya dengan menjual sendiri, lalu lanjut ke test drive dan pemesanan. Halaman ini menuntun Anda langkah demi langkah, tanpa angka yang menyesatkan.

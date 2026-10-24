@@ -1,11 +1,10 @@
 ---
 title: "Mobil Listrik untuk Perusahaan dan Armada: Panduan Beli Geely"
 description: "Menyiapkan mobil listrik untuk perusahaan atau armada? Pahami kebutuhan operasional, total biaya kepemilikan, pengisian di kantor, dan proses pembelian unit."
-date: 2026-10-10
-tags: ["mobil listrik untuk perusahaan", "mobil listrik armada", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "mobil operasional kantor", "ev geely jakarta", "pembelian armada geely"]
+date: 2026-10-30
+tags: ["mobil listrik untuk perusahaan","mobil listrik armada","mobil listrik geely","geely ev","geely indonesia","geely ex5","mobil operasional kantor","ev geely jakarta","pembelian armada geely"]
 model: "geely-ex5"
-artikel: ["alur-membeli-mobil-geely-dari-booking-sampai-serah-terima", "perawatan-geely-ex2-max-servis-berkala-dan-biaya", "cara-mengisi-daya-mobil-listrik-di-rumah-dan-spklu", "pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max", "simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan"]
-draft: true
+artikel: ["alur-membeli-mobil-geely-dari-booking-sampai-serah-terima","perawatan-geely-ex2-max-servis-berkala-dan-biaya","cara-mengisi-daya-mobil-listrik-di-rumah-dan-spklu","pajak-dan-insentif-mobil-listrik-untuk-geely-ex2-max","simulasi-kredit-mobil-listrik-dp-tenor-dan-cicilan"]
 ---
 
 Bagi perusahaan, mobil listrik bukan sekadar pilihan kendaraan, tetapi keputusan yang menyentuh anggaran, operasional, dan citra. Halaman ini membantu tim Anda menyusun kebutuhan, memakai kerangka total biaya kepemilikan, memikirkan pengisian di kantor, lalu menjadwalkan test drive untuk beberapa orang sekaligus.

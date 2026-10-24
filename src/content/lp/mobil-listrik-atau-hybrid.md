@@ -1,11 +1,9 @@
 ---
 title: "Mobil Listrik atau Hybrid? Panduan Memilih Sesuai Pemakaian"
 description: "Mobil listrik atau hybrid? Bandingkan listrik murni, plug-in hybrid, dan bensin menurut rute harian, charger rumah, dan perjalanan jauh agar pilihan Anda pas."
-date: 2026-10-10
-tags: ["mobil listrik atau hybrid", "listrik murni vs plug-in hybrid", "bev vs phev", "mobil listrik geely", "geely ev", "geely indonesia", "geely starray em-i", "geely ex5"]
-model: ""
-artikel: ["geely-ex5-vs-starray-em-i-listrik-murni-atau-plug-in-hybrid", "cara-kerja-plug-in-hybrid-geely-em-i-dan-cara-mengisi-daya", "cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin", "perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin", "istilah-mobil-listrik-kwh-ac-dc-v2l-dan-regen"]
-draft: true
+date: 2026-10-27
+tags: ["mobil listrik atau hybrid","listrik murni vs plug-in hybrid","bev vs phev","mobil listrik geely","geely ev","geely indonesia","geely starray em-i","geely ex5"]
+artikel: ["geely-ex5-vs-starray-em-i-listrik-murni-atau-plug-in-hybrid","cara-kerja-plug-in-hybrid-geely-em-i-dan-cara-mengisi-daya","cara-menghitung-biaya-operasional-mobil-listrik-vs-bensin","perawatan-mobil-listrik-apa-yang-berbeda-dari-mobil-bensin","istilah-mobil-listrik-kwh-ac-dc-v2l-dan-regen"]
 ---
 
 Mobil listrik atau hybrid? Pilih mobil listrik murni bila rute harian Anda terukur dan ada tempat mengisi daya. Pilih plug-in hybrid bila sering menempuh perjalanan jauh dan ingin tetap tenang dengan bensin sebagai cadangan. Halaman ini membantu Anda memutuskan berdasarkan pola pakai, bukan tren.

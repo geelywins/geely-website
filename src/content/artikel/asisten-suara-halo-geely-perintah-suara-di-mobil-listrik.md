@@ -1,10 +1,9 @@
 ---
 title: "Asisten Suara Halo Geely: Perintah Suara di Mobil Listrik"
 description: "Asisten suara Halo Geely memungkinkan Anda mengatur fitur mobil lewat perintah suara. Pahami cara memakai, manfaat, dan batasannya di Geely EX5 dan Starray."
-date: 2026-11-09
+date: 2026-10-30
 category: "Teknologi"
-tags: ["asisten suara halo geely", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "flyme auto", "ev geely jakarta", "geely starray em-i", "fitur mobil listrik"]
-draft: true
+tags: ["asisten suara halo geely","geely ex5","mobil listrik geely","geely ev","geely indonesia","flyme auto","ev geely jakarta","geely starray em-i","fitur mobil listrik"]
 ---
 
 Asisten suara Halo Geely memungkinkan pengemudi mengatur fitur mobil hanya dengan berbicara. Brosur resmi Geely EX5 menyebut adanya asisten suara, dan materi training menyebut Halo Geely dengan banyak perintah serta dukungan Bahasa Indonesia. Artikel ini menjelaskan cara kerja, manfaat, dan batasannya.

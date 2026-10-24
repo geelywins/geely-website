@@ -1,10 +1,9 @@
 ---
 title: "Geely EX2 untuk Orang Tua dan Lansia: Mudah Naik Turun"
 description: "Geely EX2 untuk orang tua dan lansia dirancang dengan ambang pintu rendah, pintu terbuka lebar, dan kabin senyap. Cek fitur dan cara mengujinya."
-date: 2026-11-11
+date: 2026-10-29
 category: "Model Geely"
-tags: ["geely ex2 untuk orang tua", "geely ex2", "mobil listrik kompak", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik keluarga", "ev geely jakarta", "mobil listrik murah"]
-draft: true
+tags: ["geely ex2 untuk orang tua","geely ex2","mobil listrik kompak","mobil listrik geely","geely ev","geely indonesia","mobil listrik keluarga","ev geely jakarta","mobil listrik murah"]
 ---
 
 Geely EX2 untuk orang tua dan lansia layak dipertimbangkan karena materi training menyebut ambang pintu yang hampir rata, pintu yang terbuka hingga 65 derajat, dan kabin yang senyap. Artikel ini membahas fitur yang memudahkan naik turun, kenyamanan duduk, dan cara mengujinya bersama orang tua Anda.

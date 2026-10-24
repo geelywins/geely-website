@@ -2,8 +2,11 @@
 title: "Warna Geely EX5: Pilihan Warna untuk Varian Pro dan Max"
 description: "Daftar warna Geely EX5 dari brosur resmi: Ivory White, Dark Blue, Carbon Black, dan lainnya. Dapatkan tips memilih warna untuk panas, perawatan, dan tampilan."
 date: 2026-10-16
+updated: 2026-10-24
 category: "Model Geely"
 tags: ["warna geely ex5","pilihan warna ex5","geely ex5","geely ex5 max","mobil listrik geely","geely ev","geely indonesia","suv listrik keluarga"]
+image: "/images/artikel/221617-mvlwtx3g.jpg"
+video: "https://youtu.be/STJFMbGM4nM?si=PzjTq44A1QgWFP0j"
 ---
 
 Brosur resmi Geely EX5 mencantumkan tujuh warna: Ivory White, Dark Blue, Carbon Black, Snowy White, Frost Grey, Moonlight Silver, dan Turquoise Green. Ivory White hanya untuk varian Max, sedangkan Dark Blue tersedia di Pro dan Max. Ketersediaan warna lain per varian perlu Anda tanyakan ke sales.
@@ -11,6 +14,11 @@ Brosur resmi Geely EX5 mencantumkan tujuh warna: Ivory White, Dark Blue, Carbon 
 ## Daftar warna Geely EX5 dari brosur
 
 Memilih warna sering terasa sepele, padahal Anda akan melihatnya setiap hari selama bertahun-tahun. Karena itu, mulailah dari daftar resmi. Berikut warna yang disebut brosur, beserta catatan ketersediaannya.
+
+
+
+![Warna Geely Ex5](/images/artikel/221617-mvlwwj2i.jpg)
+
 
 | Warna | Keterangan ketersediaan |
 |---|---|

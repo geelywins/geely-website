@@ -1,10 +1,9 @@
 ---
 title: "Pembaruan OTA Mobil Listrik Geely: Apa Manfaatnya?"
 description: "Pembaruan OTA mobil listrik memungkinkan fitur dan perangkat lunak diperbarui tanpa ke bengkel. Pahami manfaat, batasan, dan pertanyaan penting untuk Geely EX5."
-date: 2026-11-07
+date: 2026-10-30
 category: "Teknologi"
-tags: ["pembaruan ota mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "flyme auto", "ev geely jakarta", "teknologi mobil listrik", "geely starray em-i"]
-draft: true
+tags: ["pembaruan ota mobil listrik","mobil listrik geely","geely ev","geely indonesia","geely ex5","flyme auto","ev geely jakarta","teknologi mobil listrik","geely starray em-i"]
 ---
 
 Pembaruan OTA mobil listrik adalah cara memperbarui perangkat lunak mobil lewat jaringan nirkabel, tanpa harus datang ke bengkel. OTA singkatan dari over-the-air. Brosur resmi Geely EX5 menyebut dukungan OTA, dan materi training Starray EM-i menyebut pembaruan FOTA. Artikel ini menjelaskan manfaat dan batasannya.

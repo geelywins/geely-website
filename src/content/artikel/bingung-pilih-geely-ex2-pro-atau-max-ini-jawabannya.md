@@ -2,6 +2,7 @@
 title: "Beda Geely Ex2 PRO dan MAX, Bingung Pilih Geely Ex2 Pro atau Max"
 description: "beda geely ex2 pro dan max.Bingung pilih Geely EX2 Pro atau Max? Bandingkan harga, fitur, ADAS, airbag, dan velg agar pilihanmu pas dengan kebutuhan dan budget."
 date: 2026-10-17
+updated: 2026-10-27
 category: "Model Geely"
 tags: ["beda geely ex2 pro dan max","geely ex2","geely ex2 pro","geely ex2 max","perbedaan geely ex2","harga geely ex2","mobil listrik","mobil listrik murah","geely jakarta","review geely ex2"]
 image: "/images/artikel/211497-mv68sc88.jpg"
@@ -57,7 +58,7 @@ Motor listrik diletakkan di roda belakang sehingga EX2 berpenggerak RWD. Kedua v
 
 | Aspek | EX2 Pro | EX2 Max |
 |---|---|---|
-| Harga OTR Jakarta (peluncuran) | Rp255 juta | Rp285 juta |
+| Harga OTR Jakarta (peluncuran) | Rp239 juta | Rp269 juta |
 | Velg | Besi 15 inci | Alloy 16 inci |
 | Airbag | 4 | 6 |
 | ADAS | Tidak ada | Ada |

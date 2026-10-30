@@ -4,6 +4,7 @@ description: "Keselamatan baterai Geely Starray EM-i dirancang dengan jalur bens
 date: 2026-11-02
 category: "Model Geely"
 tags: ["keselamatan baterai geely starray em-i","geely starray em-i","plug-in hybrid","mobil listrik geely","geely ev","geely indonesia","suv hybrid keluarga","ev geely jakarta","keamanan mobil hybrid"]
+draft: true
 ---
 
 Keselamatan baterai Geely Starray EM-i menjadi pertanyaan wajar, karena mobil ini membawa dua sumber energi sekaligus: baterai dan bensin. Materi training produk menyebut jalur bensin dan listrik dipisah, baterai dilindungi rangka, dan listrik diputus cepat setelah tabrakan. Artikel ini merangkum penjelasannya dengan bahasa sederhana.

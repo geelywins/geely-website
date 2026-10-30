@@ -1,10 +1,9 @@
 ---
 title: "Mitos Mobil Listrik yang Sering Dipercaya dan Faktanya"
 description: "Benarkah baterai cepat rusak dan mobil listrik berbahaya saat hujan? Kupas 9 mitos mobil listrik dan jawaban jujurnya, lengkap dengan batasannya."
-date: 2026-10-10
+date: 2026-11-04
 category: "Panduan EV"
-tags: ["mitos mobil listrik", "fakta mobil listrik", "kekhawatiran mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "ev geely jakarta"]
-draft: true
+tags: ["mitos mobil listrik","fakta mobil listrik","kekhawatiran mobil listrik","mobil listrik geely","geely ev","geely indonesia","geely ex5","ev geely jakarta"]
 ---
 
 Mitos mobil listrik biasanya lahir dari rasa belum terbiasa, bukan dari fakta yang pasti salah. Sebagian mitos ada benarnya dalam kondisi tertentu, sebagian lagi sudah tidak relevan. Artikel ini membahas sembilan anggapan umum dan menjawabnya jujur, termasuk batasan "tergantung" yang sering dilupakan.

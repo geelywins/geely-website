@@ -1,10 +1,9 @@
 ---
 title: "FAQ Geely: Pertanyaan Calon Pembeli Sebelum Membeli"
 description: "FAQ Geely berisi 26 pertanyaan calon pembeli: proses beli, test drive, kredit, tukar tambah, pengisian daya, perawatan, dan garansi, dijawab apa adanya."
-date: 2026-10-10
+date: 2026-11-03
 category: "Tips Membeli"
-tags: ["faq geely", "pertanyaan sebelum beli geely", "beli mobil geely", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "ev geely jakarta", "sales geely jakarta"]
-draft: true
+tags: ["faq geely","pertanyaan sebelum beli geely","beli mobil geely","mobil listrik geely","geely ev","geely indonesia","geely ex5","ev geely jakarta","sales geely jakarta"]
 ---
 
 FAQ Geely ini menjawab pertanyaan yang paling sering diajukan calon pembeli sebelum membeli: dari proses pemesanan, test drive, kredit, tukar tambah, pengisian daya, sampai perawatan dan garansi. Untuk data yang berubah-ubah seperti harga dan garansi, saya jujur mengarahkan Anda bertanya langsung ke sales.

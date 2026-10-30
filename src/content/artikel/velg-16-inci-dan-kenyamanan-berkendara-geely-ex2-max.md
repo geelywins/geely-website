@@ -1,12 +1,11 @@
 ---
 title: "Velg 16 Inci dan Kenyamanan Berkendara Geely EX2 Max"
 description: "Velg 16 inci Geely EX2 Max dan suspensi MacPherson-multi-link memengaruhi kenyamanan berkendara. Rasakan sendiri lewat test drive bersama sales."
-date: 2026-10-07
+date: 2026-11-03
 updated: 2026-10-08
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","velg 16 inci","suspensi mobil","kenyamanan berkendara","mobil listrik kompak"]
 image: "/images/artikel/190472-muzn0yq6.jpg"
-draft: true
 ---
 
 Velg 16 inci Geely EX2 Max sering menjadi perhatian pertama saat orang melihat mobil ini. Tampilannya sporty dengan desain alloy dual-tone. Namun, velg juga berkaitan dengan kenyamanan berkendara. Artikel ini membahas hubungan velg, ban, dan suspensi, lalu apa artinya bagi Anda.

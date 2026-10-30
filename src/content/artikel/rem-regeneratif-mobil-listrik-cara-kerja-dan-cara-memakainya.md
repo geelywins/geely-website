@@ -1,10 +1,9 @@
 ---
 title: "Rem Regeneratif Mobil Listrik: Cara Kerja dan Cara Memakainya"
 description: "Rem regeneratif mobil listrik mengubah gerak saat melambat menjadi listrik. Pahami cara kerja, manfaat, dan kebiasaan memakainya di Geely EX2 dan EX5."
-date: 2026-11-05
+date: 2026-10-03
 category: "Edukasi"
-tags: ["rem regeneratif mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex2", "geely ex5", "ev geely jakarta", "cara berkendara mobil listrik", "mobil listrik kompak"]
-draft: true
+tags: ["rem regeneratif mobil listrik","mobil listrik geely","geely ev","geely indonesia","geely ex2","geely ex5","ev geely jakarta","cara berkendara mobil listrik","mobil listrik kompak"]
 ---
 
 Rem regeneratif mobil listrik adalah sistem yang mengubah sebagian energi gerak saat Anda melambat menjadi listrik, lalu menyimpannya kembali ke baterai. Fitur ini membantu menambah jarak tempuh dan mengurangi beban rem biasa. Artikel ini menjelaskan cara kerjanya dan kebiasaan memakainya, termasuk pada Geely EX2 dan EX5.

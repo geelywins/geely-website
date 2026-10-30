@@ -1,10 +1,9 @@
 ---
 title: "Cara Membandingkan Geely EX2 Max dengan Mobil Listrik Lain"
 description: "Cara membandingkan Geely EX2 Max dengan mobil listrik kompak lain lewat checklist kriteria yang adil dan mudah. Ajak sales berdiskusi sebelum memutuskan."
-date: 2026-10-07
+date: 2026-10-31
 category: "Perbandingan"
 tags: ["geely ex2","geely ex2 max","mobil listrik kompak","mobil listrik geely","geely ev","geely indonesia","tips membeli mobil listrik","checklist mobil listrik","mobil listrik murah"]
-draft: true
 ---
 
 Cara membandingkan Geely EX2 Max dengan mobil listrik kompak lain sebenarnya sederhana bila Anda memakai kriteria yang jelas. Sayangnya, banyak orang hanya melihat harga atau jarak tempuh, lalu menyesal belakangan. Saya, Wins, sales consultant Geely di Jakarta dan BSD, menyusun checklist ini agar Anda bisa menilai secara adil. Artikel ini tidak menyebut merek lain, karena yang penting adalah cara menilainya.

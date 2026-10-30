@@ -1,10 +1,9 @@
 ---
 title: "Mesin Hybrid Geely Starray EM-i: Efisiensi Termal 46,5%"
 description: "Mesin hybrid Geely Starray EM-i diklaim berefisiensi termal 46,5% dan didukung voltage boost. Pahami artinya bagi konsumsi BBM dan tarikan harian Anda."
-date: 2026-11-03
+date: 2026-11-01
 category: "Teknologi"
-tags: ["mesin hybrid geely starray em-i", "geely starray em-i", "plug-in hybrid", "mobil listrik geely", "geely ev", "geely indonesia", "efisiensi termal", "ev geely jakarta", "geely starray"]
-draft: true
+tags: ["mesin hybrid geely starray em-i","geely starray em-i","plug-in hybrid","mobil listrik geely","geely ev","geely indonesia","efisiensi termal","ev geely jakarta","geely starray"]
 ---
 
 Mesin hybrid Geely Starray EM-i adalah mesin bensin 1,5 liter yang dirancang khusus untuk plug-in hybrid, dengan klaim efisiensi termal 46,5 persen. Artikel ini menjelaskan apa arti angka itu, bagaimana mesin bekerja bersama motor listrik, dan apa dampaknya bagi konsumsi BBM serta tarikan harian Anda.

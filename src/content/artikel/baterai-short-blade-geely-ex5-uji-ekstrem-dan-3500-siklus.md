@@ -1,10 +1,9 @@
 ---
 title: "Baterai Short Blade Geely EX5: Uji Ekstrem dan 3.500 Siklus"
 description: "Baterai Short Blade Geely EX5 memakai sel LFP 60,22 kWh dengan BMS 3.0. Simak lapisan perlindungan, uji ekstrem, dan arti klaim 3.500 siklus."
-date: 2026-10-25
+date: 2026-11-03
 category: "Model Geely"
-tags: ["baterai short blade geely ex5", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "baterai lfp", "bms 3.0", "ev geely jakarta", "keamanan baterai mobil listrik"]
-draft: true
+tags: ["baterai short blade geely ex5","geely ex5","mobil listrik geely","geely ev","geely indonesia","baterai lfp","bms 3.0","ev geely jakarta","keamanan baterai mobil listrik"]
 ---
 
 Baterai Short Blade Geely EX5 adalah baterai LFP berkapasitas 60,22 kWh yang dilindungi tiga lapis: sel berbentuk bilah pendek, otak pemantau BMS 3.0, dan struktur bodi yang memeluk baterai. Menurut materi training produk, baterai ini lolos enam uji ekstrem beruntun. Artikel ini menjelaskan artinya dengan bahasa sederhana.

@@ -4,6 +4,7 @@ description: "Motor 11-in-1 Geely menyatukan 11 komponen penggerak dalam satu un
 date: 2026-11-02
 category: "Teknologi"
 tags: ["motor 11-in-1 geely","geely ex5","geely ex2","mobil listrik geely","geely ev","geely indonesia","mobil listrik kompak","efisiensi mobil listrik","ev geely jakarta"]
+draft: true
 ---
 
 Motor 11-in-1 Geely adalah unit penggerak listrik yang menggabungkan 11 komponen menjadi satu paket ringkas. Teknologi ini dipakai pada Geely EX5 dan Geely EX2. Tujuannya sederhana: lebih sedikit energi terbuang, bobot lebih ringan, dan ruang kabin serta bagasi lebih lega. Berikut penjelasannya dengan bahasa yang mudah.

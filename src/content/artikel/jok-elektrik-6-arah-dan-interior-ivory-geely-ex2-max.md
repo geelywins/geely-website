@@ -1,10 +1,9 @@
 ---
 title: "Jok Elektrik 6 Arah dan Interior Ivory Geely EX2 Max"
 description: "Jok elektrik 6 arah dan interior ivory Geely EX2 Max membuat posisi duduk pas dan kabin terang. Coba langsung lewat test drive bersama sales."
-date: 2026-10-07
+date: 2026-11-02
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","jok elektrik","interior ivory","kenyamanan berkendara","mobil listrik kompak"]
-draft: true
 ---
 
 Jok elektrik 6 arah dan interior ivory adalah dua fitur kabin yang membedakan Geely EX2 Max dari Pro. Keduanya tampak sederhana, tetapi dampaknya terasa setiap hari. Posisi duduk yang pas mengurangi lelah, sedangkan kabin terang membuat suasana lebih lega.

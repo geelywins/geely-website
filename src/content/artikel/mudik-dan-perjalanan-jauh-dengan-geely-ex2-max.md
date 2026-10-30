@@ -1,10 +1,9 @@
 ---
 title: "Mudik dan Perjalanan Jauh dengan Geely EX2 Max: Panduan"
 description: "Mudik dengan Geely EX2 Max butuh perencanaan rute dan pengisian. Pelajari cara menyusun perjalanan jauh dan batasnya. Tanya sales untuk saran rute Anda."
-date: 2026-10-07
+date: 2026-11-04
 category: "Mobil Listrik"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","mobil listrik kompak","mudik mobil listrik","spklu","pengisian cepat dc","ev indonesia"]
-draft: true
 ---
 
 Mudik dengan Geely EX2 Max bisa dilakukan, tetapi membutuhkan perencanaan yang lebih matang dibanding mobil bensin. Pertanyaan utamanya bukan hanya jarak, melainkan di mana dan kapan Anda mengisi daya. Saya, Wins, sales consultant Geely di Jakarta dan BSD, ingin menjawab dengan jujur: mobil listrik kompak ini nyaman untuk perjalanan jauh, namun ada batas yang perlu Anda pahami sebelum berangkat.

@@ -1,10 +1,9 @@
 ---
 title: "Head-Up Display Geely EX5 13,8 Inci: Apa Manfaatnya?"
 description: "Head-up display Geely EX5 13,8 inci pada varian Max menampilkan kecepatan dan navigasi di kaca depan. Pahami manfaat, batasan, dan cara menyetelnya."
-date: 2026-11-08
+date: 2026-10-31
 category: "Teknologi"
-tags: ["head-up display geely ex5", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "suv listrik keluarga", "ev geely jakarta", "fitur mobil listrik", "geely ex5 max"]
-draft: true
+tags: ["head-up display geely ex5","geely ex5","mobil listrik geely","geely ev","geely indonesia","suv listrik keluarga","ev geely jakarta","fitur mobil listrik","geely ex5 max"]
 ---
 
 Head-up display Geely EX5 berukuran 13,8 inci dan tersedia pada varian Max menurut brosur resmi. Fitur ini menampilkan informasi seperti kecepatan dan navigasi langsung di kaca depan, sehingga mata tidak perlu berpindah jauh dari jalan. Artikel ini menjelaskan manfaat, batasan, dan cara menyetelnya.

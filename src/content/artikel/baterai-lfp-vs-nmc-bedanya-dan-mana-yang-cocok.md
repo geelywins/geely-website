@@ -1,10 +1,9 @@
 ---
 title: "Baterai LFP vs NMC: Bedanya dan Mana yang Cocok untuk Anda"
 description: "Baterai LFP vs NMC punya karakter berbeda: ketahanan panas, umur pakai, dan kepadatan energi. Pahami bedanya sebelum memilih mobil listrik Geely atau lainnya."
-date: 2026-11-06
+date: 2026-11-01
 category: "Edukasi"
-tags: ["baterai lfp vs nmc", "baterai mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "geely ex2", "ev geely jakarta", "umur baterai"]
-draft: true
+tags: ["baterai lfp vs nmc","baterai mobil listrik","mobil listrik geely","geely ev","geely indonesia","geely ex5","geely ex2","ev geely jakarta","umur baterai"]
 ---
 
 Baterai LFP vs NMC adalah perbandingan dua jenis kimia baterai yang paling sering dibahas pada mobil listrik. LFP dikenal stabil terhadap panas dan umurnya panjang, sedangkan NMC biasanya menawarkan kepadatan energi lebih tinggi. Artikel ini menjelaskan perbedaannya dengan bahasa sederhana agar Anda bisa memilih dengan tenang.

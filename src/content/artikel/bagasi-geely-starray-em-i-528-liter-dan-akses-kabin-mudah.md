@@ -1,10 +1,9 @@
 ---
 title: "Bagasi Geely Starray EM-i 528 Liter dan Akses Kabin Mudah"
 description: "Bagasi Geely Starray EM-i berkapasitas 528 liter dengan ruang tersembunyi dan ambang pintu rendah. Cek apa saja yang muat dan cara mengujinya."
-date: 2026-10-29
+date: 2026-11-02
 category: "Model Geely"
-tags: ["bagasi geely starray em-i", "geely starray em-i", "suv hybrid keluarga", "mobil listrik geely", "geely ev", "geely indonesia", "plug-in hybrid", "ev geely jakarta", "geely starray"]
-draft: true
+tags: ["bagasi geely starray em-i","geely starray em-i","suv hybrid keluarga","mobil listrik geely","geely ev","geely indonesia","plug-in hybrid","ev geely jakarta","geely starray"]
 ---
 
 Bagasi Geely Starray EM-i berkapasitas 528 liter pada posisi kursi tegak menurut e-flyer resmi, dan bisa membesar hingga 2.065 liter saat kursi dilipat. Materi training menambahkan ruang tersembunyi di bawah lantai serta ambang pintu belakang yang rendah. Artikel ini membahas apa saja yang muat dan bagaimana menguji kemudahannya.

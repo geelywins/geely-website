@@ -4,7 +4,7 @@ description: "beda geely ex2 pro dan max.Bingung pilih Geely EX2 Pro atau Max? B
 date: 2026-10-17
 updated: 2026-10-27
 category: "Model Geely"
-tags: ["beda geely ex2 pro dan max","geely ex2","geely ex2 pro","geely ex2 max","perbedaan geely ex2","harga geely ex2","mobil listrik","mobil listrik murah","geely jakarta","review geely ex2"]
+tags: ["beda geely ex2 pro dan max","geely ex2","geely ex2 pro","geely ex2 max","perbedaan geely ex2","harga geely ex2","mobil listrik","mobil listrik murah","geely indonesia","geely ev"]
 image: "/images/artikel/211497-mv68sc88.jpg"
 video: "https://www.instagram.com/reel/DeYUPqroIRe/?obrf=MXVtbWJqenhsanZ5Yw=="
 ---

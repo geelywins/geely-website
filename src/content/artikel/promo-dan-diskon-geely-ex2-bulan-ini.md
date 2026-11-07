@@ -3,7 +3,7 @@ title: "Promo Geely EX2 Bulan Ini: DP Rendah dan Angsuran Ringan"
 description: "Promo Geely EX2 bulan ini: DP rendah kisaran Rp 40 jutaan, angsuran ringan, balloon 50:50 bunga 0%. Pahami syarat dan risikonya. Oktober 2026."
 date: 2026-10-13
 category: "Harga & Promo"
-tags: ["promo geely ex2","diskon geely ex2","disc geely ex2","dp rendah geely ex2","kredit geely ex2","angsuran ringan mobil listrik","balloon payment","geely ev","geely indonesia"]
+tags: ["promo geely ex2","diskon geely ex2","disc geely ex2","dp rendah geely ex2","kredit geely ex2","mobil listrik geely","balloon payment","geely ev","geely indonesia"]
 image: "/images/artikel/211850-mv6q5elg.jpg"
 ---
 

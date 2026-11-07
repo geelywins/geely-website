@@ -1,10 +1,9 @@
 ---
 title: "Fitur V2L Geely EX2 Max: Listrik untuk Camping dan Darurat"
 description: "Fitur V2L Geely EX2 Max menyalurkan listrik dari baterai ke perangkat luar, cocok untuk camping dan darurat. Tanya sales untuk detail dan demo."
-date: 2026-10-07
+date: 2026-11-13
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","v2l","camping mobil listrik","baterai lfp","mobil listrik kompak"]
-draft: true
 ---
 
 Fitur V2L Geely EX2 Max membuat mobil Anda bisa berfungsi seperti sumber listrik berjalan. V2L adalah kepanjangan dari vehicle to load, yaitu kemampuan menyalurkan listrik dari baterai mobil ke perangkat di luar. Fitur ini hanya ada di varian Max, dan tidak tersedia di Pro.

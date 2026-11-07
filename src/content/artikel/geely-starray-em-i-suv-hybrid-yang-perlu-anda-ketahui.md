@@ -1,14 +1,13 @@
 ---
-title: "Geely Starray EM-i: Kenali SUV Hybrid dari Geely Lebih Dekat"
-description: "Mengenal Geely Starray EM-i, SUV hybrid EM-i untuk perjalanan jauh: siapa yang cocok, apa yang perlu ditanyakan ke sales, dan checklist test drive."
-date: 2026-10-07
+title: "Geely Starray EM-i SUV Hybrid: Kenali Lebih Dekat"
+description: "Mengenal Geely Starray EM-i SUV hybrid untuk perjalanan jauh: siapa yang cocok, apa yang perlu ditanyakan ke sales, dan checklist test drive."
+date: 2026-11-09
 updated: 2026-10-10
 category: "Model Geely"
 tags: ["geely starray em-i suv hybrid", "geely starray", "geely starray em-i", "suv hybrid", "geely indonesia", "geely ev", "ev geely jakarta", "suv keluarga", "test drive geely"]
-draft: true
 ---
 
-Geely Starray EM-i adalah SUV plug-in hybrid (PHEV) yang memadukan mesin bensin 1,5 liter dan motor listrik 160 kW, serta bisa diisi dari colokan. Klaim pabrikan jarak gabungannya 1.000+ km (NEDC). Artikel ini membahas gambaran umum, siapa yang cocok, dan hal yang perlu Anda tanyakan.
+Geely Starray EM-i SUV hybrid ini adalah plug-in hybrid (PHEV) yang memadukan mesin bensin 1,5 liter dan motor listrik 160 kW, serta bisa diisi dari colokan. Klaim pabrikan jarak gabungannya 1.000+ km (NEDC). Artikel ini membahas gambaran umum, siapa yang cocok, dan hal yang perlu Anda tanyakan.
 
 ## Mengenal Geely Starray EM-i
 

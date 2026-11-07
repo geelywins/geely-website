@@ -1,10 +1,9 @@
 ---
 title: "Cara Membaca Brosur Mobil Listrik: Istilah yang Wajib Dipahami"
 description: "Cara membaca brosur mobil listrik: kWh, NEDC, AC/DC, V2L, dan catatan kecil yang sering terlewat. Pelajari agar tidak salah paham."
-date: 2026-11-12
+date: 2026-11-17
 category: "Edukasi"
 tags: ["cara membaca brosur mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex5", "geely starray em-i", "ev geely jakarta", "tips membeli mobil listrik", "mobil listrik murah"]
-draft: true
 ---
 
 Cara membaca brosur mobil listrik dimulai dari memahami istilah dasar seperti kWh, NEDC, WLTP, AC, DC, dan V2L, lalu memperhatikan catatan kecil di bagian bawah halaman. Brosur Geely EX5, misalnya, memuat banyak angka yang baru bermakna bila Anda tahu cara membacanya. Artikel ini memandu Anda langkah demi langkah.
@@ -82,6 +81,12 @@ Jika Anda membandingkan beberapa brosur, buatlah tabel sederhana di ponsel denga
 Tanyakan fitur apa saja yang berbeda antar varian. Tanyakan data mana yang bisa berubah dan kapan terakhir diperbarui. Minta contoh perhitungan biaya operasional agar angka brosur terasa nyata.
 
 Untuk melihat contoh brosur dan penjelasan mobil listrik merek lain, tersedia ulasan di [XPeng Wins](https://xpengwins.com), situs saudara yang membahas mobil listrik XPeng. Gunakan cara membaca yang sama agar perbandingan adil.
+
+## Contoh membaca satu baris spesifikasi
+
+Ambil contoh baris berikut: baterai LFP 40,8 kWh, klaim 395 km NEDC. Baca per bagian. LFP adalah jenis kimia baterai, 40,8 kWh adalah kapasitas energinya, dan 395 km adalah jarak menurut siklus uji NEDC yang dilakukan di kondisi terkontrol. Tiga potong informasi itu saling melengkapi.
+
+Setelah membaca, ajukan satu pertanyaan lanjutan: bagaimana angka ini di jalan nyata? Jawabannya biasanya lebih rendah karena macet, AC, dan beban. Dengan kebiasaan membaca seperti ini, Anda tidak mudah terpaku pada satu angka dan dapat membandingkan mobil dengan lebih adil.
 
 ## Pertanyaan yang sering diajukan
 

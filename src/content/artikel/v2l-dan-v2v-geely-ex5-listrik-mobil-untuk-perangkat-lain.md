@@ -1,13 +1,12 @@
 ---
 title: "V2L dan V2V Geely EX5: Listrik Mobil untuk Perangkat Lain"
 description: "Apa itu V2L dan V2V di Geely EX5? Pahami cara kerja, contoh pemakaian aman untuk camping dan darurat, batasan, serta tips keselamatan sebelum dipakai."
-date: 2026-10-10
+date: 2026-11-30
 category: "Panduan EV"
-tags: ["v2l v2v geely ex5", "v2l geely ex5", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "fitur mobil listrik", "listrik darurat"]
-draft: true
+tags: ["v2l dan v2v", "v2l geely ex5", "geely ex5", "mobil listrik geely", "geely ev", "geely indonesia", "fitur mobil listrik", "listrik darurat"]
 ---
 
-V2L adalah fitur yang memungkinkan baterai mobil menyalakan perangkat listrik lain, sedangkan V2V menyalurkan listrik dari satu mobil ke mobil lain. Geely EX5 menyebut keduanya di brosur resmi. Artikel ini menjelaskan konsepnya, contoh pemakaian aman, batasan, dan hal yang perlu ditanyakan ke sales.
+V2L dan V2V adalah dua fitur kelistrikan mobil. V2L memungkinkan baterai mobil menyalakan perangkat listrik lain, sedangkan V2V menyalurkan listrik dari satu mobil ke mobil lain. Geely EX5 menyebut keduanya di brosur resmi. Artikel ini menjelaskan konsepnya, contoh pemakaian aman, batasan, dan hal yang perlu ditanyakan ke sales.
 
 ## Apa itu V2L dan V2V
 

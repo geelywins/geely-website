@@ -1,13 +1,12 @@
 ---
 title: "Cek Mobil Baru Saat Serah Terima: Checklist Sebelum Pulang"
-description: "Pengecekan mobil baru saat serah terima: checklist dokumen, bodi, kabin, fitur elektronik, kabel pengisian, sampai tanda tangan agar Anda pulang dengan tenang."
-date: 2026-10-10
+description: "Cek mobil baru saat serah terima: checklist dokumen, bodi, kabin, fitur elektronik, kabel pengisian, sampai tanda tangan agar Anda pulang dengan tenang."
+date: 2026-11-14
 category: "Tips Membeli"
-tags: ["pengecekan mobil baru saat serah terima", "checklist serah terima geely", "mobil listrik geely", "geely ev", "geely indonesia", "serah terima mobil listrik", "cek kabel pengisian", "ev geely jakarta"]
-draft: true
+tags: ["cek mobil baru saat serah terima", "checklist serah terima geely", "mobil listrik geely", "geely ev", "geely indonesia", "serah terima mobil listrik", "cek kabel pengisian", "ev geely jakarta"]
 ---
 
-Pengecekan mobil baru saat serah terima sebaiknya dilakukan bertahap: periksa dokumen, bodi dan cat, kabin, fungsi elektronik, kelengkapan, lalu kabel pengisian dan aplikasi. Catat dan foto setiap temuan sebelum Anda menandatangani berita acara. Untuk mobil listrik, ada beberapa titik tambahan yang tidak ada di mobil bensin.
+Cek mobil baru saat serah terima sebaiknya dilakukan bertahap: periksa dokumen, bodi dan cat, kabin, fungsi elektronik, kelengkapan, lalu kabel pengisian dan aplikasi. Catat dan foto setiap temuan sebelum Anda menandatangani berita acara. Untuk mobil listrik, ada beberapa titik tambahan yang tidak ada di mobil bensin.
 
 Saya Wins, Sales Consultant Geely. Saat hari serah terima tiba, banyak pembeli terlalu senang sampai lupa memeriksa. Padahal ini kesempatan terbaik untuk memastikan semuanya sesuai pesanan. Artikel ini memberi urutan cek yang bisa Anda ikuti sambil berdiri di samping mobil.
 

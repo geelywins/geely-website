@@ -1,10 +1,9 @@
 ---
 title: "ADAS Geely Starray EM-i: 14 Fungsi Bantuan Berkendara"
 description: "ADAS Geely Starray EM-i memiliki 14 fungsi level 2 untuk tol, macet, dan parkir. Pelajari tiap fungsi, batasannya, dan cara mencobanya saat test drive."
-date: 2026-10-30
+date: 2026-11-25
 category: "Teknologi"
 tags: ["adas geely starray em-i", "geely starray em-i", "bantuan berkendara", "mobil listrik geely", "geely ev", "geely indonesia", "keselamatan mobil hybrid", "ev geely jakarta", "geely starray"]
-draft: true
 ---
 
 ADAS Geely Starray EM-i adalah paket bantuan berkendara level 2 dengan 14 fungsi menurut e-flyer resmi. Fungsinya mencakup menjaga jarak, menjaga lajur, rem darurat otomatis, hingga kamera 540 derajat saat parkir. Artikel ini menjelaskan setiap kelompok fungsi dengan bahasa sederhana, lengkap dengan batasannya.

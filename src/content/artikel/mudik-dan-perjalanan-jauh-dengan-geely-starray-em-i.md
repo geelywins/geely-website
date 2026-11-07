@@ -1,10 +1,9 @@
 ---
 title: "Mudik dan Perjalanan Jauh dengan Geely Starray EM-i"
 description: "Mudik dan perjalanan jauh dengan Geely Starray EM-i terbantu klaim jarak gabungan 1.000+ km dan tangki 51 liter. Simak persiapan, rute, dan tips hemat."
-date: 2026-11-04
+date: 2026-11-30
 category: "Tips Berkendara"
-tags: ["mudik geely starray em-i", "geely starray em-i", "plug-in hybrid", "mobil listrik geely", "geely ev", "geely indonesia", "perjalanan jauh", "ev geely jakarta", "suv hybrid keluarga"]
-draft: true
+tags: ["mudik dan perjalanan jauh", "geely starray em-i", "plug-in hybrid", "mobil listrik geely", "geely ev", "geely indonesia", "perjalanan jauh", "ev geely jakarta", "suv hybrid keluarga"]
 ---
 
 Mudik dan perjalanan jauh dengan Geely Starray EM-i terbantu klaim jarak gabungan lebih dari 1.000 km menurut NEDC dan tangki bensin 51 liter. Karena ini plug-in hybrid, Anda tidak sepenuhnya bergantung pada stasiun pengisian listrik. Artikel ini membahas persiapan, strategi energi, dan tips kenyamanan untuk rute panjang.

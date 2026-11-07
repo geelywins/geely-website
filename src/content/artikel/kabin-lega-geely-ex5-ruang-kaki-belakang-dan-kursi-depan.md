@@ -1,10 +1,9 @@
 ---
 title: "Kabin Lega Geely EX5: Ruang Kaki Belakang dan Kursi Depan"
 description: "Kabin lega Geely EX5 jadi daya tarik keluarga: ruang kaki belakang 1.005 mm, jok depan berventilasi, dan banyak ruang simpan. Simak cara mengujinya."
-date: 2026-10-27
+date: 2026-11-20
 category: "Model Geely"
 tags: ["kabin lega geely ex5", "geely ex5", "suv listrik keluarga", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik keluarga", "ev geely jakarta", "kenyamanan mobil listrik"]
-draft: true
 ---
 
 Kabin lega Geely EX5 adalah salah satu alasan SUV listrik ini cocok untuk keluarga. Materi training produk menyebut ruang kaki baris belakang 1.005 mm, jok depan dengan ventilasi, pijat, dan memori, serta puluhan titik penyimpanan. Berikut cara membaca angka-angka itu dan cara membuktikannya sendiri saat berkunjung ke dealer.

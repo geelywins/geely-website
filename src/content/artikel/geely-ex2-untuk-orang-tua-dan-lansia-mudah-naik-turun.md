@@ -76,6 +76,12 @@ Tanyakan perbedaan varian yang paling relevan untuk orang tua, misalnya jok elek
 
 Untuk melihat alternatif mobil listrik merek lain sebagai wawasan, tersedia ulasan di [XPeng Wins](https://xpengwins.com), situs saudara yang membahas mobil listrik XPeng. Tetap pilih yang paling nyaman untuk orang yang akan sering duduk di dalamnya.
 
+## Mengajak orang tua mencoba langsung
+
+Cara terbaik menilai kecocokan adalah mengajak orang tua mencoba langsung di dealer. Biarkan mereka naik dan turun beberapa kali, duduk di kursi depan dan belakang, serta menutup pintu sendiri. Perhatikan apakah mereka merasa nyaman dan tidak perlu membungkuk berlebihan.
+
+Tanyakan pendapat mereka dengan sabar. Kenyamanan mereka lebih penting daripada angka di brosur. Bila perlu, jadwalkan kunjungan pada jam yang tidak ramai agar mereka tidak terburu-buru. Hubungi saya lewat halaman kontak untuk mengatur waktu yang cocok.
+
 ## Pertanyaan yang sering diajukan
 
 ### Apakah EX2 mudah dinaiki lansia?

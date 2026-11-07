@@ -1,10 +1,9 @@
 ---
 title: "Kabin Senyap Geely EX2: Suspensi dan Peredam Kebisingan"
 description: "Kabin senyap Geely EX2 ditopang suspensi multi-link, bushing peredam, dan bodi kokoh. Pahami cara membaca klaimnya dan menguji kenyamanan di jalan sendiri."
-date: 2026-11-02
+date: 2026-11-29
 category: "Model Geely"
 tags: ["kabin senyap geely ex2", "geely ex2", "mobil listrik kompak", "mobil listrik geely", "geely ev", "geely indonesia", "kenyamanan berkendara", "ev geely jakarta", "mobil listrik murah"]
-draft: true
 ---
 
 Kabin senyap Geely EX2 menjadi salah satu poin yang ditonjolkan materi training produk. Suspensi belakang multi-link, belasan bushing peredam, dan bodi kaku disebut membantu meredam getaran serta kebisingan. Artikel ini menjelaskan cara kerjanya, cara membaca klaimnya, dan cara membuktikannya sendiri di jalan.

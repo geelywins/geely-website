@@ -1,10 +1,9 @@
 ---
 title: "Penggerak Roda Belakang Geely EX2: Lincah di Kota"
 description: "Penggerak roda belakang Geely EX2 memberi radius putar 4,95 m dan frunk 70 liter. Pahami manfaat RWD, suspensi multi-link, dan G-TCS untuk harian."
-date: 2026-10-31
+date: 2026-11-21
 category: "Model Geely"
 tags: ["penggerak roda belakang geely ex2", "geely ex2", "mobil listrik kompak", "mobil listrik geely", "geely ev", "geely indonesia", "rwd", "ev geely jakarta", "mobil listrik murah"]
-draft: true
 ---
 
 Penggerak roda belakang Geely EX2 membuat mobil listrik kompak ini terasa lincah di kota. Materi training menyebut radius putar 4,95 meter, suspensi belakang multi-link, dan frunk 70 liter yang lahir dari letak motor di belakang. Artikel ini menjelaskan arti RWD, manfaatnya, dan hal yang perlu Anda cek.
@@ -74,6 +73,12 @@ Jangan ragu meminta sales atau teknisi menjelaskan pengaturan mode berkendara. P
 Tanyakan apa saja yang berbeda antara Pro dan Max. Tanyakan juga pengaturan regenerasi dan mode pedal rem. Minta informasi garansi dan jadwal servis resmi.
 
 Bila Anda ingin melihat opsi mobil listrik kota merek lain sebagai pembanding wawasan, kunjungi [XPeng Wins](https://xpengwins.com). Namun uji langsung EX2 tetap cara terbaik.
+
+## Tips merasakan perbedaan penggerak saat test drive
+
+Untuk merasakan perbedaan penggerak roda belakang, coba beberapa manuver sederhana. Berputar balik di jalan sempit, parkir paralel, dan berbelok pelan di area parkir. Perhatikan seberapa kecil radius putar yang terasa dan seberapa ringan setir saat bermanuver.
+
+Cobalah juga akselerasi dari posisi berhenti di jalan lurus. Perhatikan kestabilan mobil saat tenaga tersalur. Catat kesan Anda, lalu bandingkan dengan mobil penggerak roda depan yang Anda coba pada hari yang sama agar perbedaannya lebih mudah dirasakan.
 
 ## Pertanyaan yang sering diajukan
 

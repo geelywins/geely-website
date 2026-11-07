@@ -1,13 +1,12 @@
 ---
 title: "Keamanan Geely EX2 Max: 6 Airbag dan Fitur Pelindung Lainnya"
 description: "Keamanan Geely EX2 Max didukung 6 airbag, ADAS Level 2, dan kamera panorama 540 derajat. Pelajari cara kerjanya, lalu coba langsung lewat test drive."
-date: 2026-10-07
+date: 2026-11-22
 category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","keamanan mobil","airbag","adas","mobil listrik geely","geely ev","mobil listrik kompak","geely indonesia"]
-draft: true
 ---
 
-Keamanan Geely EX2 Max patut Anda pahami sebelum memutuskan membeli. Mobil ini dilengkapi 6 airbag, dan varian Max menambah ADAS Level 2 serta kamera panorama 540 derajat. Bagi keluarga, aspek ini sering menjadi pertimbangan utama.
+Keamanan Geely EX2 Max patut Anda pahami sebelum memutuskan membeli. Mobil ini dilengkapi 6 airbag, dan varian Max menambah ADAS Level 2 serta kamera panorama 540 derajat. Bagi keluarga, aspek ini sering menjadi pertimbangan utama. Artikel ini menjelaskan fungsi tiap fitur dengan bahasa sederhana.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Berikut penjelasan sederhana tentang apa yang melindungi Anda, tanpa janji berlebihan.
 

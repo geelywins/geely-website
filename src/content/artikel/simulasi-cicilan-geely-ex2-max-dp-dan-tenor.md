@@ -7,7 +7,7 @@ tags: ["geely ex2","geely ex2 max","simulasi cicilan","kredit mobil listrik","dp
 image: "/images/artikel/207065-muyun8jv.jpg"
 ---
 
-Simulasi cicilan Geely EX2 Max membantu Anda merencanakan keuangan sebelum membeli. Dengan memahami DP, tenor, dan bunga, Anda bisa memilih skema yang nyaman. Saya sengaja tidak menyebut angka cicilan pasti, karena harga dan promo bisa berubah.
+Simulasi cicilan Geely EX2 Max membantu Anda merencanakan keuangan sebelum membeli. Dengan memahami DP, tenor, dan bunga, Anda bisa memilih skema yang nyaman. Saya sengaja tidak menyebut angka cicilan pasti, karena harga dan promo bisa berubah. Artikel ini menjelaskan cara membaca simulasinya.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Mari kita bahas cara menghitungnya langkah demi langkah.
 

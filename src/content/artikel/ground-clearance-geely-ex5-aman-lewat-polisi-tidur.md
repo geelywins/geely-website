@@ -1,10 +1,9 @@
 ---
 title: "Ground Clearance Geely EX5 173 mm: Aman Lewat Polisi Tidur?"
 description: "Ground clearance Geely EX5 173 mm saat kosong menurut brosur resmi. Pahami artinya untuk polisi tidur, banjir ringan, dan cara mengujinya saat test drive."
-date: 2026-11-01
+date: 2026-11-24
 category: "Model Geely"
 tags: ["ground clearance geely ex5", "geely ex5", "suv listrik keluarga", "mobil listrik geely", "geely ev", "geely indonesia", "polisi tidur", "ev geely jakarta", "tips test drive"]
-draft: true
 ---
 
 Ground clearance Geely EX5 adalah 173 mm saat mobil kosong dan 145 mm saat bermuatan, menurut brosur resmi. Pertanyaan yang paling sering muncul adalah apakah angka itu aman untuk polisi tidur dan jalan rusak. Artikel ini menjelaskan artinya dengan bahasa sederhana dan cara mengujinya sendiri.

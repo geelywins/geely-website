@@ -6,7 +6,7 @@ category: "Mobil Listrik"
 tags: ["geely ex2","geely ex2 max","baterai lfp","mobil listrik geely","geely ev","garansi baterai","perawatan baterai","ev indonesia","geely indonesia"]
 ---
 
-Baterai LFP 40,8 kWh adalah jantung dari Geely EX2 Max. Banyak calon pembeli bertanya apakah baterai ini aman dan tahan lama. Pertanyaan ini sangat wajar, karena baterai adalah komponen terpenting di mobil listrik.
+Baterai LFP 40,8 kWh adalah jantung dari Geely EX2 Max. Banyak calon pembeli bertanya apakah baterai ini aman dan tahan lama. Pertanyaan ini sangat wajar, karena baterai adalah komponen terpenting di mobil listrik. Artikel ini membahas keamanan dan daya tahannya secara sederhana.
 
 Saya Wins, Sales Consultant Geely di Jakarta dan BSD. Di artikel ini saya jelaskan apa itu LFP, mengapa dipakai, dan bagaimana menjaganya.
 

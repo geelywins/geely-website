@@ -1,14 +1,13 @@
 ---
-title: "Geely EX5: SUV Listrik Keluarga, Kelebihan dan Pertimbangan"
-description: "Geely EX5 adalah SUV listrik untuk keluarga. Pelajari kelebihan, cocok untuk siapa, bahan pertimbangan memilih, dan checklist test drive sebelum memutuskan."
-date: 2026-10-07
+title: "Geely EX5 SUV Listrik Keluarga: Kelebihan dan Pertimbangan"
+description: "Geely EX5 SUV listrik keluarga: pelajari kelebihan, cocok untuk siapa, bahan pertimbangan memilih, dan checklist test drive sebelum memutuskan."
+date: 2026-11-08
 updated: 2026-10-10
 category: "Model Geely"
 tags: ["geely ex5 suv listrik keluarga", "geely ex5", "suv listrik", "mobil listrik keluarga", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta", "bsd city"]
-draft: true
 ---
 
-Geely EX5 adalah SUV listrik keluarga berkapasitas 5 penumpang dengan bagasi 461 liter, baterai LFP 60,22 kWh, dan klaim jarak tempuh hingga 495 km (NEDC). Artikel ini merangkum kelebihan, tipe pengguna yang cocok, dan pertimbangan sebelum membeli, tanpa tabel spesifikasi penuh.
+Geely EX5 SUV listrik keluarga berkapasitas 5 penumpang dengan bagasi 461 liter, baterai LFP 60,22 kWh, dan klaim jarak tempuh hingga 495 km (NEDC). Artikel ini merangkum kelebihan, tipe pengguna yang cocok, dan pertimbangan sebelum membeli, tanpa tabel spesifikasi penuh.
 
 ## Mengenal Geely EX5
 

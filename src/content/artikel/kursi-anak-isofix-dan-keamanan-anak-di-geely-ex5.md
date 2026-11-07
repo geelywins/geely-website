@@ -1,10 +1,9 @@
 ---
 title: "Kursi Anak ISOFIX dan Keamanan Anak di Geely EX5"
 description: "Kursi anak ISOFIX di Geely EX5 dipasang pada jok belakang bersama child anchor dan kunci pengaman anak. Panduan memilih kursi anak dan memasangnya dengan benar."
-date: 2026-11-10
+date: 2026-11-23
 category: "Keselamatan"
-tags: ["kursi anak isofix geely ex5", "geely ex5", "keselamatan anak di mobil", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik keluarga", "ev geely jakarta", "suv listrik keluarga"]
-draft: true
+tags: ["kursi anak isofix", "geely ex5", "keselamatan anak di mobil", "mobil listrik geely", "geely ev", "geely indonesia", "mobil listrik keluarga", "ev geely jakarta", "suv listrik keluarga"]
 ---
 
 Kursi anak ISOFIX di Geely EX5 dapat dipasang pada jok belakang yang dilengkapi titik ISOFIX dan child anchor menurut brosur resmi. Fitur ini memudahkan pemasangan kursi anak dengan lebih stabil. Artikel ini membahas cara memilih kursi anak, memasangnya, dan fitur keselamatan anak lain di EX5.

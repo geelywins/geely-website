@@ -1,10 +1,9 @@
 ---
 title: "Test Drive Geely EX2 Max: Checklist yang Perlu Anda Cek"
 description: "Test drive Geely EX2 Max lebih berguna dengan checklist: kabin, fitur, tenaga, dan keselamatan. Siapkan daftar ini lalu jadwalkan sesi bersama sales kami."
-date: 2026-10-07
+date: 2026-11-12
 category: "Tips Membeli"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","ev geely jakarta","test drive mobil listrik","checklist test drive","mobil listrik bsd","mobil listrik kompak"]
-draft: true
 ---
 
 Test drive Geely EX2 Max adalah cara terbaik untuk memastikan mobil ini cocok dengan Anda. Brosur dan video hanya menunjukkan sebagian cerita. Rasa berkendara, kenyamanan duduk, dan kemudahan fitur baru terasa saat Anda di balik kemudi. Saya, Wins, sales consultant Geely di Jakarta dan BSD, menyusun checklist ini agar sesi test drive Anda terarah dan tidak ada yang terlewat.

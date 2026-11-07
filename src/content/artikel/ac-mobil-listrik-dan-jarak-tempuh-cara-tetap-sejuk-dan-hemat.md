@@ -1,13 +1,12 @@
 ---
 title: "AC Mobil Listrik dan Jarak Tempuh: Cara Tetap Sejuk dan Hemat"
-description: "AC mobil listrik memakai energi baterai dan memengaruhi jarak tempuh. Pelajari kebiasaan menyalakan AC, pra-pendinginan, dan tips hemat di Geely EX2 dan EX5."
-date: 2026-11-14
+description: "AC mobil listrik dan jarak tempuh saling berkaitan karena AC memakai energi baterai. Pelajari pra-pendinginan, kebiasaan hemat, dan tips di Geely EX2 dan EX5."
+date: 2026-11-18
 category: "Tips Berkendara"
 tags: ["ac mobil listrik dan jarak tempuh", "mobil listrik geely", "geely ev", "geely indonesia", "geely ex2", "geely ex5", "ev geely jakarta", "tips hemat mobil listrik", "mobil listrik kompak"]
-draft: true
 ---
 
-AC mobil listrik memakai energi dari baterai, sehingga penggunaannya ikut memengaruhi jarak tempuh. Di iklim tropis seperti Jakarta dan BSD, AC hampir selalu menyala, jadi kebiasaan memakainya penting. Artikel ini menjelaskan cara kerja, dampaknya, dan tips agar kabin tetap sejuk tanpa membuat baterai cepat habis.
+AC mobil listrik dan jarak tempuh saling berkaitan, karena AC memakai energi dari baterai. Di iklim tropis seperti Jakarta dan BSD, AC hampir selalu menyala, jadi kebiasaan memakainya penting. Artikel ini menjelaskan cara kerja, dampaknya, dan tips agar kabin tetap sejuk tanpa membuat baterai cepat habis.
 
 ## Kenapa AC memengaruhi jarak tempuh?
 

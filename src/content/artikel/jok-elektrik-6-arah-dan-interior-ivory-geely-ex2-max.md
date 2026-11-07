@@ -6,7 +6,7 @@ category: "Model Geely"
 tags: ["geely ex2","geely ex2 max","mobil listrik geely","geely ev","geely indonesia","jok elektrik","interior ivory","kenyamanan berkendara","mobil listrik kompak"]
 ---
 
-Jok elektrik 6 arah dan interior ivory adalah dua fitur kabin yang membedakan Geely EX2 Max dari Pro. Keduanya tampak sederhana, tetapi dampaknya terasa setiap hari. Posisi duduk yang pas mengurangi lelah, sedangkan kabin terang membuat suasana lebih lega.
+Jok elektrik 6 arah dan interior ivory adalah dua fitur kabin yang membedakan Geely EX2 Max dari Pro. Keduanya tampak sederhana, tetapi dampaknya terasa setiap hari. Posisi duduk yang pas mengurangi lelah, sedangkan kabin terang membuat suasana lebih lega. Artikel ini membahas manfaatnya.
 
 ## Mengapa posisi duduk itu penting
 

@@ -7,7 +7,7 @@ category: "Tips Membeli"
 tags: ["geely ex2","geely ex2 max","mobil listrik kompak","mobil listrik geely","geely ev","mobil pertama","adas","test drive mobil listrik","mobil listrik jakarta"]
 ---
 
-Geely EX2 Max mudah dikendarai untuk pemula dan wanita yang baru belajar atau belum percaya diri di jalan raya. Ukurannya kompak, tenaganya halus, dan ada fitur bantu seperti kamera 540 derajat serta ADAS Level 2. Saya, Wins, sales consultant Geely di Jakarta dan BSD, sering menemani calon pembeli yang baru pertama kali memiliki mobil. Artikel ini menjelaskan fitur apa yang benar-benar membantu, tanpa janji berlebihan.
+Geely EX2 Max mudah dikendarai untuk pemula dan wanita yang baru belajar atau belum percaya diri di jalan raya. Ukurannya kompak, tenaganya halus, dan ada fitur bantu seperti kamera 540 derajat serta ADAS Level 2. Artikel ini menjelaskan fitur apa yang benar-benar membantu, tanpa janji berlebihan.
 
 ## Mengapa mobil listrik kompak ramah untuk pemula
 

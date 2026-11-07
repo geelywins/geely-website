@@ -1,10 +1,9 @@
 ---
 title: "Fitur ADAS Geely EX5 Max: Bantuan Berkendara di Tol dan Kota"
 description: "Fitur ADAS Geely EX5 Max dijelaskan satu per satu: ACC, AEB, blind spot, penjaga jalur, dan lainnya, lengkap contoh di tol dan kota. Baca sebelum test drive."
-date: 2026-10-10
+date: 2026-11-26
 category: "Model Geely"
 tags: ["fitur adas geely ex5", "geely ex5 max", "geely ex5", "bantuan pengemudi", "keselamatan mobil listrik", "mobil listrik geely", "geely ev", "geely indonesia", "ev geely jakarta"]
-draft: true
 ---
 
 Fitur ADAS Geely EX5 hanya ada di varian Max. Paketnya meliputi adaptive cruise control, rem darurat otomatis (AEB), pemantau titik buta, penjaga jalur, dan peringatan lalu lintas belakang. Varian Pro hanya mendapat cruise control biasa. Artikel ini menjelaskan tiap fitur dengan bahasa mudah.
